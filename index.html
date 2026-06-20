@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UruExplorer - Turismo en Uruguay</title>
+    <!-- CSS stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header>
+            <div class="logo">URU<span>EXPLORER</span></div>
+            <div class="tagline">Explorá Uruguay de forma minimalista</div>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <nav class="tabs-nav">
+            <button class="tab-btn active" id="tab-explorar-btn">Explorar</button>
+            <button class="tab-btn" id="tab-resultados-btn">Resultados <span id="results-count-badge" style="display:none; font-size: 0.8rem; background: var(--primary); color: var(--bg-main); padding: 2px 6px; border-radius: 10px; margin-left: 5px;">0</span></button>
+            <button class="tab-btn" id="tab-itinerario-btn">Mi Itinerario <span id="itinerary-tab-badge" style="display:none; font-size: 0.8rem; background: var(--primary); color: var(--bg-main); padding: 2px 6px; border-radius: 10px; margin-left: 5px;">0</span></button>
+        </nav>
+
+        <!-- View 1: Explorar (Search Filters + Favorites) -->
+        <div id="view-explorar" class="tab-view active">
+            <!-- Search Section -->
+            <section class="search-section">
+                <div class="filter-grid">
+                    <!-- Destino filter -->
+                    <div class="filter-field">
+                        <label for="filter-destino">Destino</label>
+                        <div class="select-wrapper">
+                            <select id="filter-destino">
+                                <option value="">Todos los destinos</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- Departamento filter -->
+                    <div class="filter-field">
+                        <label for="filter-departamento">Departamento</label>
+                        <div class="select-wrapper">
+                            <select id="filter-departamento">
+                                <option value="">Todos los departamentos</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- Dificultad filter -->
+                    <div class="filter-field">
+                        <label for="filter-dificultad">Grado de Dificultad</label>
+                        <div class="select-wrapper">
+                            <select id="filter-dificultad">
+                                <option value="">Todos los grados</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-primary" id="btn-buscar">Buscar Coincidencias</button>
+            </section>
+
+            <!-- Favorites Shelf (Default display) -->
+            <section class="favorites-shelf">
+                <h3>★ Tus Destinos Favoritos</h3>
+                <div class="favorites-grid" id="favorites-grid">
+                    <!-- Favorites are dynamically loaded here -->
+                    <div class="no-favorites">Aún no tienes destinos favoritos guardados. ¡Agrega algunos marcando la estrella en los bloques de resultados!</div>
+                </div>
+            </section>
+        </div>
+
+        <!-- View 2: Resultados (Coincidences) -->
+        <div id="view-resultados" class="tab-view">
+            <div class="results-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid var(--border); padding-bottom: 10px;">
+                <h3 style="font-family: var(--font-heading); color: var(--primary); margin: 0;">Resultados de Búsqueda</h3>
+                <button class="btn btn-secondary" id="btn-limpiar-itinerario-resultados" style="font-size: 0.85rem; padding: 6px 12px; display: none;">✕ Limpiar Selección</button>
+            </div>
+            <div class="results-grid" id="results-grid">
+                <!-- Result blocks will be generated here -->
+            </div>
+        </div>
+
+        <!-- View 3: Itinerario (Route detail) -->
+        <div id="view-itinerario" class="tab-view">
+            <div class="itinerary-list-container">
+                <div class="itinerary-header">
+                    <h3>Recorrido Seleccionado</h3>
+                    <button class="btn btn-secondary" id="btn-clear-itinerary" style="font-size: 0.85rem; padding: 6px 12px;">Limpiar Todo</button>
+                </div>
+                <div class="itinerary-steps" id="itinerary-steps-list">
+                    <!-- Selected route steps will be listed here -->
+                </div>
+                <div class="itinerary-route-action">
+                    <button class="btn btn-primary" id="btn-trazar-itinerario-tab" style="width: 100%; font-size: 1.1rem; padding: 15px 30px;">
+                        🚙 Trazar Itinerario Completo en Google Maps
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky Bottom Itinerary Bar -->
+    <div id="itinerary-bar" class="itinerary-bar">
+        <div class="itinerary-info">
+            <div class="itinerary-count">Itinerario: <span id="itinerary-bar-count">0</span> destinos seleccionados</div>
+            <div class="itinerary-destinations" id="itinerary-bar-list">Ninguno seleccionado</div>
+        </div>
+        <div class="itinerary-actions">
+            <button class="btn btn-secondary" id="btn-limpiar-itinerario-bar">✕ Limpiar</button>
+            <button class="btn btn-secondary" id="btn-ver-itinerario-bar">Ver Detalles</button>
+            <button class="btn btn-primary" id="btn-trazar-itinerario-bar">Establecer Ruta</button>
+        </div>
+    </div>
+
+
+
+    <!-- Load Local JS Database and Application Logic -->
+    <script src="destinos.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
