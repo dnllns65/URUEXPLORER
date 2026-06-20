@@ -232,27 +232,16 @@ function requestUserLocation() {
 
 // Populate search filters dynamically from DESTINOS database
 function initFilters() {
-    const destinoSelect = document.getElementById('filter-destino');
     const deptoSelect = document.getElementById('filter-departamento');
     const dificultadSelect = document.getElementById('filter-dificultad');
 
     // Extract unique values
     const departamentos = new Set();
     const dificultades = new Set();
-    const destinosList = [];
 
     appDestinos.forEach(item => {
         if (item.departamento) departamentos.add(item.departamento.trim());
-        if (item.destino) destinosList.push(item.destino.trim());
         if (item.dificultad) dificultades.add(item.dificultad.trim());
-    });
-
-    // Populate Destino selector (sorted)
-    destinosList.sort().forEach(dest => {
-        const option = document.createElement('option');
-        option.value = dest;
-        option.textContent = dest;
-        destinoSelect.appendChild(option);
     });
 
     // Populate Departamento selector (sorted)
@@ -281,6 +270,11 @@ function setupEventListeners() {
 
     // Search Action
     document.getElementById('btn-buscar').addEventListener('click', performSearch);
+    document.getElementById('search-input').addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            performSearch();
+        }
+    });
 
     // Itinerary Bar Actions
     document.getElementById('btn-ver-itinerario-bar').addEventListener('click', () => switchTab('itinerario'));
@@ -315,14 +309,19 @@ function switchTab(tabId) {
 
 // Perform search based on filters selected
 function performSearch() {
-    const selectedDestino = document.getElementById('filter-destino').value;
+    const searchText = document.getElementById('search-input').value.trim().toLowerCase();
     const selectedDepto = document.getElementById('filter-departamento').value;
     const selectedDif = document.getElementById('filter-dificultad').value;
 
     currentResults = appDestinos.filter(item => {
-        // Destino Filter
-        if (selectedDestino && item.destino.trim() !== selectedDestino) {
-            return false;
+        // Free text search by name, characteristics or department
+        if (searchText) {
+            const nameMatch = item.destino.toLowerCase().includes(searchText);
+            const charMatch = item.caracteristicas.toLowerCase().includes(searchText);
+            const deptoMatch = item.departamento.toLowerCase().includes(searchText);
+            if (!nameMatch && !charMatch && !deptoMatch) {
+                return false;
+            }
         }
         // Departamento Filter
         if (selectedDepto && item.departamento.trim() !== selectedDepto) {
