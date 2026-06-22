@@ -5,6 +5,7 @@ let favorites = JSON.parse(localStorage.getItem('uruexplorer_favorites')) || [];
 let itinerary = JSON.parse(localStorage.getItem('uruexplorer_itinerary')) || [];
 let currentResults = [];
 let userLocation = null;
+let emptySearchCriterion = null; // Session empty search behavior ('near' or 'all')
 
 const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/1pgmc3TXHNXbtWecKiZYmPRK-_hkKwfujFKvbubIPpjU/export?format=csv';
 let appDestinos = DESTINOS; // Default fallback to destinos.js local data
@@ -69,6 +70,7 @@ function processCSVData(csvText) {
     const ubicIdx = findColIndex(['acceso', 'ubicacion', 'ubicación']);
     const gpsIdx = findColIndex(['gps', 'coordenadas gps']);
     const webIdx = findColIndex(['web', 'sitio web']);
+    const popIdx = findColIndex(['popularidad']);
 
     const items = [];
     for (let i = 1; i < parsed.length; i++) {
@@ -86,6 +88,11 @@ function processCSVData(csvText) {
             }
         }
 
+        let pop = row[popIdx] ? row[popIdx].trim() : '';
+        if (pop.toLowerCase().includes('learning') || pop.toLowerCase().includes('help')) {
+            pop = '';
+        }
+
         items.push({
             id: i,
             destino: row[destIdx] ? row[destIdx].trim() : '',
@@ -100,7 +107,8 @@ function processCSVData(csvText) {
             gps: gps,
             lat: lat,
             lng: lng,
-            web: row[webIdx] ? row[webIdx].trim() : ''
+            web: row[webIdx] ? row[webIdx].trim() : '',
+            popularidad: pop
         });
     }
     return items;
@@ -276,6 +284,24 @@ function setupEventListeners() {
         }
     });
 
+    // Modal Action Buttons
+    const btnCerca = document.getElementById('btn-modal-cerca');
+    const btnTodos = document.getElementById('btn-modal-todos');
+    if (btnCerca) {
+        btnCerca.addEventListener('click', () => {
+            emptySearchCriterion = 'near';
+            hideProximityModal();
+            performSearch();
+        });
+    }
+    if (btnTodos) {
+        btnTodos.addEventListener('click', () => {
+            emptySearchCriterion = 'all';
+            hideProximityModal();
+            performSearch();
+        });
+    }
+
     // Itinerary Bar Actions
     document.getElementById('btn-ver-itinerario-bar').addEventListener('click', () => switchTab('itinerario'));
     document.getElementById('btn-trazar-itinerario-bar').addEventListener('click', triggerItineraryRoute);
@@ -307,11 +333,50 @@ function switchTab(tabId) {
     }
 }
 
+function showProximityModal() {
+    const modal = document.getElementById('proximity-modal');
+    if (modal) {
+        modal.classList.add('visible');
+    }
+}
+
+function hideProximityModal() {
+    const modal = document.getElementById('proximity-modal');
+    if (modal) {
+        modal.classList.remove('visible');
+    }
+}
+
+// Calculate Haversine distance in km between two coordinates
+function calculateDistance(lat1, lon1, lat2, lon2) {
+    if (lat1 === null || lon1 === null || lat2 === null || lon2 === null) return null;
+    const R = 6371; // Radius of Earth in km
+    const dLat = (lat2 - lat1) * Math.PI / 180;
+    const dLon = (lon2 - lon1) * Math.PI / 180;
+    const a = 
+        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * 
+        Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    return R * c;
+}
+
 // Perform search based on filters selected
 function performSearch() {
     const searchText = document.getElementById('search-input').value.trim().toLowerCase();
     const selectedDepto = document.getElementById('filter-departamento').value;
     const selectedDif = document.getElementById('filter-dificultad').value;
+
+    // Get selected popularity levels from checkboxes
+    const selectedPops = Array.from(document.querySelectorAll('.popularity-chips input[type="checkbox"]:checked')).map(cb => cb.value);
+
+    // Trigger condition for broad search modal
+    if (!searchText && !selectedDepto) {
+        if (emptySearchCriterion === null) {
+            showProximityModal();
+            return;
+        }
+    }
 
     currentResults = appDestinos.filter(item => {
         // Free text search by name, characteristics or department
@@ -331,8 +396,35 @@ function performSearch() {
         if (selectedDif && item.dificultad.trim() !== selectedDif) {
             return false;
         }
+        // Popularidad Filter (Multi-select)
+        if (selectedPops.length > 0) {
+            if (!selectedPops.includes(item.popularidad)) {
+                return false;
+            }
+        }
         return true;
     });
+
+    // Clear distances from previous search
+    currentResults.forEach(item => item.distance = null);
+
+    // Sort by proximity if requested
+    if (!searchText && !selectedDepto && emptySearchCriterion === 'near') {
+        if (userLocation) {
+            currentResults.forEach(item => {
+                if (item.lat !== null && item.lng !== null) {
+                    item.distance = calculateDistance(userLocation.lat, userLocation.lng, item.lat, item.lng);
+                }
+            });
+            // Sort ascending (closest first), placing nulls at the end
+            currentResults.sort((a, b) => {
+                if (a.distance === null && b.distance === null) return 0;
+                if (a.distance === null) return 1;
+                if (b.distance === null) return -1;
+                return a.distance - b.distance;
+            });
+        }
+    }
 
     renderResults();
     switchTab('resultados');
@@ -372,12 +464,17 @@ function renderResults() {
         // Clean coordinates to display Map
         const mapIframeUrl = `https://maps.google.com/maps?q=${item.lat},${item.lng}&t=&z=14&ie=UTF8&iwloc=&output=embed`;
 
+        const distanceBadge = (item.distance !== undefined && item.distance !== null) 
+            ? `<span class="distance-badge">📍 a ${item.distance.toFixed(1)} km</span>` 
+            : '';
+        const popularityText = item.popularidad ? ` • Popularidad: ${item.popularidad}` : '';
+
         card.innerHTML = `
             <div class="card-details">
                 <div class="card-header-row">
                     <div class="card-title-group">
-                        <div class="card-title">${item.destino}</div>
-                        <div class="card-dept">${item.departamento}</div>
+                        <div class="card-title">${item.destino} ${distanceBadge}</div>
+                        <div class="card-dept">${item.departamento}${popularityText}</div>
                     </div>
                     <div class="card-actions-top">
                         <!-- Itinerary selection checkbox -->

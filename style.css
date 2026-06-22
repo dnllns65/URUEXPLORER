@@ -765,3 +765,127 @@ body.map-expanded-mode {
     color: var(--text-muted);
     opacity: 0.6;
 }
+
+/* Popularity Chips */
+.popularity-chips {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+}
+
+.chip-checkbox {
+    cursor: pointer;
+    user-select: none;
+    flex: 1;
+    min-width: 90px;
+}
+
+.chip-checkbox input[type="checkbox"] {
+    display: none;
+}
+
+.chip-checkbox span {
+    display: block;
+    padding: 10px 14px;
+    background-color: var(--bg-input);
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: var(--transition);
+    text-align: center;
+}
+
+.chip-checkbox input[type="checkbox"]:checked + span {
+    background-color: var(--primary);
+    color: var(--bg-main);
+    border-color: var(--primary);
+    font-weight: 600;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.25);
+}
+
+.chip-checkbox:hover span {
+    border-color: var(--primary);
+    color: var(--text-main);
+}
+
+/* Custom Modal Overlay */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.visible {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-content {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    border-top: 4px solid var(--primary);
+    border-radius: 12px;
+    padding: 30px;
+    max-width: 480px;
+    width: 90%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.visible .modal-content {
+    transform: translateY(0);
+}
+
+.modal-header h3 {
+    margin: 0 0 15px 0;
+    font-family: var(--font-heading);
+    color: var(--primary);
+    font-size: 1.3rem;
+}
+
+.modal-content p {
+    color: var(--text-main);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0 0 25px 0;
+}
+
+.modal-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.modal-actions .btn {
+    width: 100%;
+    font-size: 0.95rem;
+    padding: 12px 20px;
+}
+
+/* Distance Badge in results */
+.distance-badge {
+    display: inline-block;
+    background-color: rgba(255, 215, 0, 0.15);
+    color: var(--primary);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-left: 8px;
+    vertical-align: middle;
+}

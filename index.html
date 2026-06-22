@@ -50,6 +50,24 @@
                             </select>
                         </div>
                     </div>
+                    <!-- Popularidad filter -->
+                    <div class="filter-field">
+                        <label>Popularidad</label>
+                        <div class="popularity-chips">
+                            <label class="chip-checkbox">
+                                <input type="checkbox" name="popularity" value="Alta">
+                                <span>Alta</span>
+                            </label>
+                            <label class="chip-checkbox">
+                                <input type="checkbox" name="popularity" value="Moderada">
+                                <span>Moderada</span>
+                            </label>
+                            <label class="chip-checkbox">
+                                <input type="checkbox" name="popularity" value="Emergente">
+                                <span>Emergente</span>
+                            </label>
+                        </div>
+                    </div>
                 </div>
                 <button class="btn btn-primary" id="btn-buscar">Buscar Coincidencias</button>
             </section>
@@ -107,7 +125,19 @@
         </div>
     </div>
 
-
+    <!-- Custom Proximity Search Modal -->
+    <div id="proximity-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>📍 Búsqueda amplia</h3>
+            </div>
+            <p>No has especificado un destino ni un departamento. ¿Qué prefieres ver?</p>
+            <div class="modal-actions">
+                <button class="btn btn-primary" id="btn-modal-cerca">📍 Buscar cerca de mi posición</button>
+                <button class="btn btn-secondary" id="btn-modal-todos">🌍 Mostrar todas las disponibles</button>
+            </div>
+        </div>
+    </div>
 
     <!-- Load Local JS Database and Application Logic -->
     <script src="destinos.js"></script>
