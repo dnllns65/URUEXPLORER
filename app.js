@@ -6,6 +6,111 @@ let itinerary = JSON.parse(localStorage.getItem('uruexplorer_itinerary')) || [];
 let currentResults = [];
 let userLocation = null;
 let emptySearchCriterion = null; // Session empty search behavior ('near' or 'all')
+let currentLang = 'es'; // default
+
+// Localization Dictionary
+const TRANSLATIONS = {
+    es: {
+        tagline: "Explorá Uruguay de forma minimalista",
+        tab_explorar: "Explorar",
+        tab_resultados: "Resultados",
+        tab_itinerario: "Mi Itinerario",
+        lbl_buscar_destino: "Buscar Destino o Característica",
+        placeholder_buscar: "Ej: Cabo Polonio, playa, cascada...",
+        lbl_departamento: "Departamento",
+        lbl_dificultad: "Grado de Dificultad",
+        lbl_popularidad: "Popularidad",
+        opt_todos_deptos: "Todos los departamentos",
+        opt_todos_grados: "Todos los grados",
+        btn_buscar: "Buscar Coincidencias",
+        title_favoritos: "★ Tus Destinos Favoritos",
+        no_favorites: "Aún no tienes destinos favoritos guardados. ¡Agrega algunos marcando la estrella en los bloques de resultados!",
+        results_header: "Resultados de Búsqueda",
+        btn_limpiar_itinerario: "✕ Limpiar Selección",
+        empty_results_title: "No se encontraron destinos",
+        empty_results_text: "Intenta ajustar los criterios de búsqueda o seleccionar otros filtros.",
+        itinerary_header: "Recorrido Seleccionado",
+        btn_clear_all: "Limpiar Todo",
+        btn_trazar_itinerario: "🚙 Trazar Itinerario Completo en Google Maps",
+        empty_itinerary_text: "No tienes destinos seleccionados para tu recorrido. Busca destinos y marca la casilla \"Recorrido\" en los resultados de búsqueda para agregarlos aquí.",
+        itinerary_bar_count: "Itinerario: {count} destinos seleccionados",
+        itinerary_bar_none: "Ninguno seleccionado",
+        btn_limpiar: "✕ Limpiar",
+        btn_ver_detalles: "Ver Detalles",
+        btn_establecer_ruta: "Establecer Ruta",
+        modal_title: "📍 Búsqueda amplia",
+        modal_body: "No has especificado un destino ni un departamento. ¿Qué prefieres ver?",
+        btn_modal_cerca: "📍 Buscar cerca de mi posición",
+        btn_modal_todos: "🌍 Mostrar todas las disponibles",
+        card_features: "Características",
+        card_accommodation: "Alojamiento",
+        card_dining: "Dónde comer",
+        card_location: "Ubicación",
+        card_contact: "Contacto principal",
+        card_website: "Sitio Web",
+        card_how_to_go: "Cómo ir",
+        card_reset_map: "🔄 Restablecer Mapa",
+        card_route: "Recorrido",
+        distance_badge: "📍 a {distance} km",
+        popularity_badge: "Popularidad",
+        no_info: "Consultar información local o sitio web",
+        popularity_levels: {
+            "Alta": "Alta",
+            "Moderada": "Moderada",
+            "Emergente": "Emergente"
+        }
+    },
+    en: {
+        tagline: "Explore Uruguay in a minimalist way",
+        tab_explorar: "Explore",
+        tab_resultados: "Results",
+        tab_itinerario: "My Itinerary",
+        lbl_buscar_destino: "Search Destination or Feature",
+        placeholder_buscar: "Ex: Cabo Polonio, beach, waterfall...",
+        lbl_departamento: "Department",
+        lbl_dificultad: "Difficulty Level",
+        lbl_popularidad: "Popularity",
+        opt_todos_deptos: "All departments",
+        opt_todos_grados: "All levels",
+        btn_buscar: "Search Matches",
+        title_favoritos: "★ Your Favorite Destinations",
+        no_favorites: "You don't have favorite destinations saved yet. Add some by marking the star in the result blocks!",
+        results_header: "Search Results",
+        btn_limpiar_itinerario: "✕ Clear Selection",
+        empty_results_title: "No destinations found",
+        empty_results_text: "Try adjusting the search criteria or selecting other filters.",
+        itinerary_header: "Selected Route",
+        btn_clear_all: "Clear All",
+        btn_trazar_itinerario: "🚙 Trace Complete Itinerary on Google Maps",
+        empty_itinerary_text: "You have no destinations selected for your route. Search for destinations and check the \"Route\" box in the search results to add them here.",
+        itinerary_bar_count: "Itinerary: {count} destinations selected",
+        itinerary_bar_none: "None selected",
+        btn_limpiar: "✕ Clear",
+        btn_ver_detalles: "View Details",
+        btn_establecer_ruta: "Set Route",
+        modal_title: "📍 Broad search",
+        modal_body: "You haven't specified a destination or department. What do you prefer to see?",
+        btn_modal_cerca: "📍 Search near my position",
+        btn_modal_todos: "🌍 Show all available",
+        card_features: "Features",
+        card_accommodation: "Lodging",
+        card_dining: "Where to eat",
+        card_location: "Location",
+        card_contact: "Main contact",
+        card_website: "Website",
+        card_how_to_go: "How to go",
+        card_reset_map: "🔄 Reset Map",
+        card_route: "Route",
+        distance_badge: "📍 {distance} km away",
+        popularity_badge: "Popularity",
+        no_info: "Consult local info or website",
+        popularity_levels: {
+            "Alta": "High",
+            "Moderada": "Moderate",
+            "Emergente": "Emerging"
+        }
+    }
+};
 
 const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/1pgmc3TXHNXbtWecKiZYmPRK-_hkKwfujFKvbubIPpjU/export?format=csv';
 let appDestinos = DESTINOS; // Default fallback to destinos.js local data
@@ -143,7 +248,7 @@ async function loadData() {
 // Helper to format dining and lodging options (cleaning Google Sheets prompt formulas and turning places into links)
 function parsePlaces(text, destinationName, deptName, cardId) {
     if (!text || text.trim() === '' || text.toLowerCase().includes('generar')) {
-        return '<span class="text-muted-italics">Consultar información local o sitio web</span>';
+        return `<span class="text-muted-italics">${TRANSLATIONS[currentLang].no_info}</span>`;
     }
 
     // Split by commas that are outside parentheses to isolate places
@@ -211,13 +316,110 @@ window.resetEmbeddedMap = resetEmbeddedMap;
 
 // Initialize app when DOM is fully loaded
 document.addEventListener('DOMContentLoaded', async () => {
+    detectLanguage();
     await loadData();
     initFilters();
+    applyTranslations();
     renderFavorites();
     updateItineraryUI();
     setupEventListeners();
+    setupLanguageSwitcher();
     requestUserLocation();
 });
+
+// Auto-detect browser/system language
+function detectLanguage() {
+    const sysLang = navigator.language || navigator.userLanguage;
+    if (sysLang && sysLang.toLowerCase().startsWith('en')) {
+        currentLang = 'en';
+    } else {
+        currentLang = 'es';
+    }
+}
+
+// Add event listeners to manual language buttons
+function setupLanguageSwitcher() {
+    const btnEs = document.getElementById('lang-btn-es');
+    const btnEn = document.getElementById('lang-btn-en');
+    
+    if (btnEs) {
+        btnEs.addEventListener('click', () => {
+            if (currentLang !== 'es') {
+                currentLang = 'es';
+                applyTranslations();
+                initFilters();
+                renderFavorites();
+                updateItineraryUI();
+                renderItineraryTab();
+                if (currentResults.length > 0) {
+                    renderResults();
+                }
+            }
+        });
+    }
+    
+    if (btnEn) {
+        btnEn.addEventListener('click', () => {
+            if (currentLang !== 'en') {
+                currentLang = 'en';
+                applyTranslations();
+                initFilters();
+                renderFavorites();
+                updateItineraryUI();
+                renderItineraryTab();
+                if (currentResults.length > 0) {
+                    renderResults();
+                }
+            }
+        });
+    }
+}
+
+// Apply translations to static HTML and switcher buttons
+function applyTranslations() {
+    const dict = TRANSLATIONS[currentLang] || TRANSLATIONS['es'];
+
+    // Update active state in switcher buttons
+    const btnEs = document.getElementById('lang-btn-es');
+    const btnEn = document.getElementById('lang-btn-en');
+    if (btnEs && btnEn) {
+        if (currentLang === 'es') {
+            btnEs.classList.add('active');
+            btnEn.classList.remove('active');
+        } else {
+            btnEn.classList.add('active');
+            btnEs.classList.remove('active');
+        }
+    }
+
+    // Static text translations
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key]) {
+            el.textContent = dict[key];
+        }
+    });
+
+    // Placeholder translations
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (dict[key]) {
+            el.placeholder = dict[key];
+        }
+    });
+}
+
+// Helper to translate difficulty level display text
+function translateDifficulty(dif) {
+    if (currentLang === 'es') return dif;
+    const difLower = dif.toLowerCase();
+    if (difLower === 'fácil' || difLower === 'facil') return 'Easy';
+    if (difLower === 'moderado') return 'Moderate';
+    if (difLower === 'alto / exigente') return 'Hard / Demanding';
+    if (difLower === 'moderado-alto') return 'Moderate-Hard';
+    if (difLower === 'fácil-moderado') return 'Easy-Moderate';
+    return dif;
+}
 
 // Request user location for routing
 function requestUserLocation() {
@@ -243,6 +445,26 @@ function initFilters() {
     const deptoSelect = document.getElementById('filter-departamento');
     const dificultadSelect = document.getElementById('filter-dificultad');
 
+    // Store currently selected values to restore them after rebuild
+    const prevDepto = deptoSelect.value;
+    const prevDif = dificultadSelect.value;
+
+    deptoSelect.innerHTML = '';
+    dificultadSelect.innerHTML = '';
+
+    // Add translated default option
+    const optDepto = document.createElement('option');
+    optDepto.value = "";
+    optDepto.setAttribute('data-i18n', 'opt_todos_deptos');
+    optDepto.textContent = TRANSLATIONS[currentLang].opt_todos_deptos;
+    deptoSelect.appendChild(optDepto);
+
+    const optDif = document.createElement('option');
+    optDif.value = "";
+    optDif.setAttribute('data-i18n', 'opt_todos_grados');
+    optDif.textContent = TRANSLATIONS[currentLang].opt_todos_grados;
+    dificultadSelect.appendChild(optDif);
+
     // Extract unique values
     const departamentos = new Set();
     const dificultades = new Set();
@@ -264,9 +486,13 @@ function initFilters() {
     Array.from(dificultades).sort().forEach(dif => {
         const option = document.createElement('option');
         option.value = dif;
-        option.textContent = dif;
+        option.textContent = translateDifficulty(dif);
         dificultadSelect.appendChild(option);
     });
+
+    // Restore selections if they still exist
+    deptoSelect.value = prevDepto;
+    dificultadSelect.value = prevDif;
 }
 
 // Set up UI navigation and actions
@@ -446,8 +672,8 @@ function renderResults() {
     if (currentResults.length === 0) {
         grid.innerHTML = `
             <div class="empty-results">
-                <h4>No se encontraron destinos</h4>
-                <p>Intenta ajustar los criterios de búsqueda o seleccionar otros filtros.</p>
+                <h4 data-i18n="empty_results_title">${TRANSLATIONS[currentLang].empty_results_title}</h4>
+                <p data-i18n="empty_results_text">${TRANSLATIONS[currentLang].empty_results_text}</p>
             </div>
         `;
         return;
@@ -464,10 +690,12 @@ function renderResults() {
         // Clean coordinates to display Map
         const mapIframeUrl = `https://maps.google.com/maps?q=${item.lat},${item.lng}&t=&z=14&ie=UTF8&iwloc=&output=embed`;
 
-        const distanceBadge = (item.distance !== undefined && item.distance !== null) 
-            ? `<span class="distance-badge">📍 a ${item.distance.toFixed(1)} km</span>` 
+        const distanceBadgeText = (item.distance !== undefined && item.distance !== null) 
+            ? TRANSLATIONS[currentLang].distance_badge.replace('{distance}', item.distance.toFixed(1))
             : '';
-        const popularityText = item.popularidad ? ` • Popularidad: ${item.popularidad}` : '';
+        const distanceBadge = distanceBadgeText ? `<span class="distance-badge">${distanceBadgeText}</span>` : '';
+        const translatedPopularity = TRANSLATIONS[currentLang].popularity_levels[item.popularidad] || item.popularidad;
+        const popularityText = item.popularidad ? ` • ${TRANSLATIONS[currentLang].popularity_badge}: ${translatedPopularity}` : '';
 
         card.innerHTML = `
             <div class="card-details">
@@ -480,10 +708,10 @@ function renderResults() {
                         <!-- Itinerary selection checkbox -->
                         <label class="route-checkbox-container ${isInItinerary ? 'selected' : ''}">
                             <input type="checkbox" class="route-check" ${isInItinerary ? 'checked' : ''} data-id="${item.id}">
-                            <span>Recorrido</span>
+                            <span data-i18n="card_route">${TRANSLATIONS[currentLang].card_route}</span>
                         </label>
                         <!-- Favorite star toggle -->
-                        <button class="fav-toggle ${isFav ? 'active' : ''}" data-id="${item.id}" title="${isFav ? 'Quitar de favoritos' : 'Agregar a favoritos'}">
+                        <button class="fav-toggle ${isFav ? 'active' : ''}" data-id="${item.id}" title="${isFav ? (currentLang === 'es' ? 'Quitar de favoritos' : 'Remove from favorites') : (currentLang === 'es' ? 'Agregar a favoritos' : 'Add to favorites')}">
                             ★
                         </button>
                     </div>
@@ -491,37 +719,37 @@ function renderResults() {
 
                 <div class="info-block">
                     <div class="info-item">
-                        <span class="info-label">Características</span>
+                        <span class="info-label" data-i18n="card_features">${TRANSLATIONS[currentLang].card_features}</span>
                         <span class="info-text features">${item.caracteristicas}</span>
                     </div>
                     <div class="info-item">
-                        <span class="info-label">Alojamiento</span>
+                        <span class="info-label" data-i18n="card_accommodation">${TRANSLATIONS[currentLang].card_accommodation}</span>
                         <span class="info-text">${parsePlaces(item.alojamiento, item.destino, item.departamento, item.id)}</span>
                     </div>
                     <div class="info-item">
-                        <span class="info-label">Dónde comer</span>
+                        <span class="info-label" data-i18n="card_dining">${TRANSLATIONS[currentLang].card_dining}</span>
                         <span class="info-text">${parsePlaces(item.comer, item.destino, item.departamento, item.id)}</span>
                     </div>
                     ${item.ubicacion ? `
                     <div class="info-item">
-                        <span class="info-label">Ubicación</span>
+                        <span class="info-label" data-i18n="card_location">${TRANSLATIONS[currentLang].card_location}</span>
                         <span class="info-text">${item.ubicacion}</span>
                     </div>` : ''}
                     ${item.contacto ? `
                     <div class="info-item">
-                        <span class="info-label">Contacto principal</span>
+                        <span class="info-label" data-i18n="card_contact">${TRANSLATIONS[currentLang].card_contact}</span>
                         <span class="info-text">${item.contacto}</span>
                     </div>` : ''}
                     ${item.web ? `
                     <div class="info-item">
-                        <span class="info-label">Sitio Web</span>
+                        <span class="info-label" data-i18n="card_website">${TRANSLATIONS[currentLang].card_website}</span>
                         <span class="info-text"><a href="${item.web.startsWith('http') ? item.web : 'http://' + item.web}" target="_blank">${item.web} ↗</a></span>
                     </div>` : ''}
                 </div>
 
                 <!-- Directions Button -->
-                <button class="btn btn-primary btn-como-ir" data-lat="${item.lat}" data-lng="${item.lng}" data-name="${item.destino}">
-                    Cómo ir
+                <button class="btn btn-primary btn-como-ir" data-lat="${item.lat}" data-lng="${item.lng}" data-name="${item.destino}" data-i18n="card_how_to_go">
+                    ${TRANSLATIONS[currentLang].card_how_to_go}
                 </button>
             </div>
 
@@ -532,8 +760,8 @@ function renderResults() {
                 </div>
                 <div class="map-actions">
                     <!-- Reset Map Button (Hidden by default) -->
-                    <button class="btn btn-secondary btn-reset-map" id="reset-map-${item.id}" onclick="resetEmbeddedMap('${item.id}', ${item.lat}, ${item.lng})" style="display: none; width: 100%;">
-                        🔄 Restablecer Mapa
+                    <button class="btn btn-secondary btn-reset-map" id="reset-map-${item.id}" onclick="resetEmbeddedMap('${item.id}', ${item.lat}, ${item.lng})" style="display: none; width: 100%;" data-i18n="card_reset_map">
+                        ${TRANSLATIONS[currentLang].card_reset_map}
                     </button>
                 </div>
             </div>
@@ -598,7 +826,7 @@ function renderFavorites() {
 
     if (favDestinos.length === 0) {
         grid.innerHTML = `
-            <div class="no-favorites">Aún no tienes destinos favoritos guardados. ¡Agrega algunos marcando la estrella en los bloques de resultados!</div>
+            <div class="no-favorites" data-i18n="no_favorites">${TRANSLATIONS[currentLang].no_favorites}</div>
         `;
         return;
     }
@@ -611,7 +839,7 @@ function renderFavorites() {
                 <div class="fav-title">${item.destino}</div>
                 <div class="fav-dept">${item.departamento}</div>
             </div>
-            <button class="btn-mini-fav" title="Quitar de favoritos">★</button>
+            <button class="btn-mini-fav" title="${currentLang === 'es' ? 'Quitar de favoritos' : 'Remove from favorites'}">★</button>
         `;
 
         // Click favorite info to search and show details immediately
@@ -669,6 +897,12 @@ function updateItineraryUI() {
     // Update numbers
     barCountBadge.textContent = count;
     
+    // Update count label text translation
+    const labelEl = document.getElementById('itinerary-bar-count-label');
+    if (labelEl) {
+        labelEl.innerHTML = TRANSLATIONS[currentLang].itinerary_bar_count.replace('{count}', `<span id="itinerary-bar-count">${count}</span>`);
+    }
+
     const btnClearRes = document.getElementById('btn-limpiar-itinerario-resultados');
     if (count > 0) {
         tabBadge.textContent = count;
@@ -688,6 +922,7 @@ function updateItineraryUI() {
         tabBadge.style.display = 'none';
         bar.classList.remove('visible');
         if (btnClearRes) btnClearRes.style.display = 'none';
+        barList.textContent = TRANSLATIONS[currentLang].itinerary_bar_none;
     }
 }
 
@@ -701,9 +936,7 @@ function renderItineraryTab() {
     if (itineraryDestinos.length === 0) {
         stepsList.innerHTML = `
             <div class="no-favorites" style="padding: 50px;">
-                No tienes destinos seleccionados para tu recorrido. 
-                <br><br>
-                Busca destinos y marca la casilla <strong>"Recorrido"</strong> en los resultados de búsqueda para agregarlos aquí.
+                ${TRANSLATIONS[currentLang].empty_itinerary_text}
             </div>
         `;
         document.getElementById('btn-trazar-itinerario-tab').style.display = 'none';
@@ -721,7 +954,7 @@ function renderItineraryTab() {
                 <div class="step-name">${item.destino}</div>
                 <div class="step-dept">${item.departamento}</div>
             </div>
-            <button class="btn-remove-step" data-id="${item.id}" title="Eliminar del recorrido">✕</button>
+            <button class="btn-remove-step" data-id="${item.id}" title="${currentLang === 'es' ? 'Eliminar del recorrido' : 'Remove from route'}">✕</button>
         `;
 
         stepCard.querySelector('.btn-remove-step').addEventListener('click', () => {

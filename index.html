@@ -5,21 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UruExplorer - Turismo en Uruguay</title>
     <!-- CSS stylesheet -->
-    <link rel="stylesheet" href="style.css?v=1.1">
+    <link rel="stylesheet" href="style.css?v=1.2">
 </head>
 <body>
     <div class="app-container">
         <!-- Header -->
         <header>
-            <div class="logo">URU<span>EXPLORER</span></div>
-            <div class="tagline">Explorá Uruguay de forma minimalista</div>
+            <div class="logo-row">
+                <div class="logo">URU<span>EXPLORER</span></div>
+                <div class="lang-switch">
+                    <button class="lang-btn" id="lang-btn-es">ES</button>
+                    <span class="lang-divider">|</span>
+                    <button class="lang-btn" id="lang-btn-en">EN</button>
+                </div>
+            </div>
+            <div class="tagline" data-i18n="tagline">Explorá Uruguay de forma minimalista</div>
         </header>
 
         <!-- Navigation Tabs -->
         <nav class="tabs-nav">
-            <button class="tab-btn active" id="tab-explorar-btn">Explorar</button>
-            <button class="tab-btn" id="tab-resultados-btn">Resultados <span id="results-count-badge" style="display:none; font-size: 0.8rem; background: var(--primary); color: var(--bg-main); padding: 2px 6px; border-radius: 10px; margin-left: 5px;">0</span></button>
-            <button class="tab-btn" id="tab-itinerario-btn">Mi Itinerario <span id="itinerary-tab-badge" style="display:none; font-size: 0.8rem; background: var(--primary); color: var(--bg-main); padding: 2px 6px; border-radius: 10px; margin-left: 5px;">0</span></button>
+            <button class="tab-btn active" id="tab-explorar-btn"><span data-i18n="tab_explorar">Explorar</span></button>
+            <button class="tab-btn" id="tab-resultados-btn"><span data-i18n="tab_resultados">Resultados</span> <span id="results-count-badge" style="display:none; font-size: 0.8rem; background: var(--primary); color: var(--bg-main); padding: 2px 6px; border-radius: 10px; margin-left: 5px;">0</span></button>
+            <button class="tab-btn" id="tab-itinerario-btn"><span data-i18n="tab_itinerario">Mi Itinerario</span> <span id="itinerary-tab-badge" style="display:none; font-size: 0.8rem; background: var(--primary); color: var(--bg-main); padding: 2px 6px; border-radius: 10px; margin-left: 5px;">0</span></button>
         </nav>
 
         <!-- View 1: Explorar (Search Filters + Favorites) -->
@@ -29,55 +36,55 @@
                 <div class="filter-grid">
                     <!-- Búsqueda por Nombre o Característica -->
                     <div class="filter-field">
-                        <label for="search-input">Buscar Destino o Característica</label>
-                        <input type="text" id="search-input" class="search-input" placeholder="Ej: Cabo Polonio, playa, cascada...">
+                        <label for="search-input" data-i18n="lbl_buscar_destino">Buscar Destino o Característica</label>
+                        <input type="text" id="search-input" class="search-input" data-i18n-placeholder="placeholder_buscar" placeholder="Ej: Cabo Polonio, playa, cascada...">
                     </div>
                     <!-- Departamento filter -->
                     <div class="filter-field">
-                        <label for="filter-departamento">Departamento</label>
+                        <label for="filter-departamento" data-i18n="lbl_departamento">Departamento</label>
                         <div class="select-wrapper">
                             <select id="filter-departamento">
-                                <option value="">Todos los departamentos</option>
+                                <option value="" data-i18n="opt_todos_deptos">Todos los departamentos</option>
                             </select>
                         </div>
                     </div>
                     <!-- Dificultad filter -->
                     <div class="filter-field">
-                        <label for="filter-dificultad">Grado de Dificultad</label>
+                        <label for="filter-dificultad" data-i18n="lbl_dificultad">Grado de Dificultad</label>
                         <div class="select-wrapper">
                             <select id="filter-dificultad">
-                                <option value="">Todos los grados</option>
+                                <option value="" data-i18n="opt_todos_grados">Todos los grados</option>
                             </select>
                         </div>
                     </div>
                     <!-- Popularidad filter -->
                     <div class="filter-field">
-                        <label>Popularidad</label>
+                        <label data-i18n="lbl_popularidad">Popularidad</label>
                         <div class="popularity-chips">
                             <label class="chip-checkbox">
                                 <input type="checkbox" name="popularity" value="Alta">
-                                <span>Alta</span>
+                                <span data-i18n="pop_alta">Alta</span>
                             </label>
                             <label class="chip-checkbox">
                                 <input type="checkbox" name="popularity" value="Moderada">
-                                <span>Moderada</span>
+                                <span data-i18n="pop_moderada">Moderada</span>
                             </label>
                             <label class="chip-checkbox">
                                 <input type="checkbox" name="popularity" value="Emergente">
-                                <span>Emergente</span>
+                                <span data-i18n="pop_emergente">Emergente</span>
                             </label>
                         </div>
                     </div>
                 </div>
-                <button class="btn btn-primary" id="btn-buscar">Buscar Coincidencias</button>
+                <button class="btn btn-primary" id="btn-buscar" data-i18n="btn_buscar">Buscar Coincidencias</button>
             </section>
 
             <!-- Favorites Shelf (Default display) -->
             <section class="favorites-shelf">
-                <h3>★ Tus Destinos Favoritos</h3>
+                <h3 data-i18n="title_favoritos">★ Tus Destinos Favoritos</h3>
                 <div class="favorites-grid" id="favorites-grid">
                     <!-- Favorites are dynamically loaded here -->
-                    <div class="no-favorites">Aún no tienes destinos favoritos guardados. ¡Agrega algunos marcando la estrella en los bloques de resultados!</div>
+                    <div class="no-favorites" data-i18n="no_favorites">Aún no tienes destinos favoritos guardados. ¡Agrega algunos marcando la estrella en los bloques de resultados!</div>
                 </div>
             </section>
         </div>
@@ -85,8 +92,8 @@
         <!-- View 2: Resultados (Coincidences) -->
         <div id="view-resultados" class="tab-view">
             <div class="results-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid var(--border); padding-bottom: 10px;">
-                <h3 style="font-family: var(--font-heading); color: var(--primary); margin: 0;">Resultados de Búsqueda</h3>
-                <button class="btn btn-secondary" id="btn-limpiar-itinerario-resultados" style="font-size: 0.85rem; padding: 6px 12px; display: none;">✕ Limpiar Selección</button>
+                <h3 style="font-family: var(--font-heading); color: var(--primary); margin: 0;" data-i18n="results_header">Resultados de Búsqueda</h3>
+                <button class="btn btn-secondary" id="btn-limpiar-itinerario-resultados" style="font-size: 0.85rem; padding: 6px 12px; display: none;" data-i18n="btn_limpiar_itinerario">✕ Limpiar Selección</button>
             </div>
             <div class="results-grid" id="results-grid">
                 <!-- Result blocks will be generated here -->
@@ -97,14 +104,14 @@
         <div id="view-itinerario" class="tab-view">
             <div class="itinerary-list-container">
                 <div class="itinerary-header">
-                    <h3>Recorrido Seleccionado</h3>
-                    <button class="btn btn-secondary" id="btn-clear-itinerary" style="font-size: 0.85rem; padding: 6px 12px;">Limpiar Todo</button>
+                    <h3 data-i18n="itinerary_header">Recorrido Seleccionado</h3>
+                    <button class="btn btn-secondary" id="btn-clear-itinerary" style="font-size: 0.85rem; padding: 6px 12px;" data-i18n="btn_clear_all">Limpiar Todo</button>
                 </div>
                 <div class="itinerary-steps" id="itinerary-steps-list">
                     <!-- Selected route steps will be listed here -->
                 </div>
                 <div class="itinerary-route-action">
-                    <button class="btn btn-primary" id="btn-trazar-itinerario-tab" style="width: 100%; font-size: 1.1rem; padding: 15px 30px;">
+                    <button class="btn btn-primary" id="btn-trazar-itinerario-tab" style="width: 100%; font-size: 1.1rem; padding: 15px 30px;" data-i18n="btn_trazar_itinerario">
                         🚙 Trazar Itinerario Completo en Google Maps
                     </button>
                 </div>
@@ -115,13 +122,13 @@
     <!-- Sticky Bottom Itinerary Bar -->
     <div id="itinerary-bar" class="itinerary-bar">
         <div class="itinerary-info">
-            <div class="itinerary-count">Itinerario: <span id="itinerary-bar-count">0</span> destinos seleccionados</div>
+            <div class="itinerary-count" id="itinerary-bar-count-label">Itinerario: <span id="itinerary-bar-count">0</span> destinos seleccionados</div>
             <div class="itinerary-destinations" id="itinerary-bar-list">Ninguno seleccionado</div>
         </div>
         <div class="itinerary-actions">
-            <button class="btn btn-secondary" id="btn-limpiar-itinerario-bar">✕ Limpiar</button>
-            <button class="btn btn-secondary" id="btn-ver-itinerario-bar">Ver Detalles</button>
-            <button class="btn btn-primary" id="btn-trazar-itinerario-bar">Establecer Ruta</button>
+            <button class="btn btn-secondary" id="btn-limpiar-itinerario-bar" data-i18n="btn_limpiar">✕ Limpiar</button>
+            <button class="btn btn-secondary" id="btn-ver-itinerario-bar" data-i18n="btn_ver_detalles">Ver Detalles</button>
+            <button class="btn btn-primary" id="btn-trazar-itinerario-bar" data-i18n="btn_establecer_ruta">Establecer Ruta</button>
         </div>
     </div>
 
@@ -129,18 +136,18 @@
     <div id="proximity-modal" class="modal-overlay">
         <div class="modal-content">
             <div class="modal-header">
-                <h3>📍 Búsqueda amplia</h3>
+                <h3 data-i18n="modal_title">📍 Búsqueda amplia</h3>
             </div>
-            <p>No has especificado un destino ni un departamento. ¿Qué prefieres ver?</p>
+            <p data-i18n="modal_body">No has especificado un destino ni un departamento. ¿Qué prefieres ver?</p>
             <div class="modal-actions">
-                <button class="btn btn-primary" id="btn-modal-cerca">📍 Buscar cerca de mi posición</button>
-                <button class="btn btn-secondary" id="btn-modal-todos">🌍 Mostrar todas las disponibles</button>
+                <button class="btn btn-primary" id="btn-modal-cerca" data-i18n="btn_modal_cerca">📍 Buscar cerca de mi posición</button>
+                <button class="btn btn-secondary" id="btn-modal-todos" data-i18n="btn_modal_todos">🌍 Mostrar todas las disponibles</button>
             </div>
         </div>
     </div>
 
     <!-- Load Local JS Database and Application Logic -->
     <script src="destinos.js"></script>
-    <script src="app.js?v=1.1"></script>
+    <script src="app.js?v=1.2"></script>
 </body>
 </html>
