@@ -557,6 +557,9 @@ function switchTab(tabId) {
         document.getElementById('view-itinerario').classList.add('active');
         renderItineraryTab();
     }
+
+    // Scroll back to top smoothly so the user doesn't stay scrolled down from previous view
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 function showProximityModal() {
