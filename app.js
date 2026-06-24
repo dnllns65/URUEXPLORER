@@ -314,6 +314,7 @@ function processEventsCSVData(csvText) {
     const destIdx = findColIndex(['destino']);
     const deptIdx = findColIndex(['departamento']);
     const titleIdx = findColIndex(['titulo', 'título']);
+    const localIdx = findColIndex(['local']);
     const typeIdx = findColIndex(['tipo']);
     const dateIdx = findColIndex(['fecha']);
     const descIdx = findColIndex(['descripcion', 'descripción']);
@@ -334,6 +335,7 @@ function processEventsCSVData(csvText) {
             destino: row[destIdx] ? row[destIdx].trim() : '',
             departamento: row[deptIdx] ? row[deptIdx].trim() : '',
             titulo: row[titleIdx] ? row[titleIdx].trim() : '',
+            local: row[localIdx] ? row[localIdx].trim() : '',
             tipo: row[typeIdx] ? row[typeIdx].trim() : '',
             fecha: row[dateIdx] ? row[dateIdx].trim() : '',
             descripcion: row[descIdx] ? row[descIdx].trim() : '',
@@ -1416,7 +1418,7 @@ function renderItineraryTab() {
                 <div class="step-num" style="background: var(--border); color: var(--text-muted); font-size: 0.75rem;">📅</div>
                 <div class="step-details">
                     <div class="step-name">${ev.titulo}</div>
-                    <div class="step-dept"><span class="event-badge ${badgeClass}" style="display:inline-block; margin-right:5px; padding: 1px 4px; font-size:0.6rem;">${typeLabel}</span> ${ev.destino} (${ev.fecha})</div>
+                    <div class="step-dept"><span class="event-badge ${badgeClass}" style="display:inline-block; margin-right:5px; padding: 1px 4px; font-size:0.6rem;">${typeLabel}</span> ${ev.destino} (${ev.fecha})${ev.local ? ` • 📍 ${ev.local}` : ''}</div>
                 </div>
                 <button class="btn-remove-step" onclick="toggleSavedEvent(${ev.id})" title="${currentLang === 'es' ? 'Eliminar evento' : 'Remove event'}">✕</button>
             `;
@@ -1571,6 +1573,7 @@ function updateCardEventsList(cardId, filter) {
                 <span class="event-date">${ev.fecha}</span>
             </div>
             <div class="event-title-text">${ev.titulo}</div>
+            ${ev.local ? `<div class="event-local" style="font-size: 0.8rem; color: var(--primary); display: flex; align-items: center; gap: 4px; font-weight: 500; margin-top: -2px; margin-bottom: 2px;">📍 <span translate="no" class="notranslate">${ev.local}</span></div>` : ''}
             <div class="event-desc">${ev.descripcion}</div>
             <div class="event-actions">
                 ${ticketBtn}
