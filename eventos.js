@@ -30,7 +30,7 @@ const EVENTOS = [
         tipo: "Cine",
         fecha: "15 al 22 de Julio, 2026",
         descripcion: "Muestra internacional con proyecciones y debates en las salas de cine locales más importantes y el Teatro de Verano.",
-        ticketUrl: "https://www.eventbrite.com/e/festival-cine-punta-del-este",
+        ticketUrl: "https://www.eventbrite.com/",
         gratis: false
     },
     {
@@ -41,7 +41,7 @@ const EVENTOS = [
         tipo: "Fiesta",
         fecha: "28 de Enero, 2027",
         descripcion: "Música electrónica con DJ internacionales al atardecer frente al faro de José Ignacio. Un clásico del verano.",
-        ticketUrl: "https://www.passline.com/sunset-jose-ignacio",
+        ticketUrl: "https://www.passline.com/sitio/uruguay",
         gratis: false
     },
     {
@@ -52,7 +52,7 @@ const EVENTOS = [
         tipo: "Concierto",
         fecha: "15 de Agosto, 2026",
         descripcion: "La Orquesta Filarmónica de Montevideo presenta un programa especial en el imponente Teatro Solís.",
-        ticketUrl: "https://tickantel.com.uy/concierto-filarmonica-solis",
+        ticketUrl: "https://tickantel.com.uy/",
         gratis: false
     },
     {
@@ -63,7 +63,7 @@ const EVENTOS = [
         tipo: "Teatro",
         fecha: "Viernes y Sábados de Julio",
         descripcion: "Aclamada obra teatral uruguaya en el Teatro El Galpón. Comedia dramática con elenco estelar.",
-        ticketUrl: "https://tickantel.com.uy/la-omision-coleto",
+        ticketUrl: "https://tickantel.com.uy/",
         gratis: false
     },
     {
@@ -96,7 +96,7 @@ const EVENTOS = [
         tipo: "Fiesta",
         fecha: "3 al 8 de Marzo, 2027",
         descripcion: "La celebración criolla más grande de América del Sur en la Laguna de las Lavanderas. Jineteadas, payadas, fogones y música folk en vivo.",
-        ticketUrl: "https://reduts.com.uy/patria-gaucha-tacuarembo",
+        ticketUrl: "https://reduts.com.uy/",
         gratis: false
     },
     {
@@ -118,7 +118,7 @@ const EVENTOS = [
         tipo: "Cultural",
         fecha: "Jueves y sábados de noche",
         descripcion: "Recorrido histórico dramatizado por callejuelas de piedra del casco histórico guiado por personajes de época con linternas de aceite.",
-        ticketUrl: "https://www.passline.com/colonia-paseo-nocturno",
+        ticketUrl: "https://www.passline.com/sitio/uruguay",
         gratis: false
     },
     {
@@ -140,7 +140,7 @@ const EVENTOS = [
         tipo: "Feria",
         fecha: "Semana de Turismo (Semana Santa)",
         descripcion: "Feria de productores locales de cerveza artesanal, con patios de comidas y música acústica a metros de las piscinas termales.",
-        ticketUrl: "https://www.eventbrite.com/e/festival-termal-salto",
+        ticketUrl: "https://www.eventbrite.com/",
         gratis: false
     },
     {
