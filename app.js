@@ -479,6 +479,8 @@ function initFilters() {
         const option = document.createElement('option');
         option.value = dept;
         option.textContent = dept;
+        option.setAttribute('translate', 'no');
+        option.classList.add('notranslate');
         deptoSelect.appendChild(option);
     });
 
@@ -704,8 +706,8 @@ function renderResults() {
             <div class="card-details">
                 <div class="card-header-row">
                     <div class="card-title-group">
-                        <div class="card-title">${item.destino} ${distanceBadge}</div>
-                        <div class="card-dept">${item.departamento}${popularityText}</div>
+                        <div class="card-title"><span translate="no" class="notranslate">${item.destino}</span> ${distanceBadge}</div>
+                        <div class="card-dept"><span translate="no" class="notranslate">${item.departamento}</span>${popularityText}</div>
                     </div>
                     <div class="card-actions-top">
                         <!-- Itinerary selection checkbox -->
@@ -727,16 +729,16 @@ function renderResults() {
                     </div>
                     <div class="info-item">
                         <span class="info-label" data-i18n="card_accommodation">${TRANSLATIONS[currentLang].card_accommodation}</span>
-                        <span class="info-text">${parsePlaces(item.alojamiento, item.destino, item.departamento, item.id)}</span>
+                        <span class="info-text notranslate" translate="no">${parsePlaces(item.alojamiento, item.destino, item.departamento, item.id)}</span>
                     </div>
                     <div class="info-item">
                         <span class="info-label" data-i18n="card_dining">${TRANSLATIONS[currentLang].card_dining}</span>
-                        <span class="info-text">${parsePlaces(item.comer, item.destino, item.departamento, item.id)}</span>
+                        <span class="info-text notranslate" translate="no">${parsePlaces(item.comer, item.destino, item.departamento, item.id)}</span>
                     </div>
                     ${item.ubicacion ? `
                     <div class="info-item">
                         <span class="info-label" data-i18n="card_location">${TRANSLATIONS[currentLang].card_location}</span>
-                        <span class="info-text">${item.ubicacion}</span>
+                        <span class="info-text notranslate" translate="no">${item.ubicacion}</span>
                     </div>` : ''}
                     ${item.contacto ? `
                     <div class="info-item">
@@ -839,8 +841,8 @@ function renderFavorites() {
         card.className = 'favorite-mini-card';
         card.innerHTML = `
             <div class="fav-info" style="cursor: pointer;">
-                <div class="fav-title">${item.destino}</div>
-                <div class="fav-dept">${item.departamento}</div>
+                <div class="fav-title notranslate" translate="no">${item.destino}</div>
+                <div class="fav-dept notranslate" translate="no">${item.departamento}</div>
             </div>
             <button class="btn-mini-fav" title="${currentLang === 'es' ? 'Quitar de favoritos' : 'Remove from favorites'}">★</button>
         `;
@@ -916,7 +918,7 @@ function updateItineraryUI() {
             .filter(item => itinerary.includes(item.id))
             .map(item => item.destino)
             .join(', ');
-        barList.textContent = names;
+        barList.innerHTML = `<span translate="no" class="notranslate">${names}</span>`;
 
         // Show sticky bar
         bar.classList.add('visible');
@@ -954,8 +956,8 @@ function renderItineraryTab() {
         stepCard.innerHTML = `
             <div class="step-num">${index + 1}</div>
             <div class="step-details">
-                <div class="step-name">${item.destino}</div>
-                <div class="step-dept">${item.departamento}</div>
+                <div class="step-name notranslate" translate="no">${item.destino}</div>
+                <div class="step-dept notranslate" translate="no">${item.departamento}</div>
             </div>
             <button class="btn-remove-step" data-id="${item.id}" title="${currentLang === 'es' ? 'Eliminar del recorrido' : 'Remove from route'}">✕</button>
         `;
