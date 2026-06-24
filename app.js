@@ -187,7 +187,9 @@ const TRANSLATIONS = {
 };
 
 const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/1pgmc3TXHNXbtWecKiZYmPRK-_hkKwfujFKvbubIPpjU/export?format=csv';
+const SHEET_EVENTOS_URL = 'https://docs.google.com/spreadsheets/d/1pgmc3TXHNXbtWecKiZYmPRK-_hkKwfujFKvbubIPpjU/export?format=csv&gid=1960694185';
 let appDestinos = DESTINOS; // Default fallback to destinos.js local data
+let appEventos = EVENTOS; // Default fallback to eventos.js local data
 
 // Helper to parse CSV string into an array of arrays
 function parseCSV(text) {
@@ -294,27 +296,105 @@ function processCSVData(csvText) {
 }
 
 // Fetch the CSV directly from the public Google Sheet and parse it
+// Convert parsed CSV rows to structured event objects matching EVENTOS format
+function processEventsCSVData(csvText) {
+    const parsed = parseCSV(csvText);
+    if (parsed.length < 2) return null;
+    
+    // Normalize headers
+    const headers = parsed[0].map(h => h.trim().toLowerCase());
+    
+    const findColIndex = (possibleNames) => {
+        return headers.findIndex(h => 
+            possibleNames.some(name => h.includes(name.toLowerCase()))
+        );
+    };
+
+    const idIdx = findColIndex(['id']);
+    const destIdx = findColIndex(['destino']);
+    const deptIdx = findColIndex(['departamento']);
+    const titleIdx = findColIndex(['titulo', 'título']);
+    const typeIdx = findColIndex(['tipo']);
+    const dateIdx = findColIndex(['fecha']);
+    const descIdx = findColIndex(['descripcion', 'descripción']);
+    const ticketIdx = findColIndex(['ticketurl', 'ticket url', 'enlace']);
+    const freeIdx = findColIndex(['gratis']);
+
+    const items = [];
+    for (let i = 1; i < parsed.length; i++) {
+        const row = parsed[i];
+        // Skip empty or invalid rows
+        if (row.length <= 1 || !row[titleIdx]) continue;
+
+        const isFreeVal = row[freeIdx] ? row[freeIdx].trim().toUpperCase() : '';
+        const gratis = (isFreeVal === 'SÍ' || isFreeVal === 'SI' || isFreeVal === 'YES' || isFreeVal === 'TRUE');
+
+        items.push({
+            id: row[idIdx] ? parseInt(row[idIdx].trim()) : i,
+            destino: row[destIdx] ? row[destIdx].trim() : '',
+            departamento: row[deptIdx] ? row[deptIdx].trim() : '',
+            titulo: row[titleIdx] ? row[titleIdx].trim() : '',
+            tipo: row[typeIdx] ? row[typeIdx].trim() : '',
+            fecha: row[dateIdx] ? row[dateIdx].trim() : '',
+            descripcion: row[descIdx] ? row[descIdx].trim() : '',
+            ticketUrl: row[ticketIdx] ? row[ticketIdx].trim() : '',
+            gratis: gratis
+        });
+    }
+    return items;
+}
+
+// Fetch the CSV directly from the public Google Sheet and parse it
 async function loadData() {
+    console.log("Intentando descargar base de datos actualizada desde Google Sheets...");
+    
+    // Download both sheets in parallel
+    const promises = [
+        fetch(SHEET_CSV_URL).then(res => {
+            if (!res.ok) throw new Error("Error en destinos");
+            return res.text();
+        }),
+        fetch(SHEET_EVENTOS_URL).then(res => {
+            if (!res.ok) throw new Error("Error en eventos");
+            return res.text();
+        })
+    ];
+
     try {
-        console.log("Intentando descargar base de datos actualizada desde Google Sheets...");
-        const response = await fetch(SHEET_CSV_URL);
-        if (!response.ok) throw new Error("Error en la descarga del CSV");
-        
-        const csvText = await response.text();
-        const parsedData = processCSVData(csvText);
-        
-        if (parsedData && parsedData.length > 0) {
-            appDestinos = parsedData;
-            console.log(`Base de datos actualizada con éxito desde Google Sheets (${parsedData.length} destinos).`);
-            localStorage.setItem('uruexplorer_cached_data', JSON.stringify(parsedData));
+        const [destinosCsv, eventosCsv] = await Promise.all(promises);
+
+        // Process Destinos
+        const parsedDestinos = processCSVData(destinosCsv);
+        if (parsedDestinos && parsedDestinos.length > 0) {
+            appDestinos = parsedDestinos;
+            console.log(`Base de datos de destinos actualizada desde Google Sheets (${parsedDestinos.length} destinos).`);
+            localStorage.setItem('uruexplorer_cached_data', JSON.stringify(parsedDestinos));
+        }
+
+        // Process Eventos
+        const parsedEventos = processEventsCSVData(eventosCsv);
+        if (parsedEventos && parsedEventos.length > 0) {
+            appEventos = parsedEventos;
+            console.log(`Base de datos de eventos actualizada desde Google Sheets (${parsedEventos.length} eventos).`);
+            localStorage.setItem('uruexplorer_events_cached_data', JSON.stringify(parsedEventos));
         }
     } catch (e) {
-        console.warn("No se pudo descargar la base de datos de Google Sheets (sin conexión o privada). Usando base de datos local / caché.", e);
-        const cached = localStorage.getItem('uruexplorer_cached_data');
-        if (cached) {
-            appDestinos = JSON.parse(cached);
+        console.warn("No se pudo descargar la base de datos de Google Sheets. Usando base de datos local / caché.", e);
+        
+        // Load cache or fallback for Destinos
+        const cachedDest = localStorage.getItem('uruexplorer_cached_data');
+        if (cachedDest) {
+            appDestinos = JSON.parse(cachedDest);
         } else {
             appDestinos = DESTINOS;
+        }
+
+        // Load cache or fallback for Eventos
+        const cachedEv = localStorage.getItem('uruexplorer_events_cached_data');
+        if (cachedEv) {
+            appEventos = JSON.parse(cachedEv);
+        } else {
+            appEventos = EVENTOS;
         }
     }
 }
@@ -953,7 +1033,7 @@ function renderResults() {
 
     // Determine if any destination in currentResults has events
     const hasAnyEvents = currentResults.some(item => 
-        EVENTOS.some(ev => isEventMatch(ev, item))
+        appEventos.some(ev => isEventMatch(ev, item))
     );
 
     const toggleContainer = document.getElementById('only-events-toggle-container');
@@ -967,7 +1047,7 @@ function renderResults() {
     let itemsToRender = currentResults;
     if (filterOnlyEvents) {
         itemsToRender = currentResults.filter(item => 
-            EVENTOS.some(ev => isEventMatch(ev, item))
+            appEventos.some(ev => isEventMatch(ev, item))
         );
     }
 
@@ -998,7 +1078,7 @@ function renderResults() {
         card.dataset.id = item.id;
 
         // Find events associated with this destination
-        const matchedEvents = EVENTOS.filter(ev => isEventMatch(ev, item));
+        const matchedEvents = appEventos.filter(ev => isEventMatch(ev, item));
 
         // Clean coordinates to display Map
         const mapIframeUrl = `https://maps.google.com/maps?q=${item.lat},${item.lng}&t=&z=14&ie=UTF8&iwloc=&output=embed`;
@@ -1319,7 +1399,7 @@ function renderItineraryTab() {
     });
 
     // Render saved events for this itinerary
-    const activeSavedEvents = EVENTOS.filter(ev => savedEvents.includes(ev.id));
+    const activeSavedEvents = appEventos.filter(ev => savedEvents.includes(ev.id));
     const eventsSection = document.getElementById('itinerary-events-section');
     const eventsList = document.getElementById('itinerary-events-list');
 
@@ -1454,7 +1534,7 @@ function updateCardEventsList(cardId, filter) {
     if (!destItem) return;
     
     // Get matched events
-    let events = EVENTOS.filter(ev => isEventMatch(ev, destItem));
+    let events = appEventos.filter(ev => isEventMatch(ev, destItem));
     
     // Apply type filter if not 'Todos'
     if (filter !== 'Todos') {
