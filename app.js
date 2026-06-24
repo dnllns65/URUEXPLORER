@@ -58,6 +58,9 @@ const TRANSLATIONS = {
         card_route: "Recorrido",
         distance_badge: "📍 a {distance} km",
         popularity_badge: "Popularidad",
+        pop_alta: "Alta",
+        pop_moderada: "Moderada",
+        pop_emergente: "Emergente",
         no_info: "Consultar información local o sitio web",
         popularity_levels: {
             "Alta": "Alta",
@@ -140,11 +143,14 @@ const TRANSLATIONS = {
         card_route: "Route",
         distance_badge: "📍 {distance} km away",
         popularity_badge: "Popularity",
+        pop_alta: "High",
+        pop_moderada: "Moderate",
+        pop_emergente: "Trending",
         no_info: "Consult local info or website",
         popularity_levels: {
             "Alta": "High",
             "Moderada": "Moderate",
-            "Emergente": "Emerging"
+            "Emergente": "Trending"
         },
         // Events and Multiple Itinerary keys
         itinerary_events_header: "Scheduled Events",
