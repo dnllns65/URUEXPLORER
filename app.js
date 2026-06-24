@@ -3,10 +3,14 @@
 // State management
 let favorites = JSON.parse(localStorage.getItem('uruexplorer_favorites')) || [];
 let itinerary = JSON.parse(localStorage.getItem('uruexplorer_itinerary')) || [];
+let savedEvents = JSON.parse(localStorage.getItem('uruexplorer_saved_events')) || [];
+let savedItinerariesList = JSON.parse(localStorage.getItem('uruexplorer_saved_itineraries_list')) || [];
+let cardEventFilters = {}; // Tracks active category filters per card: { cardId: 'Todos' }
 let currentResults = [];
 let userLocation = null;
 let emptySearchCriterion = null; // Session empty search behavior ('near' or 'all')
 let currentLang = 'es'; // default
+let currentTheme = localStorage.getItem('uruexplorer_theme') || 'dark';
 
 // Localization Dictionary
 const TRANSLATIONS = {
@@ -27,6 +31,7 @@ const TRANSLATIONS = {
         no_favorites: "Aún no tienes destinos favoritos guardados. ¡Agrega algunos marcando la estrella en los bloques de resultados!",
         results_header: "Resultados de Búsqueda",
         btn_limpiar_itinerario: "✕ Limpiar Selección",
+        lbl_only_events: "Solo con eventos",
         empty_results_title: "No se encontraron destinos",
         empty_results_text: "Intenta ajustar los criterios de búsqueda o seleccionar otros filtros.",
         itinerary_header: "Recorrido Seleccionado",
@@ -58,6 +63,37 @@ const TRANSLATIONS = {
             "Alta": "Alta",
             "Moderada": "Moderada",
             "Emergente": "Emergente"
+        },
+        // Events and Multiple Itinerary keys
+        itinerary_events_header: "Eventos Agendados",
+        title_save_itinerary: "Guardar Recorrido Actual",
+        placeholder_itinerary_name: "Ej: Viaje Rocha Enero...",
+        btn_save: "Guardar",
+        title_saved_itineraries: "Mis Recorridos Guardados",
+        no_saved_itineraries: "No tienes recorridos guardados en este dispositivo.",
+        btn_search_events: "📅 Buscar Eventos",
+        btn_load: "Cargar",
+        btn_delete: "Eliminar",
+        events_title: "Eventos Disponibles",
+        events_filter_all: "Todos",
+        events_filter_concerts: "Conciertos",
+        events_filter_fairs: "Ferias",
+        events_filter_festivals: "Fiestas",
+        events_filter_theater_cine: "Teatro / Cine",
+        events_filter_cultural: "Culturales",
+        btn_buy_tickets: "🎟️ Comprar Entradas",
+        btn_save_event: "⭐ Guardar Evento",
+        btn_unsave_event: "⭐ Guardado",
+        msg_itinerary_saved: "¡Recorrido guardado con éxito!",
+        msg_itinerary_empty: "No hay destinos en el recorrido para guardar.",
+        msg_itinerary_enter_name: "Por favor, ingresa un nombre para el recorrido.",
+        event_types: {
+            "Concierto": "Concierto",
+            "Feria": "Feria",
+            "Fiesta": "Fiesta",
+            "Teatro": "Teatro",
+            "Cine": "Cine",
+            "Cultural": "Cultural"
         }
     },
     en: {
@@ -77,6 +113,7 @@ const TRANSLATIONS = {
         no_favorites: "You don't have favorite destinations saved yet. Add some by marking the star in the result blocks!",
         results_header: "Search Results",
         btn_limpiar_itinerario: "✕ Clear Selection",
+        lbl_only_events: "Only with events",
         empty_results_title: "No destinations found",
         empty_results_text: "Try adjusting the search criteria or selecting other filters.",
         itinerary_header: "Selected Route",
@@ -108,6 +145,37 @@ const TRANSLATIONS = {
             "Alta": "High",
             "Moderada": "Moderate",
             "Emergente": "Emerging"
+        },
+        // Events and Multiple Itinerary keys
+        itinerary_events_header: "Scheduled Events",
+        title_save_itinerary: "Save Current Route",
+        placeholder_itinerary_name: "Ex: Rocha Trip January...",
+        btn_save: "Save",
+        title_saved_itineraries: "My Saved Routes",
+        no_saved_itineraries: "You have no saved routes on this device.",
+        btn_search_events: "📅 Search Events",
+        btn_load: "Load",
+        btn_delete: "Delete",
+        events_title: "Available Events",
+        events_filter_all: "All",
+        events_filter_concerts: "Concerts",
+        events_filter_fairs: "Fairs",
+        events_filter_festivals: "Festivals",
+        events_filter_theater_cine: "Theater / Cinema",
+        events_filter_cultural: "Cultural",
+        btn_buy_tickets: "🎟️ Buy Tickets",
+        btn_save_event: "⭐ Save Event",
+        btn_unsave_event: "⭐ Saved",
+        msg_itinerary_saved: "Route saved successfully!",
+        msg_itinerary_empty: "There are no destinations in the route to save.",
+        msg_itinerary_enter_name: "Please enter a name for the route.",
+        event_types: {
+            "Concierto": "Concert",
+            "Feria": "Fair",
+            "Fiesta": "Festival",
+            "Teatro": "Theater",
+            "Cine": "Cinema",
+            "Cultural": "Cultural"
         }
     }
 };
@@ -314,14 +382,33 @@ function resetEmbeddedMap(cardId, lat, lng) {
 window.updateEmbeddedMap = updateEmbeddedMap;
 window.resetEmbeddedMap = resetEmbeddedMap;
 
+// Apply current theme
+function applyTheme() {
+    const body = document.body;
+    const btnDark = document.getElementById('theme-btn-dark');
+    const btnLight = document.getElementById('theme-btn-light');
+
+    if (currentTheme === 'light') {
+        body.setAttribute('data-theme', 'light');
+        if (btnLight) btnLight.classList.add('active');
+        if (btnDark) btnDark.classList.remove('active');
+    } else {
+        body.removeAttribute('data-theme');
+        if (btnDark) btnDark.classList.add('active');
+        if (btnLight) btnLight.classList.remove('active');
+    }
+}
+
 // Initialize app when DOM is fully loaded
 document.addEventListener('DOMContentLoaded', async () => {
+    applyTheme(); // Set initial theme
     detectLanguage();
     await loadData();
     initFilters();
     applyTranslations();
     renderFavorites();
     updateItineraryUI();
+    renderItineraryTab(); // Render active itinerary and saved history on startup
     setupEventListeners();
     setupLanguageSwitcher();
     requestUserLocation();
@@ -538,7 +625,49 @@ function setupEventListeners() {
     document.getElementById('btn-limpiar-itinerario-bar').addEventListener('click', clearItinerary);
     document.getElementById('btn-limpiar-itinerario-resultados').addEventListener('click', clearItinerary);
 
+    // Save Itinerary Submit Button
+    const btnSaveIt = document.getElementById('btn-save-itinerary-submit');
+    if (btnSaveIt) {
+        btnSaveIt.addEventListener('click', saveCurrentItinerary);
+    }
+    const nameInput = document.getElementById('itinerary-name-input');
+    if (nameInput) {
+        nameInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                saveCurrentItinerary();
+            }
+        });
+    }
+
     // Close Map Lightbox on clicking overlay
+
+    // Only Events Checkbox Listener
+    const onlyEventsChk = document.getElementById('only-events-checkbox');
+    if (onlyEventsChk) {
+        onlyEventsChk.addEventListener('change', renderResults);
+    }
+
+    // Theme Switch Action
+    const btnDark = document.getElementById('theme-btn-dark');
+    const btnLight = document.getElementById('theme-btn-light');
+    if (btnDark) {
+        btnDark.addEventListener('click', () => {
+            if (currentTheme !== 'dark') {
+                currentTheme = 'dark';
+                localStorage.setItem('uruexplorer_theme', 'dark');
+                applyTheme();
+            }
+        });
+    }
+    if (btnLight) {
+        btnLight.addEventListener('click', () => {
+            if (currentTheme !== 'light') {
+                currentTheme = 'light';
+                localStorage.setItem('uruexplorer_theme', 'light');
+                applyTheme();
+            }
+        });
+    }
 }
 
 // Switch between view tabs
@@ -592,9 +721,138 @@ function calculateDistance(lat1, lon1, lat2, lon2) {
     return R * c;
 }
 
+// Remove accents/diacritics and convert to lowercase for search normalization
+function removeAccents(str) {
+    if (!str) return '';
+    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
+}
+
+// Check if an event matches a destination card
+function isEventMatch(ev, item) {
+    const cleanEvDest = removeAccents(ev.destino);
+    const cleanItemDest = removeAccents(item.destino);
+    const cleanEvDept = removeAccents(ev.departamento);
+    const cleanItemDept = removeAccents(item.departamento);
+
+    // If departments mismatch, they don't match (unless one is empty)
+    if (cleanEvDept && cleanItemDept && cleanEvDept !== cleanItemDept) {
+        return false;
+    }
+
+    // 1. Exact match
+    if (cleanEvDest === cleanItemDest) return true;
+
+    // 2. Substring match (either way)
+    if (cleanItemDest.includes(cleanEvDest) || cleanEvDest.includes(cleanItemDest)) return true;
+
+    // 3. Department-wide / City-wide match:
+    // If the event is registered for the whole department/city (e.g. destino is "Montevideo" or "Maldonado")
+    if (cleanEvDest === cleanItemDept) return true;
+
+    return false;
+}
+
+// Compute the Levenshtein edit distance between two strings
+function levenshteinDistance(a, b) {
+    const tmp = [];
+    for (let i = 0; i <= a.length; i++) {
+        tmp[i] = [i];
+    }
+    for (let j = 0; j <= b.length; j++) {
+        tmp[0][j] = j;
+    }
+    for (let i = 1; i <= a.length; i++) {
+        for (let j = 1; j <= b.length; j++) {
+            if (a[i - 1] === b[j - 1]) {
+                tmp[i][j] = tmp[i - 1][j - 1];
+            } else {
+                tmp[i][j] = Math.min(
+                    tmp[i - 1][j] + 1, // deletion
+                    tmp[i][j - 1] + 1, // insertion
+                    tmp[i - 1][j - 1] + 1 // substitution
+                );
+            }
+        }
+    }
+    return tmp[a.length][b.length];
+}
+
+// Calculate similarity score between search query and destination item
+function calculateMatchScore(cleanQuery, item) {
+    const cleanDest = removeAccents(item.destino);
+    const cleanDepto = removeAccents(item.departamento);
+    const cleanChar = removeAccents(item.caracteristicas);
+
+    // 1. Exact phrase substring matches (Highest priority)
+    if (cleanDest.includes(cleanQuery)) {
+        return 100 - (cleanDest.length - cleanQuery.length); // Prefer exact/shorter matches
+    }
+    if (cleanDepto.includes(cleanQuery)) {
+        return 80;
+    }
+    if (cleanChar.includes(cleanQuery)) {
+        return 50;
+    }
+
+    // 2. Word-by-word fuzzy matches
+    const queryWords = cleanQuery.split(/\s+/).filter(w => w.length > 2); // Ignore very short words like 'de', 'la'
+    if (queryWords.length === 0) return 0;
+
+    const destWords = cleanDest.split(/\s+/).filter(w => w.length > 2);
+    const deptoWords = cleanDepto.split(/\s+/).filter(w => w.length > 2);
+    
+    let matchedWordsCount = 0;
+    let totalFuzzyScore = 0;
+
+    queryWords.forEach(qw => {
+        let bestWordScore = 0;
+        
+        // Match query word against destination words
+        destWords.forEach(dw => {
+            if (dw.includes(qw) || qw.includes(dw)) {
+                bestWordScore = Math.max(bestWordScore, 0.9);
+            } else {
+                const maxLen = Math.max(qw.length, dw.length);
+                const dist = levenshteinDistance(qw, dw);
+                const similarity = (maxLen - dist) / maxLen;
+                if (similarity >= 0.65) { // Similarity threshold
+                    bestWordScore = Math.max(bestWordScore, similarity);
+                }
+            }
+        });
+
+        // Match query word against department words
+        deptoWords.forEach(dw => {
+            if (dw.includes(qw) || qw.includes(dw)) {
+                bestWordScore = Math.max(bestWordScore, 0.8);
+            } else {
+                const maxLen = Math.max(qw.length, dw.length);
+                const dist = levenshteinDistance(qw, dw);
+                const similarity = (maxLen - dist) / maxLen;
+                if (similarity >= 0.65) {
+                    bestWordScore = Math.max(bestWordScore, similarity * 0.8);
+                }
+            }
+        });
+
+        if (bestWordScore > 0) {
+            matchedWordsCount++;
+            totalFuzzyScore += bestWordScore;
+        }
+    });
+
+    // If at least one word matched, return fuzzy score mapped out of 40
+    if (matchedWordsCount > 0) {
+        const averageWordScore = totalFuzzyScore / queryWords.length;
+        return averageWordScore * 40;
+    }
+
+    return 0;
+}
+
 // Perform search based on filters selected
 function performSearch() {
-    const searchText = document.getElementById('search-input').value.trim().toLowerCase();
+    const searchText = document.getElementById('search-input').value.trim();
     const selectedDepto = document.getElementById('filter-departamento').value;
     const selectedDif = document.getElementById('filter-dificultad').value;
 
@@ -609,38 +867,53 @@ function performSearch() {
         }
     }
 
-    currentResults = appDestinos.filter(item => {
-        // Free text search by name, characteristics or department
-        if (searchText) {
-            const nameMatch = item.destino.toLowerCase().includes(searchText);
-            const charMatch = item.caracteristicas.toLowerCase().includes(searchText);
-            const deptoMatch = item.departamento.toLowerCase().includes(searchText);
-            if (!nameMatch && !charMatch && !deptoMatch) {
-                return false;
-            }
+    const cleanQuery = removeAccents(searchText);
+
+    // Filter items and calculate matching scores
+    const itemsWithScores = appDestinos.map(item => {
+        let score = 100; // Default score if no search query
+        if (cleanQuery) {
+            score = calculateMatchScore(cleanQuery, item);
+        }
+        return { item, score };
+    }).filter(row => {
+        // If search text was entered, only include items with a match score > 0
+        if (cleanQuery && row.score === 0) {
+            return false;
         }
         // Departamento Filter
-        if (selectedDepto && item.departamento.trim() !== selectedDepto) {
+        if (selectedDepto && row.item.departamento.trim() !== selectedDepto) {
             return false;
         }
         // Grado de Dificultad Filter
-        if (selectedDif && item.dificultad.trim() !== selectedDif) {
+        if (selectedDif && row.item.dificultad.trim() !== selectedDif) {
             return false;
         }
         // Popularidad Filter (Multi-select)
         if (selectedPops.length > 0) {
-            if (!selectedPops.includes(item.popularidad)) {
+            if (!selectedPops.includes(row.item.popularidad)) {
                 return false;
             }
         }
         return true;
     });
 
+    // Map rows to results and store scores
+    currentResults = itemsWithScores.map(row => {
+        const item = row.item;
+        item.distance = null;
+        item.searchScore = row.score;
+        return item;
+    });
+
     // Clear distances from previous search
     currentResults.forEach(item => item.distance = null);
 
-    // Sort by proximity if requested
-    if (!searchText && !selectedDepto && emptySearchCriterion === 'near') {
+    // Sort by search score similarity or by proximity
+    if (cleanQuery) {
+        // Sort by search similarity score descending (highest score first)
+        currentResults.sort((a, b) => b.searchScore - a.searchScore);
+    } else if (!selectedDepto && emptySearchCriterion === 'near') {
         if (userLocation) {
             currentResults.forEach(item => {
                 if (item.lat !== null && item.lng !== null) {
@@ -657,6 +930,12 @@ function performSearch() {
         }
     }
 
+    // Reset the only events checkbox on new search
+    const onlyEventsChk = document.getElementById('only-events-checkbox');
+    if (onlyEventsChk) {
+        onlyEventsChk.checked = false;
+    }
+
     renderResults();
     switchTab('resultados');
 }
@@ -666,15 +945,35 @@ function renderResults() {
     const grid = document.getElementById('results-grid');
     grid.innerHTML = '';
 
+    // Determine if any destination in currentResults has events
+    const hasAnyEvents = currentResults.some(item => 
+        EVENTOS.some(ev => isEventMatch(ev, item))
+    );
+
+    const toggleContainer = document.getElementById('only-events-toggle-container');
+    if (toggleContainer) {
+        toggleContainer.style.display = hasAnyEvents ? 'inline-flex' : 'none';
+    }
+
+    const onlyEventsChk = document.getElementById('only-events-checkbox');
+    const filterOnlyEvents = onlyEventsChk && onlyEventsChk.checked;
+
+    let itemsToRender = currentResults;
+    if (filterOnlyEvents) {
+        itemsToRender = currentResults.filter(item => 
+            EVENTOS.some(ev => isEventMatch(ev, item))
+        );
+    }
+
     const badge = document.getElementById('results-count-badge');
-    if (currentResults.length > 0) {
-        badge.textContent = currentResults.length;
+    if (itemsToRender.length > 0) {
+        badge.textContent = itemsToRender.length;
         badge.style.display = 'inline-block';
     } else {
         badge.style.display = 'none';
     }
 
-    if (currentResults.length === 0) {
+    if (itemsToRender.length === 0) {
         grid.innerHTML = `
             <div class="empty-results">
                 <h4 data-i18n="empty_results_title">${TRANSLATIONS[currentLang].empty_results_title}</h4>
@@ -684,13 +983,16 @@ function renderResults() {
         return;
     }
 
-    currentResults.forEach(item => {
+    itemsToRender.forEach(item => {
         const isFav = favorites.includes(item.id);
         const isInItinerary = itinerary.includes(item.id);
         
         const card = document.createElement('div');
         card.className = 'result-card';
         card.dataset.id = item.id;
+
+        // Find events associated with this destination
+        const matchedEvents = EVENTOS.filter(ev => isEventMatch(ev, item));
 
         // Clean coordinates to display Map
         const mapIframeUrl = `https://maps.google.com/maps?q=${item.lat},${item.lng}&t=&z=14&ie=UTF8&iwloc=&output=embed`;
@@ -752,10 +1054,36 @@ function renderResults() {
                     </div>` : ''}
                 </div>
 
-                <!-- Directions Button -->
-                <button class="btn btn-primary btn-como-ir" data-lat="${item.lat}" data-lng="${item.lng}" data-name="${item.destino}" data-i18n="card_how_to_go">
-                    ${TRANSLATIONS[currentLang].card_how_to_go}
-                </button>
+                <!-- Action Buttons: Como Ir & Eventos -->
+                <div class="card-action-row" style="display: flex; gap: 10px; margin-top: 15px; flex-wrap: wrap;">
+                    <button class="btn btn-primary btn-como-ir" data-lat="${item.lat}" data-lng="${item.lng}" data-name="${item.destino}" data-i18n="card_how_to_go" style="flex: 1; min-width: 140px;">
+                        ${TRANSLATIONS[currentLang].card_how_to_go}
+                    </button>
+                    ${matchedEvents.length > 0 ? `
+                    <button class="btn btn-secondary btn-toggle-events" onclick="toggleCardEvents('${item.id}')" style="flex: 1; min-width: 140px; display: inline-flex; justify-content: center; gap: 8px;">
+                        📅 <span data-i18n="events_title">${TRANSLATIONS[currentLang].events_title}</span> (${matchedEvents.length}) <span class="events-toggle-icon" style="transition: transform 0.3s ease;">▼</span>
+                    </button>
+                    ` : ''}
+                </div>
+
+                <!-- Events Section -->
+                ${matchedEvents.length > 0 ? `
+                <div class="events-section" id="events-section-${item.id}">
+                    <div class="events-container" id="events-container-${item.id}">
+                        <!-- Category Filter Chips -->
+                        <div class="events-filter-bar" style="margin-top: 10px;">
+                            <span class="event-filter-chip active" data-type="Todos" onclick="filterCardEvents(event, '${item.id}', 'Todos')">${TRANSLATIONS[currentLang].events_filter_all}</span>
+                            ${[...new Set(matchedEvents.map(e => e.tipo))].map(tipo => {
+                                const label = TRANSLATIONS[currentLang].event_types[tipo] || tipo;
+                                return `<span class="event-filter-chip" data-type="${tipo}" onclick="filterCardEvents(event, '${item.id}', '${tipo}')">${label}</span>`;
+                            }).join('')}
+                        </div>
+                        <div class="events-list" id="events-list-${item.id}">
+                            <!-- Event cards will be rendered dynamically here -->
+                        </div>
+                    </div>
+                </div>
+                ` : ''}
             </div>
 
             <!-- Map Iframe with interactive controls -->
@@ -879,7 +1207,9 @@ function toggleItinerary(id) {
 // Clear itinerary
 function clearItinerary() {
     itinerary = [];
+    savedEvents = [];
     localStorage.setItem('uruexplorer_itinerary', JSON.stringify(itinerary));
+    localStorage.setItem('uruexplorer_saved_events', JSON.stringify(savedEvents));
     
     // Uncheck all active result cards
     document.querySelectorAll('.route-check').forEach(chk => {
@@ -940,11 +1270,17 @@ function renderItineraryTab() {
 
     if (itineraryDestinos.length === 0) {
         stepsList.innerHTML = `
-            <div class="no-favorites" style="padding: 50px;">
+            <div class="no-favorites" style="padding: 50px;" data-i18n="empty_itinerary_text">
                 ${TRANSLATIONS[currentLang].empty_itinerary_text}
             </div>
         `;
         document.getElementById('btn-trazar-itinerario-tab').style.display = 'none';
+        document.getElementById('itinerary-events-section').style.display = 'none';
+        
+        const saveForm = document.getElementById('save-itinerary-form');
+        if (saveForm) saveForm.style.display = 'none';
+        
+        renderSavedItinerariesHistory();
         return;
     }
 
@@ -975,6 +1311,47 @@ function renderItineraryTab() {
 
         stepsList.appendChild(stepCard);
     });
+
+    // Render saved events for this itinerary
+    const activeSavedEvents = EVENTOS.filter(ev => savedEvents.includes(ev.id));
+    const eventsSection = document.getElementById('itinerary-events-section');
+    const eventsList = document.getElementById('itinerary-events-list');
+
+    if (activeSavedEvents.length > 0) {
+        eventsSection.style.display = 'block';
+        eventsList.innerHTML = '';
+        activeSavedEvents.forEach((ev) => {
+            const typeLabel = TRANSLATIONS[currentLang].event_types[ev.tipo] || ev.tipo;
+            const badgeClass = `tipo-${ev.tipo.toLowerCase().replace(/ \/ /g, '-')}`;
+            
+            const stepCard = document.createElement('div');
+            stepCard.className = 'itinerary-step-card';
+            stepCard.innerHTML = `
+                <div class="step-num" style="background: var(--border); color: var(--text-muted); font-size: 0.75rem;">📅</div>
+                <div class="step-details">
+                    <div class="step-name">${ev.titulo}</div>
+                    <div class="step-dept"><span class="event-badge ${badgeClass}" style="display:inline-block; margin-right:5px; padding: 1px 4px; font-size:0.6rem;">${typeLabel}</span> ${ev.destino} (${ev.fecha})</div>
+                </div>
+                <button class="btn-remove-step" onclick="toggleSavedEvent(${ev.id})" title="${currentLang === 'es' ? 'Eliminar evento' : 'Remove event'}">✕</button>
+            `;
+            eventsList.appendChild(stepCard);
+        });
+    } else {
+        eventsSection.style.display = 'none';
+    }
+
+    // Toggle save itinerary form
+    const saveForm = document.getElementById('save-itinerary-form');
+    if (saveForm) {
+        if (itineraryDestinos.length > 0) {
+            saveForm.style.display = 'block';
+        } else {
+            saveForm.style.display = 'none';
+        }
+    }
+
+    // Render Saved History
+    renderSavedItinerariesHistory();
 }
 
 // Directions ("Cómo ir") for a single destination
@@ -1018,5 +1395,251 @@ function triggerItineraryRoute() {
 
     window.open(url, '_blank');
 }
+
+// Toggle card events list expansion
+function toggleCardEvents(cardId) {
+    const el = document.getElementById(`events-section-${cardId}`);
+    const btn = document.querySelector(`.result-card[data-id="${cardId}"] .btn-toggle-events`);
+    if (el) {
+        const isExpanded = el.classList.toggle('expanded');
+        if (btn) {
+            btn.classList.toggle('active', isExpanded);
+        }
+        if (isExpanded) {
+            // Render events with the currently selected filter (default 'Todos')
+            const filter = cardEventFilters[cardId] || 'Todos';
+            updateCardEventsList(cardId, filter);
+        }
+    }
+}
+window.toggleCardEvents = toggleCardEvents;
+
+// Filter events of a card
+function filterCardEvents(event, cardId, tipo) {
+    event.stopPropagation(); // Avoid triggering header click
+    
+    cardEventFilters[cardId] = tipo;
+    
+    // Update active class on chips
+    const section = document.getElementById(`events-section-${cardId}`);
+    if (section) {
+        section.querySelectorAll('.event-filter-chip').forEach(chip => {
+            if (chip.getAttribute('data-type') === tipo) {
+                chip.classList.add('active');
+            } else {
+                chip.classList.remove('active');
+            }
+        });
+    }
+    
+    updateCardEventsList(cardId, tipo);
+}
+window.filterCardEvents = filterCardEvents;
+
+// Helper to render filtered event cards list inside a destination card
+function updateCardEventsList(cardId, filter) {
+    const listEl = document.getElementById(`events-list-${cardId}`);
+    if (!listEl) return;
+    
+    listEl.innerHTML = '';
+    
+    // Find the destination item
+    const destItem = appDestinos.find(d => d.id == cardId);
+    if (!destItem) return;
+    
+    // Get matched events
+    let events = EVENTOS.filter(ev => isEventMatch(ev, destItem));
+    
+    // Apply type filter if not 'Todos'
+    if (filter !== 'Todos') {
+        events = events.filter(ev => ev.tipo === filter);
+    }
+    
+    if (events.length === 0) {
+        listEl.innerHTML = `<div style="text-align:center; padding: 15px; color: var(--text-muted); font-size: 0.8rem;">No hay eventos en esta categoría.</div>`;
+        return;
+    }
+    
+    events.forEach(ev => {
+        const isSaved = savedEvents.includes(ev.id);
+        const typeLabel = TRANSLATIONS[currentLang].event_types[ev.tipo] || ev.tipo;
+        
+        const evCard = document.createElement('div');
+        evCard.className = 'event-card';
+        
+        const badgeClass = `tipo-${ev.tipo.toLowerCase().replace(/ \/ /g, '-')}`;
+        const freeBadge = ev.gratis 
+            ? `<span class="event-badge free">Gratis</span>` 
+            : `<span class="event-badge paid">${currentLang === 'es' ? 'Pago' : 'Paid'}</span>`;
+            
+        const ticketBtn = ev.ticketUrl 
+            ? `<a href="${ev.ticketUrl}" target="_blank" class="btn-event-action btn-event-ticket">🎟️ ${TRANSLATIONS[currentLang].btn_buy_tickets}</a>`
+            : '';
+            
+        evCard.innerHTML = `
+            <div class="event-meta">
+                <div class="event-type-row">
+                    <span class="event-badge ${badgeClass}">${typeLabel}</span>
+                    ${freeBadge}
+                </div>
+                <span class="event-date">${ev.fecha}</span>
+            </div>
+            <div class="event-title-text">${ev.titulo}</div>
+            <div class="event-desc">${ev.descripcion}</div>
+            <div class="event-actions">
+                ${ticketBtn}
+                <button class="btn-event-action btn-event-save ${isSaved ? 'saved' : ''}" onclick="handleSaveEventClick(event, ${ev.id}, '${cardId}')">
+                    ${isSaved ? TRANSLATIONS[currentLang].btn_unsave_event : TRANSLATIONS[currentLang].btn_save_event}
+                </button>
+            </div>
+        `;
+        
+        listEl.appendChild(evCard);
+    });
+}
+window.updateCardEventsList = updateCardEventsList;
+
+// Handle click to save event
+function handleSaveEventClick(event, eventId, cardId) {
+    event.stopPropagation();
+    toggleSavedEvent(eventId);
+    
+    // Re-render the events list for this card to update save state
+    const filter = cardEventFilters[cardId] || 'Todos';
+    updateCardEventsList(cardId, filter);
+}
+window.handleSaveEventClick = handleSaveEventClick;
+
+// Toggle saved state of event
+function toggleSavedEvent(id) {
+    const idx = savedEvents.indexOf(id);
+    if (idx === -1) {
+        savedEvents.push(id);
+    } else {
+        savedEvents.splice(idx, 1);
+    }
+    localStorage.setItem('uruexplorer_saved_events', JSON.stringify(savedEvents));
+    
+    // Sync with itinerary UI
+    updateItineraryUI();
+    renderItineraryTab();
+}
+window.toggleSavedEvent = toggleSavedEvent;
+
+// Save the current active itinerary under a custom name
+function saveCurrentItinerary() {
+    const input = document.getElementById('itinerary-name-input');
+    if (!input) return;
+    
+    const name = input.value.trim();
+    if (!name) {
+        alert(TRANSLATIONS[currentLang].msg_itinerary_enter_name);
+        return;
+    }
+    
+    if (itinerary.length === 0) {
+        alert(TRANSLATIONS[currentLang].msg_itinerary_empty);
+        return;
+    }
+    
+    const newItineraryObj = {
+        name: name,
+        destinations: [...itinerary],
+        events: [...savedEvents],
+        date: new Date().toISOString()
+    };
+    
+    savedItinerariesList.push(newItineraryObj);
+    localStorage.setItem('uruexplorer_saved_itineraries_list', JSON.stringify(savedItinerariesList));
+    
+    input.value = '';
+    alert(TRANSLATIONS[currentLang].msg_itinerary_saved);
+    
+    renderSavedItinerariesHistory();
+}
+window.saveCurrentItinerary = saveCurrentItinerary;
+
+// Load a saved itinerary from history into the workspace
+function loadSavedItinerary(index) {
+    const itObj = savedItinerariesList[index];
+    if (!itObj) return;
+    
+    itinerary = [...itObj.destinations];
+    savedEvents = itObj.events ? [...itObj.events] : [];
+    
+    localStorage.setItem('uruexplorer_itinerary', JSON.stringify(itinerary));
+    localStorage.setItem('uruexplorer_saved_events', JSON.stringify(savedEvents));
+    
+    // Sync all checkboxes in search results view
+    document.querySelectorAll('.results-grid .route-check').forEach(chk => {
+        const id = parseInt(chk.getAttribute('data-id'));
+        if (itinerary.includes(id)) {
+            chk.checked = true;
+            chk.closest('.route-checkbox-container').classList.add('selected');
+        } else {
+            chk.checked = false;
+            chk.closest('.route-checkbox-container').classList.remove('selected');
+        }
+    });
+    
+    // Update UIs
+    updateItineraryUI();
+    renderItineraryTab();
+    
+    // Go to itinerary tab so the user sees the loaded itinerary details
+    switchTab('itinerary');
+}
+window.loadSavedItinerary = loadSavedItinerary;
+
+// Delete a saved itinerary from history
+function deleteSavedItinerary(index) {
+    savedItinerariesList.splice(index, 1);
+    localStorage.setItem('uruexplorer_saved_itineraries_list', JSON.stringify(savedItinerariesList));
+    renderSavedItinerariesHistory();
+}
+window.deleteSavedItinerary = deleteSavedItinerary;
+
+// Render history list of saved itineraries
+function renderSavedItinerariesHistory() {
+    const listEl = document.getElementById('saved-itineraries-list');
+    if (!listEl) return;
+    
+    listEl.innerHTML = '';
+    
+    if (savedItinerariesList.length === 0) {
+        listEl.innerHTML = `<div class="no-saved-itineraries" data-i18n="no_saved_itineraries">${TRANSLATIONS[currentLang].no_saved_itineraries}</div>`;
+        return;
+    }
+    
+    savedItinerariesList.forEach((it, index) => {
+        const card = document.createElement('div');
+        card.className = 'saved-itinerary-card';
+        
+        const dateStr = new Date(it.date).toLocaleDateString(currentLang === 'es' ? 'es-UY' : 'en-US', {
+            year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit'
+        });
+        
+        const destCount = it.destinations.length;
+        const evCount = it.events ? it.events.length : 0;
+        
+        card.innerHTML = `
+            <div class="saved-itinerary-info">
+                <div class="saved-itinerary-title">${it.name}</div>
+                <div class="saved-itinerary-meta">
+                    <span>📅 ${dateStr}</span>
+                    <span>📍 ${destCount} ${currentLang === 'es' ? 'destinos' : 'destinations'}</span>
+                    <span>🎭 ${evCount} ${currentLang === 'es' ? 'eventos' : 'events'}</span>
+                </div>
+            </div>
+            <div class="saved-itinerary-actions">
+                <button class="btn btn-secondary" onclick="loadSavedItinerary(${index})" data-i18n="btn_load">${TRANSLATIONS[currentLang].btn_load}</button>
+                <button class="btn btn-secondary" onclick="deleteSavedItinerary(${index})" style="border-color:#ff3333; color:#ff3333;" data-i18n="btn_delete">${TRANSLATIONS[currentLang].btn_delete}</button>
+            </div>
+        `;
+        listEl.appendChild(card);
+    });
+}
+window.renderSavedItinerariesHistory = renderSavedItinerariesHistory;
+
 
 

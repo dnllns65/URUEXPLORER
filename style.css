@@ -225,7 +225,7 @@ header {
 .btn-secondary:hover {
     border-color: var(--primary);
     color: var(--primary);
-    background-color: rgba(255, 215, 0, 0.05);
+    background-color: var(--primary-muted);
 }
 
 /* Tabs Navigation */
@@ -451,7 +451,7 @@ header {
 .fav-toggle.active {
     color: var(--primary);
     border-color: var(--primary);
-    background: rgba(255, 215, 0, 0.05);
+    background: var(--primary-muted);
 }
 
 .fav-toggle:hover {
@@ -488,7 +488,7 @@ header {
 .route-checkbox-container.selected {
     border-color: var(--primary);
     color: var(--primary);
-    background: rgba(255, 215, 0, 0.08);
+    background: var(--primary-muted);
 }
 
 /* Info lines */
@@ -885,9 +885,9 @@ body.map-expanded-mode {
 /* Distance Badge in results */
 .distance-badge {
     display: inline-block;
-    background-color: rgba(255, 215, 0, 0.15);
+    background-color: var(--primary-muted);
     color: var(--primary);
-    border: 1px solid rgba(255, 215, 0, 0.3);
+    border: 1px solid var(--primary-muted);
     padding: 2px 8px;
     border-radius: 12px;
     font-size: 0.75rem;
@@ -985,3 +985,323 @@ body.map-expanded-mode {
         margin-top: 2px;
     }
 }
+
+/* Card Events Section */
+.events-section {
+    margin-top: 15px;
+}
+.events-toggle-icon {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+.btn-toggle-events.active {
+    border-color: var(--primary);
+    color: var(--primary);
+    background-color: var(--primary-muted);
+}
+.btn-toggle-events.active .events-toggle-icon {
+    transform: rotate(180deg);
+    color: var(--primary);
+}
+.events-container {
+    display: none;
+    margin-top: 12px;
+    animation: fadeIn 0.3s ease-out forwards;
+}
+.events-section.expanded .events-container {
+    display: block;
+}
+
+/* Event Filter Chips */
+.events-filter-bar {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+}
+.event-filter-chip {
+    background: var(--bg-input);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: 500;
+}
+.event-filter-chip:hover {
+    border-color: var(--primary);
+    color: var(--text-main);
+}
+.event-filter-chip.active {
+    background: var(--primary);
+    color: var(--bg-main);
+    border-color: var(--primary);
+    font-weight: 600;
+}
+
+/* Events List */
+.events-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 320px;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+/* Event Card */
+.event-card {
+    background: var(--bg-main);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: var(--transition);
+}
+.event-card:hover {
+    border-color: rgba(255, 215, 0, 0.15);
+}
+.event-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.event-type-row {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+.event-badge {
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+.event-badge.tipo-concierto { background: #1e3a8a; color: #3b82f6; }
+.event-badge.tipo-feria { background: #3f2f0f; color: #f59e0b; }
+.event-badge.tipo-fiesta { background: #581c87; color: #a855f7; }
+.event-badge.tipo-teatro { background: #065f46; color: #10b981; }
+.event-badge.tipo-cine { background: #7c2d12; color: #f97316; }
+.event-badge.tipo-cultural { background: #1f2937; color: #9ca3af; }
+
+.event-badge.free {
+    background: rgba(16, 185, 129, 0.15);
+    color: #10b981;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+.event-badge.paid {
+    background: rgba(239, 68, 68, 0.15);
+    color: #ef4444;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+.event-date {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+.event-title-text {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-main);
+}
+.event-desc {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+.event-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 4px;
+    gap: 10px;
+}
+.btn-event-action {
+    padding: 6px 12px;
+    font-size: 0.75rem;
+    border-radius: 6px;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+.btn-event-ticket {
+    background-color: var(--primary);
+    color: var(--bg-main);
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    text-decoration: none;
+}
+.btn-event-ticket:hover {
+    background-color: var(--primary-hover);
+    box-shadow: 0 2px 8px rgba(255, 215, 0, 0.2);
+}
+.btn-event-save {
+    background-color: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+.btn-event-save:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+.btn-event-save.saved {
+    background-color: var(--primary-muted);
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+/* Saved Itineraries Manager styling */
+.saved-itinerary-card {
+    background: var(--bg-main);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    transition: var(--transition);
+}
+.saved-itinerary-card:hover {
+    border-color: rgba(255, 215, 0, 0.2);
+}
+.saved-itinerary-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex-grow: 1;
+}
+.saved-itinerary-title {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--primary);
+}
+.saved-itinerary-meta {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+.saved-itinerary-actions {
+    display: flex;
+    gap: 8px;
+}
+.saved-itinerary-actions .btn {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+}
+.no-saved-itineraries {
+    text-align: center;
+    padding: 30px;
+    border: 1px dashed var(--border);
+    border-radius: 8px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    width: 100%;
+}
+
+/* Theme Switcher controls styling */
+.theme-switch {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+
+.theme-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    cursor: pointer;
+    padding: 2px 6px;
+    transition: var(--transition);
+    opacity: 0.6;
+}
+
+.theme-btn.active {
+    opacity: 1;
+    filter: drop-shadow(0 0 5px var(--primary));
+}
+
+.theme-btn:hover {
+    opacity: 1;
+}
+
+/* Light Theme Variable Overrides (Blue / Light Gray) */
+[data-theme="light"] {
+    --bg-main: #F2F2F7;
+    --bg-card: #FFFFFF;
+    --bg-card-hover: #E5E5EA;
+    --bg-input: #E5E5EA;
+    --primary: #007AFF; /* Apple Blue */
+    --primary-hover: #0056B3;
+    --primary-muted: rgba(0, 122, 255, 0.1);
+    --text-main: #1C1C1E;
+    --text-muted: #8E8E93;
+    --border: #D1D1D6;
+    --border-hover: #007AFF;
+}
+
+/* Light Theme Shadow adjust and visual overrides */
+[data-theme="light"] .search-section,
+[data-theme="light"] .result-card,
+[data-theme="light"] .itinerary-list-container,
+[data-theme="light"] .modal-content,
+[data-theme="light"] .itinerary-bar {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .search-section:hover,
+[data-theme="light"] .result-card:hover,
+[data-theme="light"] .itinerary-list-container:hover {
+    border-color: rgba(0, 122, 255, 0.3);
+}
+
+[data-theme="light"] .chip-checkbox input[type="checkbox"]:checked + span {
+    box-shadow: 0 0 10px rgba(0, 122, 255, 0.2);
+}
+
+[data-theme="light"] .distance-badge {
+    border-color: rgba(0, 122, 255, 0.3);
+}
+
+[data-theme="light"] .lang-btn.active {
+    text-shadow: 0 0 5px rgba(0, 122, 255, 0.4);
+}
+
+[data-theme="light"] .btn-event-ticket:hover {
+    box-shadow: 0 2px 8px rgba(0, 122, 255, 0.2);
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border: 2px solid var(--bg-main);
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+}
+

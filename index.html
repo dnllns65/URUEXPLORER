@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UruExplorer - Turismo en Uruguay</title>
     <!-- CSS stylesheet -->
-    <link rel="stylesheet" href="style.css?v=1.6">
+    <link rel="stylesheet" href="style.css?v=1.11">
 </head>
 <body>
     <div class="app-container">
@@ -13,13 +13,20 @@
         <header>
             <div class="logo-row">
                 <div class="logo-group">
-                    <div class="logo notranslate" translate="no">URU<span>EXPLORER</span> <span class="version-tag">v1.6</span></div>
+                    <div class="logo notranslate" translate="no">URU<span>EXPLORER</span> <span class="version-tag">v1.11</span></div>
                     <div class="beta-tag">(BETA)</div>
                 </div>
-                <div class="lang-switch">
-                    <button class="lang-btn" id="lang-btn-es">ES</button>
-                    <span class="lang-divider">|</span>
-                    <button class="lang-btn" id="lang-btn-en">EN</button>
+                <div class="header-controls" style="display: flex; align-items: center; gap: 10px;">
+                    <div class="lang-switch">
+                        <button class="lang-btn" id="lang-btn-es">ES</button>
+                        <span class="lang-divider">|</span>
+                        <button class="lang-btn" id="lang-btn-en">EN</button>
+                    </div>
+                    <div class="theme-switch">
+                        <button class="theme-btn" id="theme-btn-dark" title="Tema Oscuro (Oro/Negro)">🌙</button>
+                        <span class="lang-divider">|</span>
+                        <button class="theme-btn" id="theme-btn-light" title="Tema Claro (Azul/Gris)">☀️</button>
+                    </div>
                 </div>
             </div>
             <div class="tagline" data-i18n="tagline">Explorá Uruguay de forma minimalista</div>
@@ -94,9 +101,15 @@
 
         <!-- View 2: Resultados (Coincidences) -->
         <div id="view-resultados" class="tab-view">
-            <div class="results-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid var(--border); padding-bottom: 10px;">
+            <div class="results-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid var(--border); padding-bottom: 10px; flex-wrap: wrap; gap: 10px;">
                 <h3 style="font-family: var(--font-heading); color: var(--primary); margin: 0;" data-i18n="results_header">Resultados de Búsqueda</h3>
-                <button class="btn btn-secondary" id="btn-limpiar-itinerario-resultados" style="font-size: 0.85rem; padding: 6px 12px; display: none;" data-i18n="btn_limpiar_itinerario">✕ Limpiar Selección</button>
+                <div style="display: flex; gap: 10px; align-items: center;">
+                    <label class="route-checkbox-container" id="only-events-toggle-container" style="font-size: 0.85rem; padding: 6px 12px; display: none; margin: 0;">
+                        <input type="checkbox" id="only-events-checkbox">
+                        <span data-i18n="lbl_only_events">Solo con eventos</span>
+                    </label>
+                    <button class="btn btn-secondary" id="btn-limpiar-itinerario-resultados" style="font-size: 0.85rem; padding: 6px 12px; display: none;" data-i18n="btn_limpiar_itinerario">✕ Limpiar Selección</button>
+                </div>
             </div>
             <div class="results-grid" id="results-grid">
                 <!-- Result blocks will be generated here -->
@@ -113,10 +126,36 @@
                 <div class="itinerary-steps" id="itinerary-steps-list">
                     <!-- Selected route steps will be listed here -->
                 </div>
-                <div class="itinerary-route-action">
+
+                <!-- New section: Selected Events in Itinerary -->
+                <div class="itinerary-events-section" id="itinerary-events-section" style="display: none; margin-top: 30px; border-top: 1px solid var(--border); padding-top: 20px;">
+                    <h4 style="font-family: var(--font-heading); color: var(--primary); margin-bottom: 15px;" data-i18n="itinerary_events_header">Eventos Agendados</h4>
+                    <div class="itinerary-steps" id="itinerary-events-list">
+                        <!-- Selected events will be listed here -->
+                    </div>
+                </div>
+
+                <div class="itinerary-route-action" style="margin-top: 25px;">
                     <button class="btn btn-primary" id="btn-trazar-itinerario-tab" style="width: 100%; font-size: 1.1rem; padding: 15px 30px;" data-i18n="btn_trazar_itinerario">
                         🚙 Trazar Itinerario Completo en Google Maps
                     </button>
+                </div>
+
+                <!-- Form to save the current itinerary -->
+                <div class="save-itinerary-form" id="save-itinerary-form" style="margin-top: 30px; border-top: 1px solid var(--border); padding-top: 20px; display: none;">
+                    <h4 style="font-family: var(--font-heading); color: var(--primary); margin-bottom: 10px;" data-i18n="title_save_itinerary">Guardar Recorrido Actual</h4>
+                    <div style="display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap;">
+                        <input type="text" id="itinerary-name-input" class="search-input" data-i18n-placeholder="placeholder_itinerary_name" placeholder="Ej: Escapada Rocha Enero..." style="flex: 1; min-width: 200px;">
+                        <button class="btn btn-primary" id="btn-save-itinerary-submit" data-i18n="btn_save" style="width: auto; white-space: nowrap; padding: 12px 30px;">Guardar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- List of saved itineraries -->
+            <div class="itinerary-list-container" style="margin-top: 25px;">
+                <h3 style="font-family: var(--font-heading); color: var(--primary); border-bottom: 1px solid var(--border); padding-bottom: 15px; margin-bottom: 20px;" data-i18n="title_saved_itineraries">Mis Recorridos Guardados</h3>
+                <div class="saved-itineraries-list" id="saved-itineraries-list">
+                    <!-- Saved itineraries cards will be rendered here -->
                 </div>
             </div>
         </div>
@@ -151,6 +190,7 @@
 
     <!-- Load Local JS Database and Application Logic -->
     <script src="destinos.js"></script>
-    <script src="app.js?v=1.6"></script>
+    <script src="eventos.js?v=1.11"></script>
+    <script src="app.js?v=1.11"></script>
 </body>
 </html>
