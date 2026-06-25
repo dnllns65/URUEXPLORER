@@ -13,8 +13,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UruExplorer - Turismo en Uruguay</title>
+    <!-- Flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <!-- CSS stylesheet -->
-    <link rel="stylesheet" href="style.css?v=1.17">
+    <link rel="stylesheet" href="style.css?v=1.21">
 </head>
 <body>
     <div class="app-container">
@@ -22,7 +24,7 @@
         <header>
             <div class="logo-row">
                 <div class="logo-group">
-                    <div class="logo notranslate" translate="no">URU<span>EXPLORER</span> <span class="version-tag">v1.17</span></div>
+                    <div class="logo notranslate" translate="no">URU<span>EXPLORER</span> <span class="version-tag">v1.21</span></div>
                     <div class="beta-tag">(BETA)</div>
                 </div>
                 <div class="header-controls" style="display: flex; align-items: center; gap: 10px;">
@@ -43,13 +45,14 @@
 
         <!-- Navigation Tabs -->
         <nav class="tabs-nav">
-            <button class="tab-btn active" id="tab-explorar-btn"><span data-i18n="tab_explorar">Explorar</span></button>
+            <button class="tab-btn active" id="tab-turismo-btn"><span data-i18n="tab_turismo">Turismo</span></button>
+            <button class="tab-btn" id="tab-eventos-btn"><span data-i18n="tab_eventos">Eventos</span></button>
             <button class="tab-btn" id="tab-resultados-btn"><span data-i18n="tab_resultados">Resultados</span> <span id="results-count-badge" style="display:none; font-size: 0.8rem; background: var(--primary); color: var(--bg-main); padding: 2px 6px; border-radius: 10px; margin-left: 5px;">0</span></button>
             <button class="tab-btn" id="tab-itinerario-btn"><span data-i18n="tab_itinerario">Mi Itinerario</span> <span id="itinerary-tab-badge" style="display:none; font-size: 0.8rem; background: var(--primary); color: var(--bg-main); padding: 2px 6px; border-radius: 10px; margin-left: 5px;">0</span></button>
         </nav>
 
-        <!-- View 1: Explorar (Search Filters + Favorites) -->
-        <div id="view-explorar" class="tab-view active">
+        <!-- View 1: Turismo (Search Filters + Favorites) -->
+        <div id="view-turismo" class="tab-view active">
             <!-- Search Section -->
             <section class="search-section">
                 <div class="filter-grid">
@@ -108,15 +111,49 @@
             </section>
         </div>
 
-        <!-- View 2: Resultados (Coincidences) -->
+        <!-- View 2: Eventos (Search Filters + Saved Events/Upcoming events) -->
+        <div id="view-eventos" class="tab-view">
+            <!-- Search Section -->
+            <section class="search-section">
+                <div class="filter-grid">
+                    <!-- Búsqueda por Nombre de Evento o Característica -->
+                    <div class="filter-field">
+                        <label for="search-event-input" data-i18n="lbl_buscar_evento">Nombre de Evento o Característica</label>
+                        <input type="text" id="search-event-input" class="search-input" data-i18n-placeholder="placeholder_buscar_evento" placeholder="Ej: Concierto, Teatro Solís...">
+                    </div>
+                    <!-- Departamento filter -->
+                    <div class="filter-field">
+                        <label for="filter-event-departamento" data-i18n="lbl_departamento">Departamento</label>
+                        <div class="select-wrapper">
+                            <select id="filter-event-departamento">
+                                <option value="" data-i18n="opt_todos_deptos">Todos los departamentos</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- Tipo de Evento filter -->
+                    <div class="filter-field">
+                        <label for="filter-event-tipo" data-i18n="lbl_tipo_evento">Tipo de Evento</label>
+                        <div class="select-wrapper">
+                            <select id="filter-event-tipo">
+                                <option value="" data-i18n="opt_todos_tipos">Todos los tipos</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- Rango de Fechas filter -->
+                    <div class="filter-field">
+                        <label for="filter-event-dates" data-i18n="lbl_fecha_rango">Rango de Fechas</label>
+                        <input type="text" id="filter-event-dates" class="search-input" data-i18n-placeholder="placeholder_fecha_rango" placeholder="Seleccione período de búsqueda..." style="height: 42px;" readonly>
+                    </div>
+                </div>
+                <button class="btn btn-primary" id="btn-buscar-eventos" data-i18n="btn_buscar_eventos">Buscar Eventos</button>
+            </section>
+        </div>
+
+        <!-- View 3: Resultados (Coincidences) -->
         <div id="view-resultados" class="tab-view">
             <div class="results-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid var(--border); padding-bottom: 10px; flex-wrap: wrap; gap: 10px;">
                 <h3 style="font-family: var(--font-heading); color: var(--primary); margin: 0;" data-i18n="results_header">Resultados de Búsqueda</h3>
                 <div style="display: flex; gap: 10px; align-items: center;">
-                    <label class="route-checkbox-container" id="only-events-toggle-container" style="font-size: 0.85rem; padding: 6px 12px; display: none; margin: 0;">
-                        <input type="checkbox" id="only-events-checkbox">
-                        <span data-i18n="lbl_only_events">Solo con eventos</span>
-                    </label>
                     <button class="btn btn-secondary" id="btn-limpiar-itinerario-resultados" style="font-size: 0.85rem; padding: 6px 12px; display: none;" data-i18n="btn_limpiar_itinerario">✕ Limpiar Selección</button>
                 </div>
             </div>
@@ -198,8 +235,10 @@
     </div>
 
     <!-- Load Local JS Database and Application Logic -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://npmcdn.com/flatpickr/dist/l10n/es.js"></script>
     <script src="destinos.js"></script>
-    <script src="eventos.js?v=1.17"></script>
-    <script src="app.js?v=1.17"></script>
+    <script src="eventos.js?v=1.21"></script>
+    <script src="app.js?v=1.21"></script>
 </body>
 </html>
