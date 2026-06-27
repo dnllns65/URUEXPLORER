@@ -1,5 +1,8 @@
 // UruExplorer - Application Logic
 
+// Configuración de Reportes de Error (Google Form pre-llenado)
+const REPORT_FORM_BASE_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSc0Uk8Fo6DRL7XQ6b4CqJdp89ZqLel-YrCJyXyNYZ65m6eDTQ/viewform?usp=pp_url&entry.1878222161=';
+
 // State management
 let favorites = JSON.parse(localStorage.getItem('uruexplorer_favorites')) || [];
 let rawItinerary = JSON.parse(localStorage.getItem('uruexplorer_itinerary')) || [];
@@ -44,6 +47,7 @@ const TRANSLATIONS = {
         empty_results_text: "Intenta ajustar los criterios de búsqueda o seleccionar otros filtros.",
         itinerary_header: "Recorrido Seleccionado",
         btn_clear_all: "Limpiar Todo",
+        card_report_error: "¿Algún dato incorrecto? Reportar",
         btn_trazar_itinerario: "🚙 Trazar Itinerario Completo en Google Maps",
         empty_itinerary_text: "No tienes destinos seleccionados para tu recorrido. Busca destinos y marca la casilla \"Recorrido\" en los resultados de búsqueda para agregarlos aquí.",
         itinerary_bar_count: "Itinerario: {count} destinos seleccionados",
@@ -140,6 +144,7 @@ const TRANSLATIONS = {
         empty_results_text: "Try adjusting the search criteria or selecting other filters.",
         itinerary_header: "Selected Route",
         btn_clear_all: "Clear All",
+        card_report_error: "Any incorrect data? Report",
         btn_trazar_itinerario: "🚙 Trace Complete Itinerary on Google Maps",
         empty_itinerary_text: "You have no destinations selected for your route. Search for destinations and check the \"Route\" box in the search results to add them here.",
         itinerary_bar_count: "Itinerary: {count} destinations selected",
@@ -1203,6 +1208,10 @@ function renderDestinationResults(grid) {
                         <span class="info-label" data-i18n="card_website">${TRANSLATIONS[currentLang].card_website}</span>
                         <span class="info-text"><a href="${item.web.startsWith('http') ? item.web : 'http://' + item.web}" target="_blank">${item.web} ↗</a></span>
                     </div>` : ''}
+                    <div class="info-item report-link-container" style="margin-top: 12px; font-size: 0.85rem; border-top: 1px dashed var(--border-color); padding-top: 8px;">
+                        <span class="info-label" data-i18n="card_report_error">${TRANSLATIONS[currentLang].card_report_error}</span>
+                        <span class="info-text"><a href="${REPORT_FORM_BASE_URL}${encodeURIComponent(item.destino)}" target="_blank" style="color: var(--primary); text-decoration: underline; font-weight: 500;">Reportar error ↗</a></span>
+                    </div>
                 </div>
 
                 <!-- Action Buttons: Como Ir -->
