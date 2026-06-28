@@ -279,6 +279,7 @@ header {
 .tab-view {
     display: none;
     animation: fadeIn 0.4s ease-out forwards;
+    touch-action: pan-y; /* Prevents iOS Safari horizontal swipes from triggering back/forward navigation */
 }
 
 .tab-view.active {

@@ -539,7 +539,8 @@ function initFlatpickr() {
     eventDatePicker = flatpickr(input, {
         mode: "range",
         dateFormat: "Y-m-d",
-        locale: currentLang === 'es' ? 'es' : 'en'
+        locale: currentLang === 'es' ? 'es' : 'en',
+        disableMobile: true // Forces custom calendar UI on touch screens, avoiding native iOS range input crashes
     });
 }
 
@@ -1208,9 +1209,12 @@ function renderDestinationResults(grid) {
                         <span class="info-label" data-i18n="card_website">${TRANSLATIONS[currentLang].card_website}</span>
                         <span class="info-text"><a href="${item.web.startsWith('http') ? item.web : 'http://' + item.web}" target="_blank">${item.web} ↗</a></span>
                     </div>` : ''}
-                    <div class="info-item report-link-container" style="margin-top: 12px; font-size: 0.85rem; border-top: 1px dashed var(--border-color); padding-top: 8px;">
-                        <span class="info-label" data-i18n="card_report_error">${TRANSLATIONS[currentLang].card_report_error}</span>
-                        <span class="info-text"><a href="${REPORT_FORM_BASE_URL}${encodeURIComponent(item.destino)}" target="_blank" style="color: var(--primary); text-decoration: underline; font-weight: 500;">Reportar error ↗</a></span>
+                    <div class="report-link-container" style="margin-top: 12px; font-size: 0.85rem; border-top: 1px dashed var(--border); padding-top: 8px;">
+                        <span class="info-text" style="color: var(--text-muted);">
+                            ${currentLang === 'es' 
+                                ? `¿Algún dato incorrecto? <a href="${REPORT_FORM_BASE_URL}${encodeURIComponent(item.destino)}" target="_blank" style="color: var(--primary); text-decoration: underline; font-weight: 500;">Reportar ↗</a>` 
+                                : `Any incorrect data? <a href="${REPORT_FORM_BASE_URL}${encodeURIComponent(item.destino)}" target="_blank" style="color: var(--primary); text-decoration: underline; font-weight: 500;">Report ↗</a>`}
+                        </span>
                     </div>
                 </div>
 
