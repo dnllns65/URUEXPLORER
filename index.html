@@ -29,7 +29,7 @@
     <!-- Flatpickr CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <!-- CSS stylesheet -->
-    <link rel="stylesheet" href="style.css?v=2.2">
+    <link rel="stylesheet" href="style.css?v=2.3">
 </head>
 <body>
     <div class="app-container">
@@ -37,7 +37,7 @@
         <header>
             <div class="logo-row">
                 <div class="logo-group">
-                    <div class="logo notranslate" translate="no">URU<span>EXPLORER</span> <span class="version-tag">v2.2</span></div>
+                    <div class="logo notranslate" translate="no">URU<span>EXPLORER</span> <span class="version-tag">v2.3</span></div>
                 </div>
                 <div class="header-controls" style="display: flex; align-items: center; gap: 10px;">
                     <div class="lang-switch">
@@ -159,6 +159,16 @@
                 </div>
                 <button class="btn btn-primary" id="btn-buscar-eventos" data-i18n="btn_buscar_eventos">Buscar Eventos</button>
             </section>
+            
+            <!-- Sources Info Links -->
+            <div class="event-sources-container" style="text-align: center; margin-top: 25px; font-size: 0.8rem; color: var(--text-muted); line-height: 1.6;">
+                <span data-i18n="lbl_event_sources_intro">Fuentes de información de eventos:</span>
+                <a href="https://www.gub.uy/ministerio-turismo/agenda" target="_blank" style="color: var(--primary); text-decoration: underline; margin-left: 5px; font-weight: 500;">MINTUR ↗</a>,
+                <a href="https://www.cartelera.com.uy" target="_blank" style="color: var(--primary); text-decoration: underline; margin-left: 5px; font-weight: 500;">Cartelera ↗</a>,
+                <a href="https://tickantel.com.uy" target="_blank" style="color: var(--primary); text-decoration: underline; margin-left: 5px; font-weight: 500;">Tickantel ↗</a>,
+                <a href="https://www.passline.com" target="_blank" style="color: var(--primary); text-decoration: underline; margin-left: 5px; font-weight: 500;">Passline ↗</a>,
+                <a href="https://www.redtickets.uy" target="_blank" style="color: var(--primary); text-decoration: underline; margin-left: 5px; font-weight: 500;">RedTickets ↗</a>
+            </div>
         </div>
 
         <!-- View 3: Resultados (Coincidences) -->
@@ -250,7 +260,7 @@
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="https://npmcdn.com/flatpickr/dist/l10n/es.js"></script>
     <script src="destinos.js"></script>
-    <script src="eventos.js?v=2.2"></script>
-    <script src="app.js?v=2.2"></script>
+    <script src="eventos.js?v=2.3"></script>
+    <script src="app.js?v=2.3"></script>
 </body>
 </html>

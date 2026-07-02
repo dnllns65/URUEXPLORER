@@ -5,14 +5,17 @@
  * "Eventos_Manuales", busca nuevos eventos en la web (evitando duplicar los manuales)
  * y los consolida todos juntos dentro de la pestaña "Eventos" (que lee la app).
  * 
+ * Novedades v2.0:
+ * - Ampliado para capturar toda la cartelera de Cines (Movie, Life, Grupocine, Cinemateca).
+ * - Ampliado para capturar todas las obras de Teatro y espectáculos en el país.
+ * - Corrección de endpoints ASPX de Cartelera Montevideo Portal (evitando HTTP 404).
+ * 
  * Instrucciones de instalación:
  * 1. En tu Google Sheet, asegúrate de tener las pestañas: "Destinos" y "Eventos_Manuales".
  * 2. Ve a: Extensiones -> Apps Script.
- * 3. Borra cualquier código existente y pega este archivo completo.
+ * 3. En el archivo "Scraper.gs", borra cualquier código existente y pega este archivo completo.
  * 4. Guarda el proyecto (icono de disquete).
  * 5. Haz clic en "Ejecutar" sobre la función "scrapeAllEvents" para probarlo.
- * 6. Ve al menú de la izquierda (icono de reloj: Activadores/Triggers) y crea
- *    un nuevo activador para que "scrapeAllEvents" se ejecute una vez al día automáticamente.
  */
 
 // Nombres de las pestañas
@@ -53,7 +56,7 @@ function scrapeAllEvents() {
     Logger.log("Error en Scraper MINTUR: " + e.message);
   }
   
-  // --- SCRAPER 2: Cartelera (Teatros e Interior) ---
+  // --- SCRAPER 2: Cartelera.com.uy (Cines y Teatros) ---
   try {
     const eventosCartelera = scraperCartelera(destinosMap);
     eventosCartelera.forEach(ev => {
@@ -287,51 +290,129 @@ function scraperMintur(destinosMap) {
 }
 
 /**
- * --- SCRAPER 2: Cartelera.com.uy (Teatro e Interior) ---
+ * --- SCRAPER 2: Cartelera.com.uy (Cines y Teatros) ---
  */
 function scraperCartelera(destinosMap) {
-  const url = "https://www.cartelera.com.uy/especies.php?id=3"; 
-  const response = UrlFetchApp.fetch(url, { muteHttpExceptions: true });
-  if (response.getResponseCode() !== 200) return [];
-  
-  const html = response.getContentText("ISO-8859-1"); 
   const eventos = [];
   
-  const regexEspectaculo = /<td class="titulo_espectaculo">([\s\S]*?)<\/td>/g;
-  let match;
+  // Categorías de cartelera a consultar en el nuevo formato ASPX/Redirect de Montevideo Portal:
+  const categorias = [
+    { url: "https://cartelera.montevideo.com.uy/cine", tipo: "Cine", descDefault: "Película en cartelera de cines nacionales." },
+    { url: "https://cartelera.montevideo.com.uy/teatro", tipo: "Teatro", descDefault: "Obra de teatro o espectáculo artístico en cartelera nacional." }
+  ];
   
-  while ((match = regexEspectaculo.exec(html)) !== null) {
-    const bloque = match[1];
-    
-    const titulo = extractBetween(bloque, '">', '</a>').replace(/<[^>]*>/g, "").trim();
-    const linkRel = extractBetween(bloque, 'href="', '"');
-    const ticketUrl = linkRel ? "https://www.cartelera.com.uy/" + linkRel : url;
-    
-    const infoBloque = html.substring(match.index, match.index + 1200);
-    const local = extractBetween(infoBloque, 'class="sala">', '</a>').replace(/<[^>]*>/g, "").trim() || "Teatro local";
-    const fecha = extractBetween(infoBloque, 'class="fechas">', '</td>').replace(/<[^>]*>/g, "").trim() || "Ver cartelera";
-    
-    let departamento = "Montevideo";
-    if (local.toLowerCase().includes("maccio") || local.toLowerCase().includes("san jose")) departamento = "San José";
-    if (local.toLowerCase().includes("florencio sanchez") || local.toLowerCase().includes("paysandu")) departamento = "Paysandú";
-    if (local.toLowerCase().includes("cantegril") || local.toLowerCase().includes("maldonado") || local.toLowerCase().includes("punta del este")) departamento = "Maldonado";
-    if (local.toLowerCase().includes("colonia") || local.toLowerCase().includes("bastion")) departamento = "Colonia";
-    
-    if (titulo) {
-      const cruce = encontrarDestinoYDepartamento(titulo + " " + local, destinosMap, departamento);
-      eventos.push({
-        destino: cruce.destino,
-        departamento: cruce.departamento,
-        titulo: titulo,
-        local: local,
-        tipo: "Teatro",
-        fecha: fecha,
-        descripcion: "Obra de teatro o espectáculo artístico nacional.",
-        ticketUrl: ticketUrl,
-        gratis: false
-      });
+  categorias.forEach(cat => {
+    try {
+      const response = UrlFetchApp.fetch(cat.url, { muteHttpExceptions: true });
+      if (response.getResponseCode() !== 200) {
+        Logger.log("No se pudo acceder a " + cat.url);
+        return;
+      }
+      
+      const html = response.getContentText("UTF-8");
+      
+      // Obtener el bloque de listado-eventos sin truncar prematuramente
+      const startIdx = html.indexOf('class="listado-eventos"');
+      if (startIdx === -1) {
+        Logger.log("No se encontró el contenedor de eventos en " + cat.url);
+        return;
+      }
+      const listadoHtml = html.substring(startIdx);
+      
+      // Separar por cada artículo de evento
+      const articles = listadoHtml.split('<article class="evento">');
+      if (articles.length < 2) return;
+      
+      // Procesar cada película / obra teatral
+      for (let i = 1; i < articles.length; i++) {
+        const art = articles[i];
+        
+        // Extraer título
+        let titulo = extractBetween(art, '<h2 class="name bold">', '</h2>');
+        titulo = titulo.replace(/<[^>]*>/g, "").replace(/\s+/g, " ").trim();
+        if (!titulo) continue;
+        
+        // Enlace por defecto de detalles en Cartelera
+        let linkRel = extractBetween(art, '<h2 class="name bold"><a href="', '"');
+        let ticketUrlDefault = linkRel ? linkRel.trim() : cat.url;
+        
+        // Extraer descripción técnica (Género, Dirección, Actores)
+        const eventDataHtml = extractBetween(art, '<ul class="event-data">', '</ul>');
+        let descripcion = eventDataHtml ? eventDataHtml.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim() : cat.descDefault;
+        if (descripcion.length < 5) {
+          descripcion = cat.descDefault;
+        }
+        
+        // Determinar la fecha de la cartelera o del estreno
+        let fechaText = "";
+        const estrenoHtml = extractBetween(art, 'Estreno previsto:', '</li>');
+        if (estrenoHtml) {
+          let estrenoDate = estrenoHtml.replace(/<[^>]*>/g, "").replace(/\s+/g, " ").trim();
+          if (estrenoDate) {
+            fechaText = "Estreno: " + estrenoDate;
+          }
+        }
+        if (!fechaText) {
+          // Si ya está en cartelera, colocamos el rango de la semana actual (jueves a miércoles)
+          fechaText = obtenerSemanaCartelera();
+        }
+
+        // Dividir por salas/cines asignadas a este título
+        const salaParts = art.split('<p class="heading small bold">');
+        if (salaParts.length < 2) continue; // Si no hay salas registradas, saltear
+        
+        for (let j = 1; j < salaParts.length; j++) {
+          const part = salaParts[j];
+          
+          // Extraer nombre de la sala (local)
+          let local = part.split('</p>')[0].replace(/<[^>]*>/g, "").replace(/\s+/g, " ").trim();
+          if (!local) continue;
+          
+          // Buscar enlace de compra específico para esta sala (Movie, Life, etc.)
+          let buyLink = extractBetween(part, 'href="', '"');
+          buyLink = buyLink ? buyLink.trim() : "";
+          if (buyLink.includes(" ") || buyLink.length < 5 || buyLink.startsWith("listado.html")) {
+            // Fallback al enlace de detalles de la cartelera
+            buyLink = ticketUrlDefault;
+          }
+          
+          // Determinar el departamento sugerido basándonos en la sala
+          let departamento = "Montevideo";
+          const localLower = local.toLowerCase();
+          
+          if (localLower.includes("maccio") || localLower.includes("san jose")) departamento = "San José";
+          if (localLower.includes("florencio sanchez") || localLower.includes("paysandu")) departamento = "Paysandú";
+          if (localLower.includes("cantegril") || localLower.includes("maldonado") || localLower.includes("punta del este") || localLower.includes("punta shopping")) departamento = "Maldonado";
+          if (localLower.includes("colonia") || localLower.includes("bastion")) departamento = "Colonia";
+          if (localLower.includes("las piedras") || localLower.includes("costa urbana") || localLower.includes("canelones")) departamento = "Canelones";
+          if (localLower.includes("rivera") || localLower.includes("siñeriz")) departamento = "Rivera";
+          if (localLower.includes("salto")) departamento = "Salto";
+          if (localLower.includes("artigas")) departamento = "Artigas";
+          if (localLower.includes("chuy") || localLower.includes("rocha")) departamento = "Rocha";
+          if (localLower.includes("fray bentos") || localLower.includes("rio negro")) departamento = "Río Negro";
+          if (localLower.includes("durazno")) departamento = "Durazno";
+          if (localLower.includes("mercedes") || localLower.includes("soriano")) departamento = "Soriano";
+          
+          // Realizar cruce de localización con destinosMap
+          const cruce = encontrarDestinoYDepartamento(titulo + " " + local, destinosMap, departamento);
+          
+          eventos.push({
+            destino: cruce.destino,
+            departamento: cruce.departamento,
+            titulo: titulo,
+            local: local,
+            tipo: cat.tipo,
+            fecha: fechaText,
+            descripcion: descripcion,
+            ticketUrl: buyLink,
+            gratis: false
+          });
+        }
+      }
+    } catch (e) {
+      Logger.log("Error en Cartelera " + cat.url + ": " + e.message);
     }
-  }
+  });
   
   return eventos;
 }
@@ -424,4 +505,39 @@ function clasificarTipoEvento(titulo, descripcion) {
     return "Cine";
   }
   return "Cultural";
+}
+
+/**
+ * Retorna el rango de la semana de cartelera actual en formato español.
+ * La semana de cine en Uruguay va desde el jueves hasta el miércoles de la semana siguiente.
+ */
+function obtenerSemanaCartelera() {
+  const hoy = new Date();
+  const diaSemana = hoy.getDay(); // 0: Domingo, 1: Lunes, ..., 4: Jueves, ..., 6: Sábado
+  const diffJueves = (diaSemana >= 4) ? (diaSemana - 4) : (diaSemana + 3);
+  
+  const jueves = new Date(hoy);
+  jueves.setDate(hoy.getDate() - diffJueves);
+  
+  const miercoles = new Date(jueves);
+  miercoles.setDate(jueves.getDate() + 6);
+  
+  const meses = [
+    "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+    "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+  ];
+  
+  const diaJ = jueves.getDate();
+  const mesJ = meses[jueves.getMonth()];
+  const anioJ = jueves.getFullYear();
+  
+  const diaM = miercoles.getDate();
+  const mesM = meses[miercoles.getMonth()];
+  const anioM = miercoles.getFullYear();
+  
+  if (mesJ === mesM) {
+    return "Del " + diaJ + " al " + diaM + " de " + mesJ + " de " + anioJ;
+  } else {
+    return "Del " + diaJ + " de " + mesJ + " al " + diaM + " de " + mesM + " de " + anioM;
+  }
 }

@@ -1,7 +1,7 @@
 // UruExplorer - Application Logic
 
 // Configuración de Reportes de Error (Google Form pre-llenado)
-const REPORT_FORM_BASE_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSc0Uk8Fo6DRL7XQ6b4CqJdp89ZqLel-YrCJyXyNYZ65m6eDTQ/viewform?usp=pp_url&entry.1878222161=';
+const REPORT_FORM_BASE_URL = 'https://docs.google.com/spreadsheets/d/1x_eFEDfD4Dm5cnDUHSpG8ga_tYhUZdjd4OhGSwmmfPc/edit?gid=784697719#gid=784697719';
 
 // State management
 let favorites = JSON.parse(localStorage.getItem('uruexplorer_favorites')) || [];
@@ -120,7 +120,8 @@ const TRANSLATIONS = {
             "Teatro": "Teatro",
             "Cine": "Cine",
             "Cultural": "Cultural"
-        }
+        },
+        lbl_event_sources_intro: "Fuentes de información de eventos:"
     },
     en: {
         tagline: "Explore Uruguay in a minimalist way",
@@ -217,12 +218,13 @@ const TRANSLATIONS = {
             "Teatro": "Theater",
             "Cine": "Cinema",
             "Cultural": "Cultural"
-        }
+        },
+        lbl_event_sources_intro: "Event information sources:"
     }
 };
 
-const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/1pgmc3TXHNXbtWecKiZYmPRK-_hkKwfujFKvbubIPpjU/export?format=csv';
-const SHEET_EVENTOS_URL = 'https://docs.google.com/spreadsheets/d/1pgmc3TXHNXbtWecKiZYmPRK-_hkKwfujFKvbubIPpjU/export?format=csv&gid=1960694185';
+const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/1x_eFEDfD4Dm5cnDUHSpG8ga_tYhUZdjd4OhGSwmmfPc/export?format=csv';
+const SHEET_EVENTOS_URL = 'https://docs.google.com/spreadsheets/d/1x_eFEDfD4Dm5cnDUHSpG8ga_tYhUZdjd4OhGSwmmfPc/export?format=csv&gid=784697719';
 let appDestinos = DESTINOS; // Default fallback to destinos.js local data
 let appEventos = EVENTOS; // Default fallback to eventos.js local data
 
@@ -385,13 +387,13 @@ function processEventsCSVData(csvText) {
 async function loadData() {
     console.log("Intentando descargar base de datos actualizada desde Google Sheets...");
     
-    // Download both sheets in parallel
+    // Download both sheets in parallel with cache-busting
     const promises = [
-        fetch(SHEET_CSV_URL).then(res => {
+        fetch(`${SHEET_CSV_URL}&t=${Date.now()}`).then(res => {
             if (!res.ok) throw new Error("Error en destinos");
             return res.text();
         }),
-        fetch(SHEET_EVENTOS_URL).then(res => {
+        fetch(`${SHEET_EVENTOS_URL}&t=${Date.now()}`).then(res => {
             if (!res.ok) throw new Error("Error en eventos");
             return res.text();
         })
