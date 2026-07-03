@@ -77,6 +77,13 @@ header {
     gap: 10px;
 }
 
+.logo-icon {
+    height: 1.1em;
+    width: auto;
+    border-radius: 8px;
+    object-fit: contain;
+}
+
 .logo span {
     color: var(--primary);
 }
