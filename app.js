@@ -1262,7 +1262,7 @@ function renderDestinationResults(grid) {
 
         // Geolocation "Cómo ir" button
         card.querySelector('.btn-como-ir').addEventListener('click', () => {
-            getDirections(item.lat, item.lng, item.destino);
+            getDirections(item.lat, item.lng, item.destino, item.departamento);
         });
 
         grid.appendChild(card);
@@ -1371,9 +1371,9 @@ function renderEventResults(grid) {
         if (showMap) {
             card.querySelector('.btn-como-ir').addEventListener('click', () => {
                 if (ev.local) {
-                    getDirectionsToLocal(queryText);
+                    getDirectionsToLocal(queryText, ev.departamento);
                 } else if (hasCoords) {
-                    getDirections(dest.lat, dest.lng, ev.titulo);
+                    getDirections(dest.lat, dest.lng, ev.titulo, ev.departamento);
                 }
             });
         }
@@ -1624,26 +1624,108 @@ function renderItineraryTab() {
 }
 
 // Directions ("Cómo ir") for a single destination
-function getDirections(lat, lng, name) {
+function getDirections(lat, lng, name, departamento) {
     let url = 'https://www.google.com/maps/dir/?api=1&';
     
     if (userLocation) {
         url += `origin=${userLocation.lat},${userLocation.lng}&`;
     }
     
+    // Preguntar si desea agregar estaciones de recarga eléctrica
+    const includeEV = confirm(
+        currentLang === 'es' 
+            ? '¿Deseas incluir estaciones de recarga para vehículos eléctricos (UTE) en tu ruta?' 
+            : 'Do you want to include electric vehicle charging stations (UTE) along your route?'
+    );
+
+    const CHARGERS_MAP = {
+        'montevideo': 'Estación de carga de vehículos eléctricos, Montevideo, Uruguay',
+        'canelones': 'Estación de carga de vehículos eléctricos, Canelones, Uruguay',
+        'maldonado': 'Estación de carga de vehículos eléctricos, Punta del Este, Uruguay',
+        'rocha': 'Estación de carga de vehículos eléctricos, Rocha, Uruguay',
+        'colonia': 'Estación de carga de vehículos eléctricos, Colonia del Sacramento, Uruguay',
+        'san josé': 'Estación de carga de vehículos eléctricos, San José, Uruguay',
+        'san jose': 'Estación de carga de vehículos eléctricos, San José, Uruguay',
+        'soriano': 'Estación de carga de vehículos eléctricos, Mercedes, Uruguay',
+        'río negro': 'Estación de carga de vehículos eléctricos, Fray Bentos, Uruguay',
+        'rio negro': 'Estación de carga de vehículos eléctricos, Fray Bentos, Uruguay',
+        'paysandú': 'Estación de carga de vehículos eléctricos, Paysandú, Uruguay',
+        'paysandu': 'Estación de carga de vehículos eléctricos, Paysandú, Uruguay',
+        'salto': 'Estación de carga de vehículos eléctricos, Salto, Uruguay',
+        'artigas': 'Estación de carga de vehículos eléctricos, Artigas, Uruguay',
+        'rivera': 'Estación de carga de vehículos eléctricos, Rivera, Uruguay',
+        'tacuarembó': 'Estación de carga de vehículos eléctricos, Tacuarembó, Uruguay',
+        'tacuarembo': 'Estación de carga de vehículos eléctricos, Tacuarembó, Uruguay',
+        'cerro largo': 'Estación de carga de vehículos eléctricos, Melo, Uruguay',
+        'treinta y tres': 'Estación de carga de vehículos eléctricos, Treinta y Tres, Uruguay',
+        'lavalleja': 'Estación de carga de vehículos eléctricos, Minas, Uruguay',
+        'florida': 'Estación de carga de vehículos eléctricos, Florida, Uruguay',
+        'flores': 'Estación de carga de vehículos eléctricos, Trinidad, Uruguay',
+        'durazno': 'Estación de carga de vehículos eléctricos, Durazno, Uruguay'
+    };
+
     url += `destination=${lat},${lng}`;
+
+    if (includeEV && departamento) {
+        const deptoKey = departamento.trim().toLowerCase();
+        if (CHARGERS_MAP[deptoKey]) {
+            url += `&waypoints=${encodeURIComponent(CHARGERS_MAP[deptoKey])}`;
+        }
+    }
+    
     window.open(url, '_blank');
 }
 
 // Directions ("Cómo ir") to a specific venue/local
-function getDirectionsToLocal(query) {
+function getDirectionsToLocal(query, departamento) {
     let url = 'https://www.google.com/maps/dir/?api=1&';
     
     if (userLocation) {
         url += `origin=${userLocation.lat},${userLocation.lng}&`;
     }
     
+    // Preguntar si desea agregar estaciones de recarga eléctrica
+    const includeEV = confirm(
+        currentLang === 'es' 
+            ? '¿Deseas incluir estaciones de recarga para vehículos eléctricos (UTE) en tu ruta?' 
+            : 'Do you want to include electric vehicle charging stations (UTE) along your route?'
+    );
+
+    const CHARGERS_MAP = {
+        'montevideo': 'Estación de carga de vehículos eléctricos, Montevideo, Uruguay',
+        'canelones': 'Estación de carga de vehículos eléctricos, Canelones, Uruguay',
+        'maldonado': 'Estación de carga de vehículos eléctricos, Punta del Este, Uruguay',
+        'rocha': 'Estación de carga de vehículos eléctricos, Rocha, Uruguay',
+        'colonia': 'Estación de carga de vehículos eléctricos, Colonia del Sacramento, Uruguay',
+        'san josé': 'Estación de carga de vehículos eléctricos, San José, Uruguay',
+        'san jose': 'Estación de carga de vehículos eléctricos, San José, Uruguay',
+        'soriano': 'Estación de carga de vehículos eléctricos, Mercedes, Uruguay',
+        'río negro': 'Estación de carga de vehículos eléctricos, Fray Bentos, Uruguay',
+        'rio negro': 'Estación de carga de vehículos eléctricos, Fray Bentos, Uruguay',
+        'paysandú': 'Estación de carga de vehículos eléctricos, Paysandú, Uruguay',
+        'paysandu': 'Estación de carga de vehículos eléctricos, Paysandú, Uruguay',
+        'salto': 'Estación de carga de vehículos eléctricos, Salto, Uruguay',
+        'artigas': 'Estación de carga de vehículos eléctricos, Artigas, Uruguay',
+        'rivera': 'Estación de carga de vehículos eléctricos, Rivera, Uruguay',
+        'tacuarembó': 'Estación de carga de vehículos eléctricos, Tacuarembó, Uruguay',
+        'tacuarembo': 'Estación de carga de vehículos eléctricos, Tacuarembó, Uruguay',
+        'cerro largo': 'Estación de carga de vehículos eléctricos, Melo, Uruguay',
+        'treinta y tres': 'Estación de carga de vehículos eléctricos, Treinta y Tres, Uruguay',
+        'lavalleja': 'Estación de carga de vehículos eléctricos, Minas, Uruguay',
+        'florida': 'Estación de carga de vehículos eléctricos, Florida, Uruguay',
+        'flores': 'Estación de carga de vehículos eléctricos, Trinidad, Uruguay',
+        'durazno': 'Estación de carga de vehículos eléctricos, Durazno, Uruguay'
+    };
+
     url += `destination=${encodeURIComponent(query)}`;
+
+    if (includeEV && departamento) {
+        const deptoKey = departamento.trim().toLowerCase();
+        if (CHARGERS_MAP[deptoKey]) {
+            url += `&waypoints=${encodeURIComponent(CHARGERS_MAP[deptoKey])}`;
+        }
+    }
+    
     window.open(url, '_blank');
 }
 
