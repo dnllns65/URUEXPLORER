@@ -1,7 +1,7 @@
 // UruExplorer - Application Logic
 
 // Configuración de Reportes de Error (Google Form pre-llenado)
-const REPORT_FORM_BASE_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfpH108-16eS9Ff8Z_59lY5WJ4mDnggN-p_sPjS1K48g27z-A/viewform?entry.123456789=';
+const REPORT_FORM_BASE_URL = 'https://docs.google.com/forms/d/1uLhJ2kcy8byCfyRoP68m5nX_R7XWU45-islcbMFTM5U/viewform?entry.1878222161=';
 
 // State management
 let favorites = JSON.parse(localStorage.getItem('uruexplorer_favorites')) || [];
