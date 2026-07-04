@@ -797,11 +797,24 @@ function setupEventListeners() {
 
     // Itinerary Bar Actions
     document.getElementById('btn-ver-itinerario-bar').addEventListener('click', () => switchTab('itinerario'));
-    document.getElementById('btn-trazar-itinerario-bar').addEventListener('click', triggerItineraryRoute);
+    document.getElementById('btn-trazar-itinerario-bar').addEventListener('click', (e) => {
+        e.stopPropagation();
+        triggerItineraryRoute();
+    });
     document.getElementById('btn-trazar-itinerario-tab').addEventListener('click', triggerItineraryRoute);
     document.getElementById('btn-clear-itinerary').addEventListener('click', clearItinerary);
-    document.getElementById('btn-limpiar-itinerario-bar').addEventListener('click', clearItinerary);
+    document.getElementById('btn-limpiar-itinerario-bar').addEventListener('click', (e) => {
+        e.stopPropagation(); // Prevent triggering the bar click switchTab
+        clearItinerary();
+    });
     document.getElementById('btn-limpiar-itinerario-resultados').addEventListener('click', clearItinerary);
+
+    // Make the entire sticky bar clickable (especially useful on mobile)
+    document.getElementById('itinerary-bar').addEventListener('click', (e) => {
+        if (!e.target.closest('button')) {
+            switchTab('itinerario');
+        }
+    });
 
     // Save Itinerary Submit Button
     const btnSaveIt = document.getElementById('btn-save-itinerary-submit');
