@@ -978,26 +978,6 @@ body.map-expanded-mode {
 
 /* Mobile responsive styling for header elements */
 @media (max-width: 600px) {
-    .itinerary-bar-actions {
-        display: none;
-    }
-    .itinerary-bar {
-        justify-content: center;
-        text-align: center;
-        padding: 12px 15px;
-    }
-    .itinerary-count::after {
-        content: " ➔";
-        color: var(--primary);
-        font-size: 1.1rem;
-        margin-left: 6px;
-        display: inline-block;
-        transition: transform 0.2s ease;
-    }
-    .itinerary-bar:hover .itinerary-count::after {
-        transform: translateX(4px);
-    }
-
     .logo-row {
         justify-content: center;
         flex-direction: column;
@@ -1505,5 +1485,36 @@ span.flatpickr-weekday {
 }
 .flatpickr-calendar.arrowDown::before {
     border-top-color: var(--border) !important;
+}
+
+/* Simplified Itinerary Bar Link for Mobile (Screens <= 768px) */
+.itinerary-mobile-link {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .itinerary-bar-actions,
+    .itinerary-destinations,
+    #itinerary-bar-count-label {
+        display: none !important;
+    }
+    .itinerary-mobile-link {
+        display: block !important;
+        font-family: var(--font-heading);
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--primary);
+        text-align: center;
+        width: 100%;
+        transition: transform 0.2s ease;
+    }
+    .itinerary-bar {
+        justify-content: center;
+        text-align: center;
+        padding: 14px 15px;
+    }
+    .itinerary-bar:hover .itinerary-mobile-link {
+        transform: scale(1.03);
+    }
 }
 
