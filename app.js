@@ -2329,27 +2329,38 @@ function performEventSearch() {
 
 // Swipe Navigation
 let touchStartX = 0;
+let touchStartY = 0;
 let touchEndX = 0;
+let touchEndY = 0;
 
 function handleTouchStart(e) {
     touchStartX = e.changedTouches[0].screenX;
+    touchStartY = e.changedTouches[0].screenY;
 }
 
 function handleTouchEnd(e) {
     touchEndX = e.changedTouches[0].screenX;
+    touchEndY = e.changedTouches[0].screenY;
     handleSwipe();
 }
 
 function handleSwipe() {
-    const minDistance = 50;
-    const diff = touchEndX - touchStartX;
+    const minDistance = 120; // Increased threshold for a deliberate swipe
+    const diffX = touchEndX - touchStartX;
+    const diffY = touchEndY - touchStartY;
+    
+    // Guard: If the vertical movement is greater than horizontal, it was a vertical scroll, not a swipe
+    if (Math.abs(diffY) > Math.abs(diffX)) {
+        return;
+    }
+    
     const activeTab = document.querySelector('.tab-btn.active');
     if (!activeTab) return;
     
     const activeId = activeTab.id;
     
-    if (Math.abs(diff) > minDistance) {
-        if (diff < 0) {
+    if (Math.abs(diffX) > minDistance) {
+        if (diffX < 0) {
             // Swipe Left
             if (activeId === 'tab-turismo-btn') {
                 switchTab('eventos');
