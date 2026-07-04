@@ -1126,6 +1126,110 @@ function performSearch() {
     switchTab('resultados');
 }
 
+// Translation helper for destination features
+function translateFeatures(featuresText) {
+    if (!featuresText || currentLang === 'es') return featuresText;
+    
+    // Translation dictionary for common feature terms
+    const FEATURES_DICT = {
+        'playa': 'beach',
+        'playas': 'beaches',
+        'caminatas': 'walks',
+        'caminata': 'walk',
+        'caminatas por dunas': 'dune walks',
+        'avistamiento de lobos marinos': 'sea lion watching',
+        'fotografía': 'photography',
+        'trekking': 'trekking',
+        'trekking de exploración': 'exploration trekking',
+        'desfiladero profundo': 'deep gorge',
+        'bosque de quebrada': 'ravine forest',
+        'ecoturismo': 'ecotourism',
+        'baños termales': 'thermal baths',
+        'relax': 'relaxation',
+        'relaxing': 'relaxation',
+        'bienestar físico': 'physical wellness',
+        'senderismo': 'hiking',
+        'senderismo serrano': 'mountain hiking',
+        'cabalgatas': 'horseback riding',
+        'pesca': 'fishing',
+        'pesca deportiva': 'sport fishing',
+        'avistamiento de aves': 'bird watching',
+        'observación de aves': 'bird watching',
+        'enoturismo': 'wine tourism',
+        'museos': 'museums',
+        'museo': 'museum',
+        'ciclismo': 'cycling',
+        'naturaleza': 'nature',
+        'gastronomía': 'gastronomy',
+        'arquitectura': 'architecture',
+        'deportes náuticos': 'water sports',
+        'nautica': 'nautical sports',
+        'náutica': 'nautical sports',
+        'camping': 'camping',
+        'zonas de camping': 'camping areas',
+        'monte nativo': 'native forest',
+        'parrilleros': 'barbecues',
+        'aguas tranquilas': 'calm waters',
+        'navegación': 'sailing',
+        'canchas deportivas': 'sports courts',
+        'cascadas': 'waterfalls',
+        'cascadas naturales': 'natural waterfalls',
+        'cascadas estacionales': 'seasonal waterfalls',
+        'piscinas naturales': 'natural pools',
+        'descanso': 'relaxation',
+        'tranquilidad': 'tranquility',
+        'contacto con la naturaleza': 'contact with nature',
+        'vistas panorámicas': 'panoramic views',
+        'historia': 'history',
+        'sitio histórico': 'historical site',
+        'patrimonio': 'heritage',
+        'aguas termales': 'hot springs',
+        'termas': 'hot springs',
+        'artesanías': 'handicrafts',
+        'paseos': 'tours',
+        'turismo aventura': 'adventure tourism',
+        'arqueología': 'archaeology',
+        'geología': 'geology',
+        'flora y fauna': 'flora and fauna',
+        'senderos': 'trails',
+        'senderos ecológicos': 'ecological trails',
+        'reserva natural': 'natural reserve',
+        'reserva de fauna': 'wildlife reserve',
+        'avistamiento de fauna': 'wildlife watching',
+        'deportes de aventura': 'adventure sports',
+        'deportes': 'sports',
+        'canotaje': 'canoeing',
+        'kayak': 'kayaking',
+        'observación astronómica': 'stargazing',
+        'paisajismo': 'landscaping',
+        'ideal para caminatas': 'ideal for walking',
+        'visitas guiadas': 'guided tours',
+        'senderos de interpretación': 'interpretive trails',
+        'deportes de agua': 'water sports'
+    };
+
+    const parts = featuresText.split(',');
+    const translatedParts = parts.map(part => {
+        let trimmed = part.trim();
+        let hasTrailingDot = false;
+        if (trimmed.endsWith('.')) {
+            trimmed = trimmed.slice(0, -1).trim();
+            hasTrailingDot = true;
+        }
+        const key = trimmed.toLowerCase();
+        
+        if (FEATURES_DICT[key]) {
+            // Maintain uppercase first letter if the original had it
+            const isCapitalized = trimmed && trimmed[0] === trimmed[0].toUpperCase() && trimmed[0] !== trimmed[0].toLowerCase();
+            const translated = FEATURES_DICT[key];
+            return isCapitalized ? translated.charAt(0).toUpperCase() + translated.slice(1) : translated;
+        }
+        return trimmed;
+    });
+
+    return translatedParts.join(', ') + '.';
+}
+
 // Render filtered destination or event blocks
 function renderResults() {
     const grid = document.getElementById('results-grid');
@@ -1199,7 +1303,7 @@ function renderDestinationResults(grid) {
                 <div class="info-block">
                     <div class="info-item">
                         <span class="info-label" data-i18n="card_features">${TRANSLATIONS[currentLang].card_features}</span>
-                        <span class="info-text features">${item.caracteristicas}</span>
+                        <span class="info-text features">${translateFeatures(item.caracteristicas)}</span>
                     </div>
                     <div class="info-item">
                         <span class="info-label" data-i18n="card_accommodation">${TRANSLATIONS[currentLang].card_accommodation}</span>
