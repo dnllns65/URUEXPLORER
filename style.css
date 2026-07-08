@@ -235,51 +235,72 @@ header {
     background-color: var(--primary-muted);
 }
 
-/* Tabs Navigation */
-.tabs-nav {
+/* Unified Header Navigation */
+.unified-nav-header {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     border-bottom: 1px solid var(--border);
     margin-bottom: 30px;
-    gap: 10px;
     position: sticky;
     top: 0;
     background-color: var(--bg-main);
     z-index: 1000;
     padding-top: 15px;
-    padding-bottom: 10px;
+    padding-bottom: 15px;
 }
 
-.tab-btn {
-    background: transparent;
-    border: none;
+.nav-title-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.nav-title-text {
     font-family: var(--font-heading);
-    font-size: 1rem;
-    font-weight: 500;
-    padding: 12px 20px;
-    color: var(--text-muted);
-    cursor: pointer;
-    position: relative;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
     transition: var(--transition);
 }
 
-.tab-btn:hover {
-    color: var(--primary);
+.nav-title-badge {
+    font-size: 0.95rem;
+    background: var(--primary);
+    color: var(--bg-main);
+    padding: 3px 9px;
+    border-radius: 12px;
+    font-weight: 700;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
 }
 
-.tab-btn.active {
+.nav-arrow-btn {
+    background: transparent;
+    border: none;
+    font-size: 2.2rem;
     color: var(--primary);
-    font-weight: 600;
+    cursor: pointer;
+    padding: 0 15px;
+    transition: var(--transition);
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
 }
 
-.tab-btn.active::after {
-    content: "";
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: var(--primary);
-    box-shadow: 0 0 10px var(--primary);
+.nav-arrow-btn:hover {
+    color: var(--primary-hover);
+    transform: scale(1.2);
+}
+
+.nav-arrow-btn:active {
+    transform: scale(0.9);
 }
 
 /* Views Section */
@@ -993,21 +1014,17 @@ body.map-expanded-mode {
         text-align: center;
         margin-top: 2px;
     }
-    .tabs-nav {
-        gap: 4px;
-        overflow-x: auto;
-        white-space: nowrap;
+    .unified-nav-header {
+        margin-bottom: 20px;
         padding-top: 10px;
-        padding-bottom: 5px;
-        scrollbar-width: none; /* Firefox */
+        padding-bottom: 10px;
     }
-    .tabs-nav::-webkit-scrollbar {
-        display: none; /* Chrome, Safari, Opera */
+    .nav-title-text {
+        font-size: 1.8rem;
     }
-    .tab-btn {
-        padding: 10px 14px;
-        font-size: 0.85rem;
-        flex-shrink: 0;
+    .nav-arrow-btn {
+        font-size: 1.8rem;
+        padding: 0 10px;
     }
 }
 
@@ -1487,6 +1504,225 @@ span.flatpickr-weekday {
     border-top-color: var(--border) !important;
 }
 
+/* Emergencies & Utilities View Styles */
+.emergency-gps-status {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 15px 20px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    box-shadow: var(--shadow-sm);
+    flex-wrap: wrap;
+}
+
+.gps-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 8px currentColor;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.gps-dot.red {
+    background-color: #ff3b30;
+    color: rgba(255, 59, 48, 0.4);
+}
+
+.gps-dot.green {
+    background-color: #34c759;
+    color: rgba(52, 199, 89, 0.4);
+}
+
+.gps-text {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-main);
+    flex-grow: 1;
+}
+
+.btn-gps {
+    font-size: 0.85rem !important;
+    padding: 8px 16px !important;
+    width: auto !important;
+}
+
+.emergency-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.emergency-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 25px 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.emergency-card-icon {
+    font-size: 2.5rem;
+    line-height: 1;
+}
+
+.emergency-card-title {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+/* Category-specific card hover states */
+.emergency-card:hover {
+    transform: translateY(-4px);
+    border-color: currentColor;
+}
+
+.emergency-card:active {
+    transform: translateY(0);
+}
+
+.emergency-card.police {
+    color: #007aff; /* Blue accent for police */
+}
+.emergency-card.police:hover {
+    box-shadow: 0 8px 25px rgba(0, 122, 255, 0.2);
+}
+
+.emergency-card.medical {
+    color: #ff3b30; /* Red accent for medical */
+}
+.emergency-card.medical:hover {
+    box-shadow: 0 8px 25px rgba(255, 59, 48, 0.2);
+}
+
+.emergency-card.mechanic {
+    color: #ff9500; /* Orange accent for mechanics */
+}
+.emergency-card.mechanic:hover {
+    box-shadow: 0 8px 25px rgba(255, 149, 0, 0.2);
+}
+
+.emergency-card.chargers {
+    color: #34c759; /* Green accent for chargers */
+}
+.emergency-card.chargers:hover {
+    box-shadow: 0 8px 25px rgba(52, 199, 89, 0.2);
+}
+
+.emergency-section {
+    margin-bottom: 30px;
+}
+
+.emergency-section-title {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 15px;
+    border-left: 3px solid var(--primary);
+    padding-left: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.emergency-list {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 10px 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.emergency-list .empty-text {
+    color: var(--text-muted);
+    font-style: italic;
+    font-size: 0.95rem;
+    padding: 15px 5px;
+    text-align: center;
+    margin: 0;
+}
+
+.emergency-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 10px;
+    border-bottom: 1px solid var(--border);
+}
+
+.emergency-list-item:last-child {
+    border-bottom: none;
+}
+
+.emergency-item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.emergency-item-name {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--text-main);
+}
+
+.emergency-item-detail {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.btn-emergency-item {
+    font-size: 0.8rem !important;
+    padding: 6px 12px !important;
+    width: auto !important;
+}
+
+/* Route Emergencies specific style */
+.emergency-route-dest {
+    border-bottom: 1px solid var(--border);
+    padding: 15px 5px;
+}
+
+.emergency-route-dest:last-child {
+    border-bottom: none;
+}
+
+.emergency-route-dest-name {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.emergency-route-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.btn-route-emergency {
+    font-size: 0.75rem !important;
+    padding: 6px 10px !important;
+    width: auto !important;
+    flex-grow: 1;
+    text-align: center;
+    justify-content: center;
+}
+
 /* Simplified Itinerary Bar Link for Mobile (Screens <= 768px) */
 .itinerary-mobile-link {
     display: none;
@@ -1525,6 +1761,16 @@ span.flatpickr-weekday {
     .itinerary-bar:active .itinerary-mobile-link {
         transform: translateY(0);
         box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
+    }
+    .emergency-card {
+        padding: 15px 10px;
+        gap: 8px;
+    }
+    .emergency-card-icon {
+        font-size: 2rem;
+    }
+    .emergency-card-title {
+        font-size: 0.95rem;
     }
 }
 

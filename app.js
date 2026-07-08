@@ -22,6 +22,8 @@ let emptySearchCriterion = null; // Session empty search behavior ('near' or 'al
 let currentLang = 'es'; // default
 let currentTheme = localStorage.getItem('uruexplorer_theme') || 'dark';
 let eventDatePicker = null;
+const TABS = ['turismo', 'eventos', 'resultados', 'emergencias', 'itinerario'];
+let activeTabId = 'turismo';
 
 // Localization Dictionary
 const TRANSLATIONS = {
@@ -122,7 +124,21 @@ const TRANSLATIONS = {
             "Cine": "Cine",
             "Cultural": "Cultural"
         },
-        lbl_event_sources_intro: "Fuentes de información de eventos:"
+        lbl_event_sources_intro: "Fuentes de información de eventos:",
+        tab_emergencias: "Emergencias",
+        lbl_gps_status: "Estado del GPS",
+        lbl_gps_active: "Ubicación activa",
+        lbl_gps_inactive: "Ubicación inactiva",
+        btn_detect_location: "Detectar mi ubicación",
+        title_emergencias_cerca: "Servicios Cercanos (Radio 200 km)",
+        btn_search_police: "Puestos de Policía",
+        btn_search_medical: "Atención Médica",
+        btn_search_mechanics: "Mecánica y Auxilio",
+        btn_search_chargers: "Estaciones de Recarga",
+        title_chargers_200km: "Cargadores UTE a menos de 200 km",
+        no_chargers_200km: "No se detectaron estaciones de recarga de UTE a menos de 200 km.",
+        title_itinerary_emergencies: "Emergencias en tu Recorrido",
+        empty_itinerary_emergencies: "No tienes destinos en tu recorrido para calcular servicios en ruta."
     },
     en: {
         tagline: "Explore Uruguay in a minimalist way",
@@ -221,7 +237,133 @@ const TRANSLATIONS = {
             "Cine": "Cinema",
             "Cultural": "Cultural"
         },
-        lbl_event_sources_intro: "Event information sources:"
+        lbl_event_sources_intro: "Event information sources:",
+        tab_emergencias: "Emergencies",
+        lbl_gps_status: "GPS Status",
+        lbl_gps_active: "Location active",
+        lbl_gps_inactive: "Location inactive",
+        btn_detect_location: "Detect my location",
+        title_emergencias_cerca: "Nearby Services (200 km Radius)",
+        btn_search_police: "Police Stations",
+        btn_search_medical: "Medical Attention",
+        btn_search_mechanics: "Mechanic & Towing",
+        btn_search_chargers: "Charging Stations",
+        title_chargers_200km: "UTE Chargers within 200 km",
+        no_chargers_200km: "No UTE charging stations detected within 200 km.",
+        title_itinerary_emergencies: "Emergencies along your Route",
+        empty_itinerary_emergencies: "You have no destinations in your route to calculate roadside services."
+    },
+    pt: {
+        tagline: "Explore o Uruguai de forma minimalista",
+        tab_explorar: "Explorar",
+        tab_resultados: "Resultados",
+        tab_itinerario: "Minhas rotas",
+        lbl_buscar_destino: "Buscar Destino ou Característica",
+        placeholder_buscar: "Ex: Cabo Polonio, praia, cachoeira...",
+        lbl_departamento: "Departamento",
+        lbl_dificultad: "Grau de Dificuldade",
+        lbl_popularidad: "Popularidade",
+        opt_todos_deptos: "Todos os departamentos",
+        opt_todos_grados: "Todos os graus",
+        btn_buscar: "Buscar Coincidências",
+        title_favoritos: "★ Seus Destinos Favoritos",
+        no_favorites: "Você ainda não tem destinos favoritos salvos. Adicione alguns marcando a estrela nos blocos de resultados!",
+        results_header: "Resultados da Busca",
+        btn_limpiar_itinerario: "✕ Limpar Seleção",
+        lbl_only_events: "Apenas com eventos",
+        empty_results_title: "Nenhum destino encontrado",
+        empty_results_text: "Tente ajustar os critérios de busca ou selecionar outros filtros.",
+        itinerary_header: "Roteiro Selecionado",
+        btn_clear_all: "Limpar Tudo",
+        card_report_error: "Algum dado incorreto? Reportar",
+        btn_trazar_itinerario: "🚙 Traçar Roteiro Completo no Google Maps",
+        empty_itinerary_text: "Você não tem destinos selecionados para o seu roteiro. Busque destinos e marque a caixa \"Roteiro\" nos resultados de busca para adicioná-los aqui.",
+        itinerary_bar_count: "Roteiro: {count} destinos selecionados",
+        itinerary_bar_none: "Nenhum selecionado",
+        itinerary_mobile_link: "Minhas rotas ➔",
+        btn_limpiar: "✕ Limpar",
+        btn_ver_detalles: "Ver Detalhes",
+        btn_establecer_ruta: "Estabelecer Rota",
+        modal_title: "📍 Busca ampla",
+        modal_body: "Você não especificou um destino nem um departamento. O que prefere ver?",
+        btn_modal_cerca: "📍 Buscar perto da minha posição",
+        btn_modal_todos: "🌍 Mostrar todos os disponíveis",
+        card_features: "Características",
+        card_accommodation: "Hospedagem",
+        card_dining: "Onde comer",
+        card_location: "Localização",
+        card_contact: "Contato principal",
+        card_website: "Sítio Web",
+        card_how_to_go: "Como ir",
+        card_reset_map: "🔄 Redefinir Mapa",
+        card_route: "Roteiro",
+        distance_badge: "📍 a {distance} km",
+        popularity_badge: "Popularidade",
+        pop_alta: "Alta",
+        pop_moderada: "Moderada",
+        pop_emergente: "Emergente",
+        no_info: "Consultar informações locais ou sítio web",
+        popularity_levels: {
+            "Alta": "Alta",
+            "Moderada": "Moderada",
+            "Emergente": "Emergente"
+        },
+        itinerary_events_header: "Eventos Agendados",
+        title_save_itinerary: "Salvar Roteiro Atual",
+        placeholder_itinerary_name: "Ex: Viagem Rocha Janeiro...",
+        btn_save: "Salvar",
+        title_saved_itineraries: "Meus Roteiros Salvos",
+        no_saved_itineraries: "Você não tem roteiros salvos neste dispositivo.",
+        btn_search_events: "📅 Buscar Eventos",
+        btn_load: "Carregar",
+        btn_delete: "Excluir",
+        events_title: "Eventos Disponíveis",
+        events_filter_all: "Todos",
+        events_filter_concerts: "Shows",
+        events_filter_fairs: "Feiras",
+        events_filter_festivals: "Festas",
+        events_filter_theater_cine: "Teatro / Cinema",
+        events_filter_cultural: "Culturais",
+        btn_buy_tickets: "🎟️ Comprar Ingressos",
+        btn_save_event: "⭐ Salvar Evento",
+        btn_unsave_event: "⭐ Salvo",
+        msg_itinerary_saved: "Roteiro salvo com sucesso!",
+        msg_itinerary_empty: "Não há destinos no roteiro para salvar.",
+        msg_itinerary_enter_name: "Por favor, insira um nome para o roteiro.",
+        tab_turismo: "Turismo",
+        tab_eventos: "Eventos",
+        lbl_buscar_evento: "Nome do Evento ou Característica",
+        placeholder_buscar_evento: "Ex: Show, Teatro Solís...",
+        lbl_tipo_evento: "Tipo de Evento",
+        opt_todos_tipos: "Todos os tipos",
+        lbl_fecha_inicio: "Data de Início",
+        lbl_fecha_fin: "Data de Término",
+        lbl_fecha_rango: "Intervalo de Datas",
+        placeholder_fecha_rango: "Selecione o período de busca...",
+        btn_buscar_eventos: "Buscar Eventos",
+        event_types: {
+            "Concierto": "Show",
+            "Feria": "Feira",
+            "Fiesta": "Festa",
+            "Teatro": "Teatro",
+            "Cine": "Cinema",
+            "Cultural": "Cultural"
+        },
+        lbl_event_sources_intro: "Fontes de informação sobre eventos:",
+        tab_emergencias: "Emergências",
+        lbl_gps_status: "Status do GPS",
+        lbl_gps_active: "Localização ativa",
+        lbl_gps_inactive: "Localização inativa",
+        btn_detect_location: "Detectar minha localização",
+        title_emergencias_cerca: "Serviços Próximos (Raio de 200 km)",
+        btn_search_police: "Postos de Polícia",
+        btn_search_medical: "Atendimento Médico",
+        btn_search_mechanics: "Mecânica e Reboque",
+        btn_search_chargers: "Estações de Recarga",
+        title_chargers_200km: "Carregadores UTE a menos de 200 km",
+        no_chargers_200km: "Nenhuma estação de recarga UTE detectada a menos de 200 km.",
+        title_itinerary_emergencies: "Emergências ao longo do seu Roteiro",
+        empty_itinerary_emergencies: "Você não tem destinos no seu roteiro para calcular serviços na estrada."
     }
 };
 
@@ -323,6 +465,7 @@ function processCSVData(csvText) {
             dificultad: row[difIdx] ? row[difIdx].trim() : '',
             caracteristicas: row[charIdx] ? row[charIdx].trim() : '',
             caracteristicas_en: localDest && localDest.caracteristicas_en ? localDest.caracteristicas_en : '',
+            caracteristicas_pt: localDest && localDest.caracteristicas_pt ? localDest.caracteristicas_pt : '',
             costos: row[costIdx] ? row[costIdx].trim() : '',
             alojamiento: row[alojIdx] ? row[alojIdx].trim() : '',
             comer: row[comerIdx] ? row[comerIdx].trim() : '',
@@ -547,7 +690,7 @@ function initFlatpickr() {
     eventDatePicker = flatpickr(input, {
         mode: "range",
         dateFormat: "Y-m-d",
-        locale: currentLang === 'es' ? 'es' : 'en',
+        locale: currentLang === 'es' ? 'es' : (currentLang === 'pt' ? 'pt' : 'en'),
         disableMobile: true // Forces custom calendar UI on touch screens, avoiding native iOS range input crashes
     });
 }
@@ -584,6 +727,7 @@ function detectLanguage() {
 function setupLanguageSwitcher() {
     const btnEs = document.getElementById('lang-btn-es');
     const btnEn = document.getElementById('lang-btn-en');
+    const btnPt = document.getElementById('lang-btn-pt');
     
     if (btnEs) {
         btnEs.addEventListener('click', () => {
@@ -620,6 +764,24 @@ function setupLanguageSwitcher() {
             }
         });
     }
+
+    if (btnPt) {
+        btnPt.addEventListener('click', () => {
+            if (currentLang !== 'pt') {
+                currentLang = 'pt';
+                applyTranslations();
+                initFilters();
+                initEventFilters(); // Re-initialize events filter in Portuguese
+                initFlatpickr(); // Reinit Flatpickr with PT locale
+                renderFavorites();
+                updateItineraryUI();
+                renderItineraryTab();
+                if (currentResults.length > 0) {
+                    renderResults();
+                }
+            }
+        });
+    }
 }
 
 // Apply translations to static HTML and switcher buttons
@@ -629,13 +791,17 @@ function applyTranslations() {
     // Update active state in switcher buttons
     const btnEs = document.getElementById('lang-btn-es');
     const btnEn = document.getElementById('lang-btn-en');
-    if (btnEs && btnEn) {
+    const btnPt = document.getElementById('lang-btn-pt');
+    if (btnEs && btnEn && btnPt) {
+        btnEs.classList.remove('active');
+        btnEn.classList.remove('active');
+        btnPt.classList.remove('active');
         if (currentLang === 'es') {
             btnEs.classList.add('active');
-            btnEn.classList.remove('active');
-        } else {
+        } else if (currentLang === 'en') {
             btnEn.classList.add('active');
-            btnEs.classList.remove('active');
+        } else if (currentLang === 'pt') {
+            btnPt.classList.add('active');
         }
     }
 
@@ -654,6 +820,15 @@ function applyTranslations() {
             el.placeholder = dict[key];
         }
     });
+
+    // Update active tab title translation in the unified header
+    const titleTextEl = document.getElementById('nav-title-text');
+    if (titleTextEl && typeof activeTabId !== 'undefined') {
+        const key = 'tab_' + activeTabId;
+        if (dict[key]) {
+            titleTextEl.textContent = dict[key];
+        }
+    }
 }
 
 // Helper to translate difficulty level display text
@@ -678,9 +853,15 @@ function requestUserLocation() {
                     lng: position.coords.longitude
                 };
                 console.log("Ubicación del usuario obtenida:", userLocation);
+                if (activeTabId === 'emergencias') {
+                    renderEmergenciesTab();
+                }
             },
             (error) => {
                 console.warn("No se pudo obtener la ubicación:", error.message);
+                if (activeTabId === 'emergencias') {
+                    renderEmergenciesTab();
+                }
             },
             { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 }
         );
@@ -746,11 +927,17 @@ function initFilters() {
 
 // Set up UI navigation and actions
 function setupEventListeners() {
-    // Tabs Navigation
-    document.getElementById('tab-turismo-btn').addEventListener('click', () => switchTab('turismo'));
-    document.getElementById('tab-eventos-btn').addEventListener('click', () => switchTab('eventos'));
-    document.getElementById('tab-resultados-btn').addEventListener('click', () => switchTab('resultados'));
-    document.getElementById('tab-itinerario-btn').addEventListener('click', () => switchTab('itinerario'));
+    // Tabs Navigation via Arrows
+    function navigateTab(direction) {
+        const currentIndex = TABS.indexOf(activeTabId);
+        let nextIndex = currentIndex + direction;
+        if (nextIndex >= 0 && nextIndex < TABS.length) {
+            switchTab(TABS[nextIndex]);
+        }
+    }
+
+    document.getElementById('nav-arrow-left').addEventListener('click', () => navigateTab(-1));
+    document.getElementById('nav-arrow-right').addEventListener('click', () => navigateTab(1));
 
     // Search Actions
     document.getElementById('btn-buscar').addEventListener('click', () => {
@@ -857,28 +1044,86 @@ function setupEventListeners() {
             }
         });
     }
+
+    // Emergencies Card Event Listeners
+    const btnEmergencyGps = document.getElementById('btn-detect-gps');
+    if (btnEmergencyGps) {
+        btnEmergencyGps.addEventListener('click', () => {
+            requestUserLocation();
+        });
+    }
+
+    const btnEmergencyPolice = document.getElementById('btn-emergency-police');
+    if (btnEmergencyPolice) {
+        btnEmergencyPolice.addEventListener('click', () => openEmergencySearch('police'));
+    }
+
+    const btnEmergencyMedical = document.getElementById('btn-emergency-medical');
+    if (btnEmergencyMedical) {
+        btnEmergencyMedical.addEventListener('click', () => openEmergencySearch('medical'));
+    }
+
+    const btnEmergencyMechanic = document.getElementById('btn-emergency-mechanic');
+    if (btnEmergencyMechanic) {
+        btnEmergencyMechanic.addEventListener('click', () => openEmergencySearch('mechanic'));
+    }
+
+    const btnEmergencyChargers = document.getElementById('btn-emergency-chargers');
+    if (btnEmergencyChargers) {
+        btnEmergencyChargers.addEventListener('click', () => openEmergencySearch('chargers'));
+    }
 }
 
 // Switch between view tabs
 function switchTab(tabId) {
-    // Remove active state from all buttons and views
-    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+    activeTabId = tabId;
+
+    // Remove active state from all views
     document.querySelectorAll('.tab-view').forEach(view => view.classList.remove('active'));
 
-    // Activate selected tab and view
+    // Activate selected view
     if (tabId === 'turismo') {
-        document.getElementById('tab-turismo-btn').classList.add('active');
         document.getElementById('view-turismo').classList.add('active');
     } else if (tabId === 'eventos') {
-        document.getElementById('tab-eventos-btn').classList.add('active');
         document.getElementById('view-eventos').classList.add('active');
     } else if (tabId === 'resultados') {
-        document.getElementById('tab-resultados-btn').classList.add('active');
         document.getElementById('view-resultados').classList.add('active');
+    } else if (tabId === 'emergencias') {
+        document.getElementById('view-emergencias').classList.add('active');
+        renderEmergenciesTab();
     } else if (tabId === 'itinerario') {
-        document.getElementById('tab-itinerario-btn').classList.add('active');
         document.getElementById('view-itinerario').classList.add('active');
         renderItineraryTab();
+    }
+
+    // Update navigation header title text
+    const titleTextEl = document.getElementById('nav-title-text');
+    if (titleTextEl) {
+        let key = 'tab_' + tabId;
+        const dict = TRANSLATIONS[currentLang] || TRANSLATIONS['es'];
+        titleTextEl.textContent = dict[key] || tabId;
+    }
+
+    // Show/hide arrow buttons based on position (using visibility to keep center alignment)
+    const currentIndex = TABS.indexOf(tabId);
+    const leftArrow = document.getElementById('nav-arrow-left');
+    const rightArrow = document.getElementById('nav-arrow-right');
+    
+    if (leftArrow) {
+        leftArrow.style.visibility = currentIndex === 0 ? 'hidden' : 'visible';
+    }
+    if (rightArrow) {
+        rightArrow.style.visibility = currentIndex === TABS.length - 1 ? 'hidden' : 'visible';
+    }
+
+    // Update visibility of the badges next to the title
+    const resBadge = document.getElementById('results-count-badge');
+    const itBadge = document.getElementById('itinerary-tab-badge');
+    if (resBadge) {
+        resBadge.style.display = (tabId === 'resultados' && currentResults.length > 0) ? 'inline-block' : 'none';
+    }
+    if (itBadge) {
+        itBadge.style.display = (tabId === 'itinerario' && itinerary.length > 0) ? 'inline-block' : 'none';
     }
 
     // Scroll back to top smoothly so the user doesn't stay scrolled down from previous view
@@ -1205,7 +1450,7 @@ function renderDestinationResults(grid) {
                 <div class="info-block">
                     <div class="info-item">
                         <span class="info-label" data-i18n="card_features">${TRANSLATIONS[currentLang].card_features}</span>
-                        <span class="info-text features">${currentLang === 'en' && item.caracteristicas_en ? item.caracteristicas_en : item.caracteristicas}</span>
+                        <span class="info-text features">${currentLang === 'en' && item.caracteristicas_en ? item.caracteristicas_en : (currentLang === 'pt' && item.caracteristicas_pt ? item.caracteristicas_pt : item.caracteristicas)}</span>
                     </div>
                     <div class="info-item">
                         <span class="info-label" data-i18n="card_accommodation">${TRANSLATIONS[currentLang].card_accommodation}</span>
@@ -1650,48 +1895,7 @@ function getDirections(lat, lng, name, departamento) {
         url += `origin=${userLocation.lat},${userLocation.lng}&`;
     }
     
-    // Preguntar si desea agregar estaciones de recarga eléctrica
-    const includeEV = confirm(
-        currentLang === 'es' 
-            ? '¿Deseas incluir estaciones de recarga para vehículos eléctricos (UTE) en tu ruta?' 
-            : 'Do you want to include electric vehicle charging stations (UTE) along your route?'
-    );
-
-    const CHARGERS_MAP = {
-        'montevideo': 'Estación de carga de vehículos eléctricos, Montevideo, Uruguay',
-        'canelones': 'Estación de carga de vehículos eléctricos, Canelones, Uruguay',
-        'maldonado': 'Estación de carga de vehículos eléctricos, Punta del Este, Uruguay',
-        'rocha': 'Estación de carga de vehículos eléctricos, Rocha, Uruguay',
-        'colonia': 'Estación de carga de vehículos eléctricos, Colonia del Sacramento, Uruguay',
-        'san josé': 'Estación de carga de vehículos eléctricos, San José, Uruguay',
-        'san jose': 'Estación de carga de vehículos eléctricos, San José, Uruguay',
-        'soriano': 'Estación de carga de vehículos eléctricos, Mercedes, Uruguay',
-        'río negro': 'Estación de carga de vehículos eléctricos, Fray Bentos, Uruguay',
-        'rio negro': 'Estación de carga de vehículos eléctricos, Fray Bentos, Uruguay',
-        'paysandú': 'Estación de carga de vehículos eléctricos, Paysandú, Uruguay',
-        'paysandu': 'Estación de carga de vehículos eléctricos, Paysandú, Uruguay',
-        'salto': 'Estación de carga de vehículos eléctricos, Salto, Uruguay',
-        'artigas': 'Estación de carga de vehículos eléctricos, Artigas, Uruguay',
-        'rivera': 'Estación de carga de vehículos eléctricos, Rivera, Uruguay',
-        'tacuarembó': 'Estación de carga de vehículos eléctricos, Tacuarembó, Uruguay',
-        'tacuarembo': 'Estación de carga de vehículos eléctricos, Tacuarembó, Uruguay',
-        'cerro largo': 'Estación de carga de vehículos eléctricos, Melo, Uruguay',
-        'treinta y tres': 'Estación de carga de vehículos eléctricos, Treinta y Tres, Uruguay',
-        'lavalleja': 'Estación de carga de vehículos eléctricos, Minas, Uruguay',
-        'florida': 'Estación de carga de vehículos eléctricos, Florida, Uruguay',
-        'flores': 'Estación de carga de vehículos eléctricos, Trinidad, Uruguay',
-        'durazno': 'Estación de carga de vehículos eléctricos, Durazno, Uruguay'
-    };
-
     url += `destination=${lat},${lng}`;
-
-    if (includeEV && departamento) {
-        const deptoKey = departamento.trim().toLowerCase();
-        if (CHARGERS_MAP[deptoKey]) {
-            url += `&waypoints=${encodeURIComponent(CHARGERS_MAP[deptoKey])}`;
-        }
-    }
-    
     window.open(url, '_blank');
 }
 
@@ -1703,48 +1907,7 @@ function getDirectionsToLocal(query, departamento) {
         url += `origin=${userLocation.lat},${userLocation.lng}&`;
     }
     
-    // Preguntar si desea agregar estaciones de recarga eléctrica
-    const includeEV = confirm(
-        currentLang === 'es' 
-            ? '¿Deseas incluir estaciones de recarga para vehículos eléctricos (UTE) en tu ruta?' 
-            : 'Do you want to include electric vehicle charging stations (UTE) along your route?'
-    );
-
-    const CHARGERS_MAP = {
-        'montevideo': 'Estación de carga de vehículos eléctricos, Montevideo, Uruguay',
-        'canelones': 'Estación de carga de vehículos eléctricos, Canelones, Uruguay',
-        'maldonado': 'Estación de carga de vehículos eléctricos, Punta del Este, Uruguay',
-        'rocha': 'Estación de carga de vehículos eléctricos, Rocha, Uruguay',
-        'colonia': 'Estación de carga de vehículos eléctricos, Colonia del Sacramento, Uruguay',
-        'san josé': 'Estación de carga de vehículos eléctricos, San José, Uruguay',
-        'san jose': 'Estación de carga de vehículos eléctricos, San José, Uruguay',
-        'soriano': 'Estación de carga de vehículos eléctricos, Mercedes, Uruguay',
-        'río negro': 'Estación de carga de vehículos eléctricos, Fray Bentos, Uruguay',
-        'rio negro': 'Estación de carga de vehículos eléctricos, Fray Bentos, Uruguay',
-        'paysandú': 'Estación de carga de vehículos eléctricos, Paysandú, Uruguay',
-        'paysandu': 'Estación de carga de vehículos eléctricos, Paysandú, Uruguay',
-        'salto': 'Estación de carga de vehículos eléctricos, Salto, Uruguay',
-        'artigas': 'Estación de carga de vehículos eléctricos, Artigas, Uruguay',
-        'rivera': 'Estación de carga de vehículos eléctricos, Rivera, Uruguay',
-        'tacuarembó': 'Estación de carga de vehículos eléctricos, Tacuarembó, Uruguay',
-        'tacuarembo': 'Estación de carga de vehículos eléctricos, Tacuarembó, Uruguay',
-        'cerro largo': 'Estación de carga de vehículos eléctricos, Melo, Uruguay',
-        'treinta y tres': 'Estación de carga de vehículos eléctricos, Treinta y Tres, Uruguay',
-        'lavalleja': 'Estación de carga de vehículos eléctricos, Minas, Uruguay',
-        'florida': 'Estación de carga de vehículos eléctricos, Florida, Uruguay',
-        'flores': 'Estación de carga de vehículos eléctricos, Trinidad, Uruguay',
-        'durazno': 'Estación de carga de vehículos eléctricos, Durazno, Uruguay'
-    };
-
     url += `destination=${encodeURIComponent(query)}`;
-
-    if (includeEV && departamento) {
-        const deptoKey = departamento.trim().toLowerCase();
-        if (CHARGERS_MAP[deptoKey]) {
-            url += `&waypoints=${encodeURIComponent(CHARGERS_MAP[deptoKey])}`;
-        }
-    }
-    
     window.open(url, '_blank');
 }
 
@@ -1752,54 +1915,17 @@ function getDirectionsToLocal(query, departamento) {
 function triggerItineraryRoute() {
     if (itinerary.length === 0) return;
 
-    // Preguntar si desea agregar estaciones de recarga eléctrica
-    const includeEV = confirm(
-        currentLang === 'es' 
-            ? '¿Deseas incluir estaciones de recarga para vehículos eléctricos (UTE) en tu ruta?' 
-            : 'Do you want to include electric vehicle charging stations (UTE) along your route?'
-    );
-
-    const CHARGERS_MAP = {
-        'montevideo': 'Estación de carga de vehículos eléctricos, Montevideo, Uruguay',
-        'canelones': 'Estación de carga de vehículos eléctricos, Canelones, Uruguay',
-        'maldonado': 'Estación de carga de vehículos eléctricos, Punta del Este, Uruguay',
-        'rocha': 'Estación de carga de vehículos eléctricos, Rocha, Uruguay',
-        'colonia': 'Estación de carga de vehículos eléctricos, Colonia del Sacramento, Uruguay',
-        'san josé': 'Estación de carga de vehículos eléctricos, San José, Uruguay',
-        'san jose': 'Estación de carga de vehículos eléctricos, San José, Uruguay',
-        'soriano': 'Estación de carga de vehículos eléctricos, Mercedes, Uruguay',
-        'río negro': 'Estación de carga de vehículos eléctricos, Fray Bentos, Uruguay',
-        'rio negro': 'Estación de carga de vehículos eléctricos, Fray Bentos, Uruguay',
-        'paysandú': 'Estación de carga de vehículos eléctricos, Paysandú, Uruguay',
-        'paysandu': 'Estación de carga de vehículos eléctricos, Paysandú, Uruguay',
-        'salto': 'Estación de carga de vehículos eléctricos, Salto, Uruguay',
-        'artigas': 'Estación de carga de vehículos eléctricos, Artigas, Uruguay',
-        'rivera': 'Estación de carga de vehículos eléctricos, Rivera, Uruguay',
-        'tacuarembó': 'Estación de carga de vehículos eléctricos, Tacuarembó, Uruguay',
-        'tacuarembo': 'Estación de carga de vehículos eléctricos, Tacuarembó, Uruguay',
-        'cerro largo': 'Estación de carga de vehículos eléctricos, Melo, Uruguay',
-        'treinta y tres': 'Estación de carga de vehículos eléctricos, Treinta y Tres, Uruguay',
-        'lavalleja': 'Estación de carga de vehículos eléctricos, Minas, Uruguay',
-        'florida': 'Estación de carga de vehículos eléctricos, Florida, Uruguay',
-        'flores': 'Estación de carga de vehículos eléctricos, Trinidad, Uruguay',
-        'durazno': 'Estación de carga de vehículos eléctricos, Durazno, Uruguay'
-    };
-
     const points = [];
-    const addedChargerDepts = new Set();
 
     itinerary.forEach(step => {
-        let depto = '';
         if (step.type === 'destination') {
             const dest = appDestinos.find(d => d.id === step.id);
             if (dest && dest.lat !== null && dest.lng !== null) {
                 points.push(`${dest.lat},${dest.lng}`);
-                depto = dest.departamento;
             }
         } else if (step.type === 'event') {
             const ev = appEventos.find(e => e.id === step.id);
             if (ev) {
-                depto = ev.departamento;
                 if (ev.local) {
                     points.push(`${ev.local}, ${ev.destino}, ${ev.departamento}, Uruguay`);
                 } else {
@@ -1810,15 +1936,6 @@ function triggerItineraryRoute() {
                         points.push(`${ev.destino}, Uruguay`);
                     }
                 }
-            }
-        }
-
-        // Agregar cargador de UTE si se solicitó y aún no se agregó para este departamento
-        if (includeEV && depto) {
-            const deptoKey = depto.trim().toLowerCase();
-            if (CHARGERS_MAP[deptoKey] && !addedChargerDepts.has(deptoKey)) {
-                points.push(CHARGERS_MAP[deptoKey]);
-                addedChargerDepts.add(deptoKey);
             }
         }
     });
@@ -2373,28 +2490,27 @@ function handleSwipe() {
         return;
     }
     
-    const activeTab = document.querySelector('.tab-btn.active');
-    if (!activeTab) return;
-    
-    const activeId = activeTab.id;
-    
     if (Math.abs(diffX) > minDistance) {
         if (diffX < 0) {
             // Swipe Left
-            if (activeId === 'tab-turismo-btn') {
+            if (activeTabId === 'turismo') {
                 switchTab('eventos');
-            } else if (activeId === 'tab-eventos-btn') {
+            } else if (activeTabId === 'eventos') {
                 switchTab('resultados');
-            } else if (activeId === 'tab-resultados-btn') {
+            } else if (activeTabId === 'resultados') {
+                switchTab('emergencias');
+            } else if (activeTabId === 'emergencias') {
                 switchTab('itinerario');
             }
         } else {
             // Swipe Right
-            if (activeId === 'tab-itinerario-btn') {
+            if (activeTabId === 'itinerario') {
+                switchTab('emergencias');
+            } else if (activeTabId === 'emergencias') {
                 switchTab('resultados');
-            } else if (activeId === 'tab-resultados-btn') {
+            } else if (activeTabId === 'resultados') {
                 switchTab('eventos');
-            } else if (activeId === 'tab-eventos-btn') {
+            } else if (activeTabId === 'eventos') {
                 switchTab('turismo');
             }
         }
@@ -2406,6 +2522,205 @@ function setupSwipeNavigation() {
         view.addEventListener('touchstart', handleTouchStart, { passive: true });
         view.addEventListener('touchend', handleTouchEnd, { passive: true });
     });
+}
+
+// --- Emergencies & Utilities Module ---
+
+const DEPT_COORDS = {
+    'montevideo': { lat: -34.9011, lng: -56.1645 },
+    'canelones': { lat: -34.5228, lng: -56.2778 },
+    'maldonado': { lat: -34.9000, lng: -54.9500 },
+    'rocha': { lat: -34.4833, lng: -54.3333 },
+    'colonia': { lat: -34.4714, lng: -57.8442 },
+    'san josé': { lat: -34.3375, lng: -56.7136 },
+    'san jose': { lat: -34.3375, lng: -56.7136 },
+    'soriano': { lat: -33.2522, lng: -58.0305 },
+    'río negro': { lat: -33.1301, lng: -58.2981 },
+    'rio negro': { lat: -33.1301, lng: -58.2981 },
+    'paysandú': { lat: -32.3214, lng: -58.0756 },
+    'paysandu': { lat: -32.3214, lng: -58.0756 },
+    'salto': { lat: -31.3833, lng: -57.9667 },
+    'artigas': { lat: -30.4000, lng: -56.4667 },
+    'rivera': { lat: -30.9053, lng: -55.5508 },
+    'tacuarembó': { lat: -31.7169, lng: -55.9811 },
+    'tacuarembo': { lat: -31.7169, lng: -55.9811 },
+    'cerro largo': { lat: -32.3711, lng: -54.1833 },
+    'treinta y tres': { lat: -33.2333, lng: -54.3833 },
+    'lavalleja': { lat: -34.3758, lng: -55.2378 },
+    'florida': { lat: -34.0997, lng: -56.2142 },
+    'flores': { lat: -33.5167, lng: -56.9000 },
+    'durazno': { lat: -33.3833, lng: -56.5167 }
+};
+
+const CHARGERS_QUERY_MAP = {
+    'montevideo': 'Estación de carga de vehículos eléctricos, Montevideo, Uruguay',
+    'canelones': 'Estación de carga de vehículos eléctricos, Canelones, Uruguay',
+    'maldonado': 'Estación de carga de vehículos eléctricos, Punta del Este, Uruguay',
+    'rocha': 'Estación de carga de vehículos eléctricos, Rocha, Uruguay',
+    'colonia': 'Estación de carga de vehículos eléctricos, Colonia del Sacramento, Uruguay',
+    'san josé': 'Estación de carga de vehículos eléctricos, San José, Uruguay',
+    'san jose': 'Estación de carga de vehículos eléctricos, San José, Uruguay',
+    'soriano': 'Estación de carga de vehículos eléctricos, Mercedes, Uruguay',
+    'río negro': 'Estación de carga de vehículos eléctricos, Fray Bentos, Uruguay',
+    'rio negro': 'Estación de carga de vehículos eléctricos, Fray Bentos, Uruguay',
+    'paysandú': 'Estación de carga de vehículos eléctricos, Paysandú, Uruguay',
+    'paysandu': 'Estación de carga de vehículos eléctricos, Paysandú, Uruguay',
+    'salto': 'Estación de carga de vehículos eléctricos, Salto, Uruguay',
+    'artigas': 'Estación de carga de vehículos eléctricos, Artigas, Uruguay',
+    'rivera': 'Estación de carga de vehículos eléctricos, Rivera, Uruguay',
+    'tacuarembó': 'Estación de carga de vehículos eléctricos, Tacuarembó, Uruguay',
+    'tacuarembo': 'Estación de carga de vehículos eléctricos, Tacuarembó, Uruguay',
+    'cerro largo': 'Estación de carga de vehículos eléctricos, Melo, Uruguay',
+    'treinta y tres': 'Estación de carga de vehículos eléctricos, Treinta y Tres, Uruguay',
+    'lavalleja': 'Estación de carga de vehículos eléctricos, Minas, Uruguay',
+    'florida': 'Estación de carga de vehículos eléctricos, Florida, Uruguay',
+    'flores': 'Estación de carga de vehículos eléctricos, Trinidad, Uruguay',
+    'durazno': 'Estación de carga de vehículos eléctricos, Durazno, Uruguay'
+};
+
+function openEmergencySearch(type) {
+    let query = '';
+    if (type === 'police') query = 'policia';
+    else if (type === 'medical') query = 'hospital';
+    else if (type === 'mechanic') query = 'taller mecanico auxilio';
+    else if (type === 'chargers') query = 'cargador auto electrico ute';
+
+    let url = '';
+    if (userLocation) {
+        url = `https://www.google.com/maps/search/${encodeURIComponent(query)}/@${userLocation.lat},${userLocation.lng},12z`;
+    } else {
+        url = `https://www.google.com/maps/search/${encodeURIComponent(query)}+uruguay`;
+    }
+    window.open(url, '_blank');
+}
+
+window.openSearchOnMaps = function(query) {
+    window.open(`https://www.google.com/maps/search/${query}`, '_blank');
+};
+
+window.openSearchNearLocation = function(locationName, queryTerm) {
+    const url = `https://www.google.com/maps/search/${encodeURIComponent(queryTerm)}+cerca+de+${locationName}`;
+    window.open(url, '_blank');
+};
+
+function renderEmergenciesTab() {
+    // 1. Update GPS status card visual state
+    const dot = document.getElementById('emergency-gps-dot');
+    const text = document.getElementById('emergency-gps-text');
+    if (dot && text) {
+        if (userLocation) {
+            dot.className = 'gps-dot green';
+            text.textContent = `${TRANSLATIONS[currentLang].lbl_gps_active}: Lat ${userLocation.lat.toFixed(4)}, Lng ${userLocation.lng.toFixed(4)}`;
+        } else {
+            dot.className = 'gps-dot red';
+            text.textContent = TRANSLATIONS[currentLang].lbl_gps_inactive;
+        }
+    }
+
+    // 2. Render Nearby UTE Chargers list (distance <= 200 km)
+    const chargersList = document.getElementById('emergency-chargers-list');
+    if (chargersList) {
+        chargersList.innerHTML = '';
+        
+        if (userLocation) {
+            const nearbyChargers = [];
+            for (const depto in DEPT_COORDS) {
+                // Skip duplicate keys for display
+                if (depto === 'san jose' || depto === 'rio negro' || depto === 'paysandu' || depto === 'tacuarembo') continue;
+                
+                const coords = DEPT_COORDS[depto];
+                const dist = calculateDistance(userLocation.lat, userLocation.lng, coords.lat, coords.lng);
+                if (dist !== null && dist <= 200) {
+                    nearbyChargers.push({
+                        depto: depto,
+                        name: depto.charAt(0).toUpperCase() + depto.slice(1),
+                        distance: dist,
+                        query: CHARGERS_QUERY_MAP[depto]
+                    });
+                }
+            }
+            
+            // Sort by distance (closest first)
+            nearbyChargers.sort((a, b) => a.distance - b.distance);
+            
+            if (nearbyChargers.length > 0) {
+                nearbyChargers.forEach(charger => {
+                    const item = document.createElement('div');
+                    item.className = 'emergency-list-item';
+                    item.innerHTML = `
+                        <div class="emergency-item-info">
+                            <span class="emergency-item-name">Cargador UTE - ${charger.name}</span>
+                            <span class="emergency-item-detail">${TRANSLATIONS[currentLang].distance_badge.replace('{distance}', charger.distance.toFixed(1))}</span>
+                        </div>
+                        <button class="btn btn-primary btn-emergency-item" onclick="openSearchOnMaps('${encodeURIComponent(charger.query)}')">
+                            ${TRANSLATIONS[currentLang].card_how_to_go}
+                        </button>
+                    `;
+                    chargersList.appendChild(item);
+                });
+            } else {
+                chargersList.innerHTML = `<p class="empty-text">${TRANSLATIONS[currentLang].no_chargers_200km}</p>`;
+            }
+        } else {
+            chargersList.innerHTML = `<p class="empty-text">${TRANSLATIONS[currentLang].no_chargers_200km}</p>`;
+        }
+    }
+
+    // 3. Render Emergencies in Itinerary
+    const itineraryList = document.getElementById('emergency-itinerary-list');
+    if (itineraryList) {
+        itineraryList.innerHTML = '';
+        
+        if (itinerary.length > 0) {
+            itinerary.forEach(step => {
+                let name = '';
+                let depto = '';
+                let querySearch = '';
+                if (step.type === 'destination') {
+                    const dest = appDestinos.find(d => d.id === step.id);
+                    if (dest) {
+                        name = dest.destino;
+                        depto = dest.departamento;
+                        querySearch = `${dest.destino}, ${dest.departamento}, Uruguay`;
+                    }
+                } else if (step.type === 'event') {
+                    const ev = appEventos.find(e => e.id === step.id);
+                    if (ev) {
+                        name = ev.titulo;
+                        depto = ev.departamento;
+                        querySearch = ev.local ? `${ev.local}, ${ev.destino}, ${ev.departamento}, Uruguay` : `${ev.destino}, ${ev.departamento}, Uruguay`;
+                    }
+                }
+                
+                if (name) {
+                    const item = document.createElement('div');
+                    item.className = 'emergency-route-dest';
+                    
+                    const policeLabel = TRANSLATIONS[currentLang].btn_search_police;
+                    const medicalLabel = TRANSLATIONS[currentLang].btn_search_medical;
+                    const mechanicLabel = TRANSLATIONS[currentLang].btn_search_mechanics;
+                    
+                    item.innerHTML = `
+                        <div class="emergency-route-dest-name">${name} (${depto})</div>
+                        <div class="emergency-route-actions">
+                            <button class="btn btn-secondary btn-route-emergency" onclick="openSearchNearLocation('${encodeURIComponent(querySearch)}', 'policia')">
+                                👮 ${policeLabel}
+                            </button>
+                            <button class="btn btn-secondary btn-route-emergency" onclick="openSearchNearLocation('${encodeURIComponent(querySearch)}', 'hospital')">
+                                🏥 ${medicalLabel}
+                            </button>
+                            <button class="btn btn-secondary btn-route-emergency" onclick="openSearchNearLocation('${encodeURIComponent(querySearch)}', 'taller mecanico auxilio')">
+                                🔧 ${mechanicLabel}
+                            </button>
+                        </div>
+                    `;
+                    itineraryList.appendChild(item);
+                }
+            });
+        } else {
+            itineraryList.innerHTML = `<p class="empty-text">${TRANSLATIONS[currentLang].empty_itinerary_emergencies}</p>`;
+        }
+    }
 }
 
 

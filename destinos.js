@@ -16,7 +16,8 @@ const DESTINOS = [
     "lng": -53.783021,
     "web": "turismorocha.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Rest, beach, dune walks, sea lion watching, photography."
+    "caracteristicas_en": "Rest, beach, dune walks, sea lion watching, photography.",
+    "caracteristicas_pt": "Descanso, praia, passeios nas dunas, observação de leões marinhos, fotografia."
   },
   {
     "id": 2,
@@ -34,7 +35,8 @@ const DESTINOS = [
     "lng": -54.4568,
     "web": "treintaytres.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Exploration trekking, deep gorge, ravine forest, bird watching, ecotourism."
+    "caracteristicas_en": "Exploration trekking, deep gorge, ravine forest, bird watching, ecotourism.",
+    "caracteristicas_pt": "Trekking de exploração, desfiladeiro profundo, floresta ravina, observação de pássaros, ecoturismo."
   },
   {
     "id": 3,
@@ -52,7 +54,8 @@ const DESTINOS = [
     "lng": -57.9042,
     "web": "turismo.salto.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Thermal baths, relaxation, physical well-being, family recreation. Therapeutic waters between 38°C and 44°C."
+    "caracteristicas_en": "Thermal baths, relaxation, physical well-being, family recreation. Therapeutic waters between 38°C and 44°C.",
+    "caracteristicas_pt": "Banhos termais, relaxamento, bem-estar físico, recreação familiar. Águas terapêuticas entre 38°C e 44°C."
   },
   {
     "id": 4,
@@ -70,7 +73,8 @@ const DESTINOS = [
     "lng": -54.9856,
     "web": "turismo.lavalleja.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Rest, trekking, horseback riding, landscaping, astronomical observation, integrated urban design by Julio Vilamajó."
+    "caracteristicas_en": "Rest, trekking, horseback riding, landscaping, astronomical observation, integrated urban design by Julio Vilamajó.",
+    "caracteristicas_pt": "Descanso, trekking, cavalgadas, paisagismo, observação astronômica, desenho urbano integrado de Julio Vilamajó."
   },
   {
     "id": 5,
@@ -88,7 +92,8 @@ const DESTINOS = [
     "lng": -55.3681,
     "web": "https://instagram.com/canadondelapalma",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Mountain hiking, descent into rocky canyons, seasonal waterfalls, natural pools of clear water, landscape photography and sightings of native flora and fauna."
+    "caracteristicas_en": "Mountain hiking, descent into rocky canyons, seasonal waterfalls, natural pools of clear water, landscape photography and sightings of native flora and fauna.",
+    "caracteristicas_pt": "Caminhadas nas montanhas, descidas em cânions rochosos, cachoeiras sazonais, piscinas naturais de águas cristalinas, fotografia de paisagem e avistamentos de flora e fauna nativas."
   },
   {
     "id": 6,
@@ -106,7 +111,8 @@ const DESTINOS = [
     "lng": -58.1189,
     "web": "rionegro.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Cruise and nautical walks through canals and islands, virgin coastal forest, bird watching, natural beaches of light sand in summer (\"Sanjavierino Caribbean\"), sport fishing and Russian cultural identity in San Javier."
+    "caracteristicas_en": "Cruise and nautical walks through canals and islands, virgin coastal forest, bird watching, natural beaches of light sand in summer (\"Sanjavierino Caribbean\"), sport fishing and Russian cultural identity in San Javier.",
+    "caracteristicas_pt": "Cruzeiros e passeios náuticos por canais e ilhas, floresta costeira virgem, observação de aves, praias naturais de areia clara no verão (“Caribe Sanjavierino”), pesca esportiva e identidade cultural russa em San Javier."
   },
   {
     "id": 7,
@@ -124,7 +130,8 @@ const DESTINOS = [
     "lng": -55.9383,
     "web": "https://instagram.com/elgavilan_vdl",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Demanding trekking, deep canyons, natural waterfalls, pools of crystal clear water linked to the Guaraní aquifer and bird and wildlife watching in a fragile ecosystem."
+    "caracteristicas_en": "Demanding trekking, deep canyons, natural waterfalls, pools of crystal clear water linked to the Guaraní aquifer and bird and wildlife watching in a fragile ecosystem.",
+    "caracteristicas_pt": "Trekking exigente, cânions profundos, cachoeiras naturais, piscinas de águas cristalinas ligadas ao aquífero Guarani e observação de aves e animais silvestres em um ecossistema frágil."
   },
   {
     "id": 8,
@@ -142,7 +149,8 @@ const DESTINOS = [
     "lng": -57.6253,
     "web": "bellaunion.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Interpretation trails, sightings of more than 250 species of birds, original riverine forest, responsible tourism and the possibility of observing alligators in the wild."
+    "caracteristicas_en": "Interpretation trails, sightings of more than 250 species of birds, original riverine forest, responsible tourism and the possibility of observing alligators in the wild.",
+    "caracteristicas_pt": "Trilhas de interpretação, avistamentos de mais de 250 espécies de aves, mata ribeirinha original, turismo responsável e possibilidade de observação de jacarés em estado selvagem."
   },
   {
     "id": 9,
@@ -160,7 +168,8 @@ const DESTINOS = [
     "lng": -56.2045,
     "web": "montevideo.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Historical and cultural tour, colonial and art deco architecture, museums, gastronomy in the Port Market, bookstores and crafts."
+    "caracteristicas_en": "Historical and cultural tour, colonial and art deco architecture, museums, gastronomy in the Port Market, bookstores and crafts.",
+    "caracteristicas_pt": "Passeio histórico e cultural, arquitetura colonial e art déco, museus, gastronomia no Mercado Portuário, livrarias e artesanato."
   },
   {
     "id": 10,
@@ -178,7 +187,8 @@ const DESTINOS = [
     "lng": -56.1601,
     "web": "montevideo.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Coastal walk of more than 22 km, ideal for hiking, cycling, sunset contemplation, sport fishing and recreational activities."
+    "caracteristicas_en": "Coastal walk of more than 22 km, ideal for hiking, cycling, sunset contemplation, sport fishing and recreational activities.",
+    "caracteristicas_pt": "Caminhada costeira de mais de 22 km, ideal para caminhadas, ciclismo, contemplação do pôr do sol, pesca esportiva e atividades recreativas."
   },
   {
     "id": 11,
@@ -196,7 +206,8 @@ const DESTINOS = [
     "lng": -56.2001,
     "web": "teatrosolis.org.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Main artistic stage in the country, inaugurated in 1856. Guided tours about its history, architecture and opera, theater and music shows."
+    "caracteristicas_en": "Main artistic stage in the country, inaugurated in 1856. Guided tours about its history, architecture and opera, theater and music shows.",
+    "caracteristicas_pt": "Principal palco artístico do país, inaugurado em 1856. Visitas guiadas sobre sua história, arquitetura e espetáculos de ópera, teatro e música."
   },
   {
     "id": 12,
@@ -214,7 +225,8 @@ const DESTINOS = [
     "lng": -56.1528,
     "web": "estadiocentenario.com.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Historical Monument of World Football (declared by FIFA). Visit to the stands, tribute tower and museum with relics from the 1930 and 1950 World Cups."
+    "caracteristicas_en": "Historical Monument of World Football (declared by FIFA). Visit to the stands, tribute tower and museum with relics from the 1930 and 1950 World Cups.",
+    "caracteristicas_pt": "Monumento Histórico do Futebol Mundial (declarado pela FIFA). Visita às arquibancadas, torre de homenagem e museu com relíquias das Copas de 1930 e 1950."
   },
   {
     "id": 13,
@@ -232,7 +244,8 @@ const DESTINOS = [
     "lng": -56.2122,
     "web": "montevideo.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Gastronomic and cultural icon opened in 1868. Famous for its traditional barbecues, period iron architecture and atmosphere with musicians and artisans."
+    "caracteristicas_en": "Gastronomic and cultural icon opened in 1868. Famous for its traditional barbecues, period iron architecture and atmosphere with musicians and artisans.",
+    "caracteristicas_pt": "Ícone gastronômico e cultural inaugurado em 1868. Famoso pelos tradicionais churrascos, arquitetura de época em ferro e ambiente com músicos e artesãos."
   },
   {
     "id": 14,
@@ -250,7 +263,8 @@ const DESTINOS = [
     "lng": -56.1664,
     "web": "mnav.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "The largest public art collection in the country. It houses works by Juan Manuel Blanes, Torres García, Figari, Rafael Barradas and temporary modern exhibitions."
+    "caracteristicas_en": "The largest public art collection in the country. It houses works by Juan Manuel Blanes, Torres García, Figari, Rafael Barradas and temporary modern exhibitions.",
+    "caracteristicas_pt": "A maior coleção de arte pública do país. Abriga obras de Juan Manuel Blanes, Torres García, Figari, Rafael Barradas e exposições temporárias modernas."
   },
   {
     "id": 15,
@@ -268,7 +282,8 @@ const DESTINOS = [
     "lng": -56.2014,
     "web": "montevideo.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Museum of fine arts in an old patrician villa, surrounded by the only Japanese Garden in the city. It exhibits works by Blanes and Pedro Figari."
+    "caracteristicas_en": "Museum of fine arts in an old patrician villa, surrounded by the only Japanese Garden in the city. It exhibits works by Blanes and Pedro Figari.",
+    "caracteristicas_pt": "Museu de belas artes em antiga vila patrícia, rodeado pelo único Jardim Japonês da cidade. Exibe obras de Blanes e Pedro Figari."
   },
   {
     "id": 16,
@@ -286,7 +301,8 @@ const DESTINOS = [
     "lng": -56.2736,
     "web": "bodegabouza.com",
     "popularidad": "Alta",
-    "caracteristicas_en": "Wine tourism, guided tours of vineyards and cellar, tasting of fine wines (Albarariño, Tannat), high-end restaurant and collection of classic cars."
+    "caracteristicas_en": "Wine tourism, guided tours of vineyards and cellar, tasting of fine wines (Albarariño, Tannat), high-end restaurant and collection of classic cars.",
+    "caracteristicas_pt": "Enoturismo, visitas guiadas a vinhedos e adegas, degustação de bons vinhos (Albarariño, Tannat), restaurante de alto padrão e coleção de carros clássicos."
   },
   {
     "id": 17,
@@ -304,7 +320,8 @@ const DESTINOS = [
     "lng": -56.1478,
     "web": "montevideo.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "One of the most popular and widest beaches in the capital. Fine sand, calm waters, sports infrastructure (soccer and beach volleyball) and surrounded by services."
+    "caracteristicas_en": "One of the most popular and widest beaches in the capital. Fine sand, calm waters, sports infrastructure (soccer and beach volleyball) and surrounded by services.",
+    "caracteristicas_pt": "Uma das praias mais conhecidas e amplas da capital. Areia fina, águas calmas, infraestrutura esportiva (futebol e vôlei de praia) e cercada de serviços."
   },
   {
     "id": 18,
@@ -322,7 +339,8 @@ const DESTINOS = [
     "lng": -56.1006,
     "web": "montevideo.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Residential beaches, wide and with a family atmosphere. Ideal for light water sports (kayak, windsurf) and quiet walks in front of Seagull Island."
+    "caracteristicas_en": "Residential beaches, wide and with a family atmosphere. Ideal for light water sports (kayak, windsurf) and quiet walks in front of Seagull Island.",
+    "caracteristicas_pt": "Praias residenciais, amplas e com ambiente familiar. Ideal para esportes náuticos leves (caiaque, windsurf) e passeios tranquilos em frente à Ilha das Gaivotas."
   },
   {
     "id": 19,
@@ -340,7 +358,8 @@ const DESTINOS = [
     "lng": -56.1732,
     "web": "montevideo.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Central beach with very calm waters, located in front of Parque Rodó. Very popular for watching the sunset, holding cultural events and family recreation."
+    "caracteristicas_en": "Central beach with very calm waters, located in front of Parque Rodó. Very popular for watching the sunset, holding cultural events and family recreation.",
+    "caracteristicas_pt": "Praia central de águas muito calmas, localizada em frente ao Parque Rodó. Muito procurada para assistir ao pôr do sol, realizar eventos culturais e recreação familiar."
   },
   {
     "id": 20,
@@ -358,7 +377,8 @@ const DESTINOS = [
     "lng": -56.1702,
     "web": "montevideo.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Large green lung with an artificial lake, boat rides, amusement park, weekend crafts fair and the quarries with an open-air amphitheater."
+    "caracteristicas_en": "Large green lung with an artificial lake, boat rides, amusement park, weekend crafts fair and the quarries with an open-air amphitheater.",
+    "caracteristicas_pt": "Grande pulmão verde com lago artificial, passeios de barco, parque de diversões, feira de artesanato nos finais de semana e pedreiras com anfiteatro ao ar livre."
   },
   {
     "id": 21,
@@ -376,7 +396,8 @@ const DESTINOS = [
     "lng": -56.1996,
     "web": "https://www.torresgarcia.org.uy/",
     "popularidad": "Alta",
-    "caracteristicas_en": "Dedicated to the life and work of the master of Constructive Universalism, Joaquín Torres García. Seven floors with paintings, wooden toys, writings and art store."
+    "caracteristicas_en": "Dedicated to the life and work of the master of Constructive Universalism, Joaquín Torres García. Seven floors with paintings, wooden toys, writings and art store.",
+    "caracteristicas_pt": "Dedicado à vida e obra do mestre do Universalismo Construtivo, Joaquín Torres García. Sete andares com pinturas, brinquedos de madeira, escritos e loja de arte."
   },
   {
     "id": 22,
@@ -394,7 +415,8 @@ const DESTINOS = [
     "lng": -56.1736,
     "web": "https://www.instagram.com/eac_uruguay/?hl=es",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Cultural center and museum that operates in the structure of the old Miguelete Prison. It exhibits avant-garde art, installations and emerging proposals."
+    "caracteristicas_en": "Cultural center and museum that operates in the structure of the old Miguelete Prison. It exhibits avant-garde art, installations and emerging proposals.",
+    "caracteristicas_pt": "Centro cultural e museu que funciona na estrutura do antigo Presídio Miguelete. Exibe arte de vanguarda, instalações e propostas emergentes."
   },
   {
     "id": 23,
@@ -412,7 +434,8 @@ const DESTINOS = [
     "lng": -56.2023,
     "web": "museofigari.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Dedicated exclusively to preserving and disseminating the legacy of the painter, lawyer and thinker Pedro Figari and his son Juan Carlos Figari Castro."
+    "caracteristicas_en": "Dedicated exclusively to preserving and disseminating the legacy of the painter, lawyer and thinker Pedro Figari and his son Juan Carlos Figari Castro.",
+    "caracteristicas_pt": "Dedica-se exclusivamente a preservar e divulgar o legado do pintor, advogado e pensador Pedro Figari e de seu filho Juan Carlos Figari Castro."
   },
   {
     "id": 24,
@@ -430,7 +453,8 @@ const DESTINOS = [
     "lng": -56.2106,
     "web": "mapi.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "It offers a permanent exhibition of archaeological and ethnographic pieces from the original cultures of America, in an imposing Historical Monument building."
+    "caracteristicas_en": "It offers a permanent exhibition of archaeological and ethnographic pieces from the original cultures of America, in an imposing Historical Monument building.",
+    "caracteristicas_pt": "Oferece uma exposição permanente de peças arqueológicas e etnográficas das culturas originais da América, num imponente edifício Monumento Histórico."
   },
   {
     "id": 25,
@@ -448,7 +472,8 @@ const DESTINOS = [
     "lng": -56.2029,
     "web": "montevideo.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Seat of colonial and legislative power in the 19th century. Today it houses historical exhibition halls, maps, urban iconography and a beautiful colonial patio."
+    "caracteristicas_en": "Seat of colonial and legislative power in the 19th century. Today it houses historical exhibition halls, maps, urban iconography and a beautiful colonial patio.",
+    "caracteristicas_pt": "Sede do poder colonial e legislativo no século XIX. Hoje abriga salas de exposições históricas, mapas, iconografia urbana e um belo pátio colonial."
   },
   {
     "id": 26,
@@ -466,7 +491,8 @@ const DESTINOS = [
     "lng": -56.2127,
     "web": "museodelcarnaval.org",
     "popularidad": "Alta",
-    "caracteristicas_en": "Tour through the history of the greatest Uruguayan popular festival. It exhibits costumes, models, drums, masks and testimonies from the River Plate."
+    "caracteristicas_en": "Tour through the history of the greatest Uruguayan popular festival. It exhibits costumes, models, drums, masks and testimonies from the River Plate.",
+    "caracteristicas_pt": "Passeio pela história da maior festa popular uruguaia. Exibe fantasias, maquetes, tambores, máscaras e testemunhos do Rio da Prata."
   },
   {
     "id": 27,
@@ -484,7 +510,8 @@ const DESTINOS = [
     "lng": -56.2078,
     "web": "https://www.instagram.com/artesdecorativasuy/?hl=es",
     "popularidad": "Alta",
-    "caracteristicas_en": "Palatial French-style residence from the early 20th century. It contains original European furniture, sculptures, paintings and a valuable collection of classical archaeology."
+    "caracteristicas_en": "Palatial French-style residence from the early 20th century. It contains original European furniture, sculptures, paintings and a valuable collection of classical archaeology.",
+    "caracteristicas_pt": "Residência palaciana em estilo francês do início do século XX. Contém móveis europeus originais, esculturas, pinturas e uma valiosa coleção de arqueologia clássica."
   },
   {
     "id": 28,
@@ -502,7 +529,8 @@ const DESTINOS = [
     "lng": -56.1738,
     "web": "mnhn.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "The oldest museum in Uruguay (1837). It offers educational rooms on biodiversity, evolution, native fossils (such as megafauna) and botany."
+    "caracteristicas_en": "The oldest museum in Uruguay (1837). It offers educational rooms on biodiversity, evolution, native fossils (such as megafauna) and botany.",
+    "caracteristicas_pt": "O museu mais antigo do Uruguai (1837). Oferece salas educativas sobre biodiversidade, evolução, fósseis nativos (como megafauna) e botânica."
   },
   {
     "id": 29,
@@ -520,7 +548,8 @@ const DESTINOS = [
     "lng": -56.2016,
     "web": "museogurvich.org",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Dedicated to the work of the artist José Gurvich, one of the most notable students of the Torres García Workshop. Paintings, ceramics and personal objects in a modern building."
+    "caracteristicas_en": "Dedicated to the work of the artist José Gurvich, one of the most notable students of the Torres García Workshop. Paintings, ceramics and personal objects in a modern building.",
+    "caracteristicas_pt": "Dedicado à obra do artista José Gurvich, um dos mais destacados alunos da Oficina Torres García. Pinturas, cerâmicas e objetos pessoais em edifício moderno."
   },
   {
     "id": 30,
@@ -538,7 +567,8 @@ const DESTINOS = [
     "lng": -56.1969,
     "web": "mume.montevideo.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Dedicated to the memory of the victims of State terrorism in Uruguay. Located in the former fifth house of the dictator Máximo Santos, surrounded by a large park."
+    "caracteristicas_en": "Dedicated to the memory of the victims of State terrorism in Uruguay. Located in the former fifth house of the dictator Máximo Santos, surrounded by a large park.",
+    "caracteristicas_pt": "Dedicado à memória das vítimas do terrorismo de Estado no Uruguai. Localizada na antiga quinta casa do ditador Máximo Santos, rodeada por um amplo parque."
   },
   {
     "id": 31,
@@ -556,7 +586,8 @@ const DESTINOS = [
     "lng": -56.2009,
     "web": "mandes.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Private historical museum that pays tribute to the 45 people on the Uruguayan plane that crashed in the Andes Mountains in 1972 and to those who managed to rescue them."
+    "caracteristicas_en": "Private historical museum that pays tribute to the 45 people on the Uruguayan plane that crashed in the Andes Mountains in 1972 and to those who managed to rescue them.",
+    "caracteristicas_pt": "Museu histórico privado que presta homenagem às 45 pessoas que estavam no avião uruguaio que caiu na Cordilheira dos Andes em 1972 e a quem conseguiu resgatá-las."
   },
   {
     "id": 32,
@@ -574,7 +605,8 @@ const DESTINOS = [
     "lng": -56.1884,
     "web": "montevideo.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "It exhibits a collection of more than 5,000 tiles of French, Spanish, Portuguese and Uruguayan origin used in the city's architecture since the 19th century."
+    "caracteristicas_en": "It exhibits a collection of more than 5,000 tiles of French, Spanish, Portuguese and Uruguayan origin used in the city's architecture since the 19th century.",
+    "caracteristicas_pt": "Exibe um acervo de mais de 5.000 azulejos de origem francesa, espanhola, portuguesa e uruguaia utilizados na arquitetura da cidade desde o século XIX."
   },
   {
     "id": 33,
@@ -592,7 +624,8 @@ const DESTINOS = [
     "lng": -56.1953,
     "web": "bcu.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Collection of coins, banknotes, medals and historical documents that narrate the economic evolution and means of payment in the history of Uruguay."
+    "caracteristicas_en": "Collection of coins, banknotes, medals and historical documents that narrate the economic evolution and means of payment in the history of Uruguay.",
+    "caracteristicas_pt": "Coleção de moedas, notas, medalhas e documentos históricos que narram a evolução econômica e dos meios de pagamento na história do Uruguai."
   },
   {
     "id": 34,
@@ -610,7 +643,8 @@ const DESTINOS = [
     "lng": -56.1915,
     "web": "anep.edu.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Trace the history of school reform in Uruguay through antique furniture, inkwells, historical school books, projectors and teaching materials from the 19th century."
+    "caracteristicas_en": "Trace the history of school reform in Uruguay through antique furniture, inkwells, historical school books, projectors and teaching materials from the 19th century.",
+    "caracteristicas_pt": "Acompanhe a história da reforma escolar no Uruguai através de móveis antigos, tinteiros, livros escolares históricos, projetores e materiais didáticos do século XIX."
   },
   {
     "id": 35,
@@ -628,7 +662,8 @@ const DESTINOS = [
     "lng": -56.2575,
     "web": "http://ejercito.mil.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Located at the top of Cerro de Montevideo. Colonial fortification from 1809 that houses ancient weapons, military uniforms and history of national battles, with unique panoramic views of the bay."
+    "caracteristicas_en": "Located at the top of Cerro de Montevideo. Colonial fortification from 1809 that houses ancient weapons, military uniforms and history of national battles, with unique panoramic views of the bay.",
+    "caracteristicas_pt": "Localizado no topo do Cerro de Montevidéu. Fortificação colonial de 1809 que abriga armas antigas, uniformes militares e história das batalhas nacionais, com vistas panorâmicas únicas da baía."
   },
   {
     "id": 36,
@@ -646,7 +681,8 @@ const DESTINOS = [
     "lng": -56.0594,
     "web": "montevideo.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Residential beach on the eastern end, very wide, with fine sand and surrounded by the emblematic promenade and the classic Hotel Casino Carrasco."
+    "caracteristicas_en": "Residential beach on the eastern end, very wide, with fine sand and surrounded by the emblematic promenade and the classic Hotel Casino Carrasco.",
+    "caracteristicas_pt": "Praia residencial no extremo nascente, muito ampla, de areia fina e rodeada pelo emblemático passeio marítimo e pelo clássico Hotel Casino Carrasco."
   },
   {
     "id": 37,
@@ -664,7 +700,8 @@ const DESTINOS = [
     "lng": -56.1244,
     "web": "montevideo.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Quiet bay next to the Puertito del Buceo. It has the Diving Skatepark, green areas and an ideal environment for water sports."
+    "caracteristicas_en": "Quiet bay next to the Puertito del Buceo. It has the Diving Skatepark, green areas and an ideal environment for water sports.",
+    "caracteristicas_pt": "Baía tranquila ao lado do Puertito del Buceo. Possui o Skatepark de Mergulho, áreas verdes e um ambiente ideal para a prática de esportes náuticos."
   },
   {
     "id": 38,
@@ -682,7 +719,8 @@ const DESTINOS = [
     "lng": -56.095,
     "web": "montevideo.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Small beach located at the tip of Malvín, characterized by a slightly stronger wave and a nice view of Seagull Island."
+    "caracteristicas_en": "Small beach located at the tip of Malvín, characterized by a slightly stronger wave and a nice view of Seagull Island.",
+    "caracteristicas_pt": "Pequena praia localizada na ponta de Malvín, caracterizada por uma onda um pouco mais acentuada e uma bela vista da Ilha das Gaivotas."
   },
   {
     "id": 39,
@@ -700,7 +738,8 @@ const DESTINOS = [
     "lng": -56.0861,
     "web": "montevideo.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Charming small beach nestled in a rocky area of ​​Punta Gorda, with a very picturesque residential environment protected from the wind."
+    "caracteristicas_en": "Charming small beach nestled in a rocky area of ​​Punta Gorda, with a very picturesque residential environment protected from the wind.",
+    "caracteristicas_pt": "Charmosa pequena praia situada numa zona rochosa de Punta Gorda, com um ambiente residencial muito pitoresco e protegido do vento."
   },
   {
     "id": 40,
@@ -718,7 +757,8 @@ const DESTINOS = [
     "lng": -56.0758,
     "web": "montevideo.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Continuous beaches in Punta Gorda combine areas of fine sand with rock formations. Very quiet and ideal for hiking and fishing."
+    "caracteristicas_en": "Continuous beaches in Punta Gorda combine areas of fine sand with rock formations. Very quiet and ideal for hiking and fishing.",
+    "caracteristicas_pt": "As praias contínuas de Punta Gorda combinam áreas de areia fina com formações rochosas. Muito tranquilo e ideal para caminhadas e pesca."
   },
   {
     "id": 41,
@@ -736,7 +776,8 @@ const DESTINOS = [
     "lng": -56.2558,
     "web": "montevideooeste.org",
     "popularidad": "Alta",
-    "caracteristicas_en": "The most emblematic beach in the West Zone. With a very popular atmosphere, it offers calm waters and a unique postcard of the Bay and the Fortress of Montevideo."
+    "caracteristicas_en": "The most emblematic beach in the West Zone. With a very popular atmosphere, it offers calm waters and a unique postcard of the Bay and the Fortress of Montevideo.",
+    "caracteristicas_pt": "A praia mais emblemática da Zona Oeste. Com um ambiente muito concorrido, oferece águas calmas e um cartão postal único da Baía e da Fortaleza de Montevidéu."
   },
   {
     "id": 42,
@@ -754,7 +795,8 @@ const DESTINOS = [
     "lng": -56.3353,
     "web": "montevideooeste.org",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Beaches of rural-west coastal Montevideo. Wild and familiar environment, with traditional inns, eucalyptus mountains and natural dunes."
+    "caracteristicas_en": "Beaches of rural-west coastal Montevideo. Wild and familiar environment, with traditional inns, eucalyptus mountains and natural dunes.",
+    "caracteristicas_pt": "Praias do litoral oeste rural de Montevidéu. Ambiente selvagem e familiar, com pousadas tradicionais, montanhas de eucaliptos e dunas naturais."
   },
   {
     "id": 43,
@@ -772,7 +814,8 @@ const DESTINOS = [
     "lng": -56.3861,
     "web": "montevideooeste.org",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Wild beaches at the western end of the department, next to Punta Espinillo Park. They combine ravines, indigenous forests, camping and fishing areas."
+    "caracteristicas_en": "Wild beaches at the western end of the department, next to Punta Espinillo Park. They combine ravines, indigenous forests, camping and fishing areas.",
+    "caracteristicas_pt": "Praias selvagens no extremo oeste do departamento, próximas ao Parque Punta Espinillo. Combinam ravinas, florestas indígenas, áreas de camping e pesca."
   },
   {
     "id": 44,
@@ -790,7 +833,8 @@ const DESTINOS = [
     "lng": -56.3014,
     "web": "montevideooeste.org",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Beaches with a purely natural and community profile. Framed by a large public park, ideal for disconnecting from the urban noise in the heart of the capital."
+    "caracteristicas_en": "Beaches with a purely natural and community profile. Framed by a large public park, ideal for disconnecting from the urban noise in the heart of the capital.",
+    "caracteristicas_pt": "Praias de perfil puramente natural e comunitário. Enquadrado por um amplo parque público, ideal para se desligar do ruído urbano no coração da capital."
   },
   {
     "id": 45,
@@ -808,7 +852,8 @@ const DESTINOS = [
     "lng": -56.2847,
     "web": "montevideooeste.org",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Small neighboring beaches on the west coast of the outer bay, with a very quiet profile, frequented mainly by neighbors and local fishermen."
+    "caracteristicas_en": "Small neighboring beaches on the west coast of the outer bay, with a very quiet profile, frequented mainly by neighbors and local fishermen.",
+    "caracteristicas_pt": "Pequenas praias vizinhas na costa oeste da baía exterior, de perfil bastante tranquilo, frequentadas principalmente por vizinhos e pescadores locais."
   },
   {
     "id": 46,
@@ -826,7 +871,8 @@ const DESTINOS = [
     "lng": -56.1998,
     "web": "montevideo.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Underground mausoleum and bronze equestrian monument that guards the remains of the national hero. Sculpted by Angelo Zanelli."
+    "caracteristicas_en": "Underground mausoleum and bronze equestrian monument that guards the remains of the national hero. Sculpted by Angelo Zanelli.",
+    "caracteristicas_pt": "Mausoléu subterrâneo e monumento equestre de bronze que guarda os restos mortais do herói nacional. Esculpido por Angelo Zanelli."
   },
   {
     "id": 47,
@@ -844,7 +890,8 @@ const DESTINOS = [
     "lng": -56.1558,
     "web": "montevideo.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Bronze masterpiece by José Belloni. Tribute to transportation pioneers; shows a bogged down ox cart."
+    "caracteristicas_en": "Bronze masterpiece by José Belloni. Tribute to transportation pioneers; shows a bogged down ox cart.",
+    "caracteristicas_pt": "Obra-prima em bronze de José Belloni. Homenagem aos pioneiros do transporte; mostra um carro de boi atolado."
   },
   {
     "id": 48,
@@ -862,7 +909,8 @@ const DESTINOS = [
     "lng": -56.2064,
     "web": "montevideo.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Spectacular sculpture by José Belloni that represents the ancient means of transportation crossing a stream."
+    "caracteristicas_en": "Spectacular sculpture by José Belloni that represents the ancient means of transportation crossing a stream.",
+    "caracteristicas_pt": "Espetacular escultura de José Belloni que representa o antigo meio de transporte atravessando um riacho."
   },
   {
     "id": 49,
@@ -880,7 +928,8 @@ const DESTINOS = [
     "lng": -56.1648,
     "web": "montevideo.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "40-meter-high granite spire made by José Luis Zorrilla de San Martín, with three bronze statues that represent Law, Strength and Freedom."
+    "caracteristicas_en": "40-meter-high granite spire made by José Luis Zorrilla de San Martín, with three bronze statues that represent Law, Strength and Freedom.",
+    "caracteristicas_pt": "Pináculo de granito com 40 metros de altura da autoria de José Luis Zorrilla de San Martín, com três estátuas de bronze que representam a Lei, a Força e a Liberdade."
   },
   {
     "id": 50,
@@ -898,7 +947,8 @@ const DESTINOS = [
     "lng": -56.1939,
     "web": "montevideo.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Bronze sculpture by José Belloni in homage to the first gaucho battles and the fights for national independence."
+    "caracteristicas_en": "Bronze sculpture by José Belloni in homage to the first gaucho battles and the fights for national independence.",
+    "caracteristicas_pt": "Escultura em bronze de José Belloni em homenagem às primeiras batalhas gaúchas e às lutas pela independência nacional."
   },
   {
     "id": 51,
@@ -916,7 +966,8 @@ const DESTINOS = [
     "lng": -56.1706,
     "web": "montevideo.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Large avant-garde concrete structure designed by Román Fresnedo Siri, symbol of modern architecture of the mid-20th century."
+    "caracteristicas_en": "Large avant-garde concrete structure designed by Román Fresnedo Siri, symbol of modern architecture of the mid-20th century.",
+    "caracteristicas_pt": "Grande estrutura vanguardista de concreto projetada por Román Fresnedo Siri, símbolo da arquitetura moderna de meados do século XX."
   },
   {
     "id": 52,
@@ -934,7 +985,8 @@ const DESTINOS = [
     "lng": -56.1553,
     "web": "montevideo.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Statue that honors the priest, naturalist and founder of the National Library."
+    "caracteristicas_en": "Statue that honors the priest, naturalist and founder of the National Library.",
+    "caracteristicas_pt": "Estátua que homenageia o sacerdote, naturalista e fundador da Biblioteca Nacional."
   },
   {
     "id": 53,
@@ -952,7 +1004,8 @@ const DESTINOS = [
     "lng": -56.1864,
     "web": "montevideo.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Equestrian sculpture by José Luis Zorrilla de San Martín, erected in honor of the country man and his ideals of freedom."
+    "caracteristicas_en": "Equestrian sculpture by José Luis Zorrilla de San Martín, erected in honor of the country man and his ideals of freedom.",
+    "caracteristicas_pt": "Escultura equestre de José Luis Zorrilla de San Martín, erguida em homenagem ao camponês e aos seus ideais de liberdade."
   },
   {
     "id": 54,
@@ -970,7 +1023,8 @@ const DESTINOS = [
     "lng": -56.2008,
     "web": "montevideo.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "The oldest military architectural monument in the capital, a remnant of the Spanish colonial wall that protected the city of Montevideo."
+    "caracteristicas_en": "The oldest military architectural monument in the capital, a remnant of the Spanish colonial wall that protected the city of Montevideo.",
+    "caracteristicas_pt": "O monumento arquitetônico militar mais antigo da capital, remanescente da muralha colonial espanhola que protegia a cidade de Montevidéu."
   },
   {
     "id": 55,
@@ -988,7 +1042,8 @@ const DESTINOS = [
     "lng": -56.1539,
     "web": "montevideo.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Commemorative monument in front of the Río de la Plata, made of pink granite. Space for meditation, meditation and memory."
+    "caracteristicas_en": "Commemorative monument in front of the Río de la Plata, made of pink granite. Space for meditation, meditation and memory.",
+    "caracteristicas_pt": "Monumento comemorativo em frente ao Río de la Plata, em granito rosa. Espaço para meditação, meditação e memória."
   },
   {
     "id": 56,
@@ -1006,7 +1061,8 @@ const DESTINOS = [
     "lng": -56.1858,
     "web": "montevideo.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Exact bronze replica of the original David of Florence, cast from direct molds and located on a central esplanade."
+    "caracteristicas_en": "Exact bronze replica of the original David of Florence, cast from direct molds and located on a central esplanade.",
+    "caracteristicas_pt": "Réplica exata em bronze do David de Florença original, fundida a partir de moldes diretos e localizada em uma esplanada central."
   },
   {
     "id": 57,
@@ -1024,7 +1080,8 @@ const DESTINOS = [
     "lng": -56.2044,
     "web": "montevideo.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Contemporary sculpture that pays tribute to the European and global migratory currents that forged the identity of the Uruguayan people."
+    "caracteristicas_en": "Contemporary sculpture that pays tribute to the European and global migratory currents that forged the identity of the Uruguayan people.",
+    "caracteristicas_pt": "Escultura contemporânea que presta homenagem às correntes migratórias europeias e globais que forjaram a identidade do povo uruguaio."
   },
   {
     "id": 58,
@@ -1042,7 +1099,8 @@ const DESTINOS = [
     "lng": -56.1956,
     "web": "montevideo.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Bronze statue that commemorates the hero of independence and president of the Eastern State during the Great War."
+    "caracteristicas_en": "Bronze statue that commemorates the hero of independence and president of the Eastern State during the Great War.",
+    "caracteristicas_pt": "Estátua de bronze que homenageia o herói da independência e presidente do Estado Oriental durante a Grande Guerra."
   },
   {
     "id": 59,
@@ -1060,7 +1118,8 @@ const DESTINOS = [
     "lng": -56.2081,
     "web": "montevideo.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Equestrian sculpture erected in honor of the Spanish military founder of the city of San Felipe and Santiago de Montevideo."
+    "caracteristicas_en": "Equestrian sculpture erected in honor of the Spanish military founder of the city of San Felipe and Santiago de Montevideo.",
+    "caracteristicas_pt": "Escultura equestre erguida em homenagem ao militar espanhol fundador da cidade de San Felipe e Santiago de Montevidéu."
   },
   {
     "id": 60,
@@ -1078,7 +1137,8 @@ const DESTINOS = [
     "lng": -56.1895,
     "web": "montevideo.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Life-size bronze sculpture of the \"Mago\" from the River Plate, sitting at a bar table. Very photographed by tango lovers."
+    "caracteristicas_en": "Life-size bronze sculpture of the \"Mago\" from the River Plate, sitting at a bar table. Very photographed by tango lovers.",
+    "caracteristicas_pt": "Escultura em bronze em tamanho real do \"Mago\" do Rio da Prata, sentado em uma mesa de bar. Muito fotografado pelos amantes do tango."
   },
   {
     "id": 61,
@@ -1096,7 +1156,8 @@ const DESTINOS = [
     "lng": -56.1158,
     "web": "montevideo.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Bronze sculpture that represents the famous informal talk that the scientist and the Uruguayan poet had in a public square in 1925."
+    "caracteristicas_en": "Bronze sculpture that represents the famous informal talk that the scientist and the Uruguayan poet had in a public square in 1925.",
+    "caracteristicas_pt": "Escultura em bronze que representa a famosa conversa informal que o cientista e o poeta uruguaio tiveram em praça pública em 1925."
   },
   {
     "id": 62,
@@ -1114,7 +1175,8 @@ const DESTINOS = [
     "lng": -56.0792,
     "web": "montevideo.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Great set with an iconic naval mast, dedicated to those fallen in the line of duty and the glories of the might of the sea."
+    "caracteristicas_en": "Great set with an iconic naval mast, dedicated to those fallen in the line of duty and the glories of the might of the sea.",
+    "caracteristicas_pt": "Grande conjunto com um icônico mastro naval, dedicado aos que caíram no cumprimento do dever e às glórias do poder do mar."
   },
   {
     "id": 63,
@@ -1132,7 +1194,8 @@ const DESTINOS = [
     "lng": -56.1594,
     "web": "montevideo.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Statue dedicated to the \"Hero of Two Worlds\", who led the Italian Legion in the defense of Montevideo during the Great War."
+    "caracteristicas_en": "Statue dedicated to the \"Hero of Two Worlds\", who led the Italian Legion in the defense of Montevideo during the Great War.",
+    "caracteristicas_pt": "Estátua dedicada ao “Herói de Dois Mundos”, que liderou a Legião Italiana na defesa de Montevidéu durante a Grande Guerra."
   },
   {
     "id": 64,
@@ -1150,7 +1213,8 @@ const DESTINOS = [
     "lng": -56.1608,
     "web": "montevideo.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Work sculpted in marble and bronze by Miguel Blay, in memory of the reformer of public and egalitarian education in Uruguay."
+    "caracteristicas_en": "Work sculpted in marble and bronze by Miguel Blay, in memory of the reformer of public and egalitarian education in Uruguay.",
+    "caracteristicas_pt": "Obra esculpida em mármore e bronze por Miguel Blay, em memória do reformador da educação pública e igualitária no Uruguai."
   },
   {
     "id": 65,
@@ -1168,7 +1232,8 @@ const DESTINOS = [
     "lng": -56.2018,
     "web": "montevideo.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Sculpture dedicated to the so-called \"Painter of the Homeland\", located in the exterior gardens of its own museum."
+    "caracteristicas_en": "Sculpture dedicated to the so-called \"Painter of the Homeland\", located in the exterior gardens of its own museum.",
+    "caracteristicas_pt": "Escultura dedicada ao chamado “Pintor da Pátria”, situada nos jardins exteriores do museu próprio."
   },
   {
     "id": 66,
@@ -1186,7 +1251,8 @@ const DESTINOS = [
     "lng": -56.1672,
     "web": "montevideo.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Statue donated by the Taiwanese Chinese community that honors the oriental philosopher, located in a beautiful point on the coast."
+    "caracteristicas_en": "Statue donated by the Taiwanese Chinese community that honors the oriental philosopher, located in a beautiful point on the coast.",
+    "caracteristicas_pt": "Estátua doada pela comunidade chinesa taiwanesa que homenageia o filósofo oriental, localizada em um belo ponto do litoral."
   },
   {
     "id": 67,
@@ -1204,7 +1270,8 @@ const DESTINOS = [
     "lng": -56.0461,
     "web": "montevideo.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Tribute to the American president, located in a traditional viewpoint in the park adjacent to the east coast."
+    "caracteristicas_en": "Tribute to the American president, located in a traditional viewpoint in the park adjacent to the east coast.",
+    "caracteristicas_pt": "Homenagem ao presidente americano, localizado num tradicional mirante do parque adjacente à costa leste."
   },
   {
     "id": 68,
@@ -1222,7 +1289,8 @@ const DESTINOS = [
     "lng": -56.1914,
     "web": "montevideo.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Column with a bronze female figure holding a sword and a broken chain, allegory of Republican Peace and Freedom."
+    "caracteristicas_en": "Column with a bronze female figure holding a sword and a broken chain, allegory of Republican Peace and Freedom.",
+    "caracteristicas_pt": "Coluna com figura feminina em bronze segurando espada e corrente quebrada, alegoria da Paz e Liberdade Republicana."
   },
   {
     "id": 69,
@@ -1240,7 +1308,8 @@ const DESTINOS = [
     "lng": -56.1741,
     "web": "montevideo.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Popular coastal sculpture and altar that pays homage to the African sea deity. Central point of massive celebrations every February 2."
+    "caracteristicas_en": "Popular coastal sculpture and altar that pays homage to the African sea deity. Central point of massive celebrations every February 2.",
+    "caracteristicas_pt": "Escultura costeira popular e altar que homenageia a divindade marinha africana. Ponto central de grandes celebrações todo dia 2 de fevereiro."
   },
   {
     "id": 70,
@@ -1258,7 +1327,8 @@ const DESTINOS = [
     "lng": -56.1264,
     "web": "montevideo.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Curious sculpture and decorative fountain with intertwined bronze tuna, a classic and colorful meeting point on the promenade."
+    "caracteristicas_en": "Curious sculpture and decorative fountain with intertwined bronze tuna, a classic and colorful meeting point on the promenade.",
+    "caracteristicas_pt": "Curiosa escultura e fonte decorativa com atum de bronze entrelaçado, ponto de encontro clássico e colorido no passeio."
   },
   {
     "id": 71,
@@ -1276,7 +1346,8 @@ const DESTINOS = [
     "lng": -56.2797,
     "web": "politeama.imcanelones.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "The most important theater in the department, inaugurated in 1921. Modern reference room for national plays, opera and dance."
+    "caracteristicas_en": "The most important theater in the department, inaugurated in 1921. Modern reference room for national plays, opera and dance.",
+    "caracteristicas_pt": "O teatro mais importante do departamento, inaugurado em 1921. Moderna sala de referência para peças nacionais, ópera e dança."
   },
   {
     "id": 72,
@@ -1294,7 +1365,8 @@ const DESTINOS = [
     "lng": -56.2189,
     "web": "canelones.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Multidisciplinary cultural space with a strong local cinematographic and theatrical focus, rescued from an old emblematic cinema of the neighbors."
+    "caracteristicas_en": "Multidisciplinary cultural space with a strong local cinematographic and theatrical focus, rescued from an old emblematic cinema of the neighbors.",
+    "caracteristicas_pt": "Espaço cultural multidisciplinar com forte enfoque cinematográfico e teatral local, resgatado de um antigo cinema emblemático dos vizinhos."
   },
   {
     "id": 73,
@@ -1312,7 +1384,8 @@ const DESTINOS = [
     "lng": -55.7592,
     "web": "canelones.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Performing arts space that concentrates the Gold Coast's theatrical offerings during the summer season and annual music festivals."
+    "caracteristicas_en": "Performing arts space that concentrates the Gold Coast's theatrical offerings during the summer season and annual music festivals.",
+    "caracteristicas_pt": "Espaço de artes cênicas que concentra a oferta teatral da Gold Coast durante o verão e os festivais anuais de música."
   },
   {
     "id": 74,
@@ -1330,7 +1403,8 @@ const DESTINOS = [
     "lng": -56.4022,
     "web": "canelones.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Large open-air stage next to the river, home of the classic \"Santa Lucía Canta\" festival and independent theater events."
+    "caracteristicas_en": "Large open-air stage next to the river, home of the classic \"Santa Lucía Canta\" festival and independent theater events.",
+    "caracteristicas_pt": "Grande palco ao ar livre junto ao rio, sede do clássico festival \"Santa Lucía Canta\" e eventos de teatro independente."
   },
   {
     "id": 75,
@@ -1348,7 +1422,8 @@ const DESTINOS = [
     "lng": -55.9756,
     "web": "canelones.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Space for open-air artistic shows and popular folklore performances, located in the rural north of the department."
+    "caracteristicas_en": "Space for open-air artistic shows and popular folklore performances, located in the rural north of the department.",
+    "caracteristicas_pt": "Espaço para espetáculos artísticos ao ar livre e apresentações de folclore popular, localizado na zona rural norte do departamento."
   },
   {
     "id": 76,
@@ -1366,7 +1441,8 @@ const DESTINOS = [
     "lng": -55.7622,
     "web": "canelones.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Protected bay with calm waves, ideal for families with children. It has an extensive pedestrian wall and excellent inns."
+    "caracteristicas_en": "Protected bay with calm waves, ideal for families with children. It has an extensive pedestrian wall and excellent inns.",
+    "caracteristicas_pt": "Baía protegida com ondas calmas, ideal para famílias com crianças. Possui um extenso muro de pedestres e excelentes pousadas."
   },
   {
     "id": 77,
@@ -1384,7 +1460,8 @@ const DESTINOS = [
     "lng": -55.7489,
     "web": "canelones.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "More open waters and strong waves. Spectacular for surfing, kitesurfing and hiking through the white sand dunes."
+    "caracteristicas_en": "More open waters and strong waves. Spectacular for surfing, kitesurfing and hiking through the white sand dunes.",
+    "caracteristicas_pt": "Águas mais abertas e ondas fortes. Espetacular para a prática de surf, kitesurf e caminhadas pelas dunas de areia branca."
   },
   {
     "id": 78,
@@ -1402,7 +1479,8 @@ const DESTINOS = [
     "lng": -55.5186,
     "web": "canelones.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Beach bordered by high ravines and natural rocks. It has the famous natural freshwater jet \"El Chorro de Cuchilla Alta\"."
+    "caracteristicas_en": "Beach bordered by high ravines and natural rocks. It has the famous natural freshwater jet \"El Chorro de Cuchilla Alta\".",
+    "caracteristicas_pt": "Praia delimitada por altas ravinas e rochas naturais. Possui o famoso jato natural de água doce \"El Chorro de Cuchilla Alta\"."
   },
   {
     "id": 79,
@@ -1420,7 +1498,8 @@ const DESTINOS = [
     "lng": -55.6794,
     "web": "canelones.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Traditional beach, very familiar and tree-lined. It preserves period mansions on its promenade and a very quiet and exclusive atmosphere."
+    "caracteristicas_en": "Traditional beach, very familiar and tree-lined. It preserves period mansions on its promenade and a very quiet and exclusive atmosphere.",
+    "caracteristicas_pt": "Praia tradicional, muito familiar e arborizada. Preserva casarões de época em seu calçadão e um ambiente muito tranquilo e exclusivo."
   },
   {
     "id": 80,
@@ -1438,7 +1517,8 @@ const DESTINOS = [
     "lng": -56.0028,
     "web": "canelones.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Kilometric white sand beach and mobile dunes in the City of the Coast. Very popular for night walks and water sports."
+    "caracteristicas_en": "Kilometric white sand beach and mobile dunes in the City of the Coast. Very popular for night walks and water sports.",
+    "caracteristicas_pt": "Praia quilométrica de areia branca e dunas móveis na Cidade do Litoral. Muito procurada para passeios noturnos e esportes náuticos."
   },
   {
     "id": 81,
@@ -1456,7 +1536,8 @@ const DESTINOS = [
     "lng": -56.2811,
     "web": "canelones.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Historic headquarters where the First Constitution was sworn in 1830. It exhibits furniture, clothing, weapons and documents from the national era."
+    "caracteristicas_en": "Historic headquarters where the First Constitution was sworn in 1830. It exhibits furniture, clothing, weapons and documents from the national era.",
+    "caracteristicas_pt": "Sede histórica onde foi juramentada a Primeira Constituição em 1830. Exibe móveis, vestimentas, armas e documentos da época nacional."
   },
   {
     "id": 82,
@@ -1474,7 +1555,8 @@ const DESTINOS = [
     "lng": -56.2164,
     "web": "inavi.com.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Walk through the history of viticulture in the capital of Uruguayan grapes. It has old machinery, historic cellars and tasting rooms."
+    "caracteristicas_en": "Walk through the history of viticulture in the capital of Uruguayan grapes. It has old machinery, historic cellars and tasting rooms.",
+    "caracteristicas_pt": "Percorra a história da viticultura na capital da uva uruguaia. Possui máquinas antigas, caves históricas e salas de degustação."
   },
   {
     "id": 83,
@@ -1492,7 +1574,8 @@ const DESTINOS = [
     "lng": -55.7661,
     "web": "atlantida.com.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Former residence where the Chilean poet stayed with Matilde Urrutia. Store manuscripts, old photos, letters and personal items."
+    "caracteristicas_en": "Former residence where the Chilean poet stayed with Matilde Urrutia. Store manuscripts, old photos, letters and personal items.",
+    "caracteristicas_pt": "Antiga residência onde o poeta chileno se hospedou com Matilde Urrutia. Armazene manuscritos, fotos antigas, cartas e itens pessoais."
   },
   {
     "id": 84,
@@ -1510,7 +1593,8 @@ const DESTINOS = [
     "lng": -55.9189,
     "web": "canelones.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Located in a strategic point of national railway history. It exhibits steam locomotives, old wooden carriages and period telegraphy."
+    "caracteristicas_en": "Located in a strategic point of national railway history. It exhibits steam locomotives, old wooden carriages and period telegraphy.",
+    "caracteristicas_pt": "Localizado num ponto estratégico da história ferroviária nacional. Exibe locomotivas a vapor, antigas carruagens de madeira e telegrafia de época."
   },
   {
     "id": 85,
@@ -1528,7 +1612,8 @@ const DESTINOS = [
     "lng": -56.3958,
     "web": "canelones.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Stately mansion from the late 19th century surrounded by a historic botanical garden with exotic species brought from all over the world."
+    "caracteristicas_en": "Stately mansion from the late 19th century surrounded by a historic botanical garden with exotic species brought from all over the world.",
+    "caracteristicas_pt": "Imponente casarão do final do século XIX rodeado por um histórico jardim botânico com espécies exóticas trazidas de todo o mundo."
   },
   {
     "id": 86,
@@ -1546,7 +1631,8 @@ const DESTINOS = [
     "lng": -56.0315,
     "web": "canelones.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Extensive eucalyptus forest with trails, lagoons, horseback riding, public barbecues and children's play areas."
+    "caracteristicas_en": "Extensive eucalyptus forest with trails, lagoons, horseback riding, public barbecues and children's play areas.",
+    "caracteristicas_pt": "Extensa floresta de eucaliptos com trilhas, lagoas, passeios a cavalo, churrasqueiras públicas e áreas de recreação infantil."
   },
   {
     "id": 87,
@@ -1564,7 +1650,8 @@ const DESTINOS = [
     "lng": -55.7767,
     "web": "atlantida.com.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Enigmatic stone construction from 1945 in the shape of an eagle's head facing the sea, loaded with local myths and legends."
+    "caracteristicas_en": "Enigmatic stone construction from 1945 in the shape of an eagle's head facing the sea, loaded with local myths and legends.",
+    "caracteristicas_pt": "Enigmática construção em pedra de 1945 em forma de cabeça de águia voltada para o mar, carregada de mitos e lendas locais."
   },
   {
     "id": 88,
@@ -1582,7 +1669,8 @@ const DESTINOS = [
     "lng": -55.6881,
     "web": "canelones.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Key geographical point where the Solís Chico stream flows into the Río de la Plata. Ideal for fishing, kayaking and sunset bird watching."
+    "caracteristicas_en": "Key geographical point where the Solís Chico stream flows into the Río de la Plata. Ideal for fishing, kayaking and sunset bird watching.",
+    "caracteristicas_pt": "Ponto geográfico chave onde o riacho Solís Chico deságua no Río de la Plata. Ideal para pesca, caiaque e observação de pássaros ao pôr do sol."
   },
   {
     "id": 89,
@@ -1600,7 +1688,8 @@ const DESTINOS = [
     "lng": -55.7667,
     "web": "unesco.org",
     "popularidad": "Alta",
-    "caracteristicas_en": "Masterpiece of reinforced brick architecture created by Eladio Dieste, declared World Heritage by UNESCO in 2021."
+    "caracteristicas_en": "Masterpiece of reinforced brick architecture created by Eladio Dieste, declared World Heritage by UNESCO in 2021.",
+    "caracteristicas_pt": "Obra-prima da arquitetura em tijolo armado de Eladio Dieste, declarada Patrimônio Mundial pela UNESCO em 2021."
   },
   {
     "id": 90,
@@ -1618,7 +1707,8 @@ const DESTINOS = [
     "lng": -56.3533,
     "web": "canelones.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Protected natural environment with indigenous forest trails, wooden walkways and interpretation of River Plate flora and fauna."
+    "caracteristicas_en": "Protected natural environment with indigenous forest trails, wooden walkways and interpretation of River Plate flora and fauna.",
+    "caracteristicas_pt": "Ambiente natural protegido com trilhas de mata indígena, passarelas de madeira e interpretação da flora e fauna do Rio da Prata."
   },
   {
     "id": 91,
@@ -1636,7 +1726,8 @@ const DESTINOS = [
     "lng": -54.9492,
     "web": "maldonado.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Exact geographical point that divides the Río de la Plata from the Atlantic Ocean. Historic shipwreck site, ideal for photography."
+    "caracteristicas_en": "Exact geographical point that divides the Río de la Plata from the Atlantic Ocean. Historic shipwreck site, ideal for photography.",
+    "caracteristicas_pt": "Exato ponto geográfico que separa o Rio da Prata do Oceano Atlântico. Local histórico de naufrágio, ideal para fotografia."
   },
   {
     "id": 92,
@@ -1654,7 +1745,8 @@ const DESTINOS = [
     "lng": -55.2575,
     "web": "piria.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Third highest point in the country with a 35-meter cement cross at the top. Base with native fauna reserve and ecological trails."
+    "caracteristicas_en": "Third highest point in the country with a 35-meter cement cross at the top. Base with native fauna reserve and ecological trails.",
+    "caracteristicas_pt": "Terceiro ponto mais alto do país com uma cruz de cimento de 35 metros no topo. Base com reserva de fauna nativa e trilhas ecológicas."
   },
   {
     "id": 93,
@@ -1672,7 +1764,8 @@ const DESTINOS = [
     "lng": -55.0444,
     "web": "carlospaezvilaro.com",
     "popularidad": "Alta",
-    "caracteristicas_en": "Majestic \"habitable sculpture\" built by the artist Carlos Páez Vilaró on the cliffs. Famous for its sun ceremony."
+    "caracteristicas_en": "Majestic \"habitable sculpture\" built by the artist Carlos Páez Vilaró on the cliffs. Famous for its sun ceremony.",
+    "caracteristicas_pt": "Majestosa “escultura habitável” construída pelo artista Carlos Páez Vilaró nas falésias. Famosa por sua cerimônia do sol."
   },
   {
     "id": 94,
@@ -1690,7 +1783,8 @@ const DESTINOS = [
     "lng": -54.9694,
     "web": "maldonado.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "National historical reserve with ruins of Spanish colonial fortifications (Baterías) and two spectacular beaches (Puerto Jardín and Honda)."
+    "caracteristicas_en": "National historical reserve with ruins of Spanish colonial fortifications (Baterías) and two spectacular beaches (Puerto Jardín and Honda).",
+    "caracteristicas_pt": "Reserva histórica nacional com ruínas de fortificações coloniais espanholas (Baterías) e duas praias espetaculares (Puerto Jardín e Honda)."
   },
   {
     "id": 95,
@@ -1708,7 +1802,8 @@ const DESTINOS = [
     "lng": -55.2444,
     "web": "piria.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Late 19th century residence of the founder of Piriápolis, Francisco Piria. Eclectic architecture loaded with alchemical symbology."
+    "caracteristicas_en": "Late 19th century residence of the founder of Piriápolis, Francisco Piria. Eclectic architecture loaded with alchemical symbology.",
+    "caracteristicas_pt": "Residência do final do século XIX do fundador de Piriápolis, Francisco Piria. Arquitetura eclética carregada de simbologia alquímica."
   },
   {
     "id": 96,
@@ -1726,7 +1821,8 @@ const DESTINOS = [
     "lng": -54.8322,
     "web": "macamuseo.org",
     "popularidad": "Alta",
-    "caracteristicas_en": "Monumental museum of international design surrounded by a 40-hectare sculpture park, created by sculptor Pablo Atchugarry."
+    "caracteristicas_en": "Monumental museum of international design surrounded by a 40-hectare sculpture park, created by sculptor Pablo Atchugarry.",
+    "caracteristicas_pt": "Museu monumental de design internacional rodeado por um parque de esculturas de 40 hectares, criado pelo escultor Pablo Atchugarry."
   },
   {
     "id": 97,
@@ -1744,7 +1840,8 @@ const DESTINOS = [
     "lng": -54.9219,
     "web": "museoralli.com",
     "popularidad": "Alta",
-    "caracteristicas_en": "Located in the exclusive neighborhood of Beverly Hills. It houses one of the most important collections of contemporary Latin American and European art on the continent."
+    "caracteristicas_en": "Located in the exclusive neighborhood of Beverly Hills. It houses one of the most important collections of contemporary Latin American and European art on the continent.",
+    "caracteristicas_pt": "Localizado no exclusivo bairro de Beverly Hills. Abriga uma das mais importantes coleções de arte contemporânea latino-americana e europeia do continente."
   },
   {
     "id": 98,
@@ -1762,7 +1859,8 @@ const DESTINOS = [
     "lng": -54.9189,
     "web": "sancarlos.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "It operates in a historic military building (former colonial barracks from 1772). It exhibits the history of the founding of San Carlos, weapons and gaúcho utensils."
+    "caracteristicas_en": "It operates in a historic military building (former colonial barracks from 1772). It exhibits the history of the founding of San Carlos, weapons and gaúcho utensils.",
+    "caracteristicas_pt": "Funciona em um prédio militar histórico (antigo quartel colonial de 1772). Exibe a história da fundação de São Carlos, armas e utensílios gaúchos."
   },
   {
     "id": 99,
@@ -1780,7 +1878,8 @@ const DESTINOS = [
     "lng": -54.9472,
     "web": "puntadeleste.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Cultural space dedicated to the Chilean poet's passage through Punta del Este. It preserves period photographs, love letters, first editions and furniture."
+    "caracteristicas_en": "Cultural space dedicated to the Chilean poet's passage through Punta del Este. It preserves period photographs, love letters, first editions and furniture.",
+    "caracteristicas_pt": "Espaço cultural dedicado à passagem do poeta chileno por Punta del Este. Preserva fotografias de época, cartas de amor, primeiras edições e móveis."
   },
   {
     "id": 100,
@@ -1798,7 +1897,8 @@ const DESTINOS = [
     "lng": -54.9589,
     "web": "culturamaldonado.gug.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Located on the historic Maldonado Art School promenade. It houses a fascinating collection of puppets from all over the world and various techniques."
+    "caracteristicas_en": "Located on the historic Maldonado Art School promenade. It houses a fascinating collection of puppets from all over the world and various techniques.",
+    "caracteristicas_pt": "Localizado no histórico calçadão da Escola de Arte Maldonado. Abriga uma fascinante coleção de bonecos de todo o mundo e diversas técnicas."
   },
   {
     "id": 101,
@@ -1816,7 +1916,8 @@ const DESTINOS = [
     "lng": -54.9411,
     "web": "puntadeleste.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Extensive protected bay beach, calm waters, first-class inns and wooden walkways. Ideal for sunsets and families."
+    "caracteristicas_en": "Extensive protected bay beach, calm waters, first-class inns and wooden walkways. Ideal for sunsets and families.",
+    "caracteristicas_pt": "Extensa praia de baía protegida, águas calmas, pousadas de primeira linha e passarelas de madeira. Ideal para pôr do sol e famílias."
   },
   {
     "id": 102,
@@ -1834,7 +1935,8 @@ const DESTINOS = [
     "lng": -54.9378,
     "web": "puntadeleste.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Open water with steep waves for surfers. The iconic world sculpture of \"The Hand\" by Mario Irarrázabal is located here."
+    "caracteristicas_en": "Open water with steep waves for surfers. The iconic world sculpture of \"The Hand\" by Mario Irarrázabal is located here.",
+    "caracteristicas_pt": "Águas abertas com ondas íngremes para surfistas. A icônica escultura mundial de \"A Mão\" de Mario Irarrázabal está localizada aqui."
   },
   {
     "id": 103,
@@ -1852,7 +1954,8 @@ const DESTINOS = [
     "lng": -54.8519,
     "web": "maldonado.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Top beach and youth trend. Trendy paradores, fun waves, surf events, live DJs at sunset and very fine sands."
+    "caracteristicas_en": "Top beach and youth trend. Trendy paradores, fun waves, surf events, live DJs at sunset and very fine sands.",
+    "caracteristicas_pt": "Tendência praiana e juvenil. Paradores badalados, ondas divertidas, eventos de surf, DJs ao vivo ao pôr do sol e areias finíssimas."
   },
   {
     "id": 104,
@@ -1870,7 +1973,8 @@ const DESTINOS = [
     "lng": -55.0631,
     "web": "solanas.com.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Beautiful and wide beach with very calm waters and shallow depth. Very sheltered from the wind and famous for the warmth of its family environment."
+    "caracteristicas_en": "Beautiful and wide beach with very calm waters and shallow depth. Very sheltered from the wind and famous for the warmth of its family environment.",
+    "caracteristicas_pt": "Praia bonita e ampla com águas muito calmas e pouca profundidade. Muito abrigada do vento e famosa pelo calor do seu ambiente familiar."
   },
   {
     "id": 105,
@@ -1888,7 +1992,8 @@ const DESTINOS = [
     "lng": -54.6331,
     "web": "joseignacio.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Exclusive environment that combines the mystique of a fishing village with luxury tourism. Flanked by its famous historic lighthouse."
+    "caracteristicas_en": "Exclusive environment that combines the mystique of a fishing village with luxury tourism. Flanked by its famous historic lighthouse.",
+    "caracteristicas_pt": "Ambiente exclusivo que combina a mística de uma vila piscatória com o turismo de luxo. Ladeado pelo seu famoso farol histórico."
   },
   {
     "id": 106,
@@ -1906,7 +2011,8 @@ const DESTINOS = [
     "lng": -54.9575,
     "web": "culturamaldonado.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "The official theater of the departmental capital. It hosts independent Uruguayan works, classic film series and international jazz festivals."
+    "caracteristicas_en": "The official theater of the departmental capital. It hosts independent Uruguayan works, classic film series and international jazz festivals.",
+    "caracteristicas_pt": "O teatro oficial da capital departamental. Acolhe obras independentes uruguaias, séries de filmes clássicos e festivais internacionais de jazz."
   },
   {
     "id": 107,
@@ -1924,7 +2030,8 @@ const DESTINOS = [
     "lng": -54.9356,
     "web": "culturamaldonado.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Mythical and historical room inaugurated in the 50s, official headquarters of the famous Punta del Este International Film Festival."
+    "caracteristicas_en": "Mythical and historical room inaugurated in the 50s, official headquarters of the famous Punta del Este International Film Festival.",
+    "caracteristicas_pt": "Sala mítica e histórica inaugurada na década de 50, sede oficial do famoso Festival Internacional de Cinema de Punta del Este."
   },
   {
     "id": 108,
@@ -1942,7 +2049,8 @@ const DESTINOS = [
     "lng": -54.9142,
     "web": "culturamaldonado.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Outdoor stage surrounded by eucalyptus trees designed by architect Antonio Bonet in homage to the legendary Spanish actress."
+    "caracteristicas_en": "Outdoor stage surrounded by eucalyptus trees designed by architect Antonio Bonet in homage to the legendary Spanish actress.",
+    "caracteristicas_pt": "Palco ao ar livre cercado por eucaliptos projetado pelo arquiteto Antonio Bonet em homenagem à lendária atriz espanhola."
   },
   {
     "id": 109,
@@ -1960,7 +2068,8 @@ const DESTINOS = [
     "lng": -54.9214,
     "web": "sancarlos.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "19th century architectural gem recovered for the performing arts. Epicenter of the artistic movement in the northern part of the department."
+    "caracteristicas_en": "19th century architectural gem recovered for the performing arts. Epicenter of the artistic movement in the northern part of the department.",
+    "caracteristicas_pt": "Jóia arquitetônica do século XIX recuperada para as artes cênicas. Epicentro do movimento artístico na zona norte do departamento."
   },
   {
     "id": 110,
@@ -1978,7 +2087,8 @@ const DESTINOS = [
     "lng": -54.6333,
     "web": "joseignacio.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Stone tower from 1877 built to prevent shipwrecks on the fearsome rock of the same name. Symbol of the town with incredible panoramic views."
+    "caracteristicas_en": "Stone tower from 1877 built to prevent shipwrecks on the fearsome rock of the same name. Symbol of the town with incredible panoramic views.",
+    "caracteristicas_pt": "Torre de pedra de 1877 construída para evitar naufrágios na temível rocha de mesmo nome. Símbolo da cidade com incríveis vistas panorâmicas."
   },
   {
     "id": 111,
@@ -1996,7 +2106,8 @@ const DESTINOS = [
     "lng": -54.8847,
     "web": "maldonado.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Unique civil work designed by Leonel Viera in 1965. It generates a fun roller coaster effect when crossing it in a vehicle. Geographic landmark."
+    "caracteristicas_en": "Unique civil work designed by Leonel Viera in 1965. It generates a fun roller coaster effect when crossing it in a vehicle. Geographic landmark.",
+    "caracteristicas_pt": "Obra civil única projetada por Leonel Viera em 1965. Gera um divertido efeito de montanha-russa ao atravessá-la de veículo. Marco geográfico."
   },
   {
     "id": 112,
@@ -2014,7 +2125,8 @@ const DESTINOS = [
     "lng": -55.2694,
     "web": "piria.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Piriápolis natural viewpoint accessible by car, on foot or by chairlift. At the top is the Virgen de los Pescadores and a complete panorama of the bay."
+    "caracteristicas_en": "Piriápolis natural viewpoint accessible by car, on foot or by chairlift. At the top is the Virgen de los Pescadores and a complete panorama of the bay.",
+    "caracteristicas_pt": "Mirante natural de Piriápolis acessível de carro, a pé ou de teleférico. No topo está a Virgen de los Pescadores e um panorama completo da baía."
   },
   {
     "id": 113,
@@ -2032,7 +2144,8 @@ const DESTINOS = [
     "lng": -54.9592,
     "web": "culturamaldonado.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Historic Spanish colonial military fortification built between 1771 and 1797. Gen. José Gervasio Artigas began his military career here."
+    "caracteristicas_en": "Historic Spanish colonial military fortification built between 1771 and 1797. Gen. José Gervasio Artigas began his military career here.",
+    "caracteristicas_pt": "Histórica fortificação militar colonial espanhola construída entre 1771 e 1797. O general José Gervasio Artigas iniciou sua carreira militar aqui."
   },
   {
     "id": 114,
@@ -2050,7 +2163,8 @@ const DESTINOS = [
     "lng": -54.9567,
     "web": "culturamaldonado.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Historical mansion from the 19th century belonging to Don Rómulo Mazzoni. It exhibits period furniture, indigenous archaeology, colonial earthenware and regional history rooms."
+    "caracteristicas_en": "Historical mansion from the 19th century belonging to Don Rómulo Mazzoni. It exhibits period furniture, indigenous archaeology, colonial earthenware and regional history rooms.",
+    "caracteristicas_pt": "Casarão histórico do século XIX pertencente a Dom Rómulo Mazzoni. Exibe móveis de época, arqueologia indígena, cerâmica colonial e salas de história regional."
   },
   {
     "id": 115,
@@ -2068,7 +2182,8 @@ const DESTINOS = [
     "lng": -55.0314,
     "web": "arboretumlussich.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "One of the artificial forests with the greatest diversity of tree species in the world. It has Antonio Lussich's old house transformed into a museum."
+    "caracteristicas_en": "One of the artificial forests with the greatest diversity of tree species in the world. It has Antonio Lussich's old house transformed into a museum.",
+    "caracteristicas_pt": "Uma das florestas artificiais com maior diversidade de espécies arbóreas do mundo. Possui a antiga casa de Antonio Lussich transformada em museu."
   },
   {
     "id": 116,
@@ -2086,7 +2201,8 @@ const DESTINOS = [
     "lng": -55.2441,
     "web": "piria.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Located inside the historic Piria Castle. It exhibits period collections, 19th century military weapons, uniforms and the history of art."
+    "caracteristicas_en": "Located inside the historic Piria Castle. It exhibits period collections, 19th century military weapons, uniforms and the history of art.",
+    "caracteristicas_pt": "Localizado dentro do histórico Castelo de Piria. Exibe coleções de época, armas militares do século XIX, uniformes e história da arte."
   },
   {
     "id": 117,
@@ -2104,7 +2220,8 @@ const DESTINOS = [
     "lng": -55.2814,
     "web": "piria.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Beautiful crescent-shaped residential beach of Piriápolis. Highly sought after by surfers due to its excellent waves and family and calm atmosphere."
+    "caracteristicas_en": "Beautiful crescent-shaped residential beach of Piriápolis. Highly sought after by surfers due to its excellent waves and family and calm atmosphere.",
+    "caracteristicas_pt": "Linda praia residencial em forma de meia-lua de Piriápolis. Muito procurada pelos surfistas devido às excelentes ondas e ao ambiente familiar e tranquilo."
   },
   {
     "id": 118,
@@ -2122,7 +2239,8 @@ const DESTINOS = [
     "lng": -54.8647,
     "web": "maldonado.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Continuation of the La Barra move. Beaches with thick sand, open sea and strong waves, trendy inns and international surf tournaments."
+    "caracteristicas_en": "Continuation of the La Barra move. Beaches with thick sand, open sea and strong waves, trendy inns and international surf tournaments.",
+    "caracteristicas_pt": "Continuação da mudança La Barra. Praias de areia grossa, mar aberto e ondas fortes, pousadas badaladas e torneios internacionais de surf."
   },
   {
     "id": 119,
@@ -2140,7 +2258,8 @@ const DESTINOS = [
     "lng": -55.3592,
     "web": "maldonado.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Quiet beaches of the \"Cote D'Or\" of Maldonado. They are characterized by their strip of pebbles (smooth stones) mixed with sand and a wooded environment."
+    "caracteristicas_en": "Quiet beaches of the \"Cote D'Or\" of Maldonado. They are characterized by their strip of pebbles (smooth stones) mixed with sand and a wooded environment.",
+    "caracteristicas_pt": "Praias tranquilas da \"Cote D'Or\" de Maldonado. Caracterizam-se por sua faixa de seixos (pedras lisas) misturadas com areia e ambiente arborizado."
   },
   {
     "id": 120,
@@ -2158,7 +2277,8 @@ const DESTINOS = [
     "lng": -55.0847,
     "web": "chihuahua.com.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Official and international nudist beach of Uruguay. Surrounded by dunes and the El Potrero stream, it stands out for its absolute tranquility and natural respect."
+    "caracteristicas_en": "Official and international nudist beach of Uruguay. Surrounded by dunes and the El Potrero stream, it stands out for its absolute tranquility and natural respect.",
+    "caracteristicas_pt": "Praia de nudismo oficial e internacional do Uruguai. Rodeado por dunas e pelo riacho El Potrero, destaca-se pela absoluta tranquilidade e respeito natural."
   },
   {
     "id": 121,
@@ -2176,7 +2296,8 @@ const DESTINOS = [
     "lng": -54.7172,
     "web": "maldonado.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "The highest point in Uruguayan territory (513 meters). Located in the Sierra de Carapé, it offers rugged hiking and unique rural panoramic views."
+    "caracteristicas_en": "The highest point in Uruguayan territory (513 meters). Located in the Sierra de Carapé, it offers rugged hiking and unique rural panoramic views.",
+    "caracteristicas_pt": "O ponto mais alto do território uruguaio (513 metros). Localizada na Serra de Carapé, oferece caminhadas acidentadas e vistas panorâmicas rurais únicas."
   },
   {
     "id": 122,
@@ -2194,7 +2315,8 @@ const DESTINOS = [
     "lng": -55.3833,
     "web": "sierraoficial.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Natural pools and waterfalls of volcanic origin hidden in the mountains, which reflect the blue of the sky. Requires authorized guide."
+    "caracteristicas_en": "Natural pools and waterfalls of volcanic origin hidden in the mountains, which reflect the blue of the sky. Requires authorized guide.",
+    "caracteristicas_pt": "Piscinas naturais e cascatas de origem vulcânica escondidas nas montanhas, que reflectem o azul do céu. Requer guia autorizado."
   },
   {
     "id": 123,
@@ -2212,7 +2334,8 @@ const DESTINOS = [
     "lng": -55.0722,
     "web": "maldonado.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "The largest freshwater mirror in the department (approx. 5000 ha). Ideal for non-motorized water sports, sightseeing and relaxation."
+    "caracteristicas_en": "The largest freshwater mirror in the department (approx. 5000 ha). Ideal for non-motorized water sports, sightseeing and relaxation.",
+    "caracteristicas_pt": "O maior espelho de água doce do departamento (aprox. 5.000 ha). Ideal para esportes aquáticos não motorizados, passeios turísticos e relaxamento."
   },
   {
     "id": 124,
@@ -2230,7 +2353,8 @@ const DESTINOS = [
     "lng": -54.7667,
     "web": "aigua.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Natural caverns nestled in the Sierras de la Salamanca, surrounded by indigenous forest and legends of ancient matreros' shelters."
+    "caracteristicas_en": "Natural caverns nestled in the Sierras de la Salamanca, surrounded by indigenous forest and legends of ancient matreros' shelters.",
+    "caracteristicas_pt": "Cavernas naturais situadas nas Sierras de la Salamanca, cercadas por florestas indígenas e lendas de antigos abrigos de matreros."
   },
   {
     "id": 125,
@@ -2248,7 +2372,8 @@ const DESTINOS = [
     "lng": -54.9547,
     "web": "maldonado.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Historic site of colonial landfall where sailors (from Solís) were supplied with fresh water from coastal springs."
+    "caracteristicas_en": "Historic site of colonial landfall where sailors (from Solís) were supplied with fresh water from coastal springs.",
+    "caracteristicas_pt": "Sítio histórico de desembarque colonial onde os marinheiros (de Solís) eram abastecidos com água doce de nascentes costeiras."
   },
   {
     "id": 126,
@@ -2266,7 +2391,8 @@ const DESTINOS = [
     "lng": -54.8831,
     "web": "maldonado.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Natural reserve that houses the largest colony of sea lions in the Western Hemisphere. It has the highest lighthouse in South America."
+    "caracteristicas_en": "Natural reserve that houses the largest colony of sea lions in the Western Hemisphere. It has the highest lighthouse in South America.",
+    "caracteristicas_pt": "Reserva natural que abriga a maior colônia de leões marinhos do Hemisfério Ocidental. Possui o farol mais alto da América do Sul."
   },
   {
     "id": 127,
@@ -2284,7 +2410,8 @@ const DESTINOS = [
     "lng": -54.9667,
     "web": "maldonado.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Family beaches on the calm coast of the bay with extremely calm and calm waters, ideal for swimming and children's rest."
+    "caracteristicas_en": "Family beaches on the calm coast of the bay with extremely calm and calm waters, ideal for swimming and children's rest.",
+    "caracteristicas_pt": "Praias familiares no litoral calmo da baía com águas extremamente calmas e tranquilas, ideais para banho e descanso infantil."
   },
   {
     "id": 128,
@@ -2302,7 +2429,8 @@ const DESTINOS = [
     "lng": -54.9358,
     "web": "puntadeleste.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Mythical beach on the Punta del Este Peninsula, famous among surfers for its consistent waves all year round and tango history."
+    "caracteristicas_en": "Mythical beach on the Punta del Este Peninsula, famous among surfers for its consistent waves all year round and tango history.",
+    "caracteristicas_pt": "Praia mítica da Península de Punta del Este, famosa entre os surfistas por suas ondas consistentes durante todo o ano e pela história do tango."
   },
   {
     "id": 129,
@@ -2320,7 +2448,8 @@ const DESTINOS = [
     "lng": -54.9419,
     "web": "puntadeleste.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Small rocky beach on the Peninsula, with strong and spectacular waves for marine contemplation. Not recommended for direct children's baths."
+    "caracteristicas_en": "Small rocky beach on the Peninsula, with strong and spectacular waves for marine contemplation. Not recommended for direct children's baths.",
+    "caracteristicas_pt": "Pequena praia rochosa da Península, com ondas fortes e espetaculares para contemplação marinha. Não recomendado para banhos diretos de crianças."
   },
   {
     "id": 130,
@@ -2338,7 +2467,8 @@ const DESTINOS = [
     "lng": -55.2758,
     "web": "piria.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Extensive beach in the center of the resort, with calm waters and fine sand, protected by the hills and flanked by the European-style promenade."
+    "caracteristicas_en": "Extensive beach in the center of the resort, with calm waters and fine sand, protected by the hills and flanked by the European-style promenade.",
+    "caracteristicas_pt": "Extensa praia no centro do resort, de águas calmas e areia fina, protegida pela serra e ladeada pelo passeio marítimo de estilo europeu."
   },
   {
     "id": 131,
@@ -2356,7 +2486,8 @@ const DESTINOS = [
     "lng": -55.2811,
     "web": "piria.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Continuous beaches of Piriápolis that alternate rock formations (ideal for fishing) with sandy bays with medium-high waves."
+    "caracteristicas_en": "Continuous beaches of Piriápolis that alternate rock formations (ideal for fishing) with sandy bays with medium-high waves.",
+    "caracteristicas_pt": "Praias contínuas de Piriápolis que alternam formações rochosas (ideais para a pesca) com baías arenosas com ondas médias-altas."
   },
   {
     "id": 132,
@@ -2374,7 +2505,8 @@ const DESTINOS = [
     "lng": -54.9581,
     "web": "culturamaldonado.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "It houses a notable collection of national painting and sculpture (period 1880-1945) donated by the River Plate artist."
+    "caracteristicas_en": "It houses a notable collection of national painting and sculpture (period 1880-1945) donated by the River Plate artist.",
+    "caracteristicas_pt": "Abriga um notável acervo de pintura e escultura nacional (período 1880-1945) doado pelo artista fluvial."
   },
   {
     "id": 133,
@@ -2392,7 +2524,8 @@ const DESTINOS = [
     "lng": -54.9392,
     "web": "culturamaldonado.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Former summer residence of former president Eduardo Víctor Haedo, today a cultural center that exhibits works of art, souvenirs and a sculpture park."
+    "caracteristicas_en": "Former summer residence of former president Eduardo Víctor Haedo, today a cultural center that exhibits works of art, souvenirs and a sculpture park.",
+    "caracteristicas_pt": "Antiga residência de verão do ex-presidente Eduardo Víctor Haedo, hoje centro cultural que expõe obras de arte, souvenirs e parque de esculturas."
   },
   {
     "id": 134,
@@ -2410,7 +2543,8 @@ const DESTINOS = [
     "lng": -54.9156,
     "web": "maldonado.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Theme park and interactive museum that recreates a period rural town with its grocery store, blacksmith shop, school and traditional chapel."
+    "caracteristicas_en": "Theme park and interactive museum that recreates a period rural town with its grocery store, blacksmith shop, school and traditional chapel.",
+    "caracteristicas_pt": "Parque temático e museu interativo que recria uma cidade rural de época com mercearia, ferraria, escola e capela tradicional."
   },
   {
     "id": 135,
@@ -2428,7 +2562,8 @@ const DESTINOS = [
     "lng": -55.3347,
     "web": "solisgrande.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Country residence of the architect and alchemist Humberto Pittamiglio. It has Templar symbology, interactive museography and mystical gardens."
+    "caracteristicas_en": "Country residence of the architect and alchemist Humberto Pittamiglio. It has Templar symbology, interactive museography and mystical gardens.",
+    "caracteristicas_pt": "Residência de campo do arquiteto e alquimista Humberto Pittamiglio. Possui simbologia templária, museografia interativa e jardins místicos."
   },
   {
     "id": 136,
@@ -2446,7 +2581,8 @@ const DESTINOS = [
     "lng": -54.8711,
     "web": "instagram.com/museodelmaroficial",
     "popularidad": "Alta",
-    "caracteristicas_en": "Impressive private collection with thousands of marine specimens: whale skeletons, shells, snails, history of pirates and spas."
+    "caracteristicas_en": "Impressive private collection with thousands of marine specimens: whale skeletons, shells, snails, history of pirates and spas.",
+    "caracteristicas_pt": "Impressionante coleção particular com milhares de espécimes marinhos: esqueletos de baleias, conchas, caracóis, história de piratas e spas."
   },
   {
     "id": 137,
@@ -2464,7 +2600,8 @@ const DESTINOS = [
     "lng": -54.8344,
     "web": "instagram.com/museo_autos_clasicos",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Permanent exhibition of perfectly restored antique and historical vehicles, ideal for vintage motor enthusiasts."
+    "caracteristicas_en": "Permanent exhibition of perfectly restored antique and historical vehicles, ideal for vintage motor enthusiasts.",
+    "caracteristicas_pt": "Exposição permanente de veículos antigos e históricos perfeitamente restaurados, ideal para entusiastas de automóveis antigos."
   },
   {
     "id": 138,
@@ -2482,7 +2619,8 @@ const DESTINOS = [
     "lng": -54.9614,
     "web": "culturamaldonado.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Neoclassical military watchtower of 17 meters built between 1799 and 1800 to spot ships in the Río de la Plata. Historical Monument."
+    "caracteristicas_en": "Neoclassical military watchtower of 17 meters built between 1799 and 1800 to spot ships in the Río de la Plata. Historical Monument.",
+    "caracteristicas_pt": "Torre de vigia militar neoclássica de 17 metros construída entre 1799 e 1800 para avistar navios no Río de la Plata. Monumento Histórico."
   },
   {
     "id": 139,
@@ -2500,7 +2638,8 @@ const DESTINOS = [
     "lng": -54.9613,
     "web": "culturamaldonado.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "White marble cairn from 1752 originally used to delimit the colonial borders between the empires of Spain and Portugal."
+    "caracteristicas_en": "White marble cairn from 1752 originally used to delimit the colonial borders between the empires of Spain and Portugal.",
+    "caracteristicas_pt": "Marco de pedras de mármore branco de 1752, originalmente usado para delimitar as fronteiras coloniais entre os impérios de Espanha e Portugal."
   },
   {
     "id": 140,
@@ -2518,7 +2657,8 @@ const DESTINOS = [
     "lng": -54.9489,
     "web": "maldonado.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Old colonial spring and well with fresh water that supplied the founders. The local legend says: \"he who drinks its water always comes back.\""
+    "caracteristicas_en": "Old colonial spring and well with fresh water that supplied the founders. The local legend says: \"he who drinks its water always comes back.\"",
+    "caracteristicas_pt": "Antiga nascente colonial e poço com água doce que abastecia os fundadores. Diz a lenda local: “quem bebe sua água sempre volta”."
   },
   {
     "id": 141,
@@ -2536,7 +2676,8 @@ const DESTINOS = [
     "lng": -54.9351,
     "web": "puntadeleste.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Glazed sculpture embedded in the coastal rocks in honor of the patron saint of Punta del Este and the Free Port."
+    "caracteristicas_en": "Glazed sculpture embedded in the coastal rocks in honor of the patron saint of Punta del Este and the Free Port.",
+    "caracteristicas_pt": "Escultura vidrada incrustada nas rochas costeiras em homenagem à padroeira de Punta del Este e do Porto Livre."
   },
   {
     "id": 142,
@@ -2554,7 +2695,8 @@ const DESTINOS = [
     "lng": -54.9458,
     "web": "culturamaldonado.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Historic masonry windmill structure built in 1855, survivor of the former regional milling industry."
+    "caracteristicas_en": "Historic masonry windmill structure built in 1855, survivor of the former regional milling industry.",
+    "caracteristicas_pt": "Estrutura histórica de moinho de vento em alvenaria construída em 1855, sobrevivente da antiga indústria moageira regional."
   },
   {
     "id": 143,
@@ -2572,7 +2714,8 @@ const DESTINOS = [
     "lng": -55.2589,
     "web": "piria.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Monumental cast iron statue of a life-size bull that crowns a mineral water source on the slopes of the Piriapolense hill."
+    "caracteristicas_en": "Monumental cast iron statue of a life-size bull that crowns a mineral water source on the slopes of the Piriapolense hill.",
+    "caracteristicas_pt": "Monumental estátua em ferro fundido de um touro em tamanho natural que coroa uma fonte de água mineral nas encostas do morro Piriapolense."
   },
   {
     "id": 144,
@@ -2590,7 +2733,8 @@ const DESTINOS = [
     "lng": -57.1519,
     "web": "sanjose.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "River beach of fine sand, rest, sailing, walks along the breakwater, bird watching and sport fishing. Natural and calm environment."
+    "caracteristicas_en": "River beach of fine sand, rest, sailing, walks along the breakwater, bird watching and sport fishing. Natural and calm environment.",
+    "caracteristicas_pt": "Praia fluvial de areia fina, descanso, vela, passeios no quebra-mar, observação de aves e pesca desportiva. Ambiente natural e calmo."
   },
   {
     "id": 145,
@@ -2608,7 +2752,8 @@ const DESTINOS = [
     "lng": -56.9114,
     "web": "sanjose.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Mountain trekking, unique rock formations (\"sea of ​​stone\"), native mountains, landscape photography and historical mysticism."
+    "caracteristicas_en": "Mountain trekking, unique rock formations (\"sea of ​​stone\"), native mountains, landscape photography and historical mysticism.",
+    "caracteristicas_pt": "Trekking nas montanhas, formações rochosas únicas (“mar de pedra”), montanhas nativas, fotografia de paisagem e misticismo histórico."
   },
   {
     "id": 146,
@@ -2626,7 +2771,8 @@ const DESTINOS = [
     "lng": -56.7211,
     "web": "sanjose.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Spa on the Río de la Plata characterized by high clay ravines, wide beaches, coastal hiking, fishing and paragliding."
+    "caracteristicas_en": "Spa on the Río de la Plata characterized by high clay ravines, wide beaches, coastal hiking, fishing and paragliding.",
+    "caracteristicas_pt": "Balneário do Rio da Prata caracterizado por altas ravinas de argila, amplas praias, caminhadas costeiras, pesca e parapente."
   },
   {
     "id": 147,
@@ -2644,7 +2790,8 @@ const DESTINOS = [
     "lng": -56.3842,
     "web": "sanjose.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Natural reserve and protected area, sightings of migratory birds, wetland ecosystem and beach on the Río de la Plata. Ideal for photography."
+    "caracteristicas_en": "Natural reserve and protected area, sightings of migratory birds, wetland ecosystem and beach on the Río de la Plata. Ideal for photography.",
+    "caracteristicas_pt": "Reserva natural e área protegida, avistamentos de aves migratórias, ecossistema pantanoso e praia do Rio da Prata. Ideal para fotografia."
   },
   {
     "id": 148,
@@ -2662,7 +2809,8 @@ const DESTINOS = [
     "lng": -56.7015,
     "web": "sanjose.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "River park on the banks of the San José River. It has a camping area, native forest, sports fields and spaces for family barbecues."
+    "caracteristicas_en": "River park on the banks of the San José River. It has a camping area, native forest, sports fields and spaces for family barbecues.",
+    "caracteristicas_pt": "Parque fluvial às margens do rio San José. Possui área de camping, mata nativa, quadras esportivas e espaços para churrascos familiares."
   },
   {
     "id": 149,
@@ -2680,7 +2828,8 @@ const DESTINOS = [
     "lng": -56.7136,
     "web": "sanjose.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Cultural tour: Plaza de los Treinta y Tres, Cathedral Basilica (Historical Monument), Macció Theater and local museums of colonial architecture."
+    "caracteristicas_en": "Cultural tour: Plaza de los Treinta y Tres, Cathedral Basilica (Historical Monument), Macció Theater and local museums of colonial architecture.",
+    "caracteristicas_pt": "Passeio cultural: Plaza de los Treinta y Tres, Catedral Basílica (Monumento Histórico), Teatro Macció e museus locais de arquitetura colonial."
   },
   {
     "id": 150,
@@ -2698,7 +2847,8 @@ const DESTINOS = [
     "lng": -56.7214,
     "web": "sanjose.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Extensive urban park with artificial lake, boat rides, zoo converted into a reserve, athletics tracks, tennis courts and amphitheater."
+    "caracteristicas_en": "Extensive urban park with artificial lake, boat rides, zoo converted into a reserve, athletics tracks, tennis courts and amphitheater.",
+    "caracteristicas_pt": "Extenso parque urbano com lago artificial, passeios de barco, zoológico convertido em reserva, pistas de atletismo, quadras de tênis e anfiteatro."
   },
   {
     "id": 151,
@@ -2716,7 +2866,8 @@ const DESTINOS = [
     "lng": -56.7225,
     "web": "sanjose.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Historical cultural and recreational space that functioned as an old brick factory. Tree-lined trails, outdoor exhibits and events."
+    "caracteristicas_en": "Historical cultural and recreational space that functioned as an old brick factory. Tree-lined trails, outdoor exhibits and events.",
+    "caracteristicas_pt": "Espaço histórico cultural e recreativo que funcionou como uma antiga fábrica de tijolos. Trilhas arborizadas, exposições e eventos ao ar livre."
   },
   {
     "id": 152,
@@ -2734,7 +2885,8 @@ const DESTINOS = [
     "lng": -56.9244,
     "web": "sanjose.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Wild beach on the Río de la Plata surrounded by lush pine and eucalyptus forests. Artisanal fishing area and absolute disconnection."
+    "caracteristicas_en": "Wild beach on the Río de la Plata surrounded by lush pine and eucalyptus forests. Artisanal fishing area and absolute disconnection.",
+    "caracteristicas_pt": "Praia selvagem no Rio de la Plata cercada por exuberantes florestas de pinheiros e eucaliptos. Zona de pesca artesanal e desconexão absoluta."
   },
   {
     "id": 153,
@@ -2752,7 +2904,8 @@ const DESTINOS = [
     "lng": -56.9536,
     "web": "sanjose.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Tourist town and recovered old train station. Local crafts, sulky rides, railway heritage and historic rural surroundings."
+    "caracteristicas_en": "Tourist town and recovered old train station. Local crafts, sulky rides, railway heritage and historic rural surroundings.",
+    "caracteristicas_pt": "Vila turística e antiga estação ferroviária recuperada. Artesanato local, passeios de mau humor, património ferroviário e ambiente rural histórico."
   },
   {
     "id": 154,
@@ -2770,7 +2923,8 @@ const DESTINOS = [
     "lng": -56.7547,
     "web": "sanjose.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Coastal extension adjacent to Kiyú, characterized by its more residential environment, wide beaches of clean sand and coastal fishing areas."
+    "caracteristicas_en": "Coastal extension adjacent to Kiyú, characterized by its more residential environment, wide beaches of clean sand and coastal fishing areas.",
+    "caracteristicas_pt": "Extensão costeira adjacente a Kiyú, caracterizada por seu ambiente mais residencial, amplas praias de areia limpa e áreas costeiras de pesca."
   },
   {
     "id": 155,
@@ -2788,7 +2942,8 @@ const DESTINOS = [
     "lng": -56.3497,
     "web": "sanjose.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Kayak and boat adventures to the islands and river islets of the Santa Lucía River. Closed riverine mountain, wild camping and fishing."
+    "caracteristicas_en": "Kayak and boat adventures to the islands and river islets of the Santa Lucía River. Closed riverine mountain, wild camping and fishing.",
+    "caracteristicas_pt": "Aventuras de caiaque e barco pelas ilhas e ilhotas fluviais do rio Santa Lucía. Serra ribeirinha fechada, campismo selvagem e pesca."
   },
   {
     "id": 156,
@@ -2806,7 +2961,8 @@ const DESTINOS = [
     "lng": -57.1353,
     "web": "sanjose.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Gastronomic and rural tourism. Visit to establishments producing artisanal cheeses of Swiss heritage, tastings and purchases."
+    "caracteristicas_en": "Gastronomic and rural tourism. Visit to establishments producing artisanal cheeses of Swiss heritage, tastings and purchases.",
+    "caracteristicas_pt": "Turismo gastronómico e rural. Visita a estabelecimentos produtores de queijos artesanais de herança suíça, degustações e compras."
   },
   {
     "id": 157,
@@ -2824,7 +2980,8 @@ const DESTINOS = [
     "lng": -56.3561,
     "web": "sanjose.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Hiking, observation of native wetland flora and sighting of native fauna. Protected landscapes of the National System of Protected Areas (SNAP)."
+    "caracteristicas_en": "Hiking, observation of native wetland flora and sighting of native fauna. Protected landscapes of the National System of Protected Areas (SNAP).",
+    "caracteristicas_pt": "Caminhadas, observação da flora nativa do pantanal e avistamento da fauna nativa. Paisagens protegidas do Sistema Nacional de Áreas Protegidas (SNAP)."
   },
   {
     "id": 158,
@@ -2842,7 +2999,8 @@ const DESTINOS = [
     "lng": -56.4119,
     "web": "sanjose.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Very busy beach with calm waters on the Río de la Plata. Extensive paved promenade, family inns and summer sports infrastructure."
+    "caracteristicas_en": "Very busy beach with calm waters on the Río de la Plata. Extensive paved promenade, family inns and summer sports infrastructure.",
+    "caracteristicas_pt": "Praia muito movimentada e de águas calmas no Río de la Plata. Amplo calçadão pavimentado, pousadas familiares e infraestrutura esportiva de verão."
   },
   {
     "id": 159,
@@ -2860,7 +3018,8 @@ const DESTINOS = [
     "lng": -56.9511,
     "web": "sanjose.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Town awarded the \"Tourist Town\" award. Old houses, artisan weaving and ceramic workshops, typical gastronomy and living history."
+    "caracteristicas_en": "Town awarded the \"Tourist Town\" award. Old houses, artisan weaving and ceramic workshops, typical gastronomy and living history.",
+    "caracteristicas_pt": "Cidade galardoada com o prémio \"Cidade Turística\". Casas antigas, oficinas artesanais de tecelagem e cerâmica, gastronomia típica e história viva."
   },
   {
     "id": 160,
@@ -2878,7 +3037,8 @@ const DESTINOS = [
     "lng": -57.0944,
     "web": "sanjose.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Historical-religious tourism. Ancient temple of the community of Waldensian settlers founded in the 19th century, surrounded by a picturesque agricultural environment."
+    "caracteristicas_en": "Historical-religious tourism. Ancient temple of the community of Waldensian settlers founded in the 19th century, surrounded by a picturesque agricultural environment.",
+    "caracteristicas_pt": "Turismo histórico-religioso. Antigo templo da comunidade de colonos valdenses fundado no século XIX, rodeado por um pitoresco ambiente agrícola."
   },
   {
     "id": 161,
@@ -2896,7 +3056,8 @@ const DESTINOS = [
     "lng": -57.1594,
     "web": "sanjose.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Natural environment where the Cufré stream flows into the Río de la Plata. Dune area, navigation, river fauna watching and coastal camps."
+    "caracteristicas_en": "Natural environment where the Cufré stream flows into the Río de la Plata. Dune area, navigation, river fauna watching and coastal camps.",
+    "caracteristicas_pt": "Ambiente natural onde o riacho Cufré deságua no Río de la Plata. Zona dunar, navegação, observação de fauna fluvial e acampamentos costeiros."
   },
   {
     "id": 162,
@@ -2914,7 +3075,8 @@ const DESTINOS = [
     "lng": -57.5189,
     "web": "turismo.salto.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Classic thermal complex on the banks of the Arapey River. Municipal and private swimming pools, beautiful gardens, tennis courts and a natural environment ideal for relaxation."
+    "caracteristicas_en": "Classic thermal complex on the banks of the Arapey River. Municipal and private swimming pools, beautiful gardens, tennis courts and a natural environment ideal for relaxation.",
+    "caracteristicas_pt": "Complexo termal clássico às margens do Rio Arapey. Piscinas municipais e privadas, belos jardins, campos de ténis e um ambiente natural ideal para relaxar."
   },
   {
     "id": 163,
@@ -2932,7 +3094,8 @@ const DESTINOS = [
     "lng": -57.9244,
     "web": "hotelquiroga.com.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Thermal water park ideal for families. It has an artificial wave pool, high-rise slides, a lazy river, water castles and a spa."
+    "caracteristicas_en": "Thermal water park ideal for families. It has an artificial wave pool, high-rise slides, a lazy river, water castles and a spa.",
+    "caracteristicas_pt": "Parque aquático termal ideal para famílias. Possui piscina de ondas artificiais, escorregadores altos, rio lento, castelos aquáticos e spa."
   },
   {
     "id": 164,
@@ -2950,7 +3113,8 @@ const DESTINOS = [
     "lng": -57.9405,
     "web": "saltogrande.org",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Technical and educational tourism. Binational hydroelectric complex. Guided tours of the facilities, the work viewpoint and the dam museum."
+    "caracteristicas_en": "Technical and educational tourism. Binational hydroelectric complex. Guided tours of the facilities, the work viewpoint and the dam museum.",
+    "caracteristicas_pt": "Turismo técnico e educacional. Complexo hidrelétrico binacional. Visitas guiadas às instalações, ao miradouro da obra e ao museu da barragem."
   },
   {
     "id": 165,
@@ -2968,7 +3132,8 @@ const DESTINOS = [
     "lng": -57.9672,
     "web": "turismo.salto.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Riverwalk on the Uruguay River. Ideal for sunset walks, cycling, nightclubs, gastronomy and contemplation of the river landscape."
+    "caracteristicas_en": "Riverwalk on the Uruguay River. Ideal for sunset walks, cycling, nightclubs, gastronomy and contemplation of the river landscape.",
+    "caracteristicas_pt": "Passeio fluvial no Rio Uruguai. Ideal para passeios ao pôr do sol, ciclismo, discotecas, gastronomia e contemplação da paisagem fluvial."
   },
   {
     "id": 166,
@@ -2986,7 +3151,8 @@ const DESTINOS = [
     "lng": -57.9056,
     "web": "turismo.salto.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "The first thermal water park in South America, located in Daymán. Giant slides, whirlpools, interactive pool and children's entertainment."
+    "caracteristicas_en": "The first thermal water park in South America, located in Daymán. Giant slides, whirlpools, interactive pool and children's entertainment.",
+    "caracteristicas_pt": "O primeiro parque aquático termal da América do Sul, localizado em Daymán. Tobogãs gigantes, banheiras de hidromassagem, piscina interativa e diversão infantil."
   },
   {
     "id": 167,
@@ -3004,7 +3170,8 @@ const DESTINOS = [
     "lng": -57.9622,
     "web": "turismo.salto.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "The oldest square in the city of Salto. It has a beautiful heritage design, illuminated fountains, historical monuments and surrounded by civic buildings."
+    "caracteristicas_en": "The oldest square in the city of Salto. It has a beautiful heritage design, illuminated fountains, historical monuments and surrounded by civic buildings.",
+    "caracteristicas_pt": "A praça mais antiga da cidade de Salto. Possui um belo desenho patrimonial, fontes iluminadas, monumentos históricos e rodeado de edifícios cívicos."
   },
   {
     "id": 168,
@@ -3022,7 +3189,8 @@ const DESTINOS = [
     "lng": -57.9644,
     "web": "salto.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Architectural jewel inaugurated in 1882. It stands out for its perfect acoustics, its layout in the style of Italian opera theaters and its internal museum."
+    "caracteristicas_en": "Architectural jewel inaugurated in 1882. It stands out for its perfect acoustics, its layout in the style of Italian opera theaters and its internal museum.",
+    "caracteristicas_pt": "Jóia arquitetônica inaugurada em 1882. Destaca-se pela acústica perfeita, seu layout no estilo dos teatros de ópera italianos e seu museu interno."
   },
   {
     "id": 169,
@@ -3040,7 +3208,8 @@ const DESTINOS = [
     "lng": -57.9614,
     "web": "salto.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Created by Architect Néstor Minutti, it reviews the technological evolution of man in the region. It exhibits ancient agricultural machinery, archeology and prehistoric remains."
+    "caracteristicas_en": "Created by Architect Néstor Minutti, it reviews the technological evolution of man in the region. It exhibits ancient agricultural machinery, archeology and prehistoric remains.",
+    "caracteristicas_pt": "Idealizado pelo arquiteto Néstor Minutti, analisa a evolução tecnológica do homem na região. Exibe máquinas agrícolas antigas, arqueologia e vestígios pré-históricos."
   },
   {
     "id": 170,
@@ -3058,7 +3227,8 @@ const DESTINOS = [
     "lng": -57.9436,
     "web": "turismo.salto.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Wine tourism with a family tradition in Salta. Guided tour of Tannat grape vineyards, tasting of fine artisanal wines and snacks on regional products."
+    "caracteristicas_en": "Wine tourism with a family tradition in Salta. Guided tour of Tannat grape vineyards, tasting of fine artisanal wines and snacks on regional products.",
+    "caracteristicas_pt": "Enoturismo de tradição familiar em Salta. Visita guiada às vinhas da uva Tannat, degustação de bons vinhos artesanais e petiscos de produtos regionais."
   },
   {
     "id": 171,
@@ -3076,7 +3246,8 @@ const DESTINOS = [
     "lng": -57.9489,
     "web": "salto.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Extensive park designed in the 19th century European style. It has a beautiful artificial lake, stone bridges, gazebos and exotic and native trees."
+    "caracteristicas_en": "Extensive park designed in the 19th century European style. It has a beautiful artificial lake, stone bridges, gazebos and exotic and native trees.",
+    "caracteristicas_pt": "Extenso parque projetado no estilo europeu do século XIX. Possui um lindo lago artificial, pontes de pedra, mirantes e árvores exóticas e nativas."
   },
   {
     "id": 172,
@@ -3094,7 +3265,8 @@ const DESTINOS = [
     "lng": -57.7853,
     "web": "turismo.salto.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Community and rural tourism on the banks of the Salto Grande reservoir. Tree-lined streets, tranquility, colonial history and nautical tours or horseback riding."
+    "caracteristicas_en": "Community and rural tourism on the banks of the Salto Grande reservoir. Tree-lined streets, tranquility, colonial history and nautical tours or horseback riding.",
+    "caracteristicas_pt": "Turismo comunitário e rural às margens da represa de Salto Grande. Ruas arborizadas, tranquilidade, história colonial e passeios náuticos ou a cavalo."
   },
   {
     "id": 173,
@@ -3112,7 +3284,8 @@ const DESTINOS = [
     "lng": -57.8342,
     "web": "salto.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Coastal town on the lake of Salto Grande. Ideal for sport fishing for Dorado, nautical, rest, walks along the local coastline and bird watching."
+    "caracteristicas_en": "Coastal town on the lake of Salto Grande. Ideal for sport fishing for Dorado, nautical, rest, walks along the local coastline and bird watching.",
+    "caracteristicas_pt": "Cidade costeira às margens do lago de Salto Grande. Ideal para pesca esportiva de Dourado, náutica, descanso, caminhadas pelo litoral local e observação de aves."
   },
   {
     "id": 174,
@@ -3130,7 +3303,8 @@ const DESTINOS = [
     "lng": -57.9912,
     "web": "turismo.salto.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "River navigation and nautical excursions from Salto to the imposing monument to Artigas located on the departmental boundary. Stunning views of the river."
+    "caracteristicas_en": "River navigation and nautical excursions from Salto to the imposing monument to Artigas located on the departmental boundary. Stunning views of the river.",
+    "caracteristicas_pt": "Navegação fluvial e excursões náuticas desde Salto até o imponente monumento a Artigas localizado na divisa departamental. Vistas deslumbrantes sobre o rio."
   },
   {
     "id": 175,
@@ -3148,7 +3322,8 @@ const DESTINOS = [
     "lng": -57.9511,
     "web": "salto.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Historical and modern architectural heritage. Residence of the writer Enrique Amorim and Esther Haedo. Avant-garde architecture and active cultural center."
+    "caracteristicas_en": "Historical and modern architectural heritage. Residence of the writer Enrique Amorim and Esther Haedo. Avant-garde architecture and active cultural center.",
+    "caracteristicas_pt": "Patrimônio arquitetônico histórico e moderno. Residência dos escritores Enrique Amorim e Esther Haedo. Arquitetura vanguardista e centro cultural ativo."
   },
   {
     "id": 176,
@@ -3166,7 +3341,8 @@ const DESTINOS = [
     "lng": -57.9714,
     "web": "turismo.salto.gub.uy",
     "popularidad": "",
-    "caracteristicas_en": "Old cast iron railway dock restored as an illuminated pedestrian walkway over the Uruguay River. Icon of the Salta industrial era."
+    "caracteristicas_en": "Old cast iron railway dock restored as an illuminated pedestrian walkway over the Uruguay River. Icon of the Salta industrial era.",
+    "caracteristicas_pt": "Antiga doca ferroviária de ferro fundido restaurada como uma passarela iluminada para pedestres sobre o Rio Uruguai. Ícone da era industrial de Salta."
   },
   {
     "id": 177,
@@ -3184,7 +3360,8 @@ const DESTINOS = [
     "lng": -57.9019,
     "web": "turismo.salto.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Sculptural monument and religious viewpoint located at the entrance to the Daymán Hot Springs. Area for walks, craft fairs and photographic viewpoint."
+    "caracteristicas_en": "Sculptural monument and religious viewpoint located at the entrance to the Daymán Hot Springs. Area for walks, craft fairs and photographic viewpoint.",
+    "caracteristicas_pt": "Monumento escultórico e mirante religioso localizado na entrada das Termas de Daymán. Espaço para passeios, feiras de artesanato e mirante fotográfico."
   },
   {
     "id": 178,
@@ -3202,7 +3379,8 @@ const DESTINOS = [
     "lng": -57.9619,
     "web": "salto.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Cultural center inaugurated in 1889, epicenter of coastal arts. It stands out for its frescoed ceilings, marble colonnades and historical exhibitions."
+    "caracteristicas_en": "Cultural center inaugurated in 1889, epicenter of coastal arts. It stands out for its frescoed ceilings, marble colonnades and historical exhibitions.",
+    "caracteristicas_pt": "Centro cultural inaugurado em 1889, epicentro das artes costeiras. Destaca-se pelos seus tetos com afrescos, colunatas de mármore e exposições históricas."
   },
   {
     "id": 179,
@@ -3220,7 +3398,8 @@ const DESTINOS = [
     "lng": -57.9691,
     "web": "turismo.salto.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Pedestrian walk and viewpoint elevated over the rocks of the Uruguay River in the southern part of the city. Excellent infrastructure for mates at sunset."
+    "caracteristicas_en": "Pedestrian walk and viewpoint elevated over the rocks of the Uruguay River in the southern part of the city. Excellent infrastructure for mates at sunset.",
+    "caracteristicas_pt": "Passeio pedestre e mirante elevado sobre as rochas do Rio Uruguai, na zona sul da cidade. Excelente infra-estrutura para companheiros ao pôr do sol."
   },
   {
     "id": 180,
@@ -3238,7 +3417,8 @@ const DESTINOS = [
     "lng": -57.9547,
     "web": "turismo.salto.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Heritage tourism. Historic building of the British railway network with 19th century iron platforms and old steam machinery on outdoor display."
+    "caracteristicas_en": "Heritage tourism. Historic building of the British railway network with 19th century iron platforms and old steam machinery on outdoor display.",
+    "caracteristicas_pt": "Turismo patrimonial. Edifício histórico da rede ferroviária britânica com plataformas de ferro do século XIX e antigas máquinas a vapor em exposição ao ar livre."
   },
   {
     "id": 181,
@@ -3256,7 +3436,8 @@ const DESTINOS = [
     "lng": -57.9611,
     "web": "turismo.salto.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Small rapids and natural rocky waterfalls on the Uruguay River. Area for dorado fishing, walks along pebble beaches and wild photography."
+    "caracteristicas_en": "Small rapids and natural rocky waterfalls on the Uruguay River. Area for dorado fishing, walks along pebble beaches and wild photography.",
+    "caracteristicas_pt": "Pequenas corredeiras e cachoeiras rochosas naturais no Rio Uruguai. Zona de pesca do dourado, passeios por praias de calhau e fotografia selvagem."
   },
   {
     "id": 182,
@@ -3274,7 +3455,8 @@ const DESTINOS = [
     "lng": -56.9934,
     "web": "geoparque.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Caverns formed by unique columns of reddish ferruginous sandstone, guided tours, interpretation center, audiovisual room and thematic museum."
+    "caracteristicas_en": "Caverns formed by unique columns of reddish ferruginous sandstone, guided tours, interpretation center, audiovisual room and thematic museum.",
+    "caracteristicas_pt": "Cavernas formadas por colunas únicas de arenito ferruginoso avermelhado, visitas guiadas, centro de interpretação, sala audiovisual e museu temático."
   },
   {
     "id": 183,
@@ -3292,7 +3474,8 @@ const DESTINOS = [
     "lng": -56.9123,
     "web": "talice.com.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Flora and fauna reserve with more than 75 hectares and 1,400 animals of various native species in semi-freedom, ideal for family tourism and environmental education."
+    "caracteristicas_en": "Flora and fauna reserve with more than 75 hectares and 1,400 animals of various native species in semi-freedom, ideal for family tourism and environmental education.",
+    "caracteristicas_pt": "Reserva de flora e fauna com mais de 75 hectares e 1.400 animais de diversas espécies nativas em semiliberdade, ideal para turismo familiar e educação ambiental."
   },
   {
     "id": 184,
@@ -3310,7 +3493,8 @@ const DESTINOS = [
     "lng": -56.7115,
     "web": "geoparque.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "SNAP protected area that has the highest concentration of cave paintings on open-air granite outcrops in the form of large blocks (\"grosses\") in the country."
+    "caracteristicas_en": "SNAP protected area that has the highest concentration of cave paintings on open-air granite outcrops in the form of large blocks (\"grosses\") in the country.",
+    "caracteristicas_pt": "Área protegida SNAP que apresenta a maior concentração de pinturas rupestres em afloramentos graníticos a céu aberto em forma de grandes blocos (“gross”) do país."
   },
   {
     "id": 185,
@@ -3328,7 +3512,8 @@ const DESTINOS = [
     "lng": -57.1721,
     "web": "flores.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Area of ​​large artificial lakes formed by the Palmar dam reservoir, ideal for sport fishing, boating, camping and picnics."
+    "caracteristicas_en": "Area of ​​large artificial lakes formed by the Palmar dam reservoir, ideal for sport fishing, boating, camping and picnics.",
+    "caracteristicas_pt": "Área de grandes lagos artificiais formada pela albufeira da barragem do Palmar, ideal para pesca desportiva, passeios de barco, campismo e piqueniques."
   },
   {
     "id": 186,
@@ -3346,7 +3531,8 @@ const DESTINOS = [
     "lng": -56.8845,
     "web": "flores.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Recreational space on the Porongos Arroyo equipped with picnic areas, barbecue pits, soccer fields, beach volleyball, lifeguard services in summer and a hostel."
+    "caracteristicas_en": "Recreational space on the Porongos Arroyo equipped with picnic areas, barbecue pits, soccer fields, beach volleyball, lifeguard services in summer and a hostel.",
+    "caracteristicas_pt": "Espaço recreativo no Arroio dos Porongos equipado com áreas para piquenique, churrasqueiras, campos de futebol, vôlei de praia, salva-vidas no verão e pousada."
   },
   {
     "id": 187,
@@ -3364,7 +3550,8 @@ const DESTINOS = [
     "lng": -56.9012,
     "web": "geoparque.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Sculpture park unique in Uruguay, made up of artistic recreations of prehistoric and extinct animals on a large scale."
+    "caracteristicas_en": "Sculpture park unique in Uruguay, made up of artistic recreations of prehistoric and extinct animals on a large scale.",
+    "caracteristicas_pt": "Parque de esculturas único no Uruguai, composto por recriações artísticas de animais pré-históricos e extintos em grande escala."
   },
   {
     "id": 188,
@@ -3382,7 +3569,8 @@ const DESTINOS = [
     "lng": -56.8991,
     "web": "flores.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Green lung in the heart of Trinidad, ideal for walks, outdoor sports activities, children's games and resting under leafy trees."
+    "caracteristicas_en": "Green lung in the heart of Trinidad, ideal for walks, outdoor sports activities, children's games and resting under leafy trees.",
+    "caracteristicas_pt": "Pulmão verde no coração de Trinidad, ideal para caminhadas, atividades esportivas ao ar livre, brincadeiras infantis e descanso sob frondosas árvores."
   },
   {
     "id": 189,
@@ -3400,7 +3588,8 @@ const DESTINOS = [
     "lng": -56.895,
     "web": "flores.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Cultural center and thematic museum that operates in the recycled and centenary building of the old Trinidad railway station from 1916."
+    "caracteristicas_en": "Cultural center and thematic museum that operates in the recycled and centenary building of the old Trinidad railway station from 1916.",
+    "caracteristicas_pt": "Centro cultural e museu temático que funciona no prédio reciclado e centenário da antiga estação ferroviária de Trinidad de 1916."
   },
   {
     "id": 190,
@@ -3418,7 +3607,8 @@ const DESTINOS = [
     "lng": -56.9812,
     "web": "geoparque.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Rocky outcrops and elevations crowned by small seas of granite stones that offer a spectacular panoramic view of the rural Flores landscape."
+    "caracteristicas_en": "Rocky outcrops and elevations crowned by small seas of granite stones that offer a spectacular panoramic view of the rural Flores landscape.",
+    "caracteristicas_pt": "Afloramentos rochosos e elevações coroadas por pequenos mares de pedras graníticas que oferecem uma espectacular vista panorâmica sobre a paisagem rural das Flores."
   },
   {
     "id": 191,
@@ -3436,7 +3626,8 @@ const DESTINOS = [
     "lng": -56.8973,
     "web": "flores.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Main square of the departmental capital, surrounded by historic buildings, well-kept trees and emblematic local monuments."
+    "caracteristicas_en": "Main square of the departmental capital, surrounded by historic buildings, well-kept trees and emblematic local monuments.",
+    "caracteristicas_pt": "Praça principal da capital departamental, rodeada de edifícios históricos, árvores bem cuidadas e monumentos locais emblemáticos."
   },
   {
     "id": 192,
@@ -3454,7 +3645,8 @@ const DESTINOS = [
     "lng": -56.8968,
     "web": "flores.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Historic temple of imposing neoclassical religious architecture located in front of the main square, witness to the founding process of the town."
+    "caracteristicas_en": "Historic temple of imposing neoclassical religious architecture located in front of the main square, witness to the founding process of the town.",
+    "caracteristicas_pt": "Templo histórico de imponente arquitetura religiosa neoclássica localizado em frente à praça principal, testemunha do processo de fundação da vila."
   },
   {
     "id": 193,
@@ -3472,7 +3664,8 @@ const DESTINOS = [
     "lng": -57.195,
     "web": "soriano.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "National Park formally located on the border between Soriano and Flores, on the banks of the Río Negro and the artificial lake of Palmar, surrounded by a lush forest."
+    "caracteristicas_en": "National Park formally located on the border between Soriano and Flores, on the banks of the Río Negro and the artificial lake of Palmar, surrounded by a lush forest.",
+    "caracteristicas_pt": "Parque Nacional formalmente localizado na fronteira entre Soriano e Flores, às margens do Rio Negro e do lago artificial de Palmar, rodeado por uma exuberante floresta."
   },
   {
     "id": 194,
@@ -3490,7 +3683,8 @@ const DESTINOS = [
     "lng": -56.9241,
     "web": "flores.org.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Historic rural establishment that offers traditional countryside tourism, picnics, homemade cuisine and guided walks."
+    "caracteristicas_en": "Historic rural establishment that offers traditional countryside tourism, picnics, homemade cuisine and guided walks.",
+    "caracteristicas_pt": "Estabelecimento rural histórico que oferece turismo rural tradicional, piqueniques, gastronomia caseira e passeios guiados."
   },
   {
     "id": 195,
@@ -3508,7 +3702,8 @@ const DESTINOS = [
     "lng": -56.945,
     "web": "flores.org.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Rural establishment with a livestock tradition that provides accommodation, horseback riding, wildlife watching and traditional field days."
+    "caracteristicas_en": "Rural establishment with a livestock tradition that provides accommodation, horseback riding, wildlife watching and traditional field days.",
+    "caracteristicas_pt": "Estabelecimento rural com tradição pecuária que oferece alojamento, passeios a cavalo, observação de vida selvagem e tradicionais dias de campo."
   },
   {
     "id": 196,
@@ -3526,7 +3721,8 @@ const DESTINOS = [
     "lng": -56.7845,
     "web": "geoparque.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Geosite of great scientific value within the Geopark, where an ancient fracture zone of the Earth's crust surrounded by mountain landscapes is evident."
+    "caracteristicas_en": "Geosite of great scientific value within the Geopark, where an ancient fracture zone of the Earth's crust surrounded by mountain landscapes is evident.",
+    "caracteristicas_pt": "Geossítio de grande valor científico dentro do Geoparque, onde se evidencia uma antiga zona de fratura da crosta terrestre rodeada por paisagens montanhosas."
   },
   {
     "id": 197,
@@ -3544,7 +3740,8 @@ const DESTINOS = [
     "lng": -57.0145,
     "web": "geoparque.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Curious natural geoform sculpted by erosion on granite blocks, simulating the figure of a reptile, a photographic landmark of the Geopark."
+    "caracteristicas_en": "Curious natural geoform sculpted by erosion on granite blocks, simulating the figure of a reptile, a photographic landmark of the Geopark.",
+    "caracteristicas_pt": "Curiosa geoforma natural esculpida pela erosão em blocos de granito, simulando a figura de um réptil, marco fotográfico do Geoparque."
   },
   {
     "id": 198,
@@ -3562,7 +3759,8 @@ const DESTINOS = [
     "lng": -56.689,
     "web": "geoparque.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Geosite characterized by the presence of dark rocks of magmatic origin (gabbros) of great antiquity and interest for geotourism."
+    "caracteristicas_en": "Geosite characterized by the presence of dark rocks of magmatic origin (gabbros) of great antiquity and interest for geotourism.",
+    "caracteristicas_pt": "Geossítio caracterizado pela presença de rochas escuras de origem magmática (gabros) de grande antiguidade e interesse para o geoturismo."
   },
   {
     "id": 199,
@@ -3580,7 +3778,8 @@ const DESTINOS = [
     "lng": -57.2512,
     "web": "geoparque.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Beaches and extensive banks of fine natural sand on the banks of the river, ideal surroundings for quiet walks and disconnection in nature."
+    "caracteristicas_en": "Beaches and extensive banks of fine natural sand on the banks of the river, ideal surroundings for quiet walks and disconnection in nature.",
+    "caracteristicas_pt": "Praias e extensas margens de areia fina natural nas margens do rio, envolvente ideal para passeios tranquilos e desconexão na natureza."
   },
   {
     "id": 200,
@@ -3598,7 +3797,8 @@ const DESTINOS = [
     "lng": -57.3412,
     "web": "flores.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Historic limestone and granite structure that reflects traditional rural architecture and the town's railroad and agricultural past."
+    "caracteristicas_en": "Historic limestone and granite structure that reflects traditional rural architecture and the town's railroad and agricultural past.",
+    "caracteristicas_pt": "Estrutura histórica de calcário e granito que reflete a arquitetura rural tradicional e o passado ferroviário e agrícola da cidade."
   },
   {
     "id": 201,
@@ -3616,7 +3816,8 @@ const DESTINOS = [
     "lng": -56.915,
     "web": "geoparque.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Cultural recreational and recreational attraction ideal for exploring with the family, designed in the form of a natural labyrinth with local vegetation."
+    "caracteristicas_en": "Cultural recreational and recreational attraction ideal for exploring with the family, designed in the form of a natural labyrinth with local vegetation.",
+    "caracteristicas_pt": "Atração cultural recreativa e recreativa ideal para explorar em família, desenhada em forma de labirinto natural com vegetação local."
   },
   {
     "id": 202,
@@ -3634,7 +3835,8 @@ const DESTINOS = [
     "lng": -56.918,
     "web": "geoparque.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Gastronomic and artisanal space specialized in the production and interpretation of chocolates and sweets with local identity."
+    "caracteristicas_en": "Gastronomic and artisanal space specialized in the production and interpretation of chocolates and sweets with local identity.",
+    "caracteristicas_pt": "Espaço gastronómico e artesanal especializado na produção e interpretação de chocolates e doces com identidade local."
   },
   {
     "id": 203,
@@ -3652,7 +3854,8 @@ const DESTINOS = [
     "lng": -56.2231,
     "web": "florida.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "National historic site on the banks of the Santa Lucía River, where the Declaration of Independence was proclaimed in 1825. Ideal for walks, photography and picnics."
+    "caracteristicas_en": "National historic site on the banks of the Santa Lucía River, where the Declaration of Independence was proclaimed in 1825. Ideal for walks, photography and picnics.",
+    "caracteristicas_pt": "Sítio histórico nacional às margens do rio Santa Lucía, onde foi proclamada a Declaração da Independência em 1825. Ideal para caminhadas, fotografia e piqueniques."
   },
   {
     "id": 204,
@@ -3670,7 +3873,8 @@ const DESTINOS = [
     "lng": -56.2142,
     "web": "florida.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "National Historical Monument, it houses the image of the Virgin of the Thirty-Three, patron saint of Uruguay. It stands out for its architecture and interior paintings."
+    "caracteristicas_en": "National Historical Monument, it houses the image of the Virgin of the Thirty-Three, patron saint of Uruguay. It stands out for its architecture and interior paintings.",
+    "caracteristicas_pt": "Monumento Histórico Nacional, abriga a imagem da Virgem dos Trinta e Três, padroeira do Uruguai. Destaca-se pela sua arquitetura e pinturas interiores."
   },
   {
     "id": 205,
@@ -3688,7 +3892,8 @@ const DESTINOS = [
     "lng": -56.2105,
     "web": "florida.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Mass religious pilgrimage center every June 3. It houses the historic image brought by Italian immigrants from Teggiano and an offering room."
+    "caracteristicas_en": "Mass religious pilgrimage center every June 3. It houses the historic image brought by Italian immigrants from Teggiano and an offering room.",
+    "caracteristicas_pt": "Centro de peregrinação religiosa em massa todo dia 3 de junho. Abriga a imagem histórica trazida pelos imigrantes italianos de Teggiano e uma sala de oferendas."
   },
   {
     "id": 206,
@@ -3706,7 +3911,8 @@ const DESTINOS = [
     "lng": -56.2312,
     "web": "florida.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Extensive forested park on the banks of the Santa Lucía River. It has barbecue pits, sports fields, river beaches and a fishing area."
+    "caracteristicas_en": "Extensive forested park on the banks of the Santa Lucía River. It has barbecue pits, sports fields, river beaches and a fishing area.",
+    "caracteristicas_pt": "Extenso parque florestal às margens do rio Santa Lucía. Possui churrasqueiras, campos desportivos, praias fluviais e zona de pesca."
   },
   {
     "id": 207,
@@ -3724,7 +3930,8 @@ const DESTINOS = [
     "lng": -55.8214,
     "web": "sanpedrodetimote.com",
     "popularidad": "Alta",
-    "caracteristicas_en": "One of the oldest and most important tourist ranches in the country. Colonial historic center, horseback riding, open and closed swimming pools, and country cuisine."
+    "caracteristicas_en": "One of the oldest and most important tourist ranches in the country. Colonial historic center, horseback riding, open and closed swimming pools, and country cuisine.",
+    "caracteristicas_pt": "Uma das fazendas turísticas mais antigas e importantes do país. Centro histórico colonial, passeios a cavalo, piscinas abertas e fechadas e culinária campestre."
   },
   {
     "id": 208,
@@ -3742,7 +3949,8 @@ const DESTINOS = [
     "lng": -56.195,
     "web": "florida.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Natural environment on the Santa Lucía Chico River. It offers native forests, recreational trails, fishing and complete services for campers."
+    "caracteristicas_en": "Natural environment on the Santa Lucía Chico River. It offers native forests, recreational trails, fishing and complete services for campers.",
+    "caracteristicas_pt": "Ambiente natural no rio Santa Lucía Chico. Oferece mata nativa, trilhas recreativas, pesca e serviços completos para campistas."
   },
   {
     "id": 209,
@@ -3760,7 +3968,8 @@ const DESTINOS = [
     "lng": -56.1118,
     "web": "florida.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Ruins of a picturesque stone chapel built at the end of the 19th century in the middle of the countryside, steeped in local legends and ideal for rural photography."
+    "caracteristicas_en": "Ruins of a picturesque stone chapel built at the end of the 19th century in the middle of the countryside, steeped in local legends and ideal for rural photography.",
+    "caracteristicas_pt": "Ruínas de uma pitoresca capela de pedra construída no final do século XIX em plena zona rural, rica em lendas locais e ideal para fotografia rural."
   },
   {
     "id": 210,
@@ -3778,7 +3987,8 @@ const DESTINOS = [
     "lng": -56.3422,
     "web": "florida.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Historical and rest destination. Town with a strong railway and stonecutter identity, with a wooded campsite on the banks of the Isla Mala stream."
+    "caracteristicas_en": "Historical and rest destination. Town with a strong railway and stonecutter identity, with a wooded campsite on the banks of the Isla Mala stream.",
+    "caracteristicas_pt": "Destino histórico e de descanso. Vila com forte identidade ferroviária e pedreira, com camping arborizado às margens do riacho Isla Mala."
   },
   {
     "id": 211,
@@ -3796,7 +4006,8 @@ const DESTINOS = [
     "lng": -56.2417,
     "web": "florida.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Main reserve of fresh water for the metropolitan area. The environment offers a tourist complex with cabins, camping, light water sports and bird watching."
+    "caracteristicas_en": "Main reserve of fresh water for the metropolitan area. The environment offers a tourist complex with cabins, camping, light water sports and bird watching.",
+    "caracteristicas_pt": "Principal reserva de água doce da região metropolitana. O ambiente oferece um complexo turístico com cabanas, camping, esportes náuticos leves e observação de aves."
   },
   {
     "id": 212,
@@ -3814,7 +4025,8 @@ const DESTINOS = [
     "lng": -56.8845,
     "web": "florida.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Hiking between unique rock formations and low mountain vegetation on the border with San José. Ideal for ecotourism and adventure."
+    "caracteristicas_en": "Hiking between unique rock formations and low mountain vegetation on the border with San José. Ideal for ecotourism and adventure.",
+    "caracteristicas_pt": "Caminhadas entre formações rochosas únicas e vegetação baixa de montanha na fronteira com San José. Ideal para ecoturismo e aventura."
   },
   {
     "id": 213,
@@ -3832,7 +4044,8 @@ const DESTINOS = [
     "lng": -55.7612,
     "web": "florida.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Mystical area shared with Lavalleja that presents mysterious pre-Hispanic stone structures (mounds or cairns). Reconnection and meditation walks."
+    "caracteristicas_en": "Mystical area shared with Lavalleja that presents mysterious pre-Hispanic stone structures (mounds or cairns). Reconnection and meditation walks.",
+    "caracteristicas_pt": "Área mística compartilhada com Lavalleja que apresenta misteriosas estruturas de pedra pré-hispânicas (montes ou montes de pedras). Caminhadas de reconexão e meditação."
   },
   {
     "id": 214,
@@ -3850,7 +4063,8 @@ const DESTINOS = [
     "lng": -55.7612,
     "web": "florida.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Mystical area shared with Lavalleja that presents mysterious pre-Hispanic stone structures (mounds or cairns). Reconnection and meditation walks."
+    "caracteristicas_en": "Mystical area shared with Lavalleja that presents mysterious pre-Hispanic stone structures (mounds or cairns). Reconnection and meditation walks.",
+    "caracteristicas_pt": "Área mística compartilhada com Lavalleja que apresenta misteriosas estruturas de pedra pré-hispânicas (montes ou montes de pedras). Caminhadas de reconexão e meditação."
   },
   {
     "id": 215,
@@ -3868,7 +4082,8 @@ const DESTINOS = [
     "lng": -55.8894,
     "web": "florida.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Natural and recreational space on the Santa Lucía River in the town of Fray Marcos. It has sandy beaches, boat docks and lush trees."
+    "caracteristicas_en": "Natural and recreational space on the Santa Lucía River in the town of Fray Marcos. It has sandy beaches, boat docks and lush trees.",
+    "caracteristicas_pt": "Espaço natural e recreativo às margens do rio Santa Lucía, no município de Fray Marcos. Possui praias arenosas, docas para barcos e árvores exuberantes."
   },
   {
     "id": 216,
@@ -3886,7 +4101,8 @@ const DESTINOS = [
     "lng": -56.3292,
     "web": "florida.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Second city of the department, rich in history due to the Battle of Sarandí (1825). It offers monuments, themed squares and the traditional Horse Monument."
+    "caracteristicas_en": "Second city of the department, rich in history due to the Battle of Sarandí (1825). It offers monuments, themed squares and the traditional Horse Monument.",
+    "caracteristicas_pt": "Segunda cidade do departamento, rica em história devido à Batalha de Sarandí (1825). Oferece monumentos, praças temáticas e o tradicional Monumento ao Cavalo."
   },
   {
     "id": 217,
@@ -3904,7 +4120,8 @@ const DESTINOS = [
     "lng": -56.336,
     "web": "florida.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Forested urban park that has a beautiful artificial lake, wooden walkways, children's games and an amphitheater for events."
+    "caracteristicas_en": "Forested urban park that has a beautiful artificial lake, wooden walkways, children's games and an amphitheater for events.",
+    "caracteristicas_pt": "Parque urbano arborizado que possui um lindo lago artificial, passarelas de madeira, jogos infantis e anfiteatro para eventos."
   },
   {
     "id": 218,
@@ -3922,7 +4139,8 @@ const DESTINOS = [
     "lng": -56.3181,
     "web": "florida.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Impressive park and historical monument that pays tribute to the heroic deed led by Juan Antonio Lavalleja in 1825."
+    "caracteristicas_en": "Impressive park and historical monument that pays tribute to the heroic deed led by Juan Antonio Lavalleja in 1825.",
+    "caracteristicas_pt": "Impressionante parque e monumento histórico que presta homenagem ao feito heróico liderado por Juan Antonio Lavalleja em 1825."
   },
   {
     "id": 219,
@@ -3940,7 +4158,8 @@ const DESTINOS = [
     "lng": -55.1325,
     "web": "florida.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Famous town because women voted there for the first time in South America (1927). The town is shared by three departments (Florida, Durazno and Treinta y Tres)."
+    "caracteristicas_en": "Famous town because women voted there for the first time in South America (1927). The town is shared by three departments (Florida, Durazno and Treinta y Tres).",
+    "caracteristicas_pt": "Cidade famosa porque as mulheres votaram lá pela primeira vez na América do Sul (1927). A cidade é compartilhada por três departamentos (Flórida, Durazno e Treinta y Tres)."
   },
   {
     "id": 220,
@@ -3958,7 +4177,8 @@ const DESTINOS = [
     "lng": -55.6456,
     "web": "florida.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Conditioned green space on the banks of the Casupá Stream. It has soccer fields, basketball fields, covered barbecue pits and good natural shade."
+    "caracteristicas_en": "Conditioned green space on the banks of the Casupá Stream. It has soccer fields, basketball fields, covered barbecue pits and good natural shade.",
+    "caracteristicas_pt": "Espaço verde condicionado às margens do Córrego Casupá. Possui campos de futebol, quadras de basquete, churrasqueiras cobertas e boa sombra natural."
   },
   {
     "id": 221,
@@ -3976,7 +4196,8 @@ const DESTINOS = [
     "lng": -56.1745,
     "web": "florida.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Founding and historical site in the old Villa del Pintado, the original place where the statuette of the Virgin was venerated before its transfer to the cathedral."
+    "caracteristicas_en": "Founding and historical site in the old Villa del Pintado, the original place where the statuette of the Virgin was venerated before its transfer to the cathedral.",
+    "caracteristicas_pt": "Sítio histórico e de fundação na antiga Villa del Pintado, local original onde foi venerada a estatueta da Virgem antes de sua transferência para a catedral."
   },
   {
     "id": 222,
@@ -3994,7 +4215,8 @@ const DESTINOS = [
     "lng": -56.3972,
     "web": "florida.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Picturesque town recognized for its dozens of artistic murals painted on the facades of houses by artist Michele Dubaut and the community."
+    "caracteristicas_en": "Picturesque town recognized for its dozens of artistic murals painted on the facades of houses by artist Michele Dubaut and the community.",
+    "caracteristicas_pt": "Cidade pitoresca reconhecida por suas dezenas de murais artísticos pintados nas fachadas das casas pela artista Michele Dubaut e pela comunidade."
   },
   {
     "id": 223,
@@ -4012,7 +4234,8 @@ const DESTINOS = [
     "lng": -56.2489,
     "web": "bodegaelceibo.com.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Family-owned boutique vineyard and winery offering guided tastings, winery tours, and lunches paired with artisanal Florida wines."
+    "caracteristicas_en": "Family-owned boutique vineyard and winery offering guided tastings, winery tours, and lunches paired with artisanal Florida wines.",
+    "caracteristicas_pt": "Vinícola e vinícola boutique de propriedade familiar que oferece degustações guiadas, passeios pelas vinícolas e almoços acompanhados de vinhos artesanais da Flórida."
   },
   {
     "id": 224,
@@ -4030,7 +4253,8 @@ const DESTINOS = [
     "lng": -57.1583,
     "web": "paysandu.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Only salt water hot springs in the region"
+    "caracteristicas_en": "Only salt water hot springs in the region",
+    "caracteristicas_pt": "Somente fontes termais de água salgada na região"
   },
   {
     "id": 225,
@@ -4048,7 +4272,8 @@ const DESTINOS = [
     "lng": -57.9458,
     "web": "paysandu.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Imposing historical monument on the banks of the Uruguay River"
+    "caracteristicas_en": "Imposing historical monument on the banks of the Uruguay River",
+    "caracteristicas_pt": "Imponente monumento histórico às margens do Rio Uruguai"
   },
   {
     "id": 226,
@@ -4066,7 +4291,8 @@ const DESTINOS = [
     "lng": -57.4325,
     "web": "paysandu.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "One of the widest waterfalls in the country in the Queguay River"
+    "caracteristicas_en": "One of the widest waterfalls in the country in the Queguay River",
+    "caracteristicas_pt": "Uma das maiores cachoeiras do país no rio Queguay"
   },
   {
     "id": 227,
@@ -4084,7 +4310,8 @@ const DESTINOS = [
     "lng": -56.8124,
     "web": "paysandu.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Historic stay with 19th century castle architecture"
+    "caracteristicas_en": "Historic stay with 19th century castle architecture",
+    "caracteristicas_pt": "Estadia histórica com arquitetura de castelo do século XIX"
   },
   {
     "id": 228,
@@ -4102,7 +4329,8 @@ const DESTINOS = [
     "lng": -57.2014,
     "web": "paysandu.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Self-guided urban cultural tour that captures local identity"
+    "caracteristicas_en": "Self-guided urban cultural tour that captures local identity",
+    "caracteristicas_pt": "Passeio cultural urbano autoguiado que captura a identidade local"
   },
   {
     "id": 229,
@@ -4120,7 +4348,8 @@ const DESTINOS = [
     "lng": -58.0789,
     "web": "paysandu.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Architectural jewel inaugurated in 1876"
+    "caracteristicas_en": "Architectural jewel inaugurated in 1876",
+    "caracteristicas_pt": "Jóia arquitetônica inaugurada em 1876"
   },
   {
     "id": 230,
@@ -4138,7 +4367,8 @@ const DESTINOS = [
     "lng": -57.4421,
     "web": "paysandu.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Protected Area that houses one of the largest masses of native forest in the country"
+    "caracteristicas_en": "Protected Area that houses one of the largest masses of native forest in the country",
+    "caracteristicas_pt": "Área Protegida que abriga uma das maiores massas de mata nativa do país"
   },
   {
     "id": 231,
@@ -4156,7 +4386,8 @@ const DESTINOS = [
     "lng": -58.0754,
     "web": "paysandu.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Known as the \"Old Cemetery\""
+    "caracteristicas_en": "Known as the \"Old Cemetery\"",
+    "caracteristicas_pt": "Conhecido como o \"Cemitério Antigo\""
   },
   {
     "id": 232,
@@ -4174,7 +4405,8 @@ const DESTINOS = [
     "lng": -58.0921,
     "web": "paysandu.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Extensive rambla over the Uruguay River"
+    "caracteristicas_en": "Extensive rambla over the Uruguay River",
+    "caracteristicas_pt": "Extensa rambla sobre o Rio Uruguai"
   },
   {
     "id": 233,
@@ -4192,7 +4424,8 @@ const DESTINOS = [
     "lng": -57.9451,
     "web": "paysandu.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Picturesque rural town with a strong agricultural heritage"
+    "caracteristicas_en": "Picturesque rural town with a strong agricultural heritage",
+    "caracteristicas_pt": "Pitoresca cidade rural com forte herança agrícola"
   },
   {
     "id": 234,
@@ -4210,7 +4443,8 @@ const DESTINOS = [
     "lng": -57.2514,
     "web": "paysandu.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "River park on the stream of calm and clean waters"
+    "caracteristicas_en": "River park on the stream of calm and clean waters",
+    "caracteristicas_pt": "Parque fluvial no riacho de águas calmas e limpas"
   },
   {
     "id": 235,
@@ -4228,7 +4462,8 @@ const DESTINOS = [
     "lng": -58.0812,
     "web": "paysandu.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Interactive exhibition and objects that narrate the periods of the Defense of Paysandú (1864-1865)"
+    "caracteristicas_en": "Interactive exhibition and objects that narrate the periods of the Defense of Paysandú (1864-1865)",
+    "caracteristicas_pt": "Exposição interativa e objetos que narram os períodos da Defesa de Paysandú (1864-1865)"
   },
   {
     "id": 236,
@@ -4246,7 +4481,8 @@ const DESTINOS = [
     "lng": -57.4125,
     "web": "paysandu.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Ideal natural area for bird watching and environmental interpretation on the banks of the Queguay River"
+    "caracteristicas_en": "Ideal natural area for bird watching and environmental interpretation on the banks of the Queguay River",
+    "caracteristicas_pt": "Área natural ideal para observação de aves e interpretação ambiental às margens do rio Queguay"
   },
   {
     "id": 237,
@@ -4264,7 +4500,8 @@ const DESTINOS = [
     "lng": -58.0124,
     "web": "paysandu.gub.uy",
     "popularidad": "",
-    "caracteristicas_en": "Historic natural site and watercourse bordering the Río Negro"
+    "caracteristicas_en": "Historic natural site and watercourse bordering the Río Negro",
+    "caracteristicas_pt": "Sítio natural histórico e curso de água margeando o Rio Negro"
   },
   {
     "id": 238,
@@ -4282,7 +4519,8 @@ const DESTINOS = [
     "lng": -58.1054,
     "web": "paysandu.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Nautical tour to one of the river islands of the Uruguay River in front of the city"
+    "caracteristicas_en": "Nautical tour to one of the river islands of the Uruguay River in front of the city",
+    "caracteristicas_pt": "Passeio náutico a uma das ilhas fluviais do Rio Uruguai em frente à cidade"
   },
   {
     "id": 239,
@@ -4300,7 +4538,8 @@ const DESTINOS = [
     "lng": -56.4512,
     "web": "paysandu.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Interdepartmental border town that preserves the railway charm of the early 20th century"
+    "caracteristicas_en": "Interdepartmental border town that preserves the railway charm of the early 20th century",
+    "caracteristicas_pt": "Cidade fronteiriça interdepartamental que preserva o encanto ferroviário do início do século XX"
   },
   {
     "id": 240,
@@ -4318,7 +4557,8 @@ const DESTINOS = [
     "lng": -57.6541,
     "web": "paysandu.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Northern mountainous area of ​​the department"
+    "caracteristicas_en": "Northern mountainous area of ​​the department",
+    "caracteristicas_pt": "Zona montanhosa norte do departamento"
   },
   {
     "id": 241,
@@ -4336,7 +4576,8 @@ const DESTINOS = [
     "lng": -56.0124,
     "web": "paysandu.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Monument and viewpoint located in the town of Tambores (shared with Tacuarembó)"
+    "caracteristicas_en": "Monument and viewpoint located in the town of Tambores (shared with Tacuarembó)",
+    "caracteristicas_pt": "Monumento e mirante localizado no município de Tambores (compartilhado com Tacuarembó)"
   },
   {
     "id": 242,
@@ -4354,7 +4595,8 @@ const DESTINOS = [
     "lng": -57.9854,
     "web": "paysandu.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Waterfall over basaltic rock formations of great scenic and historical attraction in an area closely linked to the Purificación camp."
+    "caracteristicas_en": "Waterfall over basaltic rock formations of great scenic and historical attraction in an area closely linked to the Purificación camp.",
+    "caracteristicas_pt": "Cascata sobre formações rochosas basálticas de grande atracção paisagística e histórica numa zona intimamente ligada ao acampamento da Purificação."
   },
   {
     "id": 243,
@@ -4372,7 +4614,8 @@ const DESTINOS = [
     "lng": -58.0781,
     "web": "paysandu.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Signposted historical circuit in the old town of the city that runs through the milestones and trenches of Leandro Gómez's heroic resistance to the military siege."
+    "caracteristicas_en": "Signposted historical circuit in the old town of the city that runs through the milestones and trenches of Leandro Gómez's heroic resistance to the military siege.",
+    "caracteristicas_pt": "Circuito histórico sinalizado no centro histórico da cidade que percorre os marcos e trincheiras da heróica resistência de Leandro Gómez ao cerco militar."
   },
   {
     "id": 244,
@@ -4390,7 +4633,8 @@ const DESTINOS = [
     "lng": -58.1245,
     "web": "rionegro.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Deep interpretive trail within the protected area focused on field deer sightings and recognition of closed native forest."
+    "caracteristicas_en": "Deep interpretive trail within the protected area focused on field deer sightings and recognition of closed native forest.",
+    "caracteristicas_pt": "Trilha interpretativa profunda dentro da área protegida com foco no avistamento de veados campestres e no reconhecimento de mata nativa fechada."
   },
   {
     "id": 245,
@@ -4408,7 +4652,8 @@ const DESTINOS = [
     "lng": -58.0782,
     "web": "rionegro.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "River island on the Uruguay River ideal for adventure ecotourism, bird watching, deserted beaches and recreational coastal fishing."
+    "caracteristicas_en": "River island on the Uruguay River ideal for adventure ecotourism, bird watching, deserted beaches and recreational coastal fishing.",
+    "caracteristicas_pt": "Ilha fluvial no Rio Uruguai ideal para ecoturismo de aventura, observação de aves, praias desertas e pesca costeira recreativa."
   },
   {
     "id": 246,
@@ -4426,7 +4671,8 @@ const DESTINOS = [
     "lng": -58.3142,
     "web": "rionegro.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Historic port structure recovered on the promenade, excellent recreation point, artisanal fishing and contemplation of the sunset over the river."
+    "caracteristicas_en": "Historic port structure recovered on the promenade, excellent recreation point, artisanal fishing and contemplation of the sunset over the river.",
+    "caracteristicas_pt": "Estrutura histórica portuária recuperada no calçadão, excelente ponto de lazer, pesca artesanal e contemplação do pôr do sol sobre o rio."
   },
   {
     "id": 247,
@@ -4444,7 +4690,8 @@ const DESTINOS = [
     "lng": -58.3194,
     "web": "rionegro.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Urban tour of the historic residential area of ​​the former Anglo meat processing plant, highlighting the English architecture of the bosses' and workers' houses."
+    "caracteristicas_en": "Urban tour of the historic residential area of ​​the former Anglo meat processing plant, highlighting the English architecture of the bosses' and workers' houses.",
+    "caracteristicas_pt": "Passeio urbano pela área residencial histórica do antigo frigorífico Anglo, com destaque para a arquitetura inglesa das casas patrões e operários."
   },
   {
     "id": 248,
@@ -4462,7 +4709,8 @@ const DESTINOS = [
     "lng": -57.7312,
     "web": "rionegro.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Calm and crystalline water course surrounded by dense gallery forests, ideal for introductory kayak trips and nature photography days."
+    "caracteristicas_en": "Calm and crystalline water course surrounded by dense gallery forests, ideal for introductory kayak trips and nature photography days.",
+    "caracteristicas_pt": "Curso de água calma e cristalina rodeado por densas matas de galeria, ideal para passeios introdutórios de caiaque e dias de fotografia de natureza."
   },
   {
     "id": 249,
@@ -4480,7 +4728,8 @@ const DESTINOS = [
     "lng": -57.1845,
     "web": "rionegro.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Picturesque town in the deep interior with a strong rural identity, ideal for experiencing the absolute calm of the countryside and visiting old warehouses."
+    "caracteristicas_en": "Picturesque town in the deep interior with a strong rural identity, ideal for experiencing the absolute calm of the countryside and visiting old warehouses.",
+    "caracteristicas_pt": "Vila pitoresca do interior profundo com forte identidade rural, ideal para vivenciar a calma absoluta do campo e visitar antigos armazéns."
   },
   {
     "id": 250,
@@ -4498,7 +4747,8 @@ const DESTINOS = [
     "lng": -57.3801,
     "web": "rionegro.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Semi-abandoned historic railway complex from the early 20th century. Attractive for enthusiasts of urban photography, history and heritage."
+    "caracteristicas_en": "Semi-abandoned historic railway complex from the early 20th century. Attractive for enthusiasts of urban photography, history and heritage.",
+    "caracteristicas_pt": "Complexo ferroviário histórico semi-abandonado do início do século XX. Atraente para entusiastas da fotografia urbana, história e património."
   },
   {
     "id": 251,
@@ -4516,7 +4766,8 @@ const DESTINOS = [
     "lng": -57.6914,
     "web": "turismo.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Natural area with a small historic bridge, ideal for photographic rest stops, observation of native flora and coastal fishing."
+    "caracteristicas_en": "Natural area with a small historic bridge, ideal for photographic rest stops, observation of native flora and coastal fishing.",
+    "caracteristicas_pt": "Área natural com uma pequena ponte histórica, ideal para paragens de descanso fotográfico, observação de flora autóctone e pesca costeira."
   },
   {
     "id": 252,
@@ -4534,7 +4785,8 @@ const DESTINOS = [
     "lng": -58.0412,
     "web": "rionegro.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Short ecological interpretation trail on wooden walkways that borders the river, allowing you to observe the coastal wetland ecosystem."
+    "caracteristicas_en": "Short ecological interpretation trail on wooden walkways that borders the river, allowing you to observe the coastal wetland ecosystem.",
+    "caracteristicas_pt": "Pequeno percurso de interpretação ecológica em passadiços de madeira que margeiam o rio, permitindo observar o ecossistema da zona húmida costeira."
   },
   {
     "id": 253,
@@ -4552,7 +4804,8 @@ const DESTINOS = [
     "lng": -58.3121,
     "web": "rionegro.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Private coastal sector with authorized daily access. It has excellent infrastructure, clean sands and a dock for light boats."
+    "caracteristicas_en": "Private coastal sector with authorized daily access. It has excellent infrastructure, clean sands and a dock for light boats.",
+    "caracteristicas_pt": "Setor costeiro privado com acesso diário autorizado. Possui excelente infraestrutura, areias limpas e cais para embarcações leves."
   },
   {
     "id": 254,
@@ -4570,7 +4823,8 @@ const DESTINOS = [
     "lng": -57.2941,
     "web": "rionegro.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Small agricultural colony and rural area that stands out for its undulating landscapes, artisanal production of country cheeses and gaucho traditions."
+    "caracteristicas_en": "Small agricultural colony and rural area that stands out for its undulating landscapes, artisanal production of country cheeses and gaucho traditions.",
+    "caracteristicas_pt": "Pequena colônia agrícola e área rural que se destaca pelas paisagens onduladas, produção artesanal de queijos caipiras e tradições gaúchas."
   },
   {
     "id": 255,
@@ -4588,7 +4842,8 @@ const DESTINOS = [
     "lng": -58.2115,
     "web": "rionegro.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Virgin deep-water river course suitable for long nautical canoe trips and bird watching in the closed forest."
+    "caracteristicas_en": "Virgin deep-water river course suitable for long nautical canoe trips and bird watching in the closed forest.",
+    "caracteristicas_pt": "Curso fluvial virgem de águas profundas adequado para longos passeios de canoa náutica e observação de aves em mata fechada."
   },
   {
     "id": 256,
@@ -4606,7 +4861,8 @@ const DESTINOS = [
     "lng": -58.3111,
     "web": "rionegro.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Main square of Fray Bentos, famous for its English pavilion donated by the Anglo factory and surrounded by buildings of high architectural value."
+    "caracteristicas_en": "Main square of Fray Bentos, famous for its English pavilion donated by the Anglo factory and surrounded by buildings of high architectural value.",
+    "caracteristicas_pt": "Praça principal de Fray Bentos, famosa por seu pavilhão inglês doado pela fábrica Anglo e rodeado por edifícios de alto valor arquitetônico."
   },
   {
     "id": 257,
@@ -4624,7 +4880,8 @@ const DESTINOS = [
     "lng": -58.0124,
     "web": "turismo.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Rural area of ​​gentle hills and traditional ranches dedicated to agricultural-livestock production, ideal for road cycling and tranquility."
+    "caracteristicas_en": "Rural area of ​​gentle hills and traditional ranches dedicated to agricultural-livestock production, ideal for road cycling and tranquility.",
+    "caracteristicas_pt": "Zona rural de suaves colinas e ranchos tradicionais dedicados à produção agro-pecuária, ideal para ciclismo de estrada e tranquilidade."
   },
   {
     "id": 258,
@@ -4642,7 +4899,8 @@ const DESTINOS = [
     "lng": -58.3161,
     "web": "rionegro.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Panoramic observation point at the base of the iconic and gigantic refrigerator chimney, a symbol of the country's industrial archeology."
+    "caracteristicas_en": "Panoramic observation point at the base of the iconic and gigantic refrigerator chimney, a symbol of the country's industrial archeology.",
+    "caracteristicas_pt": "Miradouro panorâmico na base da icónica e gigantesca chaminé do frigorífico, símbolo da arqueologia industrial do país."
   },
   {
     "id": 259,
@@ -4660,7 +4918,8 @@ const DESTINOS = [
     "lng": -58.0314,
     "web": "rionegro.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Spa technically located in Río Negro but closely linked to Mercedes. Quiet beaches on the Río Negro and family atmosphere."
+    "caracteristicas_en": "Spa technically located in Río Negro but closely linked to Mercedes. Quiet beaches on the Río Negro and family atmosphere.",
+    "caracteristicas_pt": "Spa tecnicamente localizado em Río Negro, mas intimamente ligado à Mercedes. Praias tranquilas do Rio Negro e ambiente familiar."
   },
   {
     "id": 260,
@@ -4678,7 +4937,8 @@ const DESTINOS = [
     "lng": -57.7211,
     "web": "rionegro.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Small town with a German colonizing heritage. Hyper quiet environment with tree-lined streets, ideal for disconnecting from the urban rhythm."
+    "caracteristicas_en": "Small town with a German colonizing heritage. Hyper quiet environment with tree-lined streets, ideal for disconnecting from the urban rhythm.",
+    "caracteristicas_pt": "Pequena cidade com herança colonizadora alemã. Ambiente hiper tranquilo com ruas arborizadas, ideal para se desligar do ritmo urbano."
   },
   {
     "id": 261,
@@ -4696,7 +4956,8 @@ const DESTINOS = [
     "lng": -58.3584,
     "web": "rionegro.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Pedestrian ecological trail that runs through the native coastal forest, linking the different beaches of Las Cañas Spa under natural shade."
+    "caracteristicas_en": "Pedestrian ecological trail that runs through the native coastal forest, linking the different beaches of Las Cañas Spa under natural shade.",
+    "caracteristicas_pt": "Trilha ecológica pedestre que percorre a mata nativa costeira, ligando as diferentes praias do Balneário Las Cañas sob sombra natural."
   },
   {
     "id": 262,
@@ -4714,7 +4975,8 @@ const DESTINOS = [
     "lng": -58.0511,
     "web": "rionegro.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Small rocky and sandy islet in the course of the Uruguay River in front of Nuevo Berlin, suitable for stops for kayakers and observation of herons."
+    "caracteristicas_en": "Small rocky and sandy islet in the course of the Uruguay River in front of Nuevo Berlin, suitable for stops for kayakers and observation of herons.",
+    "caracteristicas_pt": "Pequena ilhota rochosa e arenosa no curso do rio Uruguai em frente a Nuevo Berlim, adequada para paradas de canoístas e observação de garças."
   },
   {
     "id": 263,
@@ -4732,7 +4994,8 @@ const DESTINOS = [
     "lng": -58.1482,
     "web": "rionegro.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Local scenic route connecting the center of San Javier with the river, ideal for sunset walks, wetland bird watching and running."
+    "caracteristicas_en": "Local scenic route connecting the center of San Javier with the river, ideal for sunset walks, wetland bird watching and running.",
+    "caracteristicas_pt": "Rota cênica local que liga o centro de San Javier ao rio, ideal para caminhadas ao pôr do sol, observação de pássaros em zonas úmidas e corrida."
   },
   {
     "id": 264,
@@ -4750,7 +5013,8 @@ const DESTINOS = [
     "lng": -58.3167,
     "web": "rionegro.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "UNESCO World Heritage. Tour of the old meat industrial complex, the Museum of the Industrial Revolution and the iconic chimney."
+    "caracteristicas_en": "UNESCO World Heritage. Tour of the old meat industrial complex, the Museum of the Industrial Revolution and the iconic chimney.",
+    "caracteristicas_pt": "Património Mundial da UNESCO. Visita ao antigo complexo industrial da carne, ao Museu da Revolução Industrial e à icónica chaminé."
   },
   {
     "id": 265,
@@ -4768,7 +5032,8 @@ const DESTINOS = [
     "lng": -58.3556,
     "web": "rionegro.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "The main river beach destination in the department. Fine sands, native ceibo and espinillo forests, calm waters and spectacular sunsets."
+    "caracteristicas_en": "The main river beach destination in the department. Fine sands, native ceibo and espinillo forests, calm waters and spectacular sunsets.",
+    "caracteristicas_pt": "Principal destino de praia fluvial do departamento. Areias finas, florestas nativas de ceibo e espinillo, águas calmas e entardeceres espetaculares."
   },
   {
     "id": 266,
@@ -4786,7 +5051,8 @@ const DESTINOS = [
     "lng": -58.1322,
     "web": "rionegro.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Colony founded by Russian immigrants in 1913. It stands out for its architecture, traditional dances, typical gastronomy (shaslik, piroshki) and access to Farrapos."
+    "caracteristicas_en": "Colony founded by Russian immigrants in 1913. It stands out for its architecture, traditional dances, typical gastronomy (shaslik, piroshki) and access to Farrapos.",
+    "caracteristicas_pt": "Colônia fundada por imigrantes russos em 1913. Destaca-se pela arquitetura, danças tradicionais, gastronomia típica (shaslik, piroshki) e acesso a Farrapos."
   },
   {
     "id": 267,
@@ -4804,7 +5070,8 @@ const DESTINOS = [
     "lng": null,
     "web": "Ruta 24, km 45 + 12 km de acceso por Ruta 20.",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Coastal town with a strong German identity, surrounded by islands. Ideal for sport fishing, canoeing and hiking along coastal trails."
+    "caracteristicas_en": "Coastal town with a strong German identity, surrounded by islands. Ideal for sport fishing, canoeing and hiking along coastal trails.",
+    "caracteristicas_pt": "Cidade costeira com forte identidade alemã, rodeada de ilhas. Ideal para pesca desportiva, canoagem e caminhadas por trilhos costeiros."
   },
   {
     "id": 268,
@@ -4822,7 +5089,8 @@ const DESTINOS = [
     "lng": -58.1611,
     "web": "rionegro.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Beach and important historical landing point just steps from San Javier. It has a wooden dock, a wooded camping area and native forest trails."
+    "caracteristicas_en": "Beach and important historical landing point just steps from San Javier. It has a wooden dock, a wooded camping area and native forest trails.",
+    "caracteristicas_pt": "Praia e importante ponto de desembarque histórico a poucos passos de San Javier. Possui cais de madeira, área de camping arborizada e trilhas em mata nativa."
   },
   {
     "id": 269,
@@ -4840,7 +5108,8 @@ const DESTINOS = [
     "lng": -58.0622,
     "web": "rionegro.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Watercourse of great biodiversity, ideal for kayaking, migratory bird watching and self-guided hiking under the riverside mountain."
+    "caracteristicas_en": "Watercourse of great biodiversity, ideal for kayaking, migratory bird watching and self-guided hiking under the riverside mountain.",
+    "caracteristicas_pt": "Curso de água de grande biodiversidade, ideal para prática de canoagem, observação de aves migratórias e caminhadas autoguiadas sob a serra ribeirinha."
   },
   {
     "id": 270,
@@ -4858,7 +5127,8 @@ const DESTINOS = [
     "lng": -57.652,
     "web": "turismo.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Establishment of rural and historical tourism. It offers guided horseback riding, participation in field tasks, observation of flora and Creole gastronomy."
+    "caracteristicas_en": "Establishment of rural and historical tourism. It offers guided horseback riding, participation in field tasks, observation of flora and Creole gastronomy.",
+    "caracteristicas_pt": "Implantação de turismo rural e histórico. Oferece passeios a cavalo guiados, participação em tarefas de campo, observação da flora e da gastronomia crioula."
   },
   {
     "id": 271,
@@ -4876,7 +5146,8 @@ const DESTINOS = [
     "lng": -57.6294,
     "web": "rionegro.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Urban cultural circuit in the city of Young that recovers the old train station, cargo warehouses converted into squares and local museums."
+    "caracteristicas_en": "Urban cultural circuit in the city of Young that recovers the old train station, cargo warehouses converted into squares and local museums.",
+    "caracteristicas_pt": "Circuito cultural urbano na cidade de Jovem que recupera a antiga estação ferroviária, armazéns de carga convertidos em praças e museus locais."
   },
   {
     "id": 272,
@@ -4894,7 +5165,8 @@ const DESTINOS = [
     "lng": -58.1105,
     "web": "rionegro.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Environmental interpretation trail that crosses coastal wetlands and low marsh areas, with elevated platforms for observing wildlife."
+    "caracteristicas_en": "Environmental interpretation trail that crosses coastal wetlands and low marsh areas, with elevated platforms for observing wildlife.",
+    "caracteristicas_pt": "Trilho de interpretação ambiental que atravessa zonas húmidas costeiras e zonas de sapal baixo, com plataformas elevadas para observação de vida selvagem."
   },
   {
     "id": 273,
@@ -4912,7 +5184,8 @@ const DESTINOS = [
     "lng": -58.3075,
     "web": "rionegro.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Extensive coastal promenade on the Uruguay River that connects the historic center with the Anglo neighborhood. Excellent panoramic views, green areas and old docks."
+    "caracteristicas_en": "Extensive coastal promenade on the Uruguay River that connects the historic center with the Anglo neighborhood. Excellent panoramic views, green areas and old docks.",
+    "caracteristicas_pt": "Extenso calçadão costeiro sobre o Rio Uruguai que liga o centro histórico ao bairro Anglo. Excelentes vistas panorâmicas, zonas verdes e cais antigos."
   },
   {
     "id": 274,
@@ -4930,7 +5203,8 @@ const DESTINOS = [
     "lng": -58.0711,
     "web": "rionegro.gub.uy",
     "popularidad": "",
-    "caracteristicas_en": "Virgin island located in the Uruguay River in front of Nuevo Berlin. It stands out for its wild white sand beaches and dense ceibo and carob trees."
+    "caracteristicas_en": "Virgin island located in the Uruguay River in front of Nuevo Berlin. It stands out for its wild white sand beaches and dense ceibo and carob trees.",
+    "caracteristicas_pt": "Ilha virgem localizada no rio Uruguai em frente a Nuevo Berlim. Destaca-se pelas suas praias selvagens de areia branca e densas árvores de ceibo e alfarrobeiras."
   },
   {
     "id": 275,
@@ -4948,7 +5222,8 @@ const DESTINOS = [
     "lng": -58.3103,
     "web": "rionegro.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Jewel of the civil and historical architecture of Fray Bentos, inaugurated in 1913. It stands out for its impeccable acoustics and its façade with neoclassical details."
+    "caracteristicas_en": "Jewel of the civil and historical architecture of Fray Bentos, inaugurated in 1913. It stands out for its impeccable acoustics and its façade with neoclassical details.",
+    "caracteristicas_pt": "Jóia da arquitetura civil e histórica de Fray Bentos, inaugurada em 1913. Destaca-se pela acústica impecável e pela fachada com detalhes neoclássicos."
   },
   {
     "id": 276,
@@ -4966,7 +5241,8 @@ const DESTINOS = [
     "lng": -58.3114,
     "web": "rionegro.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Space dedicated to the Fraybentino teacher Luis Solari. It houses a unique collection of his famous paintings and prints with anthropomorphic figures."
+    "caracteristicas_en": "Space dedicated to the Fraybentino teacher Luis Solari. It houses a unique collection of his famous paintings and prints with anthropomorphic figures.",
+    "caracteristicas_pt": "Espaço dedicado ao professor Fraybentino Luis Solari. Abriga uma coleção única de suas famosas pinturas e gravuras com figuras antropomórficas."
   },
   {
     "id": 277,
@@ -4984,7 +5260,8 @@ const DESTINOS = [
     "lng": -57.48,
     "web": "turismo.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Rural environment of gentle hills and ravines ideal for adventure cycling tourism, photographic safaris and recognition of basaltic geology."
+    "caracteristicas_en": "Rural environment of gentle hills and ravines ideal for adventure cycling tourism, photographic safaris and recognition of basaltic geology.",
+    "caracteristicas_pt": "Ambiente rural de suaves colinas e ravinas ideal para turismo de aventura, safaris fotográficos e reconhecimento da geologia basáltica."
   },
   {
     "id": 278,
@@ -5002,7 +5279,8 @@ const DESTINOS = [
     "lng": -58.2917,
     "web": "rionegro.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Alternative and quiet river resort located north of Fray Bentos. Very popular with locals to practice light water sports."
+    "caracteristicas_en": "Alternative and quiet river resort located north of Fray Bentos. Very popular with locals to practice light water sports.",
+    "caracteristicas_pt": "Estância fluvial alternativa e tranquila localizada ao norte de Fray Bentos. Muito procurada pelos cariocas para a prática de desportos náuticos ligeiros."
   },
   {
     "id": 279,
@@ -5020,7 +5298,8 @@ const DESTINOS = [
     "lng": -57.8203,
     "web": "rionegro.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Wild and natural destination, excellent for tarariras and dorado fishermen, adventure camps under native mountains and canoe trips."
+    "caracteristicas_en": "Wild and natural destination, excellent for tarariras and dorado fishermen, adventure camps under native mountains and canoe trips.",
+    "caracteristicas_pt": "Destino selvagem e natural, excelente para pescadores de tarariras e dourados, acampamentos de aventura sob montanhas nativas e passeios de canoa."
   },
   {
     "id": 280,
@@ -5038,7 +5317,8 @@ const DESTINOS = [
     "lng": -57.3822,
     "web": "rionegro.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Forest town with deep-rooted Creole traditions and a railway past. Ideal to live the experience of deep Uruguay and acquire wood crafts."
+    "caracteristicas_en": "Forest town with deep-rooted Creole traditions and a railway past. Ideal to live the experience of deep Uruguay and acquire wood crafts.",
+    "caracteristicas_pt": "Cidade florestal com tradições crioulas profundamente enraizadas e um passado ferroviário. Ideal para viver a experiência do Uruguai profundo e adquirir artesanato em madeira."
   },
   {
     "id": 281,
@@ -5056,7 +5336,8 @@ const DESTINOS = [
     "lng": null,
     "web": "-33.0456,-58.1214",
     "popularidad": "Emergente",
-    "caracteristicas_en": "19th century industrial archaeological site on the banks of the river, precursor of the meat industry in the region. Traces of docks and walls can be seen."
+    "caracteristicas_en": "19th century industrial archaeological site on the banks of the river, precursor of the meat industry in the region. Traces of docks and walls can be seen.",
+    "caracteristicas_pt": "Sítio arqueológico industrial do século XIX às margens do rio, precursor da indústria da carne na região. Podem ser vistos vestígios de docas e paredes."
   },
   {
     "id": 282,
@@ -5074,7 +5355,8 @@ const DESTINOS = [
     "lng": -58.1345,
     "web": "rionegro.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Historical and cultural walking circuit within the town that visits the first stone sheds, the Russian Orthodox church and the sunflower oil factories."
+    "caracteristicas_en": "Historical and cultural walking circuit within the town that visits the first stone sheds, the Russian Orthodox church and the sunflower oil factories.",
+    "caracteristicas_pt": "Circuito de caminhada histórica e cultural dentro da cidade que visita os primeiros barracões de pedra, a igreja ortodoxa russa e as fábricas de óleo de girassol."
   },
   {
     "id": 283,
@@ -5092,7 +5374,8 @@ const DESTINOS = [
     "lng": -57.5925,
     "web": "rionegro.gub.uy",
     "popularidad": "",
-    "caracteristicas_en": "Northern natural limit with Paysandú. Area of ​​historic bridges, ideal for photographic rest stops, observation of hydrophilic vegetation and walks."
+    "caracteristicas_en": "Northern natural limit with Paysandú. Area of ​​historic bridges, ideal for photographic rest stops, observation of hydrophilic vegetation and walks.",
+    "caracteristicas_pt": "Limite natural norte com Paysandú. Zona de pontes históricas, ideal para paragens de descanso fotográfico, observação de vegetação hidrofílica e passeios pedestres."
   },
   {
     "id": 284,
@@ -5110,7 +5393,8 @@ const DESTINOS = [
     "lng": -57.8589,
     "web": "colonia.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Iconic historic walk, 18th century Portuguese colonial architecture, cobbled wedge streets, antique lanterns and local legends."
+    "caracteristicas_en": "Iconic historic walk, 18th century Portuguese colonial architecture, cobbled wedge streets, antique lanterns and local legends.",
+    "caracteristicas_pt": "Passeio histórico icônico, arquitetura colonial portuguesa do século XVIII, ruas de paralelepípedos, lanternas antigas e lendas locais."
   },
   {
     "id": 285,
@@ -5128,7 +5412,8 @@ const DESTINOS = [
     "lng": -57.8614,
     "web": "colonia.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Neo-Mudejar style architectural complex inaugurated in 1910 and recently rehabilitated. Guided tours of the stands and the arena, cultural and museum center."
+    "caracteristicas_en": "Neo-Mudejar style architectural complex inaugurated in 1910 and recently rehabilitated. Guided tours of the stands and the arena, cultural and museum center.",
+    "caracteristicas_pt": "Conjunto arquitetónico de estilo neo-mudéjar inaugurado em 1910 e recentemente reabilitado. Visitas guiadas às arquibancadas e à arena, centro cultural e museológico."
   },
   {
     "id": 286,
@@ -5146,7 +5431,8 @@ const DESTINOS = [
     "lng": -57.8593,
     "web": "colonia.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Historical structure from 1857 built on the ruins of the old Convent of San Francisco Javier. 360-degree panoramic view of the Río de la Plata and the old town."
+    "caracteristicas_en": "Historical structure from 1857 built on the ruins of the old Convent of San Francisco Javier. 360-degree panoramic view of the Río de la Plata and the old town.",
+    "caracteristicas_pt": "Estrutura histórica de 1857 construída sobre as ruínas do antigo Convento de São Francisco Javier. Vista panorâmica de 360 ​​graus do Río de la Plata e do centro histórico."
   },
   {
     "id": 287,
@@ -5164,7 +5450,8 @@ const DESTINOS = [
     "lng": -57.8553,
     "web": "colonia.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Coastal and nautical walk ideal for watching the sunset, observing international sports boats and taking quiet walks along the old dock."
+    "caracteristicas_en": "Coastal and nautical walk ideal for watching the sunset, observing international sports boats and taking quiet walks along the old dock.",
+    "caracteristicas_pt": "Passeio costeiro e náutico ideal para observar o pôr do sol, observar barcos desportivos internacionais e fazer passeios tranquilos ao longo do antigo cais."
   },
   {
     "id": 288,
@@ -5182,7 +5469,8 @@ const DESTINOS = [
     "lng": -57.8569,
     "web": "colonia.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Underground educational and interpretive center that exhibits native fish species from the river basins of Uruguay and the Río de la Plata, ideal for families."
+    "caracteristicas_en": "Underground educational and interpretive center that exhibits native fish species from the river basins of Uruguay and the Río de la Plata, ideal for families.",
+    "caracteristicas_pt": "Centro educativo e interpretativo subterrâneo que exibe espécies de peixes nativos das bacias hidrográficas do Uruguai e do Rio da Prata, ideal para famílias."
   },
   {
     "id": 289,
@@ -5200,7 +5488,8 @@ const DESTINOS = [
     "lng": -57.6989,
     "web": "colonia.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Wild and residential environment characterized by its fine sand beaches on the Río de la Plata, a lush forest of eucalyptus and pine trees, and absolute tranquility."
+    "caracteristicas_en": "Wild and residential environment characterized by its fine sand beaches on the Río de la Plata, a lush forest of eucalyptus and pine trees, and absolute tranquility.",
+    "caracteristicas_pt": "Ambiente selvagem e residencial caracterizado por suas praias de areia fina no Río de la Plata, uma exuberante floresta de eucaliptos e pinheiros e tranquilidade absoluta."
   },
   {
     "id": 290,
@@ -5218,7 +5507,8 @@ const DESTINOS = [
     "lng": -57.9658,
     "web": "presidencia.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Presidential rest residence and national park of more than 1,300 hectares. Guided tours to observe Indian deer, exotic flora, and the historic Gaboto Tower."
+    "caracteristicas_en": "Presidential rest residence and national park of more than 1,300 hectares. Guided tours to observe Indian deer, exotic flora, and the historic Gaboto Tower.",
+    "caracteristicas_pt": "Residência de descanso presidencial e parque nacional de mais de 1.300 hectares. Visitas guiadas para observar cervos indianos, flora exótica e a histórica Torre Gaboto."
   },
   {
     "id": 291,
@@ -5236,7 +5526,8 @@ const DESTINOS = [
     "lng": -57.2344,
     "web": "colonia.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Town with strong identity and traditions of Swiss, Austrian and German immigrants. It stands out for its European architecture, artisan cheese shops and typical gastronomy."
+    "caracteristicas_en": "Town with strong identity and traditions of Swiss, Austrian and German immigrants. It stands out for its European architecture, artisan cheese shops and typical gastronomy.",
+    "caracteristicas_pt": "Cidade com forte identidade e tradições de imigrantes suíços, austríacos e alemães. Destaca-se pela arquitetura europeia, queijarias artesanais e gastronomia típica."
   },
   {
     "id": 292,
@@ -5254,7 +5545,8 @@ const DESTINOS = [
     "lng": -58.2861,
     "web": "carmelo.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Urban and historical walk next to Arroyo de las Vacas. The swing bridge from 1912 is moved by human traction and constitutes an icon of national engineering."
+    "caracteristicas_en": "Urban and historical walk next to Arroyo de las Vacas. The swing bridge from 1912 is moved by human traction and constitutes an icon of national engineering.",
+    "caracteristicas_pt": "Passeio urbano e histórico próximo ao Arroyo de las Vacas. A ponte giratória de 1912 é movida por tração humana e constitui um ícone da engenharia nacional."
   },
   {
     "id": 293,
@@ -5272,7 +5564,8 @@ const DESTINOS = [
     "lng": -58.3211,
     "web": "narbona.com.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Exclusive wine tourism in a historic establishment dating back to 1909. Guided tours of the vineyards, old storage cellar, tasting of cheeses and fine wines (Tannat)."
+    "caracteristicas_en": "Exclusive wine tourism in a historic establishment dating back to 1909. Guided tours of the vineyards, old storage cellar, tasting of cheeses and fine wines (Tannat).",
+    "caracteristicas_pt": "Enoturismo exclusivo num estabelecimento histórico que remonta a 1909. Visitas guiadas às vinhas, antiga adega, degustação de queijos e vinhos finos (Tannat)."
   },
   {
     "id": 294,
@@ -5290,7 +5583,8 @@ const DESTINOS = [
     "lng": -58.2664,
     "web": "irurtia.com.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "One of the most traditional wineries in the country with more than a century of family history. Tours of the immense underground cellar dug in stone and guided tastings."
+    "caracteristicas_en": "One of the most traditional wineries in the country with more than a century of family history. Tours of the immense underground cellar dug in stone and guided tastings.",
+    "caracteristicas_pt": "Uma das vinícolas mais tradicionais do país com mais de um século de história familiar. Passeios pela imensa adega subterrânea escavada em pedra e degustações guiadas."
   },
   {
     "id": 295,
@@ -5308,7 +5602,8 @@ const DESTINOS = [
     "lng": -58.0319,
     "web": "colonia.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Town founded by a British company in 1887 with a unique urban design of stone houses with yellow zinc gable roofs and wide walls one meter thick."
+    "caracteristicas_en": "Town founded by a British company in 1887 with a unique urban design of stone houses with yellow zinc gable roofs and wide walls one meter thick.",
+    "caracteristicas_pt": "Vila fundada por uma empresa britânica em 1887 com um desenho urbano único de casas de pedra com telhados de duas águas de zinco amarelo e paredes largas com um metro de espessura."
   },
   {
     "id": 296,
@@ -5326,7 +5621,8 @@ const DESTINOS = [
     "lng": -58.2933,
     "web": "carmelo.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Carmelo's main beach on the Río de la Plata. Calm waters surrounded by a thick forest of eucalyptus trees, camping areas, inns and a small zoo/native fauna reserve."
+    "caracteristicas_en": "Carmelo's main beach on the Río de la Plata. Calm waters surrounded by a thick forest of eucalyptus trees, camping areas, inns and a small zoo/native fauna reserve.",
+    "caracteristicas_pt": "Principal praia de Carmelo no Río de la Plata. Águas calmas cercadas por uma densa floresta de eucaliptos, áreas para camping, pousadas e um pequeno zoológico/reserva de fauna nativa."
   },
   {
     "id": 297,
@@ -5344,7 +5640,8 @@ const DESTINOS = [
     "lng": -57.2647,
     "web": "colonia.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Town known as the \"Garden City\", founded by Piedmontese immigrants in 1856. It stands out for its urban planning, well-kept flower gardens and historic temples."
+    "caracteristicas_en": "Town known as the \"Garden City\", founded by Piedmontese immigrants in 1856. It stands out for its urban planning, well-kept flower gardens and historic temples.",
+    "caracteristicas_pt": "Cidade conhecida como “Cidade Jardim”, fundada por imigrantes piemonteses em 1856. Destaca-se pelo seu planejamento urbano, jardins floridos bem cuidados e templos históricos."
   },
   {
     "id": 298,
@@ -5362,7 +5659,8 @@ const DESTINOS = [
     "lng": -57.3622,
     "web": "colonia.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Very fine white sand beach surrounded by forests and low clay cliffs on the Río de la Plata, ideal for sport fishing and total disconnection."
+    "caracteristicas_en": "Very fine white sand beach surrounded by forests and low clay cliffs on the Río de la Plata, ideal for sport fishing and total disconnection.",
+    "caracteristicas_pt": "Praia de areia branca muito fina rodeada de bosques e falésias baixas de argila no Rio da Prata, ideal para a pesca esportiva e desconexão total."
   },
   {
     "id": 299,
@@ -5380,7 +5678,8 @@ const DESTINOS = [
     "lng": -57.8578,
     "web": "colonia.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Scientific collection that exhibits important fossil remains of the Pleistocene Pampas megafauna found in the region (glyptodonts, megatheres), ideal for hobbyists and researchers."
+    "caracteristicas_en": "Scientific collection that exhibits important fossil remains of the Pleistocene Pampas megafauna found in the region (glyptodonts, megatheres), ideal for hobbyists and researchers.",
+    "caracteristicas_pt": "Coleção científica que exibe importantes restos fósseis da megafauna pleistocênica dos Pampas encontrados na região (gliptodontes, megateres), ideal para amadores e pesquisadores."
   },
   {
     "id": 300,
@@ -5398,7 +5697,8 @@ const DESTINOS = [
     "lng": -57.8528,
     "web": "colonia.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Old factory and tannery from the 19th century converted into a municipal cultural center. It retains its large original brick chimney and has a theater and art exhibition halls next to the river."
+    "caracteristicas_en": "Old factory and tannery from the 19th century converted into a municipal cultural center. It retains its large original brick chimney and has a theater and art exhibition halls next to the river.",
+    "caracteristicas_pt": "Antiga fábrica e curtume do século XIX convertida em centro cultural municipal. Mantém a sua grande chaminé original de tijolo e tem um teatro e salas de exposições de arte junto ao rio."
   },
   {
     "id": 301,
@@ -5416,7 +5716,8 @@ const DESTINOS = [
     "lng": -58.4192,
     "web": "colonia.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Geographic and historical landmark where the Uruguay River and the Paraná River converge, giving formal birth to the Río de la Plata. Place where Solís landed in 1516 and Charles Darwin in 1833."
+    "caracteristicas_en": "Geographic and historical landmark where the Uruguay River and the Paraná River converge, giving formal birth to the Río de la Plata. Place where Solís landed in 1516 and Charles Darwin in 1833.",
+    "caracteristicas_pt": "Marco geográfico e histórico onde convergem o Rio Uruguai e o Rio Paraná, dando origem formal ao Rio da Prata. Local onde desembarcaram Solís em 1516 e Charles Darwin em 1833."
   },
   {
     "id": 302,
@@ -5434,7 +5735,8 @@ const DESTINOS = [
     "lng": -57.3483,
     "web": "colonia.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "The only city in the department founded by Spaniards in 1775. It preserves a main square with ancient cannons, a church with valuable period wood carvings and historical murals."
+    "caracteristicas_en": "The only city in the department founded by Spaniards in 1775. It preserves a main square with ancient cannons, a church with valuable period wood carvings and historical murals.",
+    "caracteristicas_pt": "Única cidade do departamento fundada pelos espanhóis em 1775. Preserva uma praça principal com canhões antigos, uma igreja com valiosas talha de época e murais históricos."
   },
   {
     "id": 303,
@@ -5452,7 +5754,8 @@ const DESTINOS = [
     "lng": -57.8289,
     "web": "colonia.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Beach with fine sand and calm waters surrounded by native mountains and infrastructure for picnics and beach sports. Located a short distance from the town center."
+    "caracteristicas_en": "Beach with fine sand and calm waters surrounded by native mountains and infrastructure for picnics and beach sports. Located a short distance from the town center.",
+    "caracteristicas_pt": "Praia de areia fina e águas calmas cercada por montanhas nativas e infraestrutura para piqueniques e esportes de praia. Localizada a curta distância do centro da vila."
   },
   {
     "id": 304,
@@ -5470,7 +5773,8 @@ const DESTINOS = [
     "lng": -57.1481,
     "web": "sanjose.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Ecological and navigable spa. White sand beach on the Río de la Plata, stream for water sports, breakwater for walks and bird watching in the riverside mountains."
+    "caracteristicas_en": "Ecological and navigable spa. White sand beach on the Río de la Plata, stream for water sports, breakwater for walks and bird watching in the riverside mountains.",
+    "caracteristicas_pt": "Spa ecológico e navegável. Praia de areia branca no Rio da Prata, riacho para esportes náuticos, quebra-mar para caminhadas e observação de pássaros nas montanhas ribeirinhas."
   },
   {
     "id": 305,
@@ -5488,7 +5792,8 @@ const DESTINOS = [
     "lng": -56.7356,
     "web": "sanjose.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Spa characterized by imposing clay ravines up to 50 meters high above the Río de la Plata, calm beaches, natural trails and paragliding."
+    "caracteristicas_en": "Spa characterized by imposing clay ravines up to 50 meters high above the Río de la Plata, calm beaches, natural trails and paragliding.",
+    "caracteristicas_pt": "Balneário caracterizado por imponentes ravinas de argila de até 50 metros de altura sobre o Rio da Prata, praias calmas, trilhas naturais e parapente."
   },
   {
     "id": 306,
@@ -5506,7 +5811,8 @@ const DESTINOS = [
     "lng": -56.9142,
     "web": "sanjose.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Sea of ​​stone and unique gray granite rock formations within a rugged mountain environment. Exploration hiking, native forest, thorn thicket and legends from the colonial era."
+    "caracteristicas_en": "Sea of ​​stone and unique gray granite rock formations within a rugged mountain environment. Exploration hiking, native forest, thorn thicket and legends from the colonial era.",
+    "caracteristicas_pt": "Mar de pedra e formações rochosas únicas de granito cinzento num ambiente montanhoso acidentado. Caminhadas de exploração, mata nativa, matas espinhosas e lendas da época colonial."
   },
   {
     "id": 307,
@@ -5524,7 +5830,8 @@ const DESTINOS = [
     "lng": -56.9317,
     "web": "sanjose.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Historic town awarded by the Ministry of Tourism. Recovered old train station, ceramic and wool craft workshops, period facades and local cuisine."
+    "caracteristicas_en": "Historic town awarded by the Ministry of Tourism. Recovered old train station, ceramic and wool craft workshops, period facades and local cuisine.",
+    "caracteristicas_pt": "Vila histórica premiada pelo Ministério do Turismo. Antiga estação ferroviária recuperada, oficinas de artesanato em cerâmica e lã, fachadas de época e gastronomia local."
   },
   {
     "id": 308,
@@ -5542,7 +5849,8 @@ const DESTINOS = [
     "lng": -56.7136,
     "web": "sanjose.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Architectural and cultural icon inaugurated in 1912, jewel of the eclectic style with a typical Italian lyrical room. Guided tours of the box, gatherings, foyer and main stage."
+    "caracteristicas_en": "Architectural and cultural icon inaugurated in 1912, jewel of the eclectic style with a typical Italian lyrical room. Guided tours of the box, gatherings, foyer and main stage.",
+    "caracteristicas_pt": "Ícone arquitetônico e cultural inaugurado em 1912, joia do estilo eclético com sala lírica típica italiana. Visitas guiadas ao camarote, tertúlias, foyer e palco principal."
   },
   {
     "id": 309,
@@ -5560,7 +5868,8 @@ const DESTINOS = [
     "lng": -56.4253,
     "web": "sanjose.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Extensive spa on the Río de la Plata, close to the metropolitan area. Fine sand beaches, calm waters ideal for wind sports, tree-lined coastal promenade and inns."
+    "caracteristicas_en": "Extensive spa on the Río de la Plata, close to the metropolitan area. Fine sand beaches, calm waters ideal for wind sports, tree-lined coastal promenade and inns.",
+    "caracteristicas_pt": "Amplo spa no Río de la Plata, próximo à região metropolitana. Praias de areia fina, águas calmas ideais para esportes de vento, calçadão costeiro arborizado e pousadas."
   },
   {
     "id": 310,
@@ -5578,7 +5887,8 @@ const DESTINOS = [
     "lng": -56.3508,
     "web": "sanjose.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Shared protected area that offers ecological interpretation trails, native bird watching, dense riverine forest and nautical descents on the Santa Lucía River."
+    "caracteristicas_en": "Shared protected area that offers ecological interpretation trails, native bird watching, dense riverine forest and nautical descents on the Santa Lucía River.",
+    "caracteristicas_pt": "Área protegida compartilhada que oferece trilhas de interpretação ecológica, observação de aves nativas, densa floresta ribeirinha e descidas náuticas no rio Santa Lucía."
   },
   {
     "id": 311,
@@ -5596,7 +5906,8 @@ const DESTINOS = [
     "lng": -56.7119,
     "web": "sanjose.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Immense urban green lung that has a zoo or native fauna reserve, artificial lakes with pedal boats, sports fields, professional karting track and large barbecue areas."
+    "caracteristicas_en": "Immense urban green lung that has a zoo or native fauna reserve, artificial lakes with pedal boats, sports fields, professional karting track and large barbecue areas.",
+    "caracteristicas_pt": "Imenso pulmão verde urbano que conta com zoológico ou reserva de fauna nativa, lagos artificiais com pedalinhos, quadras esportivas, kartódromo profissional e amplas churrasqueiras."
   },
   {
     "id": 312,
@@ -5614,7 +5925,8 @@ const DESTINOS = [
     "lng": -56.7456,
     "web": "sanjose.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Natural area on the banks of the San José River. It has river beaches, landscaped camping areas, native forest and is a classic spot for river fishing and summer family activities."
+    "caracteristicas_en": "Natural area on the banks of the San José River. It has river beaches, landscaped camping areas, native forest and is a classic spot for river fishing and summer family activities.",
+    "caracteristicas_pt": "Área natural às margens do rio San José. Possui praias fluviais, áreas de camping ajardinadas, mata nativa e é um local clássico para pesca fluvial e atividades familiares de verão."
   },
   {
     "id": 313,
@@ -5632,7 +5944,8 @@ const DESTINOS = [
     "lng": -56.7131,
     "web": "diocesisdesanjose.org",
     "popularidad": "Moderada",
-    "caracteristicas_en": "National Historical Monument inaugurated in 1871. It stands out for its imposing neoclassical architecture, an operational French-made monumental clock and pictorial works of art inside."
+    "caracteristicas_en": "National Historical Monument inaugurated in 1871. It stands out for its imposing neoclassical architecture, an operational French-made monumental clock and pictorial works of art inside.",
+    "caracteristicas_pt": "Monumento Histórico Nacional inaugurado em 1871. Destaca-se pela imponente arquitetura neoclássica, um relógio monumental operacional de fabricação francesa e obras de arte pictóricas em seu interior."
   },
   {
     "id": 314,
@@ -5650,7 +5963,8 @@ const DESTINOS = [
     "lng": -56.7142,
     "web": "sanjose.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Cultural institution located in an old 19th century mansion. It houses valuable collections of national plastic arts, regional historical documents and temporary exhibitions."
+    "caracteristicas_en": "Cultural institution located in an old 19th century mansion. It houses valuable collections of national plastic arts, regional historical documents and temporary exhibitions.",
+    "caracteristicas_pt": "Instituição cultural instalada em um antigo casarão do século XIX. Abriga valiosas coleções de artes plásticas nacionais, documentos históricos regionais e exposições temporárias."
   },
   {
     "id": 315,
@@ -5668,7 +5982,8 @@ const DESTINOS = [
     "lng": -56.9458,
     "web": "sanjose.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Wild and historic coastal environment on the Río de la Plata. Solitary beaches surrounded by forest plantations and low ravines, site of archaeological finds and artisanal fishing."
+    "caracteristicas_en": "Wild and historic coastal environment on the Río de la Plata. Solitary beaches surrounded by forest plantations and low ravines, site of archaeological finds and artisanal fishing.",
+    "caracteristicas_pt": "Ambiente costeiro selvagem e histórico do Rio da Prata. Praias solitárias cercadas por plantações florestais e barrancos baixos, sítio de achados arqueológicos e de pesca artesanal."
   },
   {
     "id": 316,
@@ -5686,7 +6001,8 @@ const DESTINOS = [
     "lng": -56.9311,
     "web": "sanjose.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Old railway complex from the beginning of the 20th century refurbished as a craft and museum center. It preserves platforms, rails, old locomotives and original rooms."
+    "caracteristicas_en": "Old railway complex from the beginning of the 20th century refurbished as a craft and museum center. It preserves platforms, rails, old locomotives and original rooms.",
+    "caracteristicas_pt": "Antigo complexo ferroviário do início do século 20 reformado como centro de artesanato e museu. Preserva plataformas, trilhos, locomotivas antigas e salas originais."
   },
   {
     "id": 317,
@@ -5704,7 +6020,8 @@ const DESTINOS = [
     "lng": -57.0622,
     "web": "sanjose.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Departmental border region associated with rural, historical and ecological tourism in the vicinity of Arroyo Grande. Environment of traditional ranches and livestock relaxation."
+    "caracteristicas_en": "Departmental border region associated with rural, historical and ecological tourism in the vicinity of Arroyo Grande. Environment of traditional ranches and livestock relaxation.",
+    "caracteristicas_pt": "Região fronteiriça departamental associada ao turismo rural, histórico e ecológico nas proximidades de Arroyo Grande. Ambiente de fazendas tradicionais e relaxamento pecuário."
   },
   {
     "id": 318,
@@ -5722,7 +6039,8 @@ const DESTINOS = [
     "lng": -56.7614,
     "web": "sanjose.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Small and peaceful residential resort next to Kiyú. It has family-friendly beaches with fine sand, calm waters over the Río de la Plata and an excellent environment for night walks."
+    "caracteristicas_en": "Small and peaceful residential resort next to Kiyú. It has family-friendly beaches with fine sand, calm waters over the Río de la Plata and an excellent environment for night walks.",
+    "caracteristicas_pt": "Resort residencial pequeno e tranquilo próximo a Kiyú. Possui praias familiares de areia fina, águas calmas sobre o Rio da Prata e um excelente ambiente para passeios noturnos."
   },
   {
     "id": 319,
@@ -5740,7 +6058,8 @@ const DESTINOS = [
     "lng": -57.1356,
     "web": "sanjose.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Agricultural town famous for its strong heritage of Central European cheese settlers. Gastronomic tourism circuits through artisanal production establishments."
+    "caracteristicas_en": "Agricultural town famous for its strong heritage of Central European cheese settlers. Gastronomic tourism circuits through artisanal production establishments.",
+    "caracteristicas_pt": "Cidade agrícola famosa pela sua forte herança de colonizadores de queijo da Europa Central. Circuitos de turismo gastronômico através de estabelecimentos de produção artesanal."
   },
   {
     "id": 320,
@@ -5758,7 +6077,8 @@ const DESTINOS = [
     "lng": -56.6822,
     "web": "sanjose.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Small historic country temple built at the end of the 19th century in a picturesque rural setting. It stands out for its traditional religious architecture and its community conservation."
+    "caracteristicas_en": "Small historic country temple built at the end of the 19th century in a picturesque rural setting. It stands out for its traditional religious architecture and its community conservation.",
+    "caracteristicas_pt": "Pequeno templo histórico rural construído no final do século XIX num pitoresco ambiente rural. Destaca-se pela arquitetura religiosa tradicional e pela conservação comunitária."
   },
   {
     "id": 321,
@@ -5776,7 +6096,8 @@ const DESTINOS = [
     "lng": -56.6211,
     "web": "sanjose.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Town with an agro-industrial profile linked to dairy production. Attractive for its shopping trips for traditional country cheeses and gastronomic stops along the route."
+    "caracteristicas_en": "Town with an agro-industrial profile linked to dairy production. Attractive for its shopping trips for traditional country cheeses and gastronomic stops along the route.",
+    "caracteristicas_pt": "Município com perfil agroindustrial ligado à produção leiteira. Atraente pelas compras de queijos tradicionais do campo e pelas paradas gastronômicas ao longo do percurso."
   },
   {
     "id": 322,
@@ -5794,7 +6115,8 @@ const DESTINOS = [
     "lng": -56.3989,
     "web": "sanjose.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Urbanized coastal promenade that borders the Río de la Plata. Ideal for sunset walks, family cycling and light coastal sport fishing with views of the Montevideo coast."
+    "caracteristicas_en": "Urbanized coastal promenade that borders the Río de la Plata. Ideal for sunset walks, family cycling and light coastal sport fishing with views of the Montevideo coast.",
+    "caracteristicas_pt": "Passeio costeiro urbanizado que margeia o Río de la Plata. Ideal para caminhadas ao pôr do sol, ciclismo em família e pesca esportiva costeira leve com vista para a costa de Montevidéu."
   },
   {
     "id": 323,
@@ -5812,7 +6134,8 @@ const DESTINOS = [
     "lng": -56.7214,
     "web": "sanjose.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Pedestrian path and landscaped infrastructure that borders the banks of the river in the urban section of the departmental capital. Ideal environment for recreation and light water sports."
+    "caracteristicas_en": "Pedestrian path and landscaped infrastructure that borders the banks of the river in the urban section of the departmental capital. Ideal environment for recreation and light water sports.",
+    "caracteristicas_pt": "Caminho pedestre e infraestrutura paisagística que margeia as margens do rio na zona urbana da capital departamental. Ambiente ideal para lazer e desportos náuticos ligeiros."
   },
   {
     "id": 324,
@@ -5830,7 +6153,8 @@ const DESTINOS = [
     "lng": -58.3183,
     "web": "soriano.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "The oldest European settlement in Uruguay (founded in 1624). It stands out for its colonial architecture, the historic Church with articulated images, the Marfetán House and a modern river dock."
+    "caracteristicas_en": "The oldest European settlement in Uruguay (founded in 1624). It stands out for its colonial architecture, the historic Church with articulated images, the Marfetán House and a modern river dock.",
+    "caracteristicas_pt": "O assentamento europeu mais antigo no Uruguai (fundado em 1624). Destaca-se pela arquitetura colonial, pela histórica Igreja com imagens articuladas, pela Casa Marfetán e por um moderno cais fluvial."
   },
   {
     "id": 325,
@@ -5848,7 +6172,8 @@ const DESTINOS = [
     "lng": -58.0311,
     "web": "soriano.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "One of the most beautiful coastal ramblas in the country, bordered by the Río Negro. It has large landscaped gardens, statues, tree-lined docks and infrastructure for water sports and recreation."
+    "caracteristicas_en": "One of the most beautiful coastal ramblas in the country, bordered by the Río Negro. It has large landscaped gardens, statues, tree-lined docks and infrastructure for water sports and recreation.",
+    "caracteristicas_pt": "Uma das mais belas ramblas costeiras do país, banhada pelo Rio Negro. Possui amplos jardins paisagísticos, estátuas, cais arborizados e infraestrutura para esportes náuticos e recreação."
   },
   {
     "id": 326,
@@ -5866,7 +6191,8 @@ const DESTINOS = [
     "lng": -58.0356,
     "web": "soriano.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "River island located in front of the Mercedes Rambla, connected by a pedestrian and vehicular walkway. It has fine sand beaches, lush vegetation, picnic and camping areas."
+    "caracteristicas_en": "River island located in front of the Mercedes Rambla, connected by a pedestrian and vehicular walkway. It has fine sand beaches, lush vegetation, picnic and camping areas.",
+    "caracteristicas_pt": "Ilha fluvial localizada em frente à Rambla Mercedes, ligada por uma passarela de pedestres e veículos. Possui praias de areia fina, vegetação exuberante, áreas para piquenique e camping."
   },
   {
     "id": 327,
@@ -5884,7 +6210,8 @@ const DESTINOS = [
     "lng": -58.0714,
     "web": "soriano.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Imposing 19th century building built by the Baron of Mauá. It currently houses the Paleontological and Archaeological Museum, a municipal winery with vineyards and an extensive wooded park."
+    "caracteristicas_en": "Imposing 19th century building built by the Baron of Mauá. It currently houses the Paleontological and Archaeological Museum, a municipal winery with vineyards and an extensive wooded park.",
+    "caracteristicas_pt": "Imponente edifício do século XIX construído pelo Barão de Mauá. Atualmente alberga o Museu Paleontológico e Arqueológico, uma adega municipal com vinhas e um extenso parque arborizado."
   },
   {
     "id": 328,
@@ -5902,7 +6229,8 @@ const DESTINOS = [
     "lng": -58.2144,
     "web": "soriano.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Second city of the department, located on the banks of the San Salvador River. It stands out for its agro-industrial activity, its landscaped coastal promenade, local museums and the historic commercial dock."
+    "caracteristicas_en": "Second city of the department, located on the banks of the San Salvador River. It stands out for its agro-industrial activity, its landscaped coastal promenade, local museums and the historic commercial dock.",
+    "caracteristicas_pt": "Segunda cidade do departamento, localizada às margens do rio San Salvador. Destaca-se pela atividade agroindustrial, pelo passeio costeiro paisagístico, pelos museus locais e pelo histórico cais comercial."
   },
   {
     "id": 329,
@@ -5920,7 +6248,8 @@ const DESTINOS = [
     "lng": -58.3458,
     "web": "soriano.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Coastal area shared with Río Negro that offers fine sand beaches on the Uruguay River, surrounded by thick native forest, ideal for rest and water sports."
+    "caracteristicas_en": "Coastal area shared with Río Negro that offers fine sand beaches on the Uruguay River, surrounded by thick native forest, ideal for rest and water sports.",
+    "caracteristicas_pt": "Área costeira compartilhada com o Rio Negro que oferece praias de areia fina no Rio Uruguai, cercadas por densa floresta nativa, ideais para descanso e prática de esportes náuticos."
   },
   {
     "id": 330,
@@ -5938,7 +6267,8 @@ const DESTINOS = [
     "lng": -58.2253,
     "web": "soriano.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Extensive river and recreational park in the city of Dolores, surrounded by the waters of the San Salvador River. It has landscaped camping areas, barbecue pits and summer beaches."
+    "caracteristicas_en": "Extensive river and recreational park in the city of Dolores, surrounded by the waters of the San Salvador River. It has landscaped camping areas, barbecue pits and summer beaches.",
+    "caracteristicas_pt": "Extenso parque fluvial e recreativo da cidade de Dolores, rodeado pelas águas do rio San Salvador. Possui áreas de camping ajardinadas, churrasqueiras e praias de verão."
   },
   {
     "id": 331,
@@ -5956,7 +6286,8 @@ const DESTINOS = [
     "lng": -57.4419,
     "web": "soriano.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Tourist town and hydroelectric infrastructure on the Río Negro. Large artificial lake ideal for sport fishing (dorado and surubí), water sports and a wooded natural environment."
+    "caracteristicas_en": "Tourist town and hydroelectric infrastructure on the Río Negro. Large artificial lake ideal for sport fishing (dorado and surubí), water sports and a wooded natural environment.",
+    "caracteristicas_pt": "Cidade turística e infraestrutura hidrelétrica no Rio Negro. Grande lago artificial ideal para pesca esportiva (dourado e surubí), esportes náuticos e ambiente natural arborizado."
   },
   {
     "id": 332,
@@ -5974,7 +6305,8 @@ const DESTINOS = [
     "lng": -57.6989,
     "web": "soriano.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Rural and historical environment linked to old colonial buildings and limestone quarries from the Jesuit era, ideal for historical tourism and disconnection."
+    "caracteristicas_en": "Rural and historical environment linked to old colonial buildings and limestone quarries from the Jesuit era, ideal for historical tourism and disconnection.",
+    "caracteristicas_pt": "Ambiente rural e histórico ligado a antigas construções coloniais e pedreiras de calcário da época jesuíta, ideal para turismo histórico e desconexão."
   },
   {
     "id": 333,
@@ -5992,7 +6324,8 @@ const DESTINOS = [
     "lng": -57.3811,
     "web": "soriano.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Border town that shares an urban axis with Florencio Sánchez (Colonia). It has a strong railway and historic profile, urban parks and traditional shopping avenues."
+    "caracteristicas_en": "Border town that shares an urban axis with Florencio Sánchez (Colonia). It has a strong railway and historic profile, urban parks and traditional shopping avenues.",
+    "caracteristicas_pt": "Vila fronteiriça que compartilha eixo urbano com Florencio Sánchez (Colônia). Possui forte perfil ferroviário e histórico, parques urbanos e avenidas comerciais tradicionais."
   },
   {
     "id": 334,
@@ -6010,7 +6343,8 @@ const DESTINOS = [
     "lng": -57.5622,
     "web": "soriano.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Extensive urban park and forest reserve in the town of Rodó. It has a natural amphitheater, artificial lakes, interpretation trails and children's recreational areas."
+    "caracteristicas_en": "Extensive urban park and forest reserve in the town of Rodó. It has a natural amphitheater, artificial lakes, interpretation trails and children's recreational areas.",
+    "caracteristicas_pt": "Extenso parque urbano e reserva florestal no município de Rodó. Possui anfiteatro natural, lagos artificiais, trilhas de interpretação e áreas de recreação infantil."
   },
   {
     "id": 335,
@@ -6028,7 +6362,8 @@ const DESTINOS = [
     "lng": -58.0719,
     "web": "soriano.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Located within the Mauá Castle grounds. It houses one of the most important paleontological collections in the region with complete skeletons of Pleistocene megafauna."
+    "caracteristicas_en": "Located within the Mauá Castle grounds. It houses one of the most important paleontological collections in the region with complete skeletons of Pleistocene megafauna.",
+    "caracteristicas_pt": "Localizado no terreno do Castelo Mauá. Abriga uma das coleções paleontológicas mais importantes da região com esqueletos completos da megafauna do Pleistoceno."
   },
   {
     "id": 336,
@@ -6046,7 +6381,8 @@ const DESTINOS = [
     "lng": -57.8122,
     "web": "soriano.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Small and historic rural town linked to Charles Darwin's explorations in 1833. Environment of low mountain ranges, streams for light fishing and absolute rural tranquility."
+    "caracteristicas_en": "Small and historic rural town linked to Charles Darwin's explorations in 1833. Environment of low mountain ranges, streams for light fishing and absolute rural tranquility.",
+    "caracteristicas_pt": "Pequena e histórica cidade rural ligada às explorações de Charles Darwin em 1833. Ambiente de serras baixas, riachos para pesca leve e absoluta tranquilidade rural."
   },
   {
     "id": 337,
@@ -6064,7 +6400,8 @@ const DESTINOS = [
     "lng": -58.1814,
     "web": "soriano.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Quiet river resort on the San Salvador River near Dolores. Calm beaches with clean sand, thick native forest and areas suitable for picnics and rest."
+    "caracteristicas_en": "Quiet river resort on the San Salvador River near Dolores. Calm beaches with clean sand, thick native forest and areas suitable for picnics and rest.",
+    "caracteristicas_pt": "Resort fluvial tranquilo no rio San Salvador, perto de Dolores. Praias calmas com areia limpa, mata nativa densa e áreas propícias para piqueniques e descanso."
   },
   {
     "id": 338,
@@ -6082,7 +6419,8 @@ const DESTINOS = [
     "lng": -58.3622,
     "web": "soriano.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Historical site of enormous archaeological relevance, associated with the first Spanish settlement in the Plata basin (Fuerte de Sancti Spíritus, 1527). Environment of mountains and rivers."
+    "caracteristicas_en": "Historical site of enormous archaeological relevance, associated with the first Spanish settlement in the Plata basin (Fuerte de Sancti Spíritus, 1527). Environment of mountains and rivers.",
+    "caracteristicas_pt": "Sítio histórico de enorme relevância arqueológica, associado ao primeiro assentamento espanhol na bacia do Prata (Fuerte de Sancti Spíritus, 1527). Ambiente de montanhas e rios."
   },
   {
     "id": 339,
@@ -6100,7 +6438,8 @@ const DESTINOS = [
     "lng": -58.0411,
     "web": "soriano.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Beautiful tree-lined public space adjacent to the Mercedes Rambla. It has an artificial peninsula over the Río Negro, smaller lagoons, tennis courts and walking areas."
+    "caracteristicas_en": "Beautiful tree-lined public space adjacent to the Mercedes Rambla. It has an artificial peninsula over the Río Negro, smaller lagoons, tennis courts and walking areas.",
+    "caracteristicas_pt": "Belo espaço público arborizado adjacente à Mercedes Rambla. Possui uma península artificial sobre o Rio Negro, lagoas menores, quadras de tênis e áreas para caminhada."
   },
   {
     "id": 340,
@@ -6118,7 +6457,8 @@ const DESTINOS = [
     "lng": -58.0989,
     "web": "soriano.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Historical site where the \"Grito de Asencio\" took place in 1811, the beginning of the Eastern Revolution. It has a memorial park, sculptural monuments and recreation areas."
+    "caracteristicas_en": "Historical site where the \"Grito de Asencio\" took place in 1811, the beginning of the Eastern Revolution. It has a memorial park, sculptural monuments and recreation areas.",
+    "caracteristicas_pt": "Local histórico onde ocorreu o \"Grito de Asencio\" em 1811, início da Revolução Oriental. Possui parque memorial, monumentos escultóricos e áreas de lazer."
   },
   {
     "id": 341,
@@ -6136,7 +6476,8 @@ const DESTINOS = [
     "lng": -57.8111,
     "web": "soriano.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Town in the interior of the department with a strong traditionalist and railway identity. Famous for its Creole festivals, horse riding arenas and the old architecture of its station."
+    "caracteristicas_en": "Town in the interior of the department with a strong traditionalist and railway identity. Famous for its Creole festivals, horse riding arenas and the old architecture of its station.",
+    "caracteristicas_pt": "Vila do interior do departamento com forte identidade tradicionalista e ferroviária. Famosa por suas festas crioulas, picadeiros e pela arquitetura antiga de sua estação."
   },
   {
     "id": 342,
@@ -6154,7 +6495,8 @@ const DESTINOS = [
     "lng": -58.4214,
     "web": "soriano.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Historic site on the banks of the Uruguay River, famous for the Landing of the Thirty-Three Orientals in 1825. It has a promenade pier, river beach and a large commemorative obelisk."
+    "caracteristicas_en": "Historic site on the banks of the Uruguay River, famous for the Landing of the Thirty-Three Orientals in 1825. It has a promenade pier, river beach and a large commemorative obelisk.",
+    "caracteristicas_pt": "Sítio histórico às margens do Rio Uruguai, famoso pelo Desembarque dos Trinta e Três Orientais em 1825. Possui cais de passeio, praia fluvial e um grande obelisco comemorativo."
   },
   {
     "id": 343,
@@ -6172,7 +6514,8 @@ const DESTINOS = [
     "lng": -58.0322,
     "web": "soriano.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Modern floating trail and articulated dock infrastructure on the Río Negro in Mercedes. Ideal for urban photo walks and nautical contemplation."
+    "caracteristicas_en": "Modern floating trail and articulated dock infrastructure on the Río Negro in Mercedes. Ideal for urban photo walks and nautical contemplation.",
+    "caracteristicas_pt": "Trilha flutuante moderna e infraestrutura de cais articulado no Rio Negro em Mercedes. Ideal para passeios fotográficos urbanos e contemplação náutica."
   },
   {
     "id": 344,
@@ -6190,7 +6533,8 @@ const DESTINOS = [
     "lng": -56.5189,
     "web": "durazno.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Extensive wooded park on the banks of the Yí River, home to major national festivals. It has river beaches with fine sand, landscaped camping areas, barbecue pits and pedestrian paths."
+    "caracteristicas_en": "Extensive wooded park on the banks of the Yí River, home to major national festivals. It has river beaches with fine sand, landscaped camping areas, barbecue pits and pedestrian paths.",
+    "caracteristicas_pt": "Extenso parque arborizado às margens do rio Yí, sede de grandes festivais nacionais. Possui praias fluviais de areia fina, zonas de campismo ajardinadas, churrasqueiras e percursos pedestres."
   },
   {
     "id": 345,
@@ -6208,7 +6552,8 @@ const DESTINOS = [
     "lng": -56.5253,
     "web": "durazno.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Wildlife conservation and rescue center with a natural environment designed for environmental education. It houses native and exotic species in semi-freedom, with accessible trails and hanging bridges."
+    "caracteristicas_en": "Wildlife conservation and rescue center with a natural environment designed for environmental education. It houses native and exotic species in semi-freedom, with accessible trails and hanging bridges.",
+    "caracteristicas_pt": "Centro de conservação e resgate de vida selvagem com ambiente natural voltado para a educação ambiental. Abriga espécies nativas e exóticas em semiliberdade, com trilhas acessíveis e pontes suspensas."
   },
   {
     "id": 346,
@@ -6226,7 +6571,8 @@ const DESTINOS = [
     "lng": -56.5311,
     "web": "durazno.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Main river resort of the departmental capital on the Yí River. It has a dense native forest, large service areas for campers, summer inns and sports fields."
+    "caracteristicas_en": "Main river resort of the departmental capital on the Yí River. It has a dense native forest, large service areas for campers, summer inns and sports fields.",
+    "caracteristicas_pt": "Principal balneário fluvial da capital departamental às margens do rio Yí. Possui densa mata nativa, amplas áreas de serviço para campistas, pousadas de veraneio e quadras esportivas."
   },
   {
     "id": 347,
@@ -6244,7 +6590,8 @@ const DESTINOS = [
     "lng": -56.1492,
     "web": "durazno.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Historical town linked to the British colonization of the 19th century. It preserves the old stone walls of the Thomas Estate, an English cemetery and a rural environment of rugged hills."
+    "caracteristicas_en": "Historical town linked to the British colonization of the 19th century. It preserves the old stone walls of the Thomas Estate, an English cemetery and a rural environment of rugged hills.",
+    "caracteristicas_pt": "Cidade histórica ligada à colonização britânica do século XIX. Preserva as antigas muralhas de pedra do Thomas Estate, um cemitério inglês e um ambiente rural de colinas escarpadas."
   },
   {
     "id": 348,
@@ -6262,7 +6609,8 @@ const DESTINOS = [
     "lng": -55.6311,
     "web": "durazno.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Second city in the department, with a strong traditionalist identity. It stands out for its tree-lined promenade next to the Yí River, the historic Paso del Rey Barracks (Museum) and the Dr. Elías Regules Park."
+    "caracteristicas_en": "Second city in the department, with a strong traditionalist identity. It stands out for its tree-lined promenade next to the Yí River, the historic Paso del Rey Barracks (Museum) and the Dr. Elías Regules Park.",
+    "caracteristicas_pt": "Segunda cidade do departamento, com forte identidade tradicionalista. Destaca-se pelo seu passeio arborizado junto ao rio Yí, pelo histórico Quartel Paso del Rey (Museu) e pelo Parque Dr. Elías Regules."
   },
   {
     "id": 349,
@@ -6280,7 +6628,8 @@ const DESTINOS = [
     "lng": -56.5222,
     "web": "durazno.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Former residence of General Fructuoso Rivera, colonial building from 1830. It exhibits valuable founding historical documents, objects from the time of the civil wars and archaeological collections."
+    "caracteristicas_en": "Former residence of General Fructuoso Rivera, colonial building from 1830. It exhibits valuable founding historical documents, objects from the time of the civil wars and archaeological collections.",
+    "caracteristicas_pt": "Antiga residência do General Fructuoso Rivera, construção colonial de 1830. Exibe valiosos documentos históricos fundadores, objetos da época das guerras civis e coleções arqueológicas."
   },
   {
     "id": 350,
@@ -6298,7 +6647,8 @@ const DESTINOS = [
     "lng": -56.5519,
     "web": "durazno.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Underground limestone geological formations located in the Parque del Norte. Exploratory hiking among low stalagmites, fern vegetation and a very peaceful forest environment."
+    "caracteristicas_en": "Underground limestone geological formations located in the Parque del Norte. Exploratory hiking among low stalagmites, fern vegetation and a very peaceful forest environment.",
+    "caracteristicas_pt": "Formações geológicas subterrâneas calcárias localizadas no Parque del Norte. Caminhada exploratória entre estalagmites baixas, vegetação de samambaias e um ambiente florestal muito tranquilo."
   },
   {
     "id": 351,
@@ -6316,7 +6666,8 @@ const DESTINOS = [
     "lng": -55.6822,
     "web": "durazno.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Old military complex from the 18th century declared a National Historical Monument. It preserves the original stone walls and rooms that display weapons, uniforms and the history of the frontier missions."
+    "caracteristicas_en": "Old military complex from the 18th century declared a National Historical Monument. It preserves the original stone walls and rooms that display weapons, uniforms and the history of the frontier missions.",
+    "caracteristicas_pt": "Antigo complexo militar do século XVIII declarado Monumento Histórico Nacional. Preserva as paredes de pedra originais e salas que exibem armas, uniformes e a história das missões de fronteira."
   },
   {
     "id": 352,
@@ -6334,7 +6685,8 @@ const DESTINOS = [
     "lng": -56.5414,
     "web": "durazno.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "River and historical walk in the western sector of the departmental capital. Old recycled loading dock for contemplative walks, coastal sport fishing and birdwatching."
+    "caracteristicas_en": "River and historical walk in the western sector of the departmental capital. Old recycled loading dock for contemplative walks, coastal sport fishing and birdwatching.",
+    "caracteristicas_pt": "Passeio fluvial e histórico no setor oeste da capital departamental. Antigo cais de carga reciclado para passeios contemplativos, pesca desportiva costeira e observação de aves."
   },
   {
     "id": 353,
@@ -6352,7 +6704,8 @@ const DESTINOS = [
     "lng": -55.1111,
     "web": "durazno.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Border and historical town famous for being the first place in South America where women voted in 1927. Environment of low mountain ranges, historical cultural tourism and rural relaxation."
+    "caracteristicas_en": "Border and historical town famous for being the first place in South America where women voted in 1927. Environment of low mountain ranges, historical cultural tourism and rural relaxation.",
+    "caracteristicas_pt": "Vila fronteiriça e histórica famosa por ser o primeiro lugar da América do Sul onde as mulheres votaram em 1927. Ambiente de serras baixas, turismo histórico cultural e relaxamento rural."
   },
   {
     "id": 354,
@@ -6370,7 +6723,8 @@ const DESTINOS = [
     "lng": -55.6253,
     "web": "durazno.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Extensive urban river park in Sarandí del Yí. It has sports fields, a large outdoor amphitheater, eucalyptus wooded areas suitable for picnics and light nautical runs."
+    "caracteristicas_en": "Extensive urban river park in Sarandí del Yí. It has sports fields, a large outdoor amphitheater, eucalyptus wooded areas suitable for picnics and light nautical runs.",
+    "caracteristicas_pt": "Extenso parque fluvial urbano em Sarandí del Yí. Possui campos desportivos, um grande anfiteatro ao ar livre, zonas arborizadas de eucaliptos adequadas para piqueniques e corridas náuticas ligeiras."
   },
   {
     "id": 355,
@@ -6388,7 +6742,8 @@ const DESTINOS = [
     "lng": -56.0122,
     "web": "durazno.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Agricultural town famous for its strong traditional wine heritage. Gastronomic and wine tourism circuits through century-old wineries producing Tannat liquor."
+    "caracteristicas_en": "Agricultural town famous for its strong traditional wine heritage. Gastronomic and wine tourism circuits through century-old wineries producing Tannat liquor.",
+    "caracteristicas_pt": "Cidade agrícola famosa pela sua forte herança vinícola tradicional. Circuitos gastronômicos e de enoturismo por vinícolas centenárias produtoras do licor Tannat."
   },
   {
     "id": 356,
@@ -6406,7 +6761,8 @@ const DESTINOS = [
     "lng": -56.5142,
     "web": "durazno.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Sector of the great south park specially conditioned for gaucho events, horseback riding and popular folklore clubs. It has an important national amphitheater."
+    "caracteristicas_en": "Sector of the great south park specially conditioned for gaucho events, horseback riding and popular folklore clubs. It has an important national amphitheater.",
+    "caracteristicas_pt": "Setor do grande parque sul especialmente condicionado para eventos gaúchos, cavalgadas e clubes folclóricos populares. Possui um importante anfiteatro nacional."
   },
   {
     "id": 357,
@@ -6424,7 +6780,8 @@ const DESTINOS = [
     "lng": -56.3622,
     "web": "durazno.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Wild and historic river environment on the northern limit of the department. Solitary beaches surrounded by forest plantations and virgin native forest, ideal for river fishing and adventure."
+    "caracteristicas_en": "Wild and historic river environment on the northern limit of the department. Solitary beaches surrounded by forest plantations and virgin native forest, ideal for river fishing and adventure.",
+    "caracteristicas_pt": "Ambiente fluvial selvagem e histórico no limite norte do departamento. Praias solitárias cercadas por plantações florestais e mata nativa virgem, ideais para pesca fluvial e aventura."
   },
   {
     "id": 358,
@@ -6442,7 +6799,8 @@ const DESTINOS = [
     "lng": -56.5211,
     "web": "durazno.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "National Historical Monument rebuilt by the famous Engineer Eladio Dieste after a fire in 1967. It stands out for its imposing reinforced brick structure and its geometric rose window."
+    "caracteristicas_en": "National Historical Monument rebuilt by the famous Engineer Eladio Dieste after a fire in 1967. It stands out for its imposing reinforced brick structure and its geometric rose window.",
+    "caracteristicas_pt": "Monumento Histórico Nacional reconstruído pelo famoso Engenheiro Eladio Dieste após um incêndio em 1967. Destaca-se pela imponente estrutura de tijolos armados e pela rosácea geométrica."
   },
   {
     "id": 359,
@@ -6460,7 +6818,8 @@ const DESTINOS = [
     "lng": -56.5258,
     "web": "durazno.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Old railway complex from the beginning of the 20th century refurbished for craft exhibitions and photographic exhibition rooms of local history. Preserves original wagons."
+    "caracteristicas_en": "Old railway complex from the beginning of the 20th century refurbished for craft exhibitions and photographic exhibition rooms of local history. Preserves original wagons.",
+    "caracteristicas_pt": "Antigo complexo ferroviário do início do século XX remodelado para exposições de artesanato e salas de exposição fotográfica da história local. Preserva os vagões originais."
   },
   {
     "id": 360,
@@ -6478,7 +6837,8 @@ const DESTINOS = [
     "lng": -56.5111,
     "web": "durazno.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Riverside town located in front of Paso de los Toros (Tacuarembó). It has river beaches on the Río Negro, wooded picnic areas and is an excellent spot for fishing."
+    "caracteristicas_en": "Riverside town located in front of Paso de los Toros (Tacuarembó). It has river beaches on the Río Negro, wooded picnic areas and is an excellent spot for fishing.",
+    "caracteristicas_pt": "Cidade ribeirinha localizada em frente a Paso de los Toros (Tacuarembó). Possui praias fluviais do Rio Negro, áreas arborizadas para piquenique e é um excelente local para a pesca."
   },
   {
     "id": 361,
@@ -6496,7 +6856,8 @@ const DESTINOS = [
     "lng": -56.5228,
     "web": "durazno.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Pedestrian circuit that runs through central squares and avenues of the city of Durazno exhibiting sculptural monuments dedicated to national communities, poets and artists."
+    "caracteristicas_en": "Pedestrian circuit that runs through central squares and avenues of the city of Durazno exhibiting sculptural monuments dedicated to national communities, poets and artists.",
+    "caracteristicas_pt": "Circuito pedestre que percorre praças e avenidas centrais da cidade de Durazno exibindo monumentos escultóricos dedicados a comunidades, poetas e artistas nacionais."
   },
   {
     "id": 362,
@@ -6514,7 +6875,8 @@ const DESTINOS = [
     "lng": -55.8822,
     "web": "durazno.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Mountain hiking of low technical difficulty in the eastern sector of the department. Panoramic views of low hills, a mountain of stones and sightings of native flora."
+    "caracteristicas_en": "Mountain hiking of low technical difficulty in the eastern sector of the department. Panoramic views of low hills, a mountain of stones and sightings of native flora.",
+    "caracteristicas_pt": "Caminhadas de montanha de baixa dificuldade técnica no setor leste do departamento. Vistas panorâmicas de morros baixos, montanha de pedras e avistamentos de flora nativa."
   },
   {
     "id": 363,
@@ -6532,7 +6894,8 @@ const DESTINOS = [
     "lng": -56.5389,
     "web": "durazno.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Tree-lined coastal walk of more than 3 km that borders the Yí River, linking the main river resorts. Ideal for sunset walks, cycling and contemplation of the native forest."
+    "caracteristicas_en": "Tree-lined coastal walk of more than 3 km that borders the Yí River, linking the main river resorts. Ideal for sunset walks, cycling and contemplation of the native forest.",
+    "caracteristicas_pt": "Caminhada costeira arborizada de mais de 3 km que margeia o rio Yí, ligando os principais balneários fluviais. Ideal para caminhadas ao pôr do sol, ciclismo e contemplação da mata nativa."
   },
   {
     "id": 364,
@@ -6550,7 +6913,8 @@ const DESTINOS = [
     "lng": -56.1622,
     "web": "tacuarembo.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Natural and historical walk surrounded by hills and imposing landscapes. It has the Carlos Gardel Museum, the old train station, hanging bridges and the \"El Hongo\" well."
+    "caracteristicas_en": "Natural and historical walk surrounded by hills and imposing landscapes. It has the Carlos Gardel Museum, the old train station, hanging bridges and the \"El Hongo\" well.",
+    "caracteristicas_pt": "Passeio natural e histórico rodeado de colinas e paisagens impressionantes. Possui o Museu Carlos Gardel, a antiga estação ferroviária, pontes suspensas e o poço \"El Hongo\"."
   },
   {
     "id": 365,
@@ -6568,7 +6932,8 @@ const DESTINOS = [
     "lng": -55.9811,
     "web": "tacuarembo.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Extensive tree-lined urban and recreational park, famous for being the annual headquarters of the Gaucha Homeland Festival. It has a large lagoon, barbecue areas and trails."
+    "caracteristicas_en": "Extensive tree-lined urban and recreational park, famous for being the annual headquarters of the Gaucha Homeland Festival. It has a large lagoon, barbecue areas and trails.",
+    "caracteristicas_pt": "Extenso parque urbano e recreativo arborizado, famoso por ser sede anual do Festival da Pátria Gaúcha. Possui uma grande lagoa, churrasqueiras e trilhas."
   },
   {
     "id": 366,
@@ -6586,7 +6951,8 @@ const DESTINOS = [
     "lng": -56.0311,
     "web": "tacuarembo.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Unique spa town on the shores of the Rincón del Bonete Reservoir. It stands out for its extensive beaches of fine sand and for being the first Visual Museum in Latin America within the city walls."
+    "caracteristicas_en": "Unique spa town on the shores of the Rincón del Bonete Reservoir. It stands out for its extensive beaches of fine sand and for being the first Visual Museum in Latin America within the city walls.",
+    "caracteristicas_pt": "Cidade termal única às margens do reservatório Rincón del Bonete. Destaca-se pelas extensas praias de areia fina e por ser o primeiro Museu Visual da América Latina dentro dos muros da cidade."
   },
   {
     "id": 367,
@@ -6604,7 +6970,8 @@ const DESTINOS = [
     "lng": -55.9458,
     "web": "tacuarembo.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Tourist and residential complex surrounded by dense pine and eucalyptus forests. It has two large artificial lakes (Lago de la Juventud), swimming pools, camping areas and sports fields."
+    "caracteristicas_en": "Tourist and residential complex surrounded by dense pine and eucalyptus forests. It has two large artificial lakes (Lago de la Juventud), swimming pools, camping areas and sports fields.",
+    "caracteristicas_pt": "Complexo turístico e residencial rodeado por densos pinhais e eucaliptos. Possui dois grandes lagos artificiais (Lago de la Juventud), piscinas, áreas de camping e campos esportivos."
   },
   {
     "id": 368,
@@ -6622,7 +6989,8 @@ const DESTINOS = [
     "lng": -55.8989,
     "web": "tacuarembo.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Unique geological formations composed of deep crevices and sandstone passages surrounded by an exuberant microflora of giant ferns of subtropical origin."
+    "caracteristicas_en": "Unique geological formations composed of deep crevices and sandstone passages surrounded by an exuberant microflora of giant ferns of subtropical origin.",
+    "caracteristicas_pt": "Formações geológicas únicas compostas por fendas profundas e passagens de arenito cercadas por uma microflora exuberante de samambaias gigantes de origem subtropical."
   },
   {
     "id": 369,
@@ -6640,7 +7008,8 @@ const DESTINOS = [
     "lng": -56.0122,
     "web": "tacuarembo.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Iconic geographical landmark of the department with a peculiar conical shape topped with a point that resembles a breast. It is ideal for landscape photography and mountain climbing hiking."
+    "caracteristicas_en": "Iconic geographical landmark of the department with a peculiar conical shape topped with a point that resembles a breast. It is ideal for landscape photography and mountain climbing hiking.",
+    "caracteristicas_pt": "Marco geográfico icônico do departamento com peculiar formato cônico encimado por uma ponta que lembra um seio. É ideal para fotografia de paisagem e caminhadas em montanhismo."
   },
   {
     "id": 370,
@@ -6658,7 +7027,8 @@ const DESTINOS = [
     "lng": -56.1664,
     "web": "tacuarembo.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Picturesque natural pool sculpted by the waters of the Arroyo de las Culebras in Valle Edén. It stands out for a large eroded rock formation that resembles the shape of a giant mushroom."
+    "caracteristicas_en": "Picturesque natural pool sculpted by the waters of the Arroyo de las Culebras in Valle Edén. It stands out for a large eroded rock formation that resembles the shape of a giant mushroom.",
+    "caracteristicas_pt": "Pitoresca piscina natural esculpida pelas águas do Arroyo de las Culebras no Valle Edén. Destaca-se por uma grande formação rochosa erodida que lembra o formato de um cogumelo gigante."
   },
   {
     "id": 371,
@@ -6676,7 +7046,8 @@ const DESTINOS = [
     "lng": -56.1611,
     "web": "tacuarembo.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Interpretive center located in Valle Edén that exhibits valuable documents, photographs and testimonies that support the thesis of the Uruguayan nationality and childhood of the famous tango singer."
+    "caracteristicas_en": "Interpretive center located in Valle Edén that exhibits valuable documents, photographs and testimonies that support the thesis of the Uruguayan nationality and childhood of the famous tango singer.",
+    "caracteristicas_pt": "Centro interpretativo localizado no Valle Edén que expõe valiosos documentos, fotografias e testemunhos que sustentam a tese da nacionalidade uruguaia e da infância do famoso cantor de tango."
   },
   {
     "id": 372,
@@ -6694,7 +7065,8 @@ const DESTINOS = [
     "lng": -55.9822,
     "web": "tacuarembo.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Cultural space in the center of the city that houses stable collections of prominent local and national plastic artists (such as Gustavo Alamón), and modern temporary exhibitions."
+    "caracteristicas_en": "Cultural space in the center of the city that houses stable collections of prominent local and national plastic artists (such as Gustavo Alamón), and modern temporary exhibitions.",
+    "caracteristicas_pt": "Espaço cultural no centro da cidade que abriga coleções estáveis ​​de destacados artistas plásticos locais e nacionais (como Gustavo Alamón) e modernas exposições temporárias."
   },
   {
     "id": 373,
@@ -6712,7 +7084,8 @@ const DESTINOS = [
     "lng": -56.5125,
     "web": "pasodelostoros.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Important industrial and tourist city on the banks of the Río Negro. Famous for its river beaches, the iconic Rincón del Bonete dam and for being the cradle of the country's renowned tonic waters."
+    "caracteristicas_en": "Important industrial and tourist city on the banks of the Río Negro. Famous for its river beaches, the iconic Rincón del Bonete dam and for being the cradle of the country's renowned tonic waters.",
+    "caracteristicas_pt": "Importante cidade industrial e turística às margens do Rio Negro. Famosa pelas suas praias fluviais, pela icónica barragem Rincón del Bonete e por ser o berço das reconhecidas águas tónicas do país."
   },
   {
     "id": 374,
@@ -6730,7 +7103,8 @@ const DESTINOS = [
     "lng": -56.4258,
     "web": "tacuarembo.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "The country's first hydroelectric power plant and an immense navigable artificial reservoir. It stands out for its industrial architecture, sport fishing areas, river beaches and bird watching."
+    "caracteristicas_en": "The country's first hydroelectric power plant and an immense navigable artificial reservoir. It stands out for its industrial architecture, sport fishing areas, river beaches and bird watching.",
+    "caracteristicas_pt": "A primeira hidrelétrica do país e um imenso reservatório artificial navegável. Destaca-se pela arquitetura industrial, zonas de pesca desportiva, praias fluviais e observação de aves."
   },
   {
     "id": 375,
@@ -6748,7 +7122,8 @@ const DESTINOS = [
     "lng": -56.2542,
     "web": "tacuarembo.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Picturesque rural town in the interior of the department. It preserves deep-rooted gaucho traditions, colonial general stores, old facades and extensive community landscaping."
+    "caracteristicas_en": "Picturesque rural town in the interior of the department. It preserves deep-rooted gaucho traditions, colonial general stores, old facades and extensive community landscaping.",
+    "caracteristicas_pt": "Pitoresca cidade rural do interior do departamento. Preserva tradições gaúchas arraigadas, armazéns coloniais, fachadas antigas e extenso paisagismo comunitário."
   },
   {
     "id": 376,
@@ -6766,7 +7141,8 @@ const DESTINOS = [
     "lng": -56.2647,
     "web": "tacuarembo.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Departmental border town associated with rural tourism, renewable energies (wind farms) and local legends. It stands out for the imposing waterfall \"Pozo de la Lira\"."
+    "caracteristicas_en": "Departmental border town associated with rural tourism, renewable energies (wind farms) and local legends. It stands out for the imposing waterfall \"Pozo de la Lira\".",
+    "caracteristicas_pt": "Vila fronteiriça departamental associada ao turismo rural, às energias renováveis ​​(parques eólicos) e às lendas locais. Destaca-se pela imponente cachoeira “Pozo de la Lira”."
   },
   {
     "id": 377,
@@ -6784,7 +7160,8 @@ const DESTINOS = [
     "lng": -55.3622,
     "web": "tacuarembo.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Extensive mountain region made up of plateaus with flat peaks and witness hills. Ideal environment for adventure ecotourism, rural horseback riding and botanical exploration hiking."
+    "caracteristicas_en": "Extensive mountain region made up of plateaus with flat peaks and witness hills. Ideal environment for adventure ecotourism, rural horseback riding and botanical exploration hiking.",
+    "caracteristicas_pt": "Extensa região montanhosa composta por planaltos com picos planos e colinas testemunhas. Ambiente ideal para ecoturismo de aventura, passeios a cavalo rurais e caminhadas de exploração botânica."
   },
   {
     "id": 378,
@@ -6802,7 +7179,8 @@ const DESTINOS = [
     "lng": -55.4689,
     "web": "tacuarembo.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Riverside town on the banks of the Tacuarembó Grande River. Attractive for its extensive tree-lined river beaches, a large municipal campsite and ideal areas for fishing for dorado."
+    "caracteristicas_en": "Riverside town on the banks of the Tacuarembó Grande River. Attractive for its extensive tree-lined river beaches, a large municipal campsite and ideal areas for fishing for dorado.",
+    "caracteristicas_pt": "Cidade ribeirinha às margens do rio Tacuarembó Grande. Atractivo pelas suas extensas praias fluviais arborizadas, um grande parque de campismo municipal e zonas ideais para a pesca do dourado."
   },
   {
     "id": 379,
@@ -6820,7 +7198,8 @@ const DESTINOS = [
     "lng": -55.9814,
     "web": "tacuarembo.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Important scientific institution exhibiting collections of regional minerals, giant amethysts, marine fossils from the Permian period, and indigenous archaeological remains."
+    "caracteristicas_en": "Important scientific institution exhibiting collections of regional minerals, giant amethysts, marine fossils from the Permian period, and indigenous archaeological remains.",
+    "caracteristicas_pt": "Importante instituição científica que expõe coleções de minerais regionais, ametistas gigantes, fósseis marinhos do período Permiano e vestígios arqueológicos indígenas."
   },
   {
     "id": 380,
@@ -6838,7 +7217,8 @@ const DESTINOS = [
     "lng": -55.9658,
     "web": "tacuarembo.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Picturesque hill with a flattened summit located in the vicinity of the departmental capital. It offers trails of low technical difficulty and panoramic views of the city and meadows."
+    "caracteristicas_en": "Picturesque hill with a flattened summit located in the vicinity of the departmental capital. It offers trails of low technical difficulty and panoramic views of the city and meadows.",
+    "caracteristicas_pt": "Pitoresca colina de cume achatado localizada nas proximidades da capital departamental. Oferece trilhos de baixa dificuldade técnica e vistas panorâmicas sobre a cidade e prados."
   },
   {
     "id": 381,
@@ -6856,7 +7236,8 @@ const DESTINOS = [
     "lng": -55.9853,
     "web": "tacuarembo.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Pedestrian path and landscaped infrastructure that borders the banks of the Sandú stream in its urban section. Wooded environment ideal for night walks and family recreation."
+    "caracteristicas_en": "Pedestrian path and landscaped infrastructure that borders the banks of the Sandú stream in its urban section. Wooded environment ideal for night walks and family recreation.",
+    "caracteristicas_pt": "Caminho pedestre e infraestrutura paisagística que margeia as margens do córrego Sandú em seu trecho urbano. Ambiente arborizado ideal para passeios noturnos e recreação familiar."
   },
   {
     "id": 382,
@@ -6874,7 +7255,8 @@ const DESTINOS = [
     "lng": -56.4833,
     "web": "tacuarembo.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Commemorative and historical space located at an important crossroads of old colonial post routes. It has traditional monuments, vintage carts and rest areas."
+    "caracteristicas_en": "Commemorative and historical space located at an important crossroads of old colonial post routes. It has traditional monuments, vintage carts and rest areas.",
+    "caracteristicas_pt": "Espaço comemorativo e histórico localizado num importante cruzamento das antigas rotas dos correios coloniais. Possui monumentos tradicionais, carrinhos antigos e áreas de descanso."
   },
   {
     "id": 383,
@@ -6892,7 +7274,8 @@ const DESTINOS = [
     "lng": -56.2814,
     "web": "tacuarembo.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Imposing pot or pool of circular crystalline water fed by a natural waterfall sandwiched between high walls of basalt stone in the vicinity of Tambores."
+    "caracteristicas_en": "Imposing pot or pool of circular crystalline water fed by a natural waterfall sandwiched between high walls of basalt stone in the vicinity of Tambores.",
+    "caracteristicas_pt": "Imponente pote ou piscina circular de água cristalina alimentada por uma cachoeira natural imprensada entre altos muros de pedra basáltica nas proximidades de Tambores."
   },
   {
     "id": 384,
@@ -6910,7 +7293,8 @@ const DESTINOS = [
     "lng": -54.2614,
     "web": "cerrolargo.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Historic stone inn from 1855 built by French Basques on the banks of the Chuy stream. It has the first highway bridge in the country with toll collection and an interpretive museum."
+    "caracteristicas_en": "Historic stone inn from 1855 built by French Basques on the banks of the Chuy stream. It has the first highway bridge in the country with toll collection and an interpretive museum.",
+    "caracteristicas_pt": "Pousada histórica de pedra de 1855 construída pelos bascos franceses às margens do riacho Chuy. Possui a primeira ponte rodoviária do país com cobrança de pedágio e um museu interpretativo."
   },
   {
     "id": 385,
@@ -6928,7 +7312,8 @@ const DESTINOS = [
     "lng": -54.1811,
     "web": "cerrolargo.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Immense urban and recreational green lung next to Arroyo Conventos. It has artificial lakes with boats, a zoo or native fauna reserve, large barbecue areas and wooded trails."
+    "caracteristicas_en": "Immense urban and recreational green lung next to Arroyo Conventos. It has artificial lakes with boats, a zoo or native fauna reserve, large barbecue areas and wooded trails.",
+    "caracteristicas_pt": "Imenso pulmão verde urbano e recreativo junto ao Arroyo Conventos. Possui lagos artificiais com barcos, zoológico ou reserva de fauna nativa, amplas churrasqueiras e trilhas arborizadas."
   },
   {
     "id": 386,
@@ -6946,7 +7331,8 @@ const DESTINOS = [
     "lng": -53.1811,
     "web": "cerrolargo.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Main lake resort of the department on the great Laguna Merín. It has kilometer-long beaches of fine sand, calm and shallow waters ideal for families, native forest and sport fishing."
+    "caracteristicas_en": "Main lake resort of the department on the great Laguna Merín. It has kilometer-long beaches of fine sand, calm and shallow waters ideal for families, native forest and sport fishing.",
+    "caracteristicas_pt": "Principal balneário lacustre do departamento na grande Laguna Merín. Possui praias quilométricas de areia fina, águas calmas e rasas ideais para famílias, mata nativa e pesca esportiva."
   },
   {
     "id": 387,
@@ -6964,7 +7350,8 @@ const DESTINOS = [
     "lng": -54.2458,
     "web": "cerrolargo.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Rugged mountain region with imposing steep landscape, deep ravines and virgin native forest. Ideal for adventure hiking, rural horseback riding and mountain bird watching."
+    "caracteristicas_en": "Rugged mountain region with imposing steep landscape, deep ravines and virgin native forest. Ideal for adventure hiking, rural horseback riding and mountain bird watching.",
+    "caracteristicas_pt": "Região montanhosa acidentada com paisagem íngreme imponente, ravinas profundas e mata nativa virgem. Ideal para caminhadas de aventura, passeios a cavalo rurais e observação de aves de montanha."
   },
   {
     "id": 388,
@@ -6982,7 +7369,8 @@ const DESTINOS = [
     "lng": -53.3811,
     "web": "riobranco.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Border and historic city next to the Yaguarón River. It stands out for the monumental 1930 art deco style bridge that connects Uruguay with Brazil, shopping malls (Free Shops) and its promenade."
+    "caracteristicas_en": "Border and historic city next to the Yaguarón River. It stands out for the monumental 1930 art deco style bridge that connects Uruguay with Brazil, shopping malls (Free Shops) and its promenade.",
+    "caracteristicas_pt": "Cidade fronteiriça e histórica próxima ao rio Yaguarón. Destaca-se pela monumental ponte em estilo art déco de 1930 que liga o Uruguai ao Brasil, pelos shoppings (Free Shops) e pelo seu calçadão."
   },
   {
     "id": 389,
@@ -7000,7 +7388,8 @@ const DESTINOS = [
     "lng": -54.1622,
     "web": "cerrolargo.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Located in an old 19th century mansion. It houses valuable collections of weapons from the time of the revolution, colonial carriages, period clothing and testimonies of border history."
+    "caracteristicas_en": "Located in an old 19th century mansion. It houses valuable collections of weapons from the time of the revolution, colonial carriages, period clothing and testimonies of border history.",
+    "caracteristicas_pt": "Situado num antigo casarão do século XIX. Abriga valiosas coleções de armas da época da revolução, carruagens coloniais, roupas de época e testemunhos da história da fronteira."
   },
   {
     "id": 390,
@@ -7018,7 +7407,8 @@ const DESTINOS = [
     "lng": -54.6122,
     "web": "cerrolargo.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Low mountain formations with the presence of dense palm groves of the Butiá yatay species, stony streams suitable for light fishing and a very peaceful rural tourism environment."
+    "caracteristicas_en": "Low mountain formations with the presence of dense palm groves of the Butiá yatay species, stony streams suitable for light fishing and a very peaceful rural tourism environment.",
+    "caracteristicas_pt": "Formações montanhosas baixas com presença de densos palmeirais da espécie Butiá yatay, riachos pedregosos propícios à pesca leve e um ambiente de turismo rural muito tranquilo."
   },
   {
     "id": 391,
@@ -7036,7 +7426,8 @@ const DESTINOS = [
     "lng": -54.1519,
     "web": "cerrolargo.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Binational border town located at the crossroads of the Sierra de Aceguá. Attractive traditional border shopping walk, strong gaucho identity and beautiful views of the witness hills."
+    "caracteristicas_en": "Binational border town located at the crossroads of the Sierra de Aceguá. Attractive traditional border shopping walk, strong gaucho identity and beautiful views of the witness hills.",
+    "caracteristicas_pt": "Cidade fronteiriça binacional localizada no cruzamento da Serra de Aceguá. Atraente passeio tradicional de compras na fronteira, forte identidade gaúcha e belas vistas dos morros das testemunhas."
   },
   {
     "id": 392,
@@ -7054,7 +7445,8 @@ const DESTINOS = [
     "lng": -54.1611,
     "web": "diocesismelo.org",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Historical and religious monument inaugurated in 1876. It stands out for its traditional neoclassical façade, its valuable images from the colonial era and for having been visited by Pope John Paul II in 1988."
+    "caracteristicas_en": "Historical and religious monument inaugurated in 1876. It stands out for its traditional neoclassical façade, its valuable images from the colonial era and for having been visited by Pope John Paul II in 1988.",
+    "caracteristicas_pt": "Monumento histórico e religioso inaugurado em 1876. Destaca-se pela tradicional fachada neoclássica, pelas valiosas imagens da época colonial e por ter sido visitado pelo Papa João Paulo II em 1988."
   },
   {
     "id": 393,
@@ -7072,7 +7464,8 @@ const DESTINOS = [
     "lng": -54.5222,
     "web": "cerrolargo.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Town in the interior of the department famous for its traditional horse festivals and popular folklore clubs. It has a picturesque tree-lined square and a spa on the homonymous stream."
+    "caracteristicas_en": "Town in the interior of the department famous for its traditional horse festivals and popular folklore clubs. It has a picturesque tree-lined square and a spa on the homonymous stream.",
+    "caracteristicas_pt": "Cidade do interior do departamento famosa pelas tradicionais festas de cavalos e clubes folclóricos populares. Possui uma pitoresca praça arborizada e um balneário no riacho homônimo."
   },
   {
     "id": 394,
@@ -7090,7 +7483,8 @@ const DESTINOS = [
     "lng": -54.1853,
     "web": "cerrolargo.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Parked area on the banks of Arroyo Conventos on the outskirts of Melo. River beaches with clean sand, dense indigenous forest and infrastructure for picnics and summer sports."
+    "caracteristicas_en": "Parked area on the banks of Arroyo Conventos on the outskirts of Melo. River beaches with clean sand, dense indigenous forest and infrastructure for picnics and summer sports.",
+    "caracteristicas_pt": "Área estacionada às margens do Arroyo Conventos nos arredores de Melo. Praias fluviais de areia limpa, mata indígena densa e infraestrutura para piqueniques e esportes de verão."
   },
   {
     "id": 395,
@@ -7108,7 +7502,8 @@ const DESTINOS = [
     "lng": -54.4689,
     "web": "cerrolargo.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Historical and mountainous area where the famous Battle of Arbolito took place in 1897. It has a commemorative obelisk carved in stone and panoramic views of the lower hills."
+    "caracteristicas_en": "Historical and mountainous area where the famous Battle of Arbolito took place in 1897. It has a commemorative obelisk carved in stone and panoramic views of the lower hills.",
+    "caracteristicas_pt": "Zona histórica e montanhosa onde ocorreu a famosa Batalha de Arbolito em 1897. Possui um obelisco comemorativo esculpido em pedra e vistas panorâmicas das colinas mais baixas."
   },
   {
     "id": 396,
@@ -7126,7 +7521,8 @@ const DESTINOS = [
     "lng": -53.3828,
     "web": "riobranco.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Urban pedestrian circuit that runs along the walls and facades of the border city exhibiting paintings and expressions by plastic artists from the region that portray rural life."
+    "caracteristicas_en": "Urban pedestrian circuit that runs along the walls and facades of the border city exhibiting paintings and expressions by plastic artists from the region that portray rural life.",
+    "caracteristicas_pt": "Circuito pedestre urbano que percorre muros e fachadas da cidade fronteiriça exibindo pinturas e expressões de artistas plásticos da região que retratam a vida rural."
   },
   {
     "id": 397,
@@ -7144,7 +7540,8 @@ const DESTINOS = [
     "lng": -54.3511,
     "web": "cerrolargo.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Mountain hiking of low technical difficulty that leads to the top of the witness hill that gives its name to the department. It offers a mountain of stones, native vegetation and views of meadows."
+    "caracteristicas_en": "Mountain hiking of low technical difficulty that leads to the top of the witness hill that gives its name to the department. It offers a mountain of stones, native vegetation and views of meadows.",
+    "caracteristicas_pt": "Caminhada de montanha de baixa dificuldade técnica que conduz ao topo do morro testemunha que dá nome ao departamento. Oferece uma montanha de pedras, vegetação nativa e vista para prados."
   },
   {
     "id": 398,
@@ -7162,7 +7559,8 @@ const DESTINOS = [
     "lng": -53.3789,
     "web": "riobranco.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Parked coastal walk of more than 2 km that borders the Yaguarón River in Río Branco. Ideal for sunset walks, family biking and pier sport fishing with views of the coast of Yaguarón (Brazil)."
+    "caracteristicas_en": "Parked coastal walk of more than 2 km that borders the Yaguarón River in Río Branco. Ideal for sunset walks, family biking and pier sport fishing with views of the coast of Yaguarón (Brazil).",
+    "caracteristicas_pt": "Passeio costeiro estacionado de mais de 2 km que margeia o rio Yaguarón em Río Branco. Ideal para caminhadas ao pôr do sol, passeios de bicicleta em família e pesca esportiva no cais com vista para a costa de Yaguarón (Brasil)."
   },
   {
     "id": 399,
@@ -7180,7 +7578,8 @@ const DESTINOS = [
     "lng": -53.1622,
     "web": "cerrolargo.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Quiet river beach located at the mouth of the stream in the northern sector of Laguna Merín. It has thick native forests and is a classic spot for silverside fishing."
+    "caracteristicas_en": "Quiet river beach located at the mouth of the stream in the northern sector of Laguna Merín. It has thick native forests and is a classic spot for silverside fishing.",
+    "caracteristicas_pt": "Praia fluvial tranquila localizada na foz do riacho no setor norte da Laguna Merín. Possui densas florestas nativas e é um local clássico para a pesca do peixe-rei."
   },
   {
     "id": 400,
@@ -7198,7 +7597,8 @@ const DESTINOS = [
     "lng": -54.6211,
     "web": "cerrolargo.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Rural and historic town located at the highest points of the Cuchilla Grande. Famous for its landscapes of undulating hills, traditional ranches and for the Battle of Tupambaé in 1904."
+    "caracteristicas_en": "Rural and historic town located at the highest points of the Cuchilla Grande. Famous for its landscapes of undulating hills, traditional ranches and for the Battle of Tupambaé in 1904.",
+    "caracteristicas_pt": "Vila rural e histórica localizada nos pontos mais altos da Cuchilla Grande. Famosa por suas paisagens de morros ondulados, fazendas tradicionais e pela Batalha de Tupambaé em 1904."
   },
   {
     "id": 401,
@@ -7216,7 +7616,8 @@ const DESTINOS = [
     "lng": -54.1814,
     "web": "cerrolargo.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "A town in the northern interior strongly linked to agricultural and industrial dairy production. Attractive for its shopping trips of traditional country cheeses and border trifles."
+    "caracteristicas_en": "A town in the northern interior strongly linked to agricultural and industrial dairy production. Attractive for its shopping trips of traditional country cheeses and border trifles.",
+    "caracteristicas_pt": "Uma localidade do interior norte fortemente ligada à produção agrícola e industrial de lacticínios. Atraente pelas suas idas às compras de queijos tradicionais do campo e ninharias da fronteira."
   },
   {
     "id": 402,
@@ -7234,7 +7635,8 @@ const DESTINOS = [
     "lng": -54.1614,
     "web": "cerrolargo.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Interpretive and photographic space that operates in an old recycled warehouse in the center of Melo. It exhibits collections of images that portray the social and architectural evolution of the border."
+    "caracteristicas_en": "Interpretive and photographic space that operates in an old recycled warehouse in the center of Melo. It exhibits collections of images that portray the social and architectural evolution of the border.",
+    "caracteristicas_pt": "Espaço interpretativo e fotográfico que funciona num antigo armazém reciclado no centro de Melo. Exibe coleções de imagens que retratam a evolução social e arquitetônica da fronteira."
   },
   {
     "id": 403,
@@ -7252,7 +7654,8 @@ const DESTINOS = [
     "lng": -53.8122,
     "web": "cerrolargo.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Natural and historical site on the banks of the Tacuarí River. It has wild river beaches, closed riverine mountains and is an excellent point for camping and artisanal river fishing."
+    "caracteristicas_en": "Natural and historical site on the banks of the Tacuarí River. It has wild river beaches, closed riverine mountains and is an excellent point for camping and artisanal river fishing.",
+    "caracteristicas_pt": "Sítio natural e histórico às margens do rio Tacuarí. Possui praias fluviais selvagens, serras ribeirinhas fechadas e é um excelente ponto para camping e pesca artesanal fluvial."
   },
   {
     "id": 404,
@@ -7270,7 +7673,8 @@ const DESTINOS = [
     "lng": -54.9,
     "web": "turismo.lavalleja.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Imposing elevation of granitic rock of volcanic origin, surrounded by a unique forest of ombúes and caves (Gruta de Colón). Ideal for climbing, hiking and photography."
+    "caracteristicas_en": "Imposing elevation of granitic rock of volcanic origin, surrounded by a unique forest of ombúes and caves (Gruta de Colón). Ideal for climbing, hiking and photography.",
+    "caracteristicas_pt": "Imponente elevação de rocha granítica de origem vulcânica, rodeada por um bosque único de ombúes e grutas (Gruta de Colón). Ideal para escalada, caminhadas e fotografia."
   },
   {
     "id": 405,
@@ -7288,7 +7692,8 @@ const DESTINOS = [
     "lng": -54.7667,
     "web": "saltodelpenitente.com.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Crystal-clear water waterfall more than 60 meters high in a steep mountain environment. It offers adventure activities such as zip lining, rappelling, horseback riding and technical hiking."
+    "caracteristicas_en": "Crystal-clear water waterfall more than 60 meters high in a steep mountain environment. It offers adventure activities such as zip lining, rappelling, horseback riding and technical hiking.",
+    "caracteristicas_pt": "Cachoeira de águas cristalinas com mais de 60 metros de altura em ambiente montanhoso íngreme. Oferece atividades de aventura como tirolesa, rapel, cavalgadas e caminhadas técnicas."
   },
   {
     "id": 406,
@@ -7306,7 +7711,8 @@ const DESTINOS = [
     "lng": -54.95,
     "web": "turismo.lavalleja.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Milestone of religious pilgrimage and spiritual tourism of great national relevance. At the top is the Sanctuary of the Virgin of Verdun, offering an exceptional panoramic view of the mountains."
+    "caracteristicas_en": "Milestone of religious pilgrimage and spiritual tourism of great national relevance. At the top is the Sanctuary of the Virgin of Verdun, offering an exceptional panoramic view of the mountains.",
+    "caracteristicas_pt": "Marco de peregrinação religiosa e turismo espiritual de grande relevância nacional. No topo está o Santuário da Virgem de Verdun, oferecendo uma vista panorâmica excepcional das montanhas."
   },
   {
     "id": 407,
@@ -7324,7 +7730,8 @@ const DESTINOS = [
     "lng": -54.9167,
     "web": "hilodelavida.com.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Mystical and archaeological space that houses mysterious conical carved stone constructions (mounds) left by ancient indigenous civilizations. Meditation trails and energy walks."
+    "caracteristicas_en": "Mystical and archaeological space that houses mysterious conical carved stone constructions (mounds) left by ancient indigenous civilizations. Meditation trails and energy walks.",
+    "caracteristicas_pt": "Espaço místico e arqueológico que abriga misteriosas construções cônicas esculpidas em pedra (montes) deixadas por antigas civilizações indígenas. Trilhas de meditação e caminhadas energéticas."
   },
   {
     "id": 408,
@@ -7342,7 +7749,8 @@ const DESTINOS = [
     "lng": -54.9667,
     "web": "salus.com.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Forest and historical natural reserve where the famous Salus natural mineral water spring emerges. It has self-guided interpretive trails, the Puma Park and spaces for family recreation."
+    "caracteristicas_en": "Forest and historical natural reserve where the famous Salus natural mineral water spring emerges. It has self-guided interpretive trails, the Puma Park and spaces for family recreation.",
+    "caracteristicas_pt": "Reserva natural florestal e histórica onde emerge a famosa nascente de água mineral natural Salus. Possui trilhas interpretativas autoguiadas, Parque Puma e espaços para recreação familiar."
   },
   {
     "id": 409,
@@ -7360,7 +7768,8 @@ const DESTINOS = [
     "lng": -55.3833,
     "web": "turismo.lavalleja.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Artificial lake of enormous beauty surrounded by the Sierras de las Ánimas. Ideal for practicing non-motorized water sports (kayak, canoeing), light coastal fishing and family camping."
+    "caracteristicas_en": "Artificial lake of enormous beauty surrounded by the Sierras de las Ánimas. Ideal for practicing non-motorized water sports (kayak, canoeing), light coastal fishing and family camping.",
+    "caracteristicas_pt": "Lago artificial de enorme beleza rodeado pelas Sierras de las Ánimas. Ideal para a prática de desportos náuticos não motorizados (caiaque, canoagem), pesca costeira ligeira e campismo familiar."
   },
   {
     "id": 410,
@@ -7378,7 +7787,8 @@ const DESTINOS = [
     "lng": -54.85,
     "web": "turismo.lavalleja.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Historic mining site from the 19th century where gold was extracted. Guided tourist circuits through the ancient excavated stone tunnels, prospecting wells and remains of grinding machinery."
+    "caracteristicas_en": "Historic mining site from the 19th century where gold was extracted. Guided tourist circuits through the ancient excavated stone tunnels, prospecting wells and remains of grinding machinery.",
+    "caracteristicas_pt": "Local histórico de mineração do século XIX onde era extraído ouro. Circuitos turísticos guiados pelos antigos túneis de pedra escavados, poços de prospecção e restos de máquinas de moagem."
   },
   {
     "id": 411,
@@ -7396,7 +7806,8 @@ const DESTINOS = [
     "lng": -54.9194,
     "web": "turismo.lavalleja.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Urban park located on the homonymous hill that houses the largest equestrian monument in the world dedicated to General José Gervasio Artigas. Excellent city and mountain viewpoint."
+    "caracteristicas_en": "Urban park located on the homonymous hill that houses the largest equestrian monument in the world dedicated to General José Gervasio Artigas. Excellent city and mountain viewpoint.",
+    "caracteristicas_pt": "Parque urbano localizado no morro homônimo que abriga o maior monumento equestre do mundo dedicado ao General José Gervasio Artigas. Excelente miradouro de cidade e serra."
   },
   {
     "id": 412,
@@ -7414,7 +7825,8 @@ const DESTINOS = [
     "lng": -54.7722,
     "web": "estacionpenitente.com.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Innovative nature tourism and alternative accommodation complex assembled using completely recycled old passenger train cars. Mountain environment of streams and relaxation."
+    "caracteristicas_en": "Innovative nature tourism and alternative accommodation complex assembled using completely recycled old passenger train cars. Mountain environment of streams and relaxation.",
+    "caracteristicas_pt": "Complexo inovador de turismo de natureza e alojamento alternativo montado a partir de antigos vagões de passageiros totalmente reciclados. Ambiente montanhoso de riachos e relaxamento."
   },
   {
     "id": 413,
@@ -7432,7 +7844,8 @@ const DESTINOS = [
     "lng": -54.9044,
     "web": "turismo.lavalleja.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Public tourist complex on the banks of the Santa Lucía River. It has extensive landscaped forests, covered and open swimming pools, barbecue pits, municipal cabins and light nautical descents."
+    "caracteristicas_en": "Public tourist complex on the banks of the Santa Lucía River. It has extensive landscaped forests, covered and open swimming pools, barbecue pits, municipal cabins and light nautical descents.",
+    "caracteristicas_pt": "Complexo turístico público às margens do rio Santa Lucía. Possui extensos bosques paisagísticos, piscinas cobertas e abertas, churrasqueiras, cabanas municipais e descidas náuticas leves."
   },
   {
     "id": 414,
@@ -7450,7 +7863,8 @@ const DESTINOS = [
     "lng": -55.4667,
     "web": "turismo.lavalleja.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Town with a strong cultural heritage, birthplace of the musician Eduardo Fabini. It stands out for its traditional gastronomy (famous for its sausages and jams), historic square and proximity to mountain streams."
+    "caracteristicas_en": "Town with a strong cultural heritage, birthplace of the musician Eduardo Fabini. It stands out for its traditional gastronomy (famous for its sausages and jams), historic square and proximity to mountain streams.",
+    "caracteristicas_pt": "Cidade de forte patrimônio cultural, berço do músico Eduardo Fabini. Destaca-se pela gastronomia tradicional (famosa pelos enchidos e compotas), praça histórica e proximidade de ribeiros de montanha."
   },
   {
     "id": 415,
@@ -7468,7 +7882,8 @@ const DESTINOS = [
     "lng": -54.4,
     "web": "turismo.lavalleja.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Rural town surrounded by a landscape of ravines and rock formations. Its main natural attraction is the \"Well of Love\", a natural pool sculpted in stone by mountain streams."
+    "caracteristicas_en": "Rural town surrounded by a landscape of ravines and rock formations. Its main natural attraction is the \"Well of Love\", a natural pool sculpted in stone by mountain streams.",
+    "caracteristicas_pt": "Cidade rural rodeada por uma paisagem de ravinas e formações rochosas. Seu principal atrativo natural é o “Poço do Amor”, uma piscina natural esculpida em pedra pelos riachos da montanha."
   },
   {
     "id": 416,
@@ -7486,7 +7901,8 @@ const DESTINOS = [
     "lng": -54.5333,
     "web": "turismo.lavalleja.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "City in the northern department linked to rice and livestock activities. Attractive for its waterfront next to Arroyo Corrales, camping areas and traditional Creole events."
+    "caracteristicas_en": "City in the northern department linked to rice and livestock activities. Attractive for its waterfront next to Arroyo Corrales, camping areas and traditional Creole events.",
+    "caracteristicas_pt": "Cidade do departamento norte ligada à atividade arrozeira e pecuária. Atraente por sua orla marítima próxima a Arroyo Corrales, áreas de camping e tradicionais eventos crioulos."
   },
   {
     "id": 417,
@@ -7504,7 +7920,8 @@ const DESTINOS = [
     "lng": -54.6833,
     "web": "shambhala.org.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Exclusive center for spiritual retreats and Buddhist meditation located in the quiet of the mountains. Traditional Tibetan architecture, Zen gardens of contemplation and paths of absolute silence."
+    "caracteristicas_en": "Exclusive center for spiritual retreats and Buddhist meditation located in the quiet of the mountains. Traditional Tibetan architecture, Zen gardens of contemplation and paths of absolute silence.",
+    "caracteristicas_pt": "Centro exclusivo de retiros espirituais e meditação budista localizado na tranquilidade das montanhas. Arquitetura tradicional tibetana, jardins Zen de contemplação e caminhos de silêncio absoluto."
   },
   {
     "id": 418,
@@ -7522,7 +7939,8 @@ const DESTINOS = [
     "lng": -54.9353,
     "web": "turismo.lavalleja.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Urban river park on the banks of the San Francisco Stream in Minas. It has an amphitheater, profuse exotic and native trees, children's recreation areas and picturesque pedestrian bridges."
+    "caracteristicas_en": "Urban river park on the banks of the San Francisco Stream in Minas. It has an amphitheater, profuse exotic and native trees, children's recreation areas and picturesque pedestrian bridges.",
+    "caracteristicas_pt": "Parque fluvial urbano às margens do Córrego São Francisco em Minas. Possui anfiteatro, abundantes árvores exóticas e nativas, áreas de recreação infantil e pitorescas passarelas pedonais."
   },
   {
     "id": 419,
@@ -7540,7 +7958,8 @@ const DESTINOS = [
     "lng": -54.8856,
     "web": "turismo.lavalleja.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Impressive natural mountain pass located in the foothills of Route 12. It offers one of the most impressive landscape and panoramic photography observation points in the department."
+    "caracteristicas_en": "Impressive natural mountain pass located in the foothills of Route 12. It offers one of the most impressive landscape and panoramic photography observation points in the department.",
+    "caracteristicas_pt": "Impressionante desfiladeiro natural localizado no sopé da Rota 12. Oferece um dos mais impressionantes pontos de observação paisagística e fotográfica panorâmica do departamento."
   },
   {
     "id": 420,
@@ -7558,7 +7977,8 @@ const DESTINOS = [
     "lng": -54.9144,
     "web": "turismo.lavalleja.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Rocky elevation neighboring the Arequita hill, famous for housing a large concentration of red and black-headed crows. Demanding trekking with a technical ascent between rocks and a mountain of stones."
+    "caracteristicas_en": "Rocky elevation neighboring the Arequita hill, famous for housing a large concentration of red and black-headed crows. Demanding trekking with a technical ascent between rocks and a mountain of stones.",
+    "caracteristicas_pt": "Elevação rochosa vizinha ao morro Arequita, famosa por abrigar grande concentração de corvos ruivos e pretos. Trekking exigente com subida técnica entre rochas e uma montanha de pedras."
   },
   {
     "id": 421,
@@ -7576,7 +7996,8 @@ const DESTINOS = [
     "lng": -54.7211,
     "web": "turismo.lavalleja.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Natural water fall hidden among dense native ravine mountains in the valley of threads of water. It offers natural pools of crystal clear water and a virgin environment excellent for ecotourism."
+    "caracteristicas_en": "Natural water fall hidden among dense native ravine mountains in the valley of threads of water. It offers natural pools of crystal clear water and a virgin environment excellent for ecotourism.",
+    "caracteristicas_pt": "Queda de água natural escondida entre densas montanhas de ravinas nativas no vale de fios de água. Oferece piscinas naturais de águas cristalinas e um ambiente virgem excelente para o ecoturismo."
   },
   {
     "id": 422,
@@ -7594,7 +8015,8 @@ const DESTINOS = [
     "lng": -55.1356,
     "web": "turismo.lavalleja.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Small and historic rural town surrounded by a traditional agricultural-livestock environment. Attractive for its historic chaplain temple, flower-filled squares and absolute tranquility of the countryside."
+    "caracteristicas_en": "Small and historic rural town surrounded by a traditional agricultural-livestock environment. Attractive for its historic chaplain temple, flower-filled squares and absolute tranquility of the countryside.",
+    "caracteristicas_pt": "Pequena e histórica localidade rural rodeada por um ambiente tradicional agro-pecuário. Atraente pelo histórico templo capelão, praças floridas e absoluta tranquilidade do campo."
   },
   {
     "id": 423,
@@ -7612,7 +8034,8 @@ const DESTINOS = [
     "lng": -54.9322,
     "web": "cultura.lavalleja.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Cultural and historical center that operates in the birthplace of the leader Juan Antonio Lavalleja. It houses local museums, a library, traditional Uruguayan pictorial collections and colonial patios."
+    "caracteristicas_en": "Cultural and historical center that operates in the birthplace of the leader Juan Antonio Lavalleja. It houses local museums, a library, traditional Uruguayan pictorial collections and colonial patios.",
+    "caracteristicas_pt": "Centro cultural e histórico que funciona na cidade natal do líder Juan Antonio Lavalleja. Abriga museus locais, uma biblioteca, coleções pictóricas tradicionais uruguaias e pátios coloniais."
   },
   {
     "id": 424,
@@ -7630,7 +8053,8 @@ const DESTINOS = [
     "lng": -55.9311,
     "web": "rivera.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Protected Area of ​​the National System (SNAP). It stands out for its landscape of deep ravines, flat-topped hills, hidden waterfalls (Salto del Indio), thick native forest and bird watching."
+    "caracteristicas_en": "Protected Area of ​​the National System (SNAP). It stands out for its landscape of deep ravines, flat-topped hills, hidden waterfalls (Salto del Indio), thick native forest and bird watching.",
+    "caracteristicas_pt": "Área Protegida do Sistema Nacional (SNAP). Destaca-se pela paisagem de ravinas profundas, morros de topo plano, cachoeiras escondidas (Salto del Indio), densa floresta nativa e observação de aves."
   },
   {
     "id": 425,
@@ -7648,7 +8072,8 @@ const DESTINOS = [
     "lng": -55.5356,
     "web": "rivera.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Urban promenade and border icon inaugurated in 1943. The only international public park shared on the dry border with the city of Santana do Livramento (Brazil), with water fountains and commemorative monuments."
+    "caracteristicas_en": "Urban promenade and border icon inaugurated in 1943. The only international public park shared on the dry border with the city of Santana do Livramento (Brazil), with water fountains and commemorative monuments.",
+    "caracteristicas_pt": "Passeio urbano e ícone de fronteira inaugurado em 1943. Único parque público internacional compartilhado na fronteira seca com a cidade de Santana do Livramento (Brasil), com fontes de água e monumentos comemorativos."
   },
   {
     "id": 426,
@@ -7666,7 +8091,8 @@ const DESTINOS = [
     "lng": -55.6253,
     "web": "rivera.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Jesuit industrial archaeological complex from the 19th century. First hydroelectric dam in South America, linked to the old French gold mines and the town of Minas de Corrales."
+    "caracteristicas_en": "Jesuit industrial archaeological complex from the 19th century. First hydroelectric dam in South America, linked to the old French gold mines and the town of Minas de Corrales.",
+    "caracteristicas_pt": "Complexo arqueológico industrial jesuíta do século XIX. Primeira hidrelétrica da América do Sul, ligada às antigas minas de ouro francesas e à cidade de Minas de Corrales."
   },
   {
     "id": 427,
@@ -7684,7 +8110,8 @@ const DESTINOS = [
     "lng": -55.7614,
     "web": "rivera.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Agricultural and forestry town located next to the Lunarejo Valley. Famous for its extensive plantations and the Watermelon and Forestation Festival. Connection axis for ecotourism."
+    "caracteristicas_en": "Agricultural and forestry town located next to the Lunarejo Valley. Famous for its extensive plantations and the Watermelon and Forestation Festival. Connection axis for ecotourism.",
+    "caracteristicas_pt": "Vila agrícola e florestal localizada próximo ao Vale do Lunarejo. Famosa por suas extensas plantações e pelo Festival de Melancia e Florestamento. Eixo de conexão para o ecoturismo."
   },
   {
     "id": 428,
@@ -7702,7 +8129,8 @@ const DESTINOS = [
     "lng": -55.5414,
     "web": "rivera.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Extensive shopping center and urban duty-free shopping circuit, which attracts thousands of international tourists along the main Sarandí Avenue."
+    "caracteristicas_en": "Extensive shopping center and urban duty-free shopping circuit, which attracts thousands of international tourists along the main Sarandí Avenue.",
+    "caracteristicas_pt": "Amplo shopping center e circuito urbano de compras duty-free, que atrai milhares de turistas internacionais pela principal Avenida Sarandí."
   },
   {
     "id": 429,
@@ -7720,7 +8148,8 @@ const DESTINOS = [
     "lng": -55.5228,
     "web": "rivera.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Picturesque natural urban viewpoint located on the outskirts of the departmental capital. It offers an exceptional panoramic view of the city of Rivera and its sister Santana do Livramento."
+    "caracteristicas_en": "Picturesque natural urban viewpoint located on the outskirts of the departmental capital. It offers an exceptional panoramic view of the city of Rivera and its sister Santana do Livramento.",
+    "caracteristicas_pt": "Pitoresco mirante urbano natural localizado nos arredores da capital departamental. Oferece uma excepcional vista panorâmica da cidade de Rivera e de sua irmã Santana do Livramento."
   },
   {
     "id": 430,
@@ -7738,7 +8167,8 @@ const DESTINOS = [
     "lng": -55.4689,
     "web": "rivera.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Town with a strong mining and historical identity from the 19th century. It stands out for its gold museums, underground galleries recovered from old mining companies and period facades."
+    "caracteristicas_en": "Town with a strong mining and historical identity from the 19th century. It stands out for its gold museums, underground galleries recovered from old mining companies and period facades.",
+    "caracteristicas_pt": "Vila com forte identidade mineira e histórica do século XIX. Destaca-se pelos seus museus de ouro, galerias subterrâneas recuperadas de antigas mineradoras e fachadas de época."
   },
   {
     "id": 431,
@@ -7756,7 +8186,8 @@ const DESTINOS = [
     "lng": -55.5111,
     "web": "rivera.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Immense green lung of more than 100 hectares located in the Sierra de la Aurora. It has a zoo or native fauna reserve, natural waterfalls, landscaped camping areas and forest trails."
+    "caracteristicas_en": "Immense green lung of more than 100 hectares located in the Sierra de la Aurora. It has a zoo or native fauna reserve, natural waterfalls, landscaped camping areas and forest trails.",
+    "caracteristicas_pt": "Imenso pulmão verde de mais de 100 hectares localizado na Sierra de la Aurora. Possui zoológico ou reserva de fauna nativa, cachoeiras naturais, camping paisagístico e trilhas na mata."
   },
   {
     "id": 432,
@@ -7774,7 +8205,8 @@ const DESTINOS = [
     "lng": -55.5125,
     "web": "rivera.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Modern professional motorsport circuit located within the Great Britain Park. It hosts international competitions in South American and Northern motor categories."
+    "caracteristicas_en": "Modern professional motorsport circuit located within the Great Britain Park. It hosts international competitions in South American and Northern motor categories.",
+    "caracteristicas_pt": "Circuito moderno de automobilismo profissional localizado no Parque da Grã-Bretanha. Sedia competições internacionais nas categorias motorizadas da América do Sul e do Norte."
   },
   {
     "id": 433,
@@ -7792,7 +8224,8 @@ const DESTINOS = [
     "lng": -55.5458,
     "web": "rivera.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Geographic and historical border landmark that has an original stone frame demarcating boundaries. It is a classic urban viewpoint that offers panoramic views of both sister cities."
+    "caracteristicas_en": "Geographic and historical border landmark that has an original stone frame demarcating boundaries. It is a classic urban viewpoint that offers panoramic views of both sister cities.",
+    "caracteristicas_pt": "Marco geográfico e histórico fronteiriço que possui uma moldura original em pedra demarcando limites. É um mirante urbano clássico que oferece vistas panorâmicas das duas cidades irmãs."
   },
   {
     "id": 434,
@@ -7810,7 +8243,8 @@ const DESTINOS = [
     "lng": -55.5311,
     "web": "rivera.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Pedestrian path and landscaped infrastructure that borders the banks of the Cuñapirú stream in its urban coastal section. Wooded environment ideal for walks and family recreation."
+    "caracteristicas_en": "Pedestrian path and landscaped infrastructure that borders the banks of the Cuñapirú stream in its urban coastal section. Wooded environment ideal for walks and family recreation.",
+    "caracteristicas_pt": "Caminho pedestre e infraestrutura paisagística que margeia as margens do córrego Cuñapirú em seu trecho urbano litorâneo. Ambiente arborizado ideal para passeios e lazer em família."
   },
   {
     "id": 435,
@@ -7828,7 +8262,8 @@ const DESTINOS = [
     "lng": -54.6211,
     "web": "rivera.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Traditional cattle town in the southern interior. Attractive for its colonial country ranches, its historic tree-lined plaza and its proximity to the Caraguatá Stream for light river fishing."
+    "caracteristicas_en": "Traditional cattle town in the southern interior. Attractive for its colonial country ranches, its historic tree-lined plaza and its proximity to the Caraguatá Stream for light river fishing.",
+    "caracteristicas_pt": "Tradicional cidade pecuária do interior sul. Atraente por suas fazendas coloniais, sua histórica praça arborizada e sua proximidade com o Córrego Caraguatá para pesca leve no rio."
   },
   {
     "id": 436,
@@ -7846,7 +8281,8 @@ const DESTINOS = [
     "lng": -55.4833,
     "web": "rivera.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Natural geological formation composed of sandstone caves carved by river erosion in the Sierra de la Aurora, surrounded by thick mountain streams and wildlife sightings."
+    "caracteristicas_en": "Natural geological formation composed of sandstone caves carved by river erosion in the Sierra de la Aurora, surrounded by thick mountain streams and wildlife sightings.",
+    "caracteristicas_pt": "Formação geológica natural composta por cavernas de arenito escavadas pela erosão fluvial na Sierra de la Aurora, cercadas por densos riachos de montanha e avistamentos de vida selvagem."
   },
   {
     "id": 437,
@@ -7864,7 +8300,8 @@ const DESTINOS = [
     "lng": -55.3622,
     "web": "rivera.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Historic border and river customs site next to Arroyo Ataques. Wild forest environment ideal for weekend camping, light coastal fishing and absolute tranquility."
+    "caracteristicas_en": "Historic border and river customs site next to Arroyo Ataques. Wild forest environment ideal for weekend camping, light coastal fishing and absolute tranquility.",
+    "caracteristicas_pt": "Local histórico de fronteira e alfândega fluvial próximo a Arroyo Ataques. Ambiente de floresta selvagem ideal para camping de fim de semana, pesca costeira leve e tranquilidade absoluta."
   },
   {
     "id": 438,
@@ -7882,7 +8319,8 @@ const DESTINOS = [
     "lng": -55.4258,
     "web": "rivera.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Extensive mountain range characterized by hills with flattened summits and narrow valleys of native riverine forest. Excellent circuit for adventure ecotourism and botanical hiking."
+    "caracteristicas_en": "Extensive mountain range characterized by hills with flattened summits and narrow valleys of native riverine forest. Excellent circuit for adventure ecotourism and botanical hiking.",
+    "caracteristicas_pt": "Extensa serra caracterizada por morros de cumes achatados e estreitos vales de mata ciliar nativa. Excelente circuito para ecoturismo de aventura e caminhadas botânicas."
   },
   {
     "id": 439,
@@ -7900,7 +8338,8 @@ const DESTINOS = [
     "lng": -55.4664,
     "web": "rivera.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Interpretive space that operates in an old recycled house in the town. It displays colonial mining tools, historic ingot molds and photographic collections from the gold boom."
+    "caracteristicas_en": "Interpretive space that operates in an old recycled house in the town. It displays colonial mining tools, historic ingot molds and photographic collections from the gold boom.",
+    "caracteristicas_pt": "Espaço interpretativo que funciona numa antiga casa reciclada da vila. Ele exibe ferramentas de mineração coloniais, lingotes históricos e coleções fotográficas do boom do ouro."
   },
   {
     "id": 440,
@@ -7918,7 +8357,8 @@ const DESTINOS = [
     "lng": -55.5389,
     "web": "rivera.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Main artistic and historical scene of the departmental capital inaugurated in the mid-20th century. It offers guided architectural tours and a varied cultural offering."
+    "caracteristicas_en": "Main artistic and historical scene of the departmental capital inaugurated in the mid-20th century. It offers guided architectural tours and a varied cultural offering.",
+    "caracteristicas_pt": "Principal cenário artístico e histórico da capital departamental inaugurado em meados do século XX. Oferece visitas arquitetônicas guiadas e uma oferta cultural variada."
   },
   {
     "id": 441,
@@ -7936,7 +8376,8 @@ const DESTINOS = [
     "lng": -54.8989,
     "web": "rivera.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Small and historic rural town associated with old wagon posts on the banks of the Yaguarí Stream. It stands out for its country landscapes of rolling hills and absolute stillness."
+    "caracteristicas_en": "Small and historic rural town associated with old wagon posts on the banks of the Yaguarí Stream. It stands out for its country landscapes of rolling hills and absolute stillness.",
+    "caracteristicas_pt": "Pequena e histórica cidade rural associada a antigos postos de carroças às margens do Córrego Yaguarí. Destaca-se pelas suas paisagens campestres de colinas e tranquilidade absoluta."
   },
   {
     "id": 442,
@@ -7954,7 +8395,8 @@ const DESTINOS = [
     "lng": -56.0189,
     "web": "rivera.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Deep river canyon shared with Tacuarembó. Demanding wild exploration trekking between giant crystalline waterfalls (Salto de la Aurora) and totally virgin nature."
+    "caracteristicas_en": "Deep river canyon shared with Tacuarembó. Demanding wild exploration trekking between giant crystalline waterfalls (Salto de la Aurora) and totally virgin nature.",
+    "caracteristicas_pt": "Profundo cânion fluvial compartilhado com Tacuarembó. Exigente trekking de exploração selvagem entre gigantescas cachoeiras cristalinas (Salto de la Aurora) e natureza totalmente virgem."
   },
   {
     "id": 443,
@@ -7972,7 +8414,8 @@ const DESTINOS = [
     "lng": -55.5322,
     "web": "rivera.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Central cultural space that guards and exhibits important pictorial collections by prominent regional border artists, in addition to hosting workshops and temporary exhibitions."
+    "caracteristicas_en": "Central cultural space that guards and exhibits important pictorial collections by prominent regional border artists, in addition to hosting workshops and temporary exhibitions.",
+    "caracteristicas_pt": "Espaço cultural central que guarda e expõe importantes acervos pictóricos de destacados artistas fronteiriços regionais, além de abrigar oficinas e exposições temporárias."
   },
   {
     "id": 444,
@@ -7990,7 +8433,8 @@ const DESTINOS = [
     "lng": null,
     "web": "",
     "popularidad": "Alta",
-    "caracteristicas_en": "Mining and geological tourism. Guided tours through open-air quarries and underground galleries (mining safaris) to observe the extraction of giant amethyst geodes."
+    "caracteristicas_en": "Mining and geological tourism. Guided tours through open-air quarries and underground galleries (mining safaris) to observe the extraction of giant amethyst geodes.",
+    "caracteristicas_pt": "Turismo mineiro e geológico. Visitas guiadas por pedreiras a céu aberto e galerias subterrâneas (safáris mineiros) para observação da extração de geodos gigantes de ametista."
   },
   {
     "id": 445,
@@ -8008,7 +8452,8 @@ const DESTINOS = [
     "lng": null,
     "web": "",
     "popularidad": "Alta",
-    "caracteristicas_en": "Extensive spa on the Uruguay River in Bella Unión. Fine sand beaches"
+    "caracteristicas_en": "Extensive spa on the Uruguay River in Bella Unión. Fine sand beaches",
+    "caracteristicas_pt": "Amplo spa às margens do Rio Uruguai em Bella Unión. Praias de areia fina"
   },
   {
     "id": 446,
@@ -8026,7 +8471,8 @@ const DESTINOS = [
     "lng": -57.6311,
     "web": "bellaunion.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Natural monument composed of an imposing sandstone formation 19 meters high. The park has swimming pools"
+    "caracteristicas_en": "Natural monument composed of an imposing sandstone formation 19 meters high. The park has swimming pools",
+    "caracteristicas_pt": "Monumento natural composto por uma imponente formação de arenito com 19 metros de altura. O parque tem piscinas"
   },
   {
     "id": 447,
@@ -8044,7 +8490,8 @@ const DESTINOS = [
     "lng": -56.4568,
     "web": "artigas.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Beautiful landscaped coastal walk that borders the Uruguay River on the triple border. Ideal for sunset walks"
+    "caracteristicas_en": "Beautiful landscaped coastal walk that borders the Uruguay River on the triple border. Ideal for sunset walks",
+    "caracteristicas_pt": "Lindo passeio paisagístico costeiro que margeia o Rio Uruguai na tríplice fronteira. Ideal para passeios ao pôr do sol"
   },
   {
     "id": 448,
@@ -8062,7 +8509,8 @@ const DESTINOS = [
     "lng": -57.6356,
     "web": "bellaunion.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Main commercial axis and urban circuit of the city of Artigas. Famous for its duty-free shopping shops"
+    "caracteristicas_en": "Main commercial axis and urban circuit of the city of Artigas. Famous for its duty-free shopping shops",
+    "caracteristicas_pt": "Principal eixo comercial e circuito urbano da cidade de Artigas. Famosa por suas lojas duty-free"
   },
   {
     "id": 449,
@@ -8080,7 +8528,8 @@ const DESTINOS = [
     "lng": -56.4714,
     "web": "artigas.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Picturesque witness hill located in the vicinity of the departmental capital. It offers trails of low technical difficulty and panoramic views of the northern prairies and plantations."
+    "caracteristicas_en": "Picturesque witness hill located in the vicinity of the departmental capital. It offers trails of low technical difficulty and panoramic views of the northern prairies and plantations.",
+    "caracteristicas_pt": "Pitoresca colina testemunhal localizada nas proximidades da capital departamental. Oferece trilhas de baixa dificuldade técnica e vistas panorâmicas das pradarias e plantações do norte."
   },
   {
     "id": 450,
@@ -8098,7 +8547,8 @@ const DESTINOS = [
     "lng": -56.4419,
     "web": "artigas.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Agricultural and historical town with a strong railway profile. Preserves the old architecture of its train station"
+    "caracteristicas_en": "Agricultural and historical town with a strong railway profile. Preserves the old architecture of its train station",
+    "caracteristicas_pt": "Vila agrícola e histórica com forte perfil ferroviário. Preserva a arquitetura antiga de sua estação ferroviária"
   },
   {
     "id": 451,
@@ -8116,7 +8566,8 @@ const DESTINOS = [
     "lng": -57.4322,
     "web": "artigas.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Locality in the interior of the department associated with traditional livestock production. Attractive for its period facades"
+    "caracteristicas_en": "Locality in the interior of the department associated with traditional livestock production. Attractive for its period facades",
+    "caracteristicas_pt": "Localidade do interior do departamento associada à produção pecuária tradicional. Atraente por suas fachadas de época"
   },
   {
     "id": 452,
@@ -8134,7 +8585,8 @@ const DESTINOS = [
     "lng": -56.5125,
     "web": "artigas.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Gastronomic and cultural center that operates in an old recycled building in the city center. It houses shops selling semi-precious stone crafts and typical foods."
+    "caracteristicas_en": "Gastronomic and cultural center that operates in an old recycled building in the city center. It houses shops selling semi-precious stone crafts and typical foods.",
+    "caracteristicas_pt": "Centro gastronômico e cultural que funciona em um antigo prédio reciclado no centro da cidade. Abriga lojas que vendem artesanato em pedras semipreciosas e comidas típicas."
   },
   {
     "id": 453,
@@ -8152,7 +8604,8 @@ const DESTINOS = [
     "lng": -56.4689,
     "web": "artigas.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Parked river walk that borders the Cuareim River (international border with Brazil). Ideal for photo walks"
+    "caracteristicas_en": "Parked river walk that borders the Cuareim River (international border with Brazil). Ideal for photo walks",
+    "caracteristicas_pt": "Passeio fluvial estacionado que margeia o Rio Cuareim (fronteira internacional com o Brasil). Ideal para passeios fotográficos"
   },
   {
     "id": 454,
@@ -8170,7 +8623,8 @@ const DESTINOS = [
     "lng": -56.4811,
     "web": "artigas.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Geographical fluvial landmark where the Uruguay River and the Cuareim River converge"
+    "caracteristicas_en": "Geographical fluvial landmark where the Uruguay River and the Cuareim River converge",
+    "caracteristicas_pt": "Marco geográfico fluvial onde convergem o rio Uruguai e o rio Cuareim"
   },
   {
     "id": 455,
@@ -8188,7 +8642,8 @@ const DESTINOS = [
     "lng": -57.6253,
     "web": "bellaunion.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Wild and historic river environment inside the department. Secluded beaches surrounded by virgin native forests"
+    "caracteristicas_en": "Wild and historic river environment inside the department. Secluded beaches surrounded by virgin native forests",
+    "caracteristicas_pt": "Ambiente fluvial selvagem e histórico dentro do departamento. Praias isoladas cercadas por florestas nativas virgens"
   },
   {
     "id": 456,
@@ -8206,7 +8661,8 @@ const DESTINOS = [
     "lng": -56.8122,
     "web": "artigas.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Central cultural and interpretive space that exhibits valuable historical collections from the founding era of San Eugenio del Cuareim"
+    "caracteristicas_en": "Central cultural and interpretive space that exhibits valuable historical collections from the founding era of San Eugenio del Cuareim",
+    "caracteristicas_pt": "Espaço central cultural e interpretativo que exibe valiosas coleções históricas da época da fundação de San Eugenio del Cuareim"
   },
   {
     "id": 457,
@@ -8224,7 +8680,8 @@ const DESTINOS = [
     "lng": -56.4658,
     "web": "artigas.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Historic border area next to the Uruguay River. Natural forest environment ideal for weekend camping"
+    "caracteristicas_en": "Historic border area next to the Uruguay River. Natural forest environment ideal for weekend camping",
+    "caracteristicas_pt": "Zona histórica fronteiriça junto ao Rio Uruguai. Ambiente de floresta natural ideal para acampamento de fim de semana"
   },
   {
     "id": 458,
@@ -8242,7 +8699,8 @@ const DESTINOS = [
     "lng": -57.7211,
     "web": "bellaunion.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Extensive mountain range characterized by basaltic rock formations and native mountain valleys. Excellent circuit for adventure ecotourism and northern botanical hiking."
+    "caracteristicas_en": "Extensive mountain range characterized by basaltic rock formations and native mountain valleys. Excellent circuit for adventure ecotourism and northern botanical hiking.",
+    "caracteristicas_pt": "Extensa cordilheira caracterizada por formações rochosas basálticas e vales montanhosos nativos. Excelente circuito para ecoturismo de aventura e caminhadas botânicas do norte."
   },
   {
     "id": 459,
@@ -8260,7 +8718,8 @@ const DESTINOS = [
     "lng": -56.1356,
     "web": "artigas.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Agroindustrial interpretive space located in Pueblo Cainsa. Displays colonial tools"
+    "caracteristicas_en": "Agroindustrial interpretive space located in Pueblo Cainsa. Displays colonial tools",
+    "caracteristicas_pt": "Espaço interpretativo agroindustrial localizado em Pueblo Cainsa. Exibe ferramentas coloniais"
   },
   {
     "id": 460,
@@ -8278,7 +8737,8 @@ const DESTINOS = [
     "lng": -57.5622,
     "web": "bellaunion.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Main artistic and historical scene of the departmental capital inaugurated in the mid-20th century. It offers guided architectural tours and a varied cultural offering."
+    "caracteristicas_en": "Main artistic and historical scene of the departmental capital inaugurated in the mid-20th century. It offers guided architectural tours and a varied cultural offering.",
+    "caracteristicas_pt": "Principal cenário artístico e histórico da capital departamental inaugurado em meados do século XX. Oferece visitas arquitetônicas guiadas e uma oferta cultural variada."
   },
   {
     "id": 461,
@@ -8296,7 +8756,8 @@ const DESTINOS = [
     "lng": -56.4689,
     "web": "artigas.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Small and historic rural town associated with old troop posts on the banks of the Yacaré Stream. It stands out for its country landscapes of rolling hills and stillness."
+    "caracteristicas_en": "Small and historic rural town associated with old troop posts on the banks of the Yacaré Stream. It stands out for its country landscapes of rolling hills and stillness.",
+    "caracteristicas_pt": "Pequena e histórica cidade rural associada a antigos postos militares às margens do Córrego Yacaré. Destaca-se pelas suas paisagens campestres de colinas e tranquilidade."
   },
   {
     "id": 462,
@@ -8314,7 +8775,8 @@ const DESTINOS = [
     "lng": -56.8989,
     "web": "artigas.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Deep river canyon famous for housing the most important geode deposits. Demanding wild exploration trekking between waterfalls and virgin nature."
+    "caracteristicas_en": "Deep river canyon famous for housing the most important geode deposits. Demanding wild exploration trekking between waterfalls and virgin nature.",
+    "caracteristicas_pt": "Desfiladeiro profundo de rio famoso por abrigar os depósitos de geodos mais importantes. Exigente trekking de exploração selvagem entre cachoeiras e natureza virgem."
   },
   {
     "id": 463,
@@ -8332,7 +8794,8 @@ const DESTINOS = [
     "lng": -56.2517,
     "web": "artigas.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Parked and historic space located on the outskirts of the city"
+    "caracteristicas_en": "Parked and historic space located on the outskirts of the city",
+    "caracteristicas_pt": "Espaço estacionado e histórico localizado na periferia da cidade"
   },
   {
     "id": 464,
@@ -8350,7 +8813,8 @@ const DESTINOS = [
     "lng": -56.4528,
     "web": "artigas.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Protected landscape and Biosphere Reserve. Extensive mirror of brackish water separated from the ocean by a sand bar, ideal for bird watching, hiking and artisanal Siri crab fishing."
+    "caracteristicas_en": "Protected landscape and Biosphere Reserve. Extensive mirror of brackish water separated from the ocean by a sand bar, ideal for bird watching, hiking and artisanal Siri crab fishing.",
+    "caracteristicas_pt": "Paisagem Protegida e Reserva da Biosfera. Extenso espelho de água salobra separado do oceano por um banco de areia, ideal para observação de aves, caminhadas e pesca artesanal do caranguejo Siri."
   },
   {
     "id": 465,
@@ -8368,7 +8832,8 @@ const DESTINOS = [
     "lng": -53.5414,
     "web": "turismorocha.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Fortified National Historical Monument built in 1734. It has a drawbridge, moats, a military museum of historical uniforms, a period blacksmith shop and the nearby San Miguel National Park."
+    "caracteristicas_en": "Fortified National Historical Monument built in 1734. It has a drawbridge, moats, a military museum of historical uniforms, a period blacksmith shop and the nearby San Miguel National Park.",
+    "caracteristicas_pt": "Monumento Histórico Nacional Fortificado construído em 1734. Possui ponte levadiça, fossos, museu militar de uniformes históricos, ferraria de época e o vizinho Parque Nacional San Miguel."
   },
   {
     "id": 466,
@@ -8386,7 +8851,8 @@ const DESTINOS = [
     "lng": -53.8122,
     "web": "turismorocha.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Group of ombú trees of unique character on the banks of the Arroyo de Valizas, extending for more than 20 km. Mystical interpretation hiking, closed native forest and wildlife sighting."
+    "caracteristicas_en": "Group of ombú trees of unique character on the banks of the Arroyo de Valizas, extending for more than 20 km. Mystical interpretation hiking, closed native forest and wildlife sighting.",
+    "caracteristicas_pt": "Conjunto de ombús de caráter único nas margens do Arroyo de Valizas, estendendo-se por mais de 20 km. Caminhadas de interpretação mística, mata nativa fechada e avistamento de vida selvagem."
   },
   {
     "id": 467,
@@ -8404,7 +8870,8 @@ const DESTINOS = [
     "lng": -54.1189,
     "web": "turismorocha.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Exclusive and picturesque residential spa on a rocky cliff. It stands out for its beaches with strong waves ideal for surfing (El Desplayado and Del Barco), tree-lined promenade and tranquility at night."
+    "caracteristicas_en": "Exclusive and picturesque residential spa on a rocky cliff. It stands out for its beaches with strong waves ideal for surfing (El Desplayado and Del Barco), tree-lined promenade and tranquility at night.",
+    "caracteristicas_pt": "Spa residencial exclusivo e pitoresco numa falésia rochosa. Destaca-se pelas praias de ondas fortes ideais para a prática do surf (El Desplayado e Del Barco), calçadão arborizado e tranquilidade noturna."
   },
   {
     "id": 468,
@@ -8422,7 +8889,8 @@ const DESTINOS = [
     "lng": -53.5458,
     "web": "turismorocha.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Picturesque fishing village and spa with a bohemian profile. It stands out for its multicolored artisanal boats in the sand, crafts fair, coastal seafood cuisine and summer nightlife."
+    "caracteristicas_en": "Picturesque fishing village and spa with a bohemian profile. It stands out for its multicolored artisanal boats in the sand, crafts fair, coastal seafood cuisine and summer nightlife.",
+    "caracteristicas_pt": "Pitoresca vila de pescadores e spa com perfil boêmio. Destaca-se pelos barcos artesanais multicoloridos na areia, feira de artesanato, culinária litorânea de frutos do mar e vida noturna de verão."
   },
   {
     "id": 469,
@@ -8440,7 +8908,8 @@ const DESTINOS = [
     "lng": -53.5111,
     "web": "turismorocha.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Coastal and intertidal protected area. Challenging hiking along secluded beaches and rocky points, sightings of green sea turtles, seasonal right whales and sea lions."
+    "caracteristicas_en": "Coastal and intertidal protected area. Challenging hiking along secluded beaches and rocky points, sightings of green sea turtles, seasonal right whales and sea lions.",
+    "caracteristicas_pt": "Área protegida costeira e intertidal. Caminhadas desafiadoras ao longo de praias isoladas e pontos rochosos, avistamentos de tartarugas marinhas verdes, baleias francas sazonais e leões marinhos."
   },
   {
     "id": 470,
@@ -8458,7 +8927,8 @@ const DESTINOS = [
     "lng": -53.7811,
     "web": "turismorocha.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Spa with a rugged profile and bohemian identity. Famous for its immense quicksand dunes that separate it from Cabo Polonio, navigable stream, straw ranches and artisanal fishing."
+    "caracteristicas_en": "Spa with a rugged profile and bohemian identity. Famous for its immense quicksand dunes that separate it from Cabo Polonio, navigable stream, straw ranches and artisanal fishing.",
+    "caracteristicas_pt": "Spa com perfil agreste e identidade boêmia. Famosa pelas imensas dunas de areia movediça que a separam de Cabo Polonio, riacho navegável, fazendas de palha e pesca artesanal."
   },
   {
     "id": 471,
@@ -8476,7 +8946,8 @@ const DESTINOS = [
     "lng": -53.5125,
     "web": "turismorocha.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Peaceful and extensive ocean resort with a strong family and historical profile. It has sport fishing channels, extensive secluded tree-lined beaches and proximity to the Cerro Verde protected area."
+    "caracteristicas_en": "Peaceful and extensive ocean resort with a strong family and historical profile. It has sport fishing channels, extensive secluded tree-lined beaches and proximity to the Cerro Verde protected area.",
+    "caracteristicas_pt": "Resort oceânico tranquilo e extenso com forte perfil familiar e histórico. Possui canais de pesca esportiva, extensas praias isoladas e arborizadas e proximidade com a área protegida Cerro Verde."
   },
   {
     "id": 472,
@@ -8494,7 +8965,8 @@ const DESTINOS = [
     "lng": -54.1528,
     "web": "turismorocha.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Coastal promenade and maritime fishing and artisanal terminal. Excellent environment for night walks along the breakwater, coastal sport fishing, sea lion watching and boat trips."
+    "caracteristicas_en": "Coastal promenade and maritime fishing and artisanal terminal. Excellent environment for night walks along the breakwater, coastal sport fishing, sea lion watching and boat trips.",
+    "caracteristicas_pt": "Passeio costeiro e terminal marítimo de pesca e artesanal. Excelente ambiente para passeios noturnos ao longo do quebra-mar, pesca desportiva costeira, observação de leões marinhos e passeios de barco."
   },
   {
     "id": 473,
@@ -8512,7 +8984,8 @@ const DESTINOS = [
     "lng": -53.8989,
     "web": "turismorocha.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Exclusive rural and residential spa with low building density. Totally virgin and secluded beaches, large coastal pine forests and absolute tranquility to disconnect."
+    "caracteristicas_en": "Exclusive rural and residential spa with low building density. Totally virgin and secluded beaches, large coastal pine forests and absolute tranquility to disconnect.",
+    "caracteristicas_pt": "Spa selvagem e residencial exclusivo com baixa densidade construtiva. Praias totalmente virgens e isoladas, grandes pinhais costeiros e tranquilidade absoluta para desligar."
   },
   {
     "id": 474,
@@ -8530,7 +9003,8 @@ const DESTINOS = [
     "lng": -54.1419,
     "web": "turismorocha.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Extensive family and residential beach adjacent to La Paloma. It stands out for its fine sands with a gentle slope, intermediate waves ideal for wind sports, surf schools and summer inns."
+    "caracteristicas_en": "Extensive family and residential beach adjacent to La Paloma. It stands out for its fine sands with a gentle slope, intermediate waves ideal for wind sports, surf schools and summer inns.",
+    "caracteristicas_pt": "Extensa praia familiar e residencial adjacente a La Paloma. Destaca-se pelas areias finas com declive suave, ondas intermédias ideais para desportos de vento, escolas de surf e pousadas de verão."
   },
   {
     "id": 475,
@@ -8548,7 +9022,8 @@ const DESTINOS = [
     "lng": -53.7456,
     "web": "turismorocha.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Traditional spa with a picturesque and familiar profile. Wooden houses built on the same line of the sand (\"stilt houses\"), extensive beaches with strong waves and the atmosphere of a River Plate coastal town."
+    "caracteristicas_en": "Traditional spa with a picturesque and familiar profile. Wooden houses built on the same line of the sand (\"stilt houses\"), extensive beaches with strong waves and the atmosphere of a River Plate coastal town.",
+    "caracteristicas_pt": "Spa tradicional com perfil pitoresco e familiar. Casas de madeira construídas na mesma linha da areia (“palafitas”), extensas praias com ondas fortes e clima de cidade litorânea do Rio da Prata."
   },
   {
     "id": 476,
@@ -8566,7 +9041,8 @@ const DESTINOS = [
     "lng": -53.6522,
     "web": "turismorocha.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Immense mirror of fresh water surrounded by local legends and fig trees mountains. Low calm beaches ideal for children, river sport fishing and lake bird watching."
+    "caracteristicas_en": "Immense mirror of fresh water surrounded by local legends and fig trees mountains. Low calm beaches ideal for children, river sport fishing and lake bird watching.",
+    "caracteristicas_pt": "Imenso espelho de água doce rodeado de lendas locais e montanhas de figueiras. Praias de baixa calma ideais para crianças, pesca desportiva fluvial e observação de aves lacustres."
   },
   {
     "id": 477,
@@ -8584,7 +9060,8 @@ const DESTINOS = [
     "lng": -53.4614,
     "web": "chuy.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Binational border city with strong commercial profile. Extensive shopping circuit of duty-free shops on an avenue shared with Chuí (Brazil)."
+    "caracteristicas_en": "Binational border city with strong commercial profile. Extensive shopping circuit of duty-free shops on an avenue shared with Chuí (Brazil).",
+    "caracteristicas_pt": "Cidade fronteiriça binacional com forte perfil comercial. Extenso circuito de compras de lojas duty-free em avenida compartilhada com o Chuí (Brasil)."
   },
   {
     "id": 478,
@@ -8602,7 +9079,8 @@ const DESTINOS = [
     "lng": -53.7614,
     "web": "turismorocha.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Spectacular coastal mountain ascent trekking in Barra de Valizas. The hill offers a unique panoramic view of the ocean, the Arroyo de Valizas, giant dunes and remains of historical shipwrecks."
+    "caracteristicas_en": "Spectacular coastal mountain ascent trekking in Barra de Valizas. The hill offers a unique panoramic view of the ocean, the Arroyo de Valizas, giant dunes and remains of historical shipwrecks.",
+    "caracteristicas_pt": "Espetacular trekking de subida à montanha costeira em Barra de Valizas. O morro oferece uma vista panorâmica única do oceano, do Arroyo de Valizas, de dunas gigantes e de vestígios de naufrágios históricos."
   },
   {
     "id": 479,
@@ -8620,7 +9098,8 @@ const DESTINOS = [
     "lng": -54.1614,
     "web": "rocha.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Historical cultural and interpretive space located in the old train station of the spa. It houses collections of old photographs, local art exhibitions and theater workshops."
+    "caracteristicas_en": "Historical cultural and interpretive space located in the old train station of the spa. It houses collections of old photographs, local art exhibitions and theater workshops.",
+    "caracteristicas_pt": "Espaço histórico cultural e interpretativo localizado na antiga estação ferroviária do balneário. Abriga coleções de fotografias antigas, exposições de arte local e oficinas de teatro."
   },
   {
     "id": 480,
@@ -8638,7 +9117,8 @@ const DESTINOS = [
     "lng": -54.1458,
     "web": "turismorocha.gub.uy",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Quiet seaside resort with a purely residential and historic family profile, adjacent to the Costa Azul. Extensive tree-lined beaches with low dunes ideal for relaxing without crowds."
+    "caracteristicas_en": "Quiet seaside resort with a purely residential and historic family profile, adjacent to the Costa Azul. Extensive tree-lined beaches with low dunes ideal for relaxing without crowds.",
+    "caracteristicas_pt": "Tranquila estância balnear de perfil familiar puramente residencial e histórico, adjacente à Costa Azul. Extensas praias arborizadas com dunas baixas ideais para relaxar sem multidões."
   },
   {
     "id": 481,
@@ -8656,7 +9136,8 @@ const DESTINOS = [
     "lng": -53.7828,
     "web": "turismorocha.gub.uy",
     "popularidad": "Alta",
-    "caracteristicas_en": "Historic structure from 1881 declared a National Historic Monument. It allows the ascent to observe the panoramic view of the rugged town, the sea lion islands and the immensity of the ocean."
+    "caracteristicas_en": "Historic structure from 1881 declared a National Historic Monument. It allows the ascent to observe the panoramic view of the rugged town, the sea lion islands and the immensity of the ocean.",
+    "caracteristicas_pt": "Estrutura histórica de 1881 declarada Monumento Histórico Nacional. Permite a subida observar a vista panorâmica da cidade acidentada, das ilhas dos leões marinhos e da imensidão do oceano."
   },
   {
     "id": 482,
@@ -8674,7 +9155,8 @@ const DESTINOS = [
     "lng": -53.8822,
     "web": "turismorocha.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Mediterranean town in the interior of the department, famous for being surrounded by millions of Butiá capitata palm trees. Strong tradition in butiá sweets, artisanal liquors and historic facades."
+    "caracteristicas_en": "Mediterranean town in the interior of the department, famous for being surrounded by millions of Butiá capitata palm trees. Strong tradition in butiá sweets, artisanal liquors and historic facades.",
+    "caracteristicas_pt": "Cidade mediterrânea do interior do departamento, famosa por estar cercada por milhões de palmeiras Butiá capitata. Forte tradição em doces de butiá, licores artesanais e fachadas históricas."
   },
   {
     "id": 483,
@@ -8692,7 +9174,8 @@ const DESTINOS = [
     "lng": -53.9453,
     "web": "turismorocha.gub.uy",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Extensive mirror of fresh water surrounded by the densest butiá palm grove in the country and an important native riverine mountain. Ideal for ecotourism, bird watching and countryside relaxation."
+    "caracteristicas_en": "Extensive mirror of fresh water surrounded by the densest butiá palm grove in the country and an important native riverine mountain. Ideal for ecotourism, bird watching and countryside relaxation.",
+    "caracteristicas_pt": "Extenso espelho de água doce rodeado pelo mais denso palmeiral de butiá do país e por uma importante serra ribeirinha nativa. Ideal para ecoturismo, observação de aves e relaxamento no campo."
   },
   {
     "id": 484,
@@ -8710,7 +9193,8 @@ const DESTINOS = [
     "lng": -54.456,
     "web": "treintaytres.gub.uy[cite: 1]",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Alternative landscaped trail of low technical difficulty that leads to the main panoramic viewpoints of the gorge, ideal for photography and bird watching without descending into the canyon[cite: 1]."
+    "caracteristicas_en": "Alternative landscaped trail of low technical difficulty that leads to the main panoramic viewpoints of the gorge, ideal for photography and bird watching without descending into the canyon[cite: 1].",
+    "caracteristicas_pt": "Trilha paisagística alternativa de baixa dificuldade técnica que leva aos principais mirantes panorâmicos da garganta, ideal para fotografia e observação de aves sem descer ao cânion[cite: 1]."
   },
   {
     "id": 485,
@@ -8728,7 +9212,8 @@ const DESTINOS = [
     "lng": -53.9458,
     "web": "treintaytres.gub.uy[cite: 1]",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Extensive wooded park on the banks of the Olimar Grande River in the city of Vergara. It has landscaped camping areas, barbecue pits, sports fields and summer river beaches."
+    "caracteristicas_en": "Extensive wooded park on the banks of the Olimar Grande River in the city of Vergara. It has landscaped camping areas, barbecue pits, sports fields and summer river beaches.",
+    "caracteristicas_pt": "Extenso parque arborizado às margens do rio Olimar Grande, na cidade de Vergara. Possui zonas de campismo ajardinadas, churrasqueiras, campos desportivos e praias fluviais de verão."
   },
   {
     "id": 486,
@@ -8746,7 +9231,8 @@ const DESTINOS = [
     "lng": -54.4572,
     "web": "treintaytres.gub.uy[cite: 1]",
     "popularidad": "Alta",
-    "caracteristicas_en": "Demanding adventure trekking and technical descent towards the deep bed of the Yerbal Chico Stream, between stone passages, virgin fern vegetation and natural pools[cite: 1]."
+    "caracteristicas_en": "Demanding adventure trekking and technical descent towards the deep bed of the Yerbal Chico Stream, between stone passages, virgin fern vegetation and natural pools[cite: 1].",
+    "caracteristicas_pt": "Exigente trekking de aventura e descida técnica até o leito profundo do Córrego Yerbal Chico, entre passagens de pedra, vegetação de samambaias virgens e piscinas naturais[cite: 1]."
   },
   {
     "id": 487,
@@ -8764,7 +9250,8 @@ const DESTINOS = [
     "lng": -54.3833,
     "web": "treintaytres.gub.uy[cite: 1]",
     "popularidad": "Alta",
-    "caracteristicas_en": "Main river resort of the departmental capital, surrounded by a lush native forest. It has wide beaches with clean sand, children's play areas and wooden docks."
+    "caracteristicas_en": "Main river resort of the departmental capital, surrounded by a lush native forest. It has wide beaches with clean sand, children's play areas and wooden docks.",
+    "caracteristicas_pt": "Principal balneário fluvial da capital departamental, rodeado por uma exuberante floresta nativa. Possui amplas praias de areia limpa, parques infantis e cais de madeira."
   },
   {
     "id": 488,
@@ -8782,7 +9269,8 @@ const DESTINOS = [
     "lng": -54.2542,
     "web": "treintaytres.gub.uy[cite: 1]",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Picturesque pot or pool of circular crystalline water fed by small natural waterfalls nestled in the mountain ranges of Cuchilla de Dionisio, ideal for ecotourism."
+    "caracteristicas_en": "Picturesque pot or pool of circular crystalline water fed by small natural waterfalls nestled in the mountain ranges of Cuchilla de Dionisio, ideal for ecotourism.",
+    "caracteristicas_pt": "Pitoresco pote ou piscina circular de água cristalina alimentada por pequenas cachoeiras naturais situadas nas serras de Cuchilla de Dionisio, ideais para o ecoturismo."
   },
   {
     "id": 489,
@@ -8800,7 +9288,8 @@ const DESTINOS = [
     "lng": -55.1111,
     "web": "treintaytres.gub.uy[cite: 1]",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Shared and historical town famous for being the first place in South America where women voted in 1927. It has cultural-historical tourism circuits and rural relaxation environments."
+    "caracteristicas_en": "Shared and historical town famous for being the first place in South America where women voted in 1927. It has cultural-historical tourism circuits and rural relaxation environments.",
+    "caracteristicas_pt": "Cidade compartilhada e histórica famosa por ser o primeiro lugar da América do Sul onde as mulheres votaram em 1927. Possui circuitos de turismo histórico-cultural e ambientes de relaxamento rural."
   },
   {
     "id": 490,
@@ -8818,7 +9307,8 @@ const DESTINOS = [
     "lng": -53.8031,
     "web": "treintaytres.gub.uy[cite: 1]",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Port town on the banks of the majestic Cebollatí River. It stands out for its tree-lined promenade, nautical sailing trips to Laguna Merín, dorado fishing and a relaxing natural environment."
+    "caracteristicas_en": "Port town on the banks of the majestic Cebollatí River. It stands out for its tree-lined promenade, nautical sailing trips to Laguna Merín, dorado fishing and a relaxing natural environment.",
+    "caracteristicas_pt": "Cidade portuária às margens do majestoso rio Cebollatí. Destaca-se pelo seu passeio arborizado, passeios de barco à vela até a Laguna Merín, pesca do dourado e um ambiente natural relaxante."
   },
   {
     "id": 491,
@@ -8836,7 +9326,8 @@ const DESTINOS = [
     "lng": -54.3814,
     "web": "treintaytres.gub.uy[cite: 1]",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Immense urban green lung in the departmental capital. It has an outdoor amphitheater, athletics tracks, profuse exotic native trees and large parked areas for walking."
+    "caracteristicas_en": "Immense urban green lung in the departmental capital. It has an outdoor amphitheater, athletics tracks, profuse exotic native trees and large parked areas for walking.",
+    "caracteristicas_pt": "Imenso pulmão verde urbano na capital departamental. Possui anfiteatro ao ar livre, pistas de atletismo, abundantes árvores nativas exóticas e amplos estacionamentos para caminhadas."
   },
   {
     "id": 492,
@@ -8854,7 +9345,8 @@ const DESTINOS = [
     "lng": -54.4419,
     "web": "treintaytres.gub.uy[cite: 1]",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Quiet landscaped area on the banks of the Yerbal Chico stream. It has river beaches shaded by willows and osiers, ideal for light river fishing and weekend picnics."
+    "caracteristicas_en": "Quiet landscaped area on the banks of the Yerbal Chico stream. It has river beaches shaded by willows and osiers, ideal for light river fishing and weekend picnics.",
+    "caracteristicas_pt": "Área ajardinada tranquila às margens do riacho Yerbal Chico. Possui praias fluviais sombreadas por salgueiros e vimes, ideais para pesca fluvial ligeira e piqueniques de fim de semana."
   },
   {
     "id": 493,
@@ -8872,7 +9364,8 @@ const DESTINOS = [
     "lng": -54.3822,
     "web": "treintaytres.gub.uy[cite: 1]",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Cultural space in the center of the city that houses stable pictorial collections by prominent national artists and a regional indigenous archaeological room."
+    "caracteristicas_en": "Cultural space in the center of the city that houses stable pictorial collections by prominent national artists and a regional indigenous archaeological room.",
+    "caracteristicas_pt": "Espaço cultural no centro da cidade que abriga coleções pictóricas estáveis ​​de destacados artistas nacionais e uma sala arqueológica indígena regional."
   },
   {
     "id": 494,
@@ -8890,7 +9383,8 @@ const DESTINOS = [
     "lng": -54.4258,
     "web": "treintaytres.gub.uy[cite: 1]",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Extensive mountain range characterized by steep rock formations and narrow valleys of native riverine forest. Excellent circuit for adventure ecotourism and botanical hiking."
+    "caracteristicas_en": "Extensive mountain range characterized by steep rock formations and narrow valleys of native riverine forest. Excellent circuit for adventure ecotourism and botanical hiking.",
+    "caracteristicas_pt": "Extensa cordilheira caracterizada por formações rochosas íngremes e vales estreitos de mata ciliar nativa. Excelente circuito para ecoturismo de aventura e caminhadas botânicas."
   },
   {
     "id": 495,
@@ -8908,7 +9402,8 @@ const DESTINOS = [
     "lng": -54.9658,
     "web": "treintaytres.gub.uy[cite: 1]",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Picturesque and historic rural town in the northern interior. It preserves deep-rooted gaucho traditions, old general stores and the historic tomb of the leader Aparicio Saravia."
+    "caracteristicas_en": "Picturesque and historic rural town in the northern interior. It preserves deep-rooted gaucho traditions, old general stores and the historic tomb of the leader Aparicio Saravia.",
+    "caracteristicas_pt": "Pitoresca e histórica vila rural do interior norte. Preserva tradições gaúchas arraigadas, antigos armazéns e o histórico túmulo do líder Aparicio Saravia."
   },
   {
     "id": 496,
@@ -8926,7 +9421,8 @@ const DESTINOS = [
     "lng": -53.8014,
     "web": "treintaytres.gub.uy[cite: 1]",
     "popularidad": "Moderada",
-    "caracteristicas_en": "Restored coastal and historical promenade on the Cebollatí River. Ideal for family sunset walks, landscape photography, and light sport fishing from wooden docks."
+    "caracteristicas_en": "Restored coastal and historical promenade on the Cebollatí River. Ideal for family sunset walks, landscape photography, and light sport fishing from wooden docks.",
+    "caracteristicas_pt": "Passeio costeiro e histórico restaurado no rio Cebollatí. Ideal para passeios em família ao pôr do sol, fotografia de paisagem e pesca esportiva leve em docas de madeira."
   },
   {
     "id": 497,
@@ -8944,7 +9440,8 @@ const DESTINOS = [
     "lng": -54.4122,
     "web": "treintaytres.gub.uy[cite: 1]",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Wild mountain river environment on the northern limit of the department. Solitary beaches surrounded by forest plantations and virgin native forest, ideal for adventure camping."
+    "caracteristicas_en": "Wild mountain river environment on the northern limit of the department. Solitary beaches surrounded by forest plantations and virgin native forest, ideal for adventure camping.",
+    "caracteristicas_pt": "Ambiente fluvial de montanha selvagem no limite norte do departamento. Praias solitárias cercadas por plantações florestais e mata nativa virgem, ideais para camping de aventura."
   },
   {
     "id": 498,
@@ -8962,7 +9459,8 @@ const DESTINOS = [
     "lng": -53.9453,
     "web": "treintaytres.gub.uy[cite: 1]",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Historic natural area on the departmental border next to the Tacuarí River. Wild forest environment ideal for weekend camping, canoeing and artisanal river fishing."
+    "caracteristicas_en": "Historic natural area on the departmental border next to the Tacuarí River. Wild forest environment ideal for weekend camping, canoeing and artisanal river fishing.",
+    "caracteristicas_pt": "Área natural histórica na fronteira departamental junto ao rio Tacuarí. Ambiente de mata selvagem ideal para camping de fim de semana, canoagem e pesca artesanal fluvial."
   },
   {
     "id": 499,
@@ -8980,7 +9478,8 @@ const DESTINOS = [
     "lng": -54.3828,
     "web": "treintaytres.gub.uy[cite: 1]",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Pedestrian circuit that runs through central squares and avenues of the departmental capital exhibiting sculptural monuments dedicated to the communities, poets and artists of the region."
+    "caracteristicas_en": "Pedestrian circuit that runs through central squares and avenues of the departmental capital exhibiting sculptural monuments dedicated to the communities, poets and artists of the region.",
+    "caracteristicas_pt": "Circuito pedestre que percorre praças e avenidas centrais da capital departamental exibindo monumentos escultóricos dedicados às comunidades, poetas e artistas da região."
   },
   {
     "id": 500,
@@ -8998,7 +9497,8 @@ const DESTINOS = [
     "lng": -54.0122,
     "web": "treintaytres.gub.uy[cite: 1]",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Picturesque hill with a flattened summit located in the foothills of the Cuchilla de Dionisio. It offers trails of low technical difficulty and panoramic views of rice plantations and grasslands."
+    "caracteristicas_en": "Picturesque hill with a flattened summit located in the foothills of the Cuchilla de Dionisio. It offers trails of low technical difficulty and panoramic views of rice plantations and grasslands.",
+    "caracteristicas_pt": "Colina pitoresca de cume achatado localizada no sopé da Cuchilla de Dionisio. Oferece trilhas de baixa dificuldade técnica e vistas panorâmicas de plantações de arroz e campos."
   },
   {
     "id": 501,
@@ -9016,7 +9516,8 @@ const DESTINOS = [
     "lng": -54.3853,
     "web": "treintaytres.gub.uy[cite: 1]",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Pedestrian path and landscaped infrastructure that borders the banks of the Yerbal Grande stream in its urban section. Wooded environment ideal for family walks and sports recreation."
+    "caracteristicas_en": "Pedestrian path and landscaped infrastructure that borders the banks of the Yerbal Grande stream in its urban section. Wooded environment ideal for family walks and sports recreation.",
+    "caracteristicas_pt": "Caminho pedestre e infraestrutura paisagística que margeia as margens do córrego Yerbal Grande em seu trecho urbano. Ambiente arborizado ideal para passeios em família e recreação esportiva."
   },
   {
     "id": 502,
@@ -9034,7 +9535,8 @@ const DESTINOS = [
     "lng": -54.3989,
     "web": "treintaytres.gub.uy[cite: 1]",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Commemorative and historical space located at the old crossing of colonial carts and troops over the Olimar River. It has traditional monuments, rest and picnic areas."
+    "caracteristicas_en": "Commemorative and historical space located at the old crossing of colonial carts and troops over the Olimar River. It has traditional monuments, rest and picnic areas.",
+    "caracteristicas_pt": "Espaço comemorativo e histórico localizado na antiga travessia de carroças e tropas coloniais sobre o rio Olimar. Possui monumentos tradicionais, áreas de descanso e piquenique."
   },
   {
     "id": 503,
@@ -9052,6 +9554,7 @@ const DESTINOS = [
     "lng": -54.4489,
     "web": "treintaytres.gub.uy[cite: 1]",
     "popularidad": "Emergente",
-    "caracteristicas_en": "Natural water fall hidden among dense native ravine mountains in the mountain stream corridor. It offers swimming pools with crystal clear water and a totally virgin environment."
+    "caracteristicas_en": "Natural water fall hidden among dense native ravine mountains in the mountain stream corridor. It offers swimming pools with crystal clear water and a totally virgin environment.",
+    "caracteristicas_pt": "Queda de água natural escondida entre densas montanhas de ravinas nativas no corredor do córrego da montanha. Oferece piscinas com águas cristalinas e um ambiente totalmente virgem."
   }
 ];

@@ -29,7 +29,7 @@
     <!-- Flatpickr CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <!-- CSS stylesheet -->
-    <link rel="stylesheet" href="style.css?v=2.77">
+    <link rel="stylesheet" href="style.css?v=3.00">
 </head>
 <body>
     <div class="app-container">
@@ -37,13 +37,15 @@
         <header>
             <div class="logo-row">
                 <div class="logo-group">
-                    <div class="logo notranslate" translate="no"><img src="logo.png" alt="UruExplorer Logo" class="logo-icon">URU<span>EXPLORER</span> <span class="version-tag">v2.77</span></div>
+                    <div class="logo notranslate" translate="no"><img src="logo.png" alt="UruExplorer Logo" class="logo-icon">URU<span>EXPLORER</span> <span class="version-tag">v3.00</span></div>
                 </div>
                 <div class="header-controls" style="display: flex; align-items: center; gap: 10px;">
                     <div class="lang-switch">
                         <button class="lang-btn" id="lang-btn-es">ES</button>
                         <span class="lang-divider">|</span>
                         <button class="lang-btn" id="lang-btn-en">EN</button>
+                        <span class="lang-divider">|</span>
+                        <button class="lang-btn" id="lang-btn-pt">PT</button>
                     </div>
                     <div class="theme-switch">
                         <button class="theme-btn" id="theme-btn-dark" title="Tema Oscuro (Oro/Negro)">🌙</button>
@@ -56,12 +58,15 @@
         </header>
 
         <!-- Navigation Tabs -->
-        <nav class="tabs-nav">
-            <button class="tab-btn active" id="tab-turismo-btn"><span data-i18n="tab_turismo">Turismo</span></button>
-            <button class="tab-btn" id="tab-eventos-btn"><span data-i18n="tab_eventos">Eventos</span></button>
-            <button class="tab-btn" id="tab-resultados-btn"><span data-i18n="tab_resultados">Resultados</span> <span id="results-count-badge" style="display:none; font-size: 0.8rem; background: var(--primary); color: var(--bg-main); padding: 2px 6px; border-radius: 10px; margin-left: 5px;">0</span></button>
-            <button class="tab-btn" id="tab-itinerario-btn"><span data-i18n="tab_itinerario">Mis rutas</span> <span id="itinerary-tab-badge" style="display:none; font-size: 0.8rem; background: var(--primary); color: var(--bg-main); padding: 2px 6px; border-radius: 10px; margin-left: 5px;">0</span></button>
-        </nav>
+        <div class="unified-nav-header">
+            <button class="nav-arrow-btn" id="nav-arrow-left" aria-label="Previous Screen" style="visibility: hidden;">&larr;</button>
+            <div class="nav-title-container">
+                <span id="nav-title-text" class="nav-title-text" data-i18n="tab_turismo">Turismo</span>
+                <span id="results-count-badge" class="nav-title-badge" style="display:none;">0</span>
+                <span id="itinerary-tab-badge" class="nav-title-badge" style="display:none;">0</span>
+            </div>
+            <button class="nav-arrow-btn" id="nav-arrow-right" aria-label="Next Screen">&rarr;</button>
+        </div>
 
         <!-- View 1: Turismo (Search Filters + Favorites) -->
         <div id="view-turismo" class="tab-view active">
@@ -184,6 +189,56 @@
             </div>
         </div>
 
+        <!-- View: Emergencias (Emergencies and Utilities) -->
+        <div id="view-emergencias" class="tab-view">
+            <!-- GPS Status -->
+            <div class="emergency-gps-status" id="emergency-gps-container">
+                <span class="gps-dot red" id="emergency-gps-dot"></span>
+                <span class="gps-text" id="emergency-gps-text" data-i18n="lbl_gps_inactive">Ubicación inactiva</span>
+                <button class="btn btn-secondary btn-gps" id="btn-detect-gps" data-i18n="btn_detect_location">Detectar mi ubicación</button>
+            </div>
+
+            <!-- Category Grid -->
+            <div class="emergency-grid">
+                <!-- Policía -->
+                <div class="emergency-card police" id="btn-emergency-police">
+                    <div class="emergency-card-icon">👮</div>
+                    <div class="emergency-card-title" data-i18n="btn_search_police">Puestos de Policía</div>
+                </div>
+                <!-- Médica -->
+                <div class="emergency-card medical" id="btn-emergency-medical">
+                    <div class="emergency-card-icon">🏥</div>
+                    <div class="emergency-card-title" data-i18n="btn_search_medical">Atención Médica</div>
+                </div>
+                <!-- Mecánica -->
+                <div class="emergency-card mechanic" id="btn-emergency-mechanic">
+                    <div class="emergency-card-icon">🔧</div>
+                    <div class="emergency-card-title" data-i18n="btn_search_mechanics">Mecánica y Auxilio</div>
+                </div>
+                <!-- Recarga UTE -->
+                <div class="emergency-card chargers" id="btn-emergency-chargers">
+                    <div class="emergency-card-icon">⚡</div>
+                    <div class="emergency-card-title" data-i18n="btn_search_chargers">Estaciones de Recarga</div>
+                </div>
+            </div>
+
+            <!-- Nearby UTE Chargers -->
+            <div class="emergency-section">
+                <h4 class="emergency-section-title" data-i18n="title_chargers_200km">Cargadores UTE a menos de 200 km</h4>
+                <div class="emergency-list" id="emergency-chargers-list">
+                    <p class="empty-text" data-i18n="no_chargers_200km">No se detectaron estaciones de recarga de UTE a menos de 200 km.</p>
+                </div>
+            </div>
+
+            <!-- Emergencies along your route -->
+            <div class="emergency-section">
+                <h4 class="emergency-section-title" data-i18n="title_itinerary_emergencies">Emergencias en tu Recorrido</h4>
+                <div class="emergency-list" id="emergency-itinerary-list">
+                    <p class="empty-text" data-i18n="empty_itinerary_emergencies">No tienes destinos en tu recorrido para calcular servicios en ruta.</p>
+                </div>
+            </div>
+        </div>
+
         <!-- View 3: Itinerario (Route detail) -->
         <div id="view-itinerario" class="tab-view">
             <div class="itinerary-list-container">
@@ -260,8 +315,9 @@
     <!-- Load Local JS Database and Application Logic -->
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="https://npmcdn.com/flatpickr/dist/l10n/es.js"></script>
+    <script src="https://npmcdn.com/flatpickr/dist/l10n/pt.js"></script>
     <script src="destinos.js"></script>
-    <script src="eventos.js?v=2.77"></script>
-    <script src="app.js?v=2.77"></script>
+    <script src="eventos.js?v=3.00"></script>
+    <script src="app.js?v=3.00"></script>
 </body>
 </html>
