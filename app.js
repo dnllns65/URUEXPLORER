@@ -22,7 +22,7 @@ let emptySearchCriterion = null; // Session empty search behavior ('near' or 'al
 let currentLang = 'es'; // default
 let currentTheme = localStorage.getItem('uruexplorer_theme') || 'dark';
 let eventDatePicker = null;
-const TABS = ['turismo', 'eventos', 'resultados', 'emergencias', 'itinerario'];
+const TABS = ['turismo', 'eventos', 'resultados', 'itinerario', 'emergencias'];
 let activeTabId = 'turismo';
 
 // Localization Dictionary
@@ -135,10 +135,18 @@ const TRANSLATIONS = {
         btn_search_medical: "Atención Médica",
         btn_search_mechanics: "Mecánica y Auxilio",
         btn_search_chargers: "Estaciones de Recarga",
-        title_chargers_200km: "Cargadores UTE a menos de 200 km",
-        no_chargers_200km: "No se detectaron estaciones de recarga de UTE a menos de 200 km.",
         title_itinerary_emergencies: "Emergencias en tu Recorrido",
-        empty_itinerary_emergencies: "No tienes destinos en tu recorrido para calcular servicios en ruta."
+        empty_itinerary_emergencies: "No tienes destinos en tu recorrido para calcular servicios en ruta.",
+        title_police_list: "Seccionales de Policía Cercanas (Top 5)",
+        no_gps_police_list: "Por favor active su GPS para ver las seccionales de policía más cercanas ordenadas por distancia.",
+        title_medical_list: "Hospitales y Policlínicas Cercanos (Top 5)",
+        no_gps_medical_list: "Por favor active su GPS para ver los centros de salud más cercanos ordenados por distancia.",
+        title_chargers_list: "Estaciones de Recarga Cercanas (Radio 100 km)",
+        no_gps_chargers_list: "Por favor active su GPS para ver las estaciones de recarga a menos de 100 km ordenadas por distancia.",
+        no_chargers_100km: "No se encontraron estaciones de recarga a menos de 100 km de tu ubicación.",
+        btn_more_police_maps: "🔍 Buscar todas las seccionales en Google Maps",
+        btn_more_medical_maps: "🔍 Buscar más centros de salud en Google Maps",
+        btn_more_chargers_maps: "🔍 Buscar más cargadores en Google Maps"
     },
     en: {
         tagline: "Explore Uruguay in a minimalist way",
@@ -248,10 +256,18 @@ const TRANSLATIONS = {
         btn_search_medical: "Medical Attention",
         btn_search_mechanics: "Mechanic & Towing",
         btn_search_chargers: "Charging Stations",
-        title_chargers_200km: "UTE Chargers within 200 km",
-        no_chargers_200km: "No UTE charging stations detected within 200 km.",
         title_itinerary_emergencies: "Emergencies along your Route",
-        empty_itinerary_emergencies: "You have no destinations in your route to calculate roadside services."
+        empty_itinerary_emergencies: "You have no destinations in your route to calculate roadside services.",
+        title_police_list: "Nearby Police Stations (Top 5)",
+        no_gps_police_list: "Please activate your GPS to see the nearest police stations sorted by distance.",
+        title_medical_list: "Nearby Hospitals & Clinics (Top 5)",
+        no_gps_medical_list: "Please activate your GPS to see the nearest medical centers sorted by distance.",
+        title_chargers_list: "Nearby Charging Stations (100 km Radius)",
+        no_gps_chargers_list: "Please activate your GPS to see charging stations within 100 km sorted by distance.",
+        no_chargers_100km: "No charging stations found within 100 km of your location.",
+        btn_more_police_maps: "🔍 Search all police stations on Google Maps",
+        btn_more_medical_maps: "🔍 Search more medical centers on Google Maps",
+        btn_more_chargers_maps: "🔍 Search more chargers on Google Maps"
     },
     pt: {
         tagline: "Explore o Uruguai de forma minimalista",
@@ -360,11 +376,19 @@ const TRANSLATIONS = {
         btn_search_medical: "Atendimento Médico",
         btn_search_mechanics: "Mecânica e Reboque",
         btn_search_chargers: "Estações de Recarga",
-        title_chargers_200km: "Carregadores UTE a menos de 200 km",
-        no_chargers_200km: "Nenhuma estação de recarga UTE detectada a menos de 200 km.",
         title_itinerary_emergencies: "Emergências ao longo do seu Roteiro",
-        empty_itinerary_emergencies: "Você não tem destinos no seu roteiro para calcular serviços na estrada."
-    }
+        empty_itinerary_emergencies: "Você não tem destinos no seu roteiro para calcular serviços na estrada.",
+        title_police_list: "Postos de Polícia Próximos (Top 5)",
+        no_gps_police_list: "Por favor, ative seu GPS para ver os postos de polícia mais próximos ordenados por distância.",
+        title_medical_list: "Hospitais e Policlínicas Próximos (Top 5)",
+        no_gps_medical_list: "Por favor, ative seu GPS para ver os centros de saúde mais próximos ordenados por distância.",
+        title_chargers_list: "Estações de Recarga Próximas (Raio de 100 km)",
+        no_gps_chargers_list: "Por favor, ative seu GPS para ver as estações de recarga a menos de 100 km ordenadas por distância.",
+        no_chargers_100km: "Nenhuma estação de recarga encontrada a menos de 100 km de sua localização.",
+        btn_more_police_maps: "🔍 Buscar todos os postos de polícia no Google Maps",
+        btn_more_medical_maps: "🔍 Buscar mais centros médicos no Google Maps",
+        btn_more_chargers_maps: "🔍 Buscar mais carregadores no Google Maps"
+    },
 };
 
 const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/1x_eFEDfD4Dm5cnDUHSpG8ga_tYhUZdjd4OhGSwmmfPc/export?format=csv';
@@ -1055,12 +1079,16 @@ function setupEventListeners() {
 
     const btnEmergencyPolice = document.getElementById('btn-emergency-police');
     if (btnEmergencyPolice) {
-        btnEmergencyPolice.addEventListener('click', () => openEmergencySearch('police'));
+        btnEmergencyPolice.addEventListener('click', () => {
+            showPoliceStationsList();
+        });
     }
 
     const btnEmergencyMedical = document.getElementById('btn-emergency-medical');
     if (btnEmergencyMedical) {
-        btnEmergencyMedical.addEventListener('click', () => openEmergencySearch('medical'));
+        btnEmergencyMedical.addEventListener('click', () => {
+            showMedicalCentersList();
+        });
     }
 
     const btnEmergencyMechanic = document.getElementById('btn-emergency-mechanic');
@@ -1070,7 +1098,17 @@ function setupEventListeners() {
 
     const btnEmergencyChargers = document.getElementById('btn-emergency-chargers');
     if (btnEmergencyChargers) {
-        btnEmergencyChargers.addEventListener('click', () => openEmergencySearch('chargers'));
+        btnEmergencyChargers.addEventListener('click', () => {
+            showEVChargersList();
+        });
+    }
+
+    const btnQuickEmergency = document.getElementById('btn-quick-emergency');
+    if (btnQuickEmergency) {
+        btnQuickEmergency.addEventListener('click', (e) => {
+            e.preventDefault();
+            switchTab('emergencias');
+        });
     }
 }
 
@@ -2491,92 +2529,126 @@ function handleSwipe() {
     }
     
     if (Math.abs(diffX) > minDistance) {
+        const currentIndex = TABS.indexOf(activeTabId);
         if (diffX < 0) {
-            // Swipe Left
-            if (activeTabId === 'turismo') {
-                switchTab('eventos');
-            } else if (activeTabId === 'eventos') {
-                switchTab('resultados');
-            } else if (activeTabId === 'resultados') {
-                switchTab('emergencias');
-            } else if (activeTabId === 'emergencias') {
-                switchTab('itinerario');
+            // Swipe Left (advance to next tab)
+            if (currentIndex !== -1 && currentIndex < TABS.length - 1) {
+                switchTab(TABS[currentIndex + 1]);
             }
         } else {
-            // Swipe Right
-            if (activeTabId === 'itinerario') {
-                switchTab('emergencias');
-            } else if (activeTabId === 'emergencias') {
-                switchTab('resultados');
-            } else if (activeTabId === 'resultados') {
-                switchTab('eventos');
-            } else if (activeTabId === 'eventos') {
-                switchTab('turismo');
+            if (currentIndex !== -1 && currentIndex > 0) {
+                switchTab(TABS[currentIndex - 1]);
             }
         }
     }
 }
 
-function setupSwipeNavigation() {
-    document.querySelectorAll('.tab-view').forEach(view => {
-        view.addEventListener('touchstart', handleTouchStart, { passive: true });
-        view.addEventListener('touchend', handleTouchEnd, { passive: true });
-    });
-}
+const POLICE_STATIONS = [
+    { name: 'Jefatura de Policía de Montevideo', depto: 'Montevideo', lat: -34.9056, lng: -56.1925, address: 'San José 1250, Montevideo' },
+    { name: 'Seccional 4ª de Policía (Tres Cruces)', depto: 'Montevideo', lat: -34.8944, lng: -56.1628, address: 'Av. Italia 2516, Montevideo' },
+    { name: 'Seccional 13ª de Policía (Prado)', depto: 'Montevideo', lat: -34.8686, lng: -56.1864, address: 'Av. Joaquín Suárez 3097, Montevideo' },
+    { name: 'Seccional 10ª de Policía (Pocitos)', depto: 'Montevideo', lat: -34.9081, lng: -56.1511, address: 'Gabriel A. Pereira 3131, Montevideo' },
+    { name: 'Seccional 14ª de Policía (Carrasco)', depto: 'Montevideo', lat: -34.8872, lng: -56.0903, address: 'Av. Italia 5727, Montevideo' },
+    { name: 'Seccional 5ª de Policía (Cordón)', depto: 'Montevideo', lat: -34.9022, lng: -56.1711, address: 'Joaquín de Salterain 1210, Montevideo' },
+    { name: 'Seccional 9ª de Policía (Parque Batlle)', depto: 'Montevideo', lat: -34.8911, lng: -56.1528, address: 'Av. Centenario 2743, Montevideo' },
+    { name: 'Seccional 10ª - Punta del Este', depto: 'Maldonado', lat: -34.9631, lng: -54.9431, address: 'Calle 28 y 24, Punta del Este' },
+    { name: 'Seccional 11ª - Piriápolis', depto: 'Maldonado', lat: -34.8631, lng: -55.2714, address: 'Simón del Pino, Piriápolis' },
+    { name: 'Jefatura de Policía de Maldonado', depto: 'Maldonado', lat: -34.9083, lng: -54.9583, address: '18 de Julio y Ledesma, Maldonado' },
+    { name: 'Subcomisaría Cabo Polonio', depto: 'Rocha', lat: -34.4011, lng: -53.7844, address: 'Cabo Polonio, Rocha' },
+    { name: 'Comisaría La Paloma (Seccional 11ª)', depto: 'Rocha', lat: -34.6586, lng: -54.1611, address: 'Av. Nicolás Solari, La Paloma' },
+    { name: 'Subcomisaría Punta del Diablo', depto: 'Rocha', lat: -34.0436, lng: -53.5414, address: 'Punta del Diablo, Rocha' },
+    { name: 'Jefatura de Policía de Rocha', depto: 'Rocha', lat: -34.4819, lng: -54.3328, address: '18 de Julio 93, Rocha' },
+    { name: 'Jefatura de Policía de Canelones', depto: 'Canelones', lat: -34.5244, lng: -56.2778, address: 'Tomás Berreta 392, Canelones' },
+    { name: 'Seccional 17ª - Atlántida', depto: 'Canelones', lat: -34.7725, lng: -55.7583, address: 'Calle 18 y Av. Artigas, Atlántida' },
+    { name: 'Seccional 19ª - Las Piedras', depto: 'Canelones', lat: -34.7264, lng: -56.2208, address: 'Las Piedras, Canelones' },
+    { name: 'Jefatura de Policía de Colonia', depto: 'Colonia', lat: -34.4719, lng: -57.8436, address: 'General Flores 388, Colonia del Sacramento' },
+    { name: 'Seccional 14ª - Carmelo', depto: 'Colonia', lat: -34.0044, lng: -58.2861, address: '19 de Abril 350, Carmelo' },
+    { name: 'Jefatura de Policía de San José', depto: 'San José', lat: -34.3389, lng: -56.7136, address: 'Artigas 300, San José de Mayo' },
+    { name: 'Jefatura de Policía de Soriano', depto: 'Soriano', lat: -33.2522, lng: -58.0305, address: 'Giménez 700, Mercedes' },
+    { name: 'Jefatura de Policía de Río Negro', depto: 'Río Negro', lat: -33.1311, lng: -58.2989, address: '25 de Mayo 3192, Fray Bentos' },
+    { name: 'Jefatura de Policía de Paysandú', depto: 'Paysandú', lat: -32.3219, lng: -58.0778, address: 'Leandro Gómez 990, Paysandú' },
+    { name: 'Jefatura de Policía de Salto', depto: 'Salto', lat: -31.3839, lng: -57.9656, address: 'Artigas 350, Salto' },
+    { name: 'Jefatura de Policía de Artigas', depto: 'Artigas', lat: -30.4006, lng: -56.4678, address: 'Lecueder 450, Artigas' },
+    { name: 'Jefatura de Policía de Rivera', depto: 'Rivera', lat: -30.9028, lng: -55.5511, address: 'Agraciada 710, Rivera' },
+    { name: 'Jefatura de Policía de Tacuarembó', depto: 'Tacuarembó', lat: -31.7144, lng: -55.9794, address: '18 de Julio 250, Tacuarembó' },
+    { name: 'Jefatura de Policía de Cerro Largo', depto: 'Cerro Largo', lat: -32.3719, lng: -54.1844, address: 'Justo de Muto 400, Melo' },
+    { name: 'Jefatura de Policía de Treinta y Tres', depto: 'Treinta y Tres', lat: -33.2344, lng: -54.3811, address: 'Manuel Meléndez 120, Treinta y Tres' },
+    { name: 'Jefatura de Policía de Lavalleja', depto: 'Lavalleja', lat: -34.3769, lng: -55.2361, address: 'Batlle y Ordóñez 540, Minas' },
+    { name: 'Jefatura de Policía de Florida', depto: 'Florida', lat: -34.0992, lng: -56.2136, address: 'Independencia 390, Florida' },
+    { name: 'Jefatura de Policía de Flores', depto: 'Flores', lat: -33.5181, lng: -56.8989, address: 'Santísima Trinidad 510, Trinidad' },
+    { name: 'Jefatura de Policía de Durazno', depto: 'Durazno', lat: -33.3828, lng: -56.5183, address: 'Artigas 450, Durazno' }
+];
 
-// --- Emergencies & Utilities Module ---
+const MEDICAL_CENTERS = [
+    { name: 'Hospital de Clínicas', depto: 'Montevideo', lat: -34.8919, lng: -56.1558, address: 'Av. Italia s/n, Montevideo' },
+    { name: 'Hospital Maciel', depto: 'Montevideo', lat: -34.9083, lng: -56.2081, address: '25 de Mayo 172, Montevideo' },
+    { name: 'Hospital Pereira Rossell', depto: 'Montevideo', lat: -34.8986, lng: -56.1633, address: 'Bulevar Artigas 1550, Montevideo' },
+    { name: 'Hospital Pasteur', depto: 'Montevideo', lat: -34.8847, lng: -56.1389, address: 'Larravide 74, Montevideo' },
+    { name: 'Médica Uruguaya (MUCAM)', depto: 'Montevideo', lat: -34.8914, lng: -56.1617, address: 'Av. 8 de Octubre 2492, Montevideo' },
+    { name: 'Sanatorio Americano', depto: 'Montevideo', lat: -34.8956, lng: -56.1586, address: 'Isabela 3475, Montevideo' },
+    { name: 'Hospital Británico', depto: 'Montevideo', lat: -34.8919, lng: -56.1639, address: 'Av. Italia 2420, Montevideo' },
+    { name: 'Hospital de Canelones', depto: 'Canelones', lat: -34.5275, lng: -56.2797, address: 'Dr. F. Soca 350, Canelones' },
+    { name: 'Policlínica Médica Atlántida (ASSE)', depto: 'Canelones', lat: -34.7731, lng: -55.7602, address: 'Calle 18 y Roger Balet, Atlántida' },
+    { name: 'Hospital de Maldonado', depto: 'Maldonado', lat: -34.9044, lng: -54.9622, address: 'Ventura Alegre s/n, Maldonado' },
+    { name: 'Sanatorio Mautone', depto: 'Maldonado', lat: -34.9219, lng: -54.9458, address: 'Av. Roosevelt, Punta del Este' },
+    { name: 'Hospital de Rocha', depto: 'Rocha', lat: -34.4814, lng: -54.3314, address: 'Treinta y Tres y 18 de Julio, Rocha' },
+    { name: 'Policlínica ASSE La Paloma', depto: 'Rocha', lat: -34.6601, lng: -54.1614, address: 'Av. Nicolás Solari, La Paloma' },
+    { name: 'Policlínica ASSE Punta del Diablo', depto: 'Rocha', lat: -34.0456, lng: -53.5422, address: 'Punta del Diablo, Rocha' },
+    { name: 'Hospital de Colonia', depto: 'Colonia', lat: -34.4639, lng: -57.8389, address: 'Av. Franklin D. Roosevelt s/n, Colonia del Sacramento' },
+    { name: 'Hospital de San José', depto: 'San José', lat: -34.3392, lng: -56.7114, address: 'A. Olarreaga s/n, San José de Mayo' },
+    { name: 'Hospital de Soriano (Mercedes)', depto: 'Soriano', lat: -33.2536, lng: -58.0289, address: 'Sánchez s/n, Mercedes' },
+    { name: 'Hospital de Río Negro (Fray Bentos)', depto: 'Río Negro', lat: -33.1328, lng: -58.3006, address: 'Av. 18 de Julio s/n, Fray Bentos' },
+    { name: 'Hospital de Paysandú', depto: 'Paysandú', lat: -32.3236, lng: -58.0789, address: 'Montevideo s/n, Paysandú' },
+    { name: 'Hospital de Salto', depto: 'Salto', lat: -31.3914, lng: -57.9628, address: 'Cervantes s/n, Salto' },
+    { name: 'Hospital de Artigas', depto: 'Artigas', lat: -30.4022, lng: -56.4689, address: 'Lecueder s/n, Artigas' },
+    { name: 'Hospital de Rivera', depto: 'Rivera', lat: -30.9044, lng: -55.5489, address: 'Av. Italia s/n, Rivera' },
+    { name: 'Hospital de Tacuarembó', depto: 'Tacuarembó', lat: -31.7119, lng: -55.9772, address: 'Av. Oliver s/n, Tacuarembó' },
+    { name: 'Hospital de Cerro Largo (Melo)', depto: 'Cerro Largo', lat: -32.3731, lng: -54.1856, address: 'Treinta y Tres s/n, Melo' },
+    { name: 'Hospital de Treinta y Tres', depto: 'Treinta y Tres', lat: -33.2356, lng: -54.3822, address: 'Manuel Meléndez s/n, Treinta y Tres' },
+    { name: 'Hospital de Lavalleja (Minas)', depto: 'Lavalleja', lat: -34.3789, lng: -55.2344, address: 'Av. Artigas s/n, Minas' },
+    { name: 'Hospital de Florida', depto: 'Florida', lat: -34.0983, lng: -56.2114, address: 'General Flores s/n, Florida' },
+    { name: 'Hospital de Flores (Trinidad)', depto: 'Flores', lat: -33.5197, lng: -56.8972, address: 'Santísima Trinidad s/n, Trinidad' },
+    { name: 'Hospital de Durazno', depto: 'Durazno', lat: -33.3814, lng: -56.5197, address: '18 de Julio s/n, Durazno' }
+];
 
-const DEPT_COORDS = {
-    'montevideo': { lat: -34.9011, lng: -56.1645 },
-    'canelones': { lat: -34.5228, lng: -56.2778 },
-    'maldonado': { lat: -34.9000, lng: -54.9500 },
-    'rocha': { lat: -34.4833, lng: -54.3333 },
-    'colonia': { lat: -34.4714, lng: -57.8442 },
-    'san josé': { lat: -34.3375, lng: -56.7136 },
-    'san jose': { lat: -34.3375, lng: -56.7136 },
-    'soriano': { lat: -33.2522, lng: -58.0305 },
-    'río negro': { lat: -33.1301, lng: -58.2981 },
-    'rio negro': { lat: -33.1301, lng: -58.2981 },
-    'paysandú': { lat: -32.3214, lng: -58.0756 },
-    'paysandu': { lat: -32.3214, lng: -58.0756 },
-    'salto': { lat: -31.3833, lng: -57.9667 },
-    'artigas': { lat: -30.4000, lng: -56.4667 },
-    'rivera': { lat: -30.9053, lng: -55.5508 },
-    'tacuarembó': { lat: -31.7169, lng: -55.9811 },
-    'tacuarembo': { lat: -31.7169, lng: -55.9811 },
-    'cerro largo': { lat: -32.3711, lng: -54.1833 },
-    'treinta y tres': { lat: -33.2333, lng: -54.3833 },
-    'lavalleja': { lat: -34.3758, lng: -55.2378 },
-    'florida': { lat: -34.0997, lng: -56.2142 },
-    'flores': { lat: -33.5167, lng: -56.9000 },
-    'durazno': { lat: -33.3833, lng: -56.5167 }
-};
-
-const CHARGERS_QUERY_MAP = {
-    'montevideo': 'Estación de carga de vehículos eléctricos, Montevideo, Uruguay',
-    'canelones': 'Estación de carga de vehículos eléctricos, Canelones, Uruguay',
-    'maldonado': 'Estación de carga de vehículos eléctricos, Punta del Este, Uruguay',
-    'rocha': 'Estación de carga de vehículos eléctricos, Rocha, Uruguay',
-    'colonia': 'Estación de carga de vehículos eléctricos, Colonia del Sacramento, Uruguay',
-    'san josé': 'Estación de carga de vehículos eléctricos, San José, Uruguay',
-    'san jose': 'Estación de carga de vehículos eléctricos, San José, Uruguay',
-    'soriano': 'Estación de carga de vehículos eléctricos, Mercedes, Uruguay',
-    'río negro': 'Estación de carga de vehículos eléctricos, Fray Bentos, Uruguay',
-    'rio negro': 'Estación de carga de vehículos eléctricos, Fray Bentos, Uruguay',
-    'paysandú': 'Estación de carga de vehículos eléctricos, Paysandú, Uruguay',
-    'paysandu': 'Estación de carga de vehículos eléctricos, Paysandú, Uruguay',
-    'salto': 'Estación de carga de vehículos eléctricos, Salto, Uruguay',
-    'artigas': 'Estación de carga de vehículos eléctricos, Artigas, Uruguay',
-    'rivera': 'Estación de carga de vehículos eléctricos, Rivera, Uruguay',
-    'tacuarembó': 'Estación de carga de vehículos eléctricos, Tacuarembó, Uruguay',
-    'tacuarembo': 'Estación de carga de vehículos eléctricos, Tacuarembó, Uruguay',
-    'cerro largo': 'Estación de carga de vehículos eléctricos, Melo, Uruguay',
-    'treinta y tres': 'Estación de carga de vehículos eléctricos, Treinta y Tres, Uruguay',
-    'lavalleja': 'Estación de carga de vehículos eléctricos, Minas, Uruguay',
-    'florida': 'Estación de carga de vehículos eléctricos, Florida, Uruguay',
-    'flores': 'Estación de carga de vehículos eléctricos, Trinidad, Uruguay',
-    'durazno': 'Estación de carga de vehículos eléctricos, Durazno, Uruguay'
-};
+const EV_CHARGERS = [
+    { name: 'Montevideo Shopping (Cargador Privado)', depto: 'Montevideo', lat: -34.9038, lng: -56.1361, address: 'Av. Luis Alberto de Herrera 1290' },
+    { name: 'Punta Carretas Shopping (Cargador Privado)', depto: 'Montevideo', lat: -34.9258, lng: -56.1583, address: 'José Ellauri 350' },
+    { name: 'Tres Cruces Shopping (Cargador Privado)', depto: 'Montevideo', lat: -34.8942, lng: -56.1661, address: 'Bulevar Artigas 1825' },
+    { name: 'Nuevocentro Shopping (Cargador Privado)', depto: 'Montevideo', lat: -34.8767, lng: -56.1692, address: 'Av. Luis Alberto de Herrera 3365' },
+    { name: 'Costa Urbana Shopping (Cargador Privado)', depto: 'Canelones', lat: -34.8258, lng: -55.9922, address: 'Av. Giannattasio km 21' },
+    { name: 'Car One Ciudad de la Costa (Cargador Privado)', depto: 'Canelones', lat: -34.7861, lng: -55.9758, address: 'Ruta Interbalnearia y Camino de los Horneros' },
+    { name: 'Tienda Inglesa Car One (Cargador Privado)', depto: 'Canelones', lat: -34.7867, lng: -55.9761, address: 'Camino de los Horneros' },
+    { name: 'Tienda Inglesa Roosevelt (Cargador Privado)', depto: 'Maldonado', lat: -34.9281, lng: -54.9392, address: 'Av. Roosevelt y Alpes' },
+    { name: 'Punta Shopping (Cargador Privado)', depto: 'Maldonado', lat: -34.9289, lng: -54.9456, address: 'Av. Roosevelt y Parada 7' },
+    { name: 'Colonia Shopping (Cargador Privado)', depto: 'Colonia', lat: -34.4606, lng: -57.8286, address: 'Av. Roosevelt 458' },
+    { name: 'Enjoy Punta del Este (Cargador Privado)', depto: 'Maldonado', lat: -34.9372, lng: -54.9378, address: 'Rambla C. Williman, Parada 4' },
+    { name: 'Jean Clevers Hotel (Cargador Privado)', depto: 'Maldonado', lat: -34.9297, lng: -54.9492, address: 'Bulevar Artigas y Av. del Canto' },
+    { name: 'Hyatt Centric Montevideo (Cargador Privado)', depto: 'Montevideo', lat: -34.9089, lng: -56.1367, address: 'Rambla República del Perú 1479' },
+    { name: 'Cargador UTE - Montevideo Centro', depto: 'Montevideo', lat: -34.9011, lng: -56.1645, address: 'Paraguay 2431' },
+    { name: 'Cargador UTE - Atlántida', depto: 'Canelones', lat: -34.7719, lng: -55.7583, address: 'Ruta Interbalnearia km 46.500' },
+    { name: 'Cargador UTE - Piriápolis', depto: 'Maldonado', lat: -34.8628, lng: -55.2708, address: 'Rambla de los Argentinos e Iglesia' },
+    { name: 'Cargador UTE - Punta del Este', depto: 'Maldonado', lat: -34.9606, lng: -54.9419, address: 'Calle 24 (El Mesón) y Calle 25' },
+    { name: 'Cargador UTE - Rocha Centro', depto: 'Rocha', lat: -34.4811, lng: -54.3319, address: '25 de Mayo y Julia Becerra' },
+    { name: 'Cargador UTE - La Paloma', depto: 'Rocha', lat: -34.6592, lng: -54.1603, address: 'Av. Nicolás Solari y del Navío' },
+    { name: 'Cargador UTE - Punta del Diablo', depto: 'Rocha', lat: -34.0442, lng: -53.5411, address: 'Av. Central y Bulevar Artigas' },
+    { name: 'Cargador UTE - Chuy', depto: 'Rocha', lat: -33.6933, lng: -53.4611, address: 'Av. Brasil y Arachanes' },
+    { name: 'Cargador UTE - Colonia Sacramento', depto: 'Colonia', lat: -34.4697, lng: -57.8419, address: 'Rivadavia y Washington Barbot' },
+    { name: 'Cargador UTE - San José', depto: 'San José', lat: -34.3381, lng: -56.7125, address: 'Asamblea 498' },
+    { name: 'Cargador UTE - Mercedes', depto: 'Soriano', lat: -33.2519, lng: -58.0294, address: 'Giménez y 28 de Febrero' },
+    { name: 'Cargador UTE - Fray Bentos', depto: 'Río Negro', lat: -33.1306, lng: -58.2978, address: '18 de Julio y Treinta y Tres' },
+    { name: 'Cargador UTE - Paysandú', depto: 'Paysandú', lat: -32.3211, lng: -58.0767, address: 'Zorrilla de San Martín y 19 de Abril' },
+    { name: 'Cargador UTE - Salto', depto: 'Salto', lat: -31.3831, lng: -57.9647, address: '18 de Julio y Artigas' },
+    { name: 'Cargador UTE - Artigas', depto: 'Artigas', lat: -30.4003, lng: -56.4658, address: 'Lecueder y Baldomir' },
+    { name: 'Cargador UTE - Rivera', depto: 'Rivera', lat: -30.9022, lng: -55.5503, address: 'Uruguay y Paysandú' },
+    { name: 'Cargador UTE - Tacuarembó', depto: 'Tacuarembó', lat: -31.7136, lng: -55.9786, address: '25 de Mayo y Joaquín Suárez' },
+    { name: 'Cargador UTE - Melo', depto: 'Cerro Largo', lat: -32.3711, lng: -54.1836, address: 'General Artigas y Wilson Ferreira' },
+    { name: 'Cargador UTE - Treinta y Tres', depto: 'Treinta y Tres', lat: -33.2339, lng: -54.3806, address: 'Manuel Meléndez y Juan Ortiz' },
+    { name: 'Cargador UTE - Minas', depto: 'Lavalleja', lat: -34.3761, lng: -55.2356, address: 'Domingo Pérez y Washington Beltrán' },
+    { name: 'Cargador UTE - Florida', depto: 'Florida', lat: -34.0989, lng: -56.2128, address: 'General Flores y Rivera' },
+    { name: 'Cargador UTE - Trinidad', depto: 'Flores', lat: -33.5175, lng: -56.8978, address: 'Fondar y Francisco Fondar' },
+    { name: 'Cargador UTE - Durazno', depto: 'Durazno', lat: -33.3822, lng: -56.5175, address: 'Eusebio Píriz y Artigas' }
+];
 
 function openEmergencySearch(type) {
     let query = '';
@@ -2603,6 +2675,182 @@ window.openSearchNearLocation = function(locationName, queryTerm) {
     window.open(url, '_blank');
 };
 
+function showPoliceStationsList() {
+    // Hide other dynamic sections
+    document.getElementById('section-medical-list').style.display = 'none';
+    document.getElementById('section-chargers-list').style.display = 'none';
+
+    const section = document.getElementById('section-police-list');
+    const list = document.getElementById('emergency-police-list');
+    if (!section || !list) return;
+
+    section.style.display = 'block';
+    section.scrollIntoView({ behavior: 'smooth' });
+
+    list.innerHTML = '';
+
+    if (!userLocation) {
+        list.innerHTML = `<p class="empty-text">${TRANSLATIONS[currentLang].no_gps_police_list}</p>`;
+        return;
+    }
+
+    // Calculate distance to each police station and sort
+    const sortedStations = POLICE_STATIONS.map(station => {
+        const dist = calculateDistance(userLocation.lat, userLocation.lng, station.lat, station.lng);
+        return { ...station, distance: dist };
+    });
+
+    sortedStations.sort((a, b) => a.distance - b.distance);
+
+    // Get Top 5 closest
+    const top5 = sortedStations.slice(0, 5);
+
+    top5.forEach(station => {
+        const item = document.createElement('div');
+        item.className = 'emergency-list-item';
+        item.innerHTML = `
+            <div class="emergency-item-info">
+                <span class="emergency-item-name">${station.name}</span>
+                <span class="emergency-item-detail">${station.address} (${station.depto}) • <b>${TRANSLATIONS[currentLang].distance_badge.replace('{distance}', station.distance.toFixed(1))}</b></span>
+            </div>
+            <button class="btn btn-primary btn-emergency-item" onclick="getDirections(${station.lat}, ${station.lng}, '${encodeURIComponent(station.name)}', '${encodeURIComponent(station.depto)}')">
+                ${TRANSLATIONS[currentLang].card_how_to_go}
+            </button>
+        `;
+        list.appendChild(item);
+    });
+
+    // Add fallback search button
+    const searchMoreBtn = document.createElement('button');
+    searchMoreBtn.className = 'btn btn-secondary btn-emergency-item-more';
+    searchMoreBtn.style.width = '100%';
+    searchMoreBtn.style.marginTop = '15px';
+    searchMoreBtn.style.fontSize = '0.9rem';
+    searchMoreBtn.style.padding = '10px';
+    searchMoreBtn.innerHTML = TRANSLATIONS[currentLang].btn_more_police_maps;
+    searchMoreBtn.onclick = () => openEmergencySearch('police');
+    list.appendChild(searchMoreBtn);
+}
+
+function showMedicalCentersList() {
+    // Hide other dynamic sections
+    document.getElementById('section-police-list').style.display = 'none';
+    document.getElementById('section-chargers-list').style.display = 'none';
+
+    const section = document.getElementById('section-medical-list');
+    const list = document.getElementById('emergency-medical-list');
+    if (!section || !list) return;
+
+    section.style.display = 'block';
+    section.scrollIntoView({ behavior: 'smooth' });
+
+    list.innerHTML = '';
+
+    if (!userLocation) {
+        list.innerHTML = `<p class="empty-text">${TRANSLATIONS[currentLang].no_gps_medical_list}</p>`;
+        return;
+    }
+
+    // Calculate distance to each medical center and sort
+    const sortedCenters = MEDICAL_CENTERS.map(center => {
+        const dist = calculateDistance(userLocation.lat, userLocation.lng, center.lat, center.lng);
+        return { ...center, distance: dist };
+    });
+
+    sortedCenters.sort((a, b) => a.distance - b.distance);
+
+    // Get Top 5 closest
+    const top5 = sortedCenters.slice(0, 5);
+
+    top5.forEach(center => {
+        const item = document.createElement('div');
+        item.className = 'emergency-list-item';
+        item.innerHTML = `
+            <div class="emergency-item-info">
+                <span class="emergency-item-name">${center.name}</span>
+                <span class="emergency-item-detail">${center.address} (${center.depto}) • <b>${TRANSLATIONS[currentLang].distance_badge.replace('{distance}', center.distance.toFixed(1))}</b></span>
+            </div>
+            <button class="btn btn-primary btn-emergency-item" onclick="getDirections(${center.lat}, ${center.lng}, '${encodeURIComponent(center.name)}', '${encodeURIComponent(center.depto)}')">
+                ${TRANSLATIONS[currentLang].card_how_to_go}
+            </button>
+        `;
+        list.appendChild(item);
+    });
+
+    // Add fallback search button
+    const searchMoreBtn = document.createElement('button');
+    searchMoreBtn.className = 'btn btn-secondary btn-emergency-item-more';
+    searchMoreBtn.style.width = '100%';
+    searchMoreBtn.style.marginTop = '15px';
+    searchMoreBtn.style.fontSize = '0.9rem';
+    searchMoreBtn.style.padding = '10px';
+    searchMoreBtn.innerHTML = TRANSLATIONS[currentLang].btn_more_medical_maps;
+    searchMoreBtn.onclick = () => openEmergencySearch('medical');
+    list.appendChild(searchMoreBtn);
+}
+
+function showEVChargersList() {
+    // Hide other dynamic sections
+    document.getElementById('section-police-list').style.display = 'none';
+    document.getElementById('section-medical-list').style.display = 'none';
+
+    const section = document.getElementById('section-chargers-list');
+    const list = document.getElementById('emergency-chargers-list');
+    if (!section || !list) return;
+
+    section.style.display = 'block';
+    section.scrollIntoView({ behavior: 'smooth' });
+
+    list.innerHTML = '';
+
+    if (!userLocation) {
+        list.innerHTML = `<p class="empty-text">${TRANSLATIONS[currentLang].no_gps_chargers_list}</p>`;
+        return;
+    }
+
+    // Calculate distance to each EV charger and filter by <= 100 km
+    const nearbyChargers = [];
+    EV_CHARGERS.forEach(charger => {
+        const dist = calculateDistance(userLocation.lat, userLocation.lng, charger.lat, charger.lng);
+        if (dist !== null && dist <= 100) {
+            nearbyChargers.push({ ...charger, distance: dist });
+        }
+    });
+
+    // Sort by distance (closest first)
+    nearbyChargers.sort((a, b) => a.distance - b.distance);
+
+    if (nearbyChargers.length > 0) {
+        nearbyChargers.forEach(charger => {
+            const item = document.createElement('div');
+            item.className = 'emergency-list-item';
+            item.innerHTML = `
+                <div class="emergency-item-info">
+                    <span class="emergency-item-name">${charger.name}</span>
+                    <span class="emergency-item-detail">${charger.address} (${charger.depto}) • <b>${TRANSLATIONS[currentLang].distance_badge.replace('{distance}', charger.distance.toFixed(1))}</b></span>
+                </div>
+                <button class="btn btn-primary btn-emergency-item" onclick="getDirections(${charger.lat}, ${charger.lng}, '${encodeURIComponent(charger.name)}', '${encodeURIComponent(charger.depto)}')">
+                    ${TRANSLATIONS[currentLang].card_how_to_go}
+                </button>
+            `;
+            list.appendChild(item);
+        });
+    } else {
+        list.innerHTML = `<p class="empty-text">${TRANSLATIONS[currentLang].no_chargers_100km}</p>`;
+    }
+
+    // Add fallback search button
+    const searchMoreBtn = document.createElement('button');
+    searchMoreBtn.className = 'btn btn-secondary btn-emergency-item-more';
+    searchMoreBtn.style.width = '100%';
+    searchMoreBtn.style.marginTop = '15px';
+    searchMoreBtn.style.fontSize = '0.9rem';
+    searchMoreBtn.style.padding = '10px';
+    searchMoreBtn.innerHTML = TRANSLATIONS[currentLang].btn_more_chargers_maps;
+    searchMoreBtn.onclick = () => openEmergencySearch('chargers');
+    list.appendChild(searchMoreBtn);
+}
+
 function renderEmergenciesTab() {
     // 1. Update GPS status card visual state
     const dot = document.getElementById('emergency-gps-dot');
@@ -2617,56 +2865,21 @@ function renderEmergenciesTab() {
         }
     }
 
-    // 2. Render Nearby UTE Chargers list (distance <= 200 km)
-    const chargersList = document.getElementById('emergency-chargers-list');
-    if (chargersList) {
-        chargersList.innerHTML = '';
-        
-        if (userLocation) {
-            const nearbyChargers = [];
-            for (const depto in DEPT_COORDS) {
-                // Skip duplicate keys for display
-                if (depto === 'san jose' || depto === 'rio negro' || depto === 'paysandu' || depto === 'tacuarembo') continue;
-                
-                const coords = DEPT_COORDS[depto];
-                const dist = calculateDistance(userLocation.lat, userLocation.lng, coords.lat, coords.lng);
-                if (dist !== null && dist <= 200) {
-                    nearbyChargers.push({
-                        depto: depto,
-                        name: depto.charAt(0).toUpperCase() + depto.slice(1),
-                        distance: dist,
-                        query: CHARGERS_QUERY_MAP[depto]
-                    });
-                }
-            }
-            
-            // Sort by distance (closest first)
-            nearbyChargers.sort((a, b) => a.distance - b.distance);
-            
-            if (nearbyChargers.length > 0) {
-                nearbyChargers.forEach(charger => {
-                    const item = document.createElement('div');
-                    item.className = 'emergency-list-item';
-                    item.innerHTML = `
-                        <div class="emergency-item-info">
-                            <span class="emergency-item-name">Cargador UTE - ${charger.name}</span>
-                            <span class="emergency-item-detail">${TRANSLATIONS[currentLang].distance_badge.replace('{distance}', charger.distance.toFixed(1))}</span>
-                        </div>
-                        <button class="btn btn-primary btn-emergency-item" onclick="openSearchOnMaps('${encodeURIComponent(charger.query)}')">
-                            ${TRANSLATIONS[currentLang].card_how_to_go}
-                        </button>
-                    `;
-                    chargersList.appendChild(item);
-                });
-            } else {
-                chargersList.innerHTML = `<p class="empty-text">${TRANSLATIONS[currentLang].no_chargers_200km}</p>`;
-            }
-        } else {
-            chargersList.innerHTML = `<p class="empty-text">${TRANSLATIONS[currentLang].no_chargers_200km}</p>`;
-        }
+    // Refresh active list dynamically if open
+    const secPolice = document.getElementById('section-police-list');
+    if (secPolice && secPolice.style.display === 'block') {
+        showPoliceStationsList();
+    }
+    const secMedical = document.getElementById('section-medical-list');
+    if (secMedical && secMedical.style.display === 'block') {
+        showMedicalCentersList();
+    }
+    const secChargers = document.getElementById('section-chargers-list');
+    if (secChargers && secChargers.style.display === 'block') {
+        showEVChargersList();
     }
 
-    // 3. Render Emergencies in Itinerary
+    // 2. Render Emergencies in Itinerary
     const itineraryList = document.getElementById('emergency-itinerary-list');
     if (itineraryList) {
         itineraryList.innerHTML = '';

@@ -29,7 +29,7 @@
     <!-- Flatpickr CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <!-- CSS stylesheet -->
-    <link rel="stylesheet" href="style.css?v=3.00">
+    <link rel="stylesheet" href="style.css?v=3.10">
 </head>
 <body>
     <div class="app-container">
@@ -37,7 +37,7 @@
         <header>
             <div class="logo-row">
                 <div class="logo-group">
-                    <div class="logo notranslate" translate="no"><img src="logo.png" alt="UruExplorer Logo" class="logo-icon">URU<span>EXPLORER</span> <span class="version-tag">v3.00</span></div>
+                    <div class="logo notranslate" translate="no"><img src="logo.png" alt="UruExplorer Logo" class="logo-icon">URU<span>EXPLORER</span> <span class="version-tag">v3.10</span></div>
                 </div>
                 <div class="header-controls" style="display: flex; align-items: center; gap: 10px;">
                     <div class="lang-switch">
@@ -52,6 +52,7 @@
                         <span class="lang-divider">|</span>
                         <button class="theme-btn" id="theme-btn-light" title="Tema Claro (Azul/Gris)">☀️</button>
                     </div>
+                    <button id="btn-quick-emergency" class="btn-quick-emergency" title="Emergencias y utilidades" aria-label="Emergencias" style="margin-left: 5px;">🚨</button>
                 </div>
             </div>
             <div class="tagline" data-i18n="tagline">Explorá Uruguay de forma minimalista</div>
@@ -222,11 +223,27 @@
                 </div>
             </div>
 
-            <!-- Nearby UTE Chargers -->
-            <div class="emergency-section">
-                <h4 class="emergency-section-title" data-i18n="title_chargers_200km">Cargadores UTE a menos de 200 km</h4>
+            <!-- Nearby Police Stations List -->
+            <div class="emergency-section" id="section-police-list" style="display: none;">
+                <h4 class="emergency-section-title" id="title-police-list" data-i18n="title_police_list">Seccionales de Policía Cercanas</h4>
+                <div class="emergency-list" id="emergency-police-list">
+                    <p class="empty-text" data-i18n="no_gps_police_list">Por favor active su GPS para ver las seccionales de policía más cercanas ordenadas por distancia.</p>
+                </div>
+            </div>
+
+            <!-- Nearby Medical Centers List -->
+            <div class="emergency-section" id="section-medical-list" style="display: none;">
+                <h4 class="emergency-section-title" id="title-medical-list" data-i18n="title_medical_list">Hospitales y Policlínicas Cercanos</h4>
+                <div class="emergency-list" id="emergency-medical-list">
+                    <p class="empty-text" data-i18n="no_gps_medical_list">Por favor active su GPS para ver los centros de salud más cercanos ordenados por distancia.</p>
+                </div>
+            </div>
+
+            <!-- Nearby Chargers List -->
+            <div class="emergency-section" id="section-chargers-list" style="display: none;">
+                <h4 class="emergency-section-title" id="title-chargers-list" data-i18n="title_chargers_list">Estaciones de Recarga Cercanas (Radio 100 km)</h4>
                 <div class="emergency-list" id="emergency-chargers-list">
-                    <p class="empty-text" data-i18n="no_chargers_200km">No se detectaron estaciones de recarga de UTE a menos de 200 km.</p>
+                    <p class="empty-text" data-i18n="no_gps_chargers_list">Por favor active su GPS para ver las estaciones de recarga a menos de 100 km ordenadas por distancia.</p>
                 </div>
             </div>
 
@@ -317,7 +334,7 @@
     <script src="https://npmcdn.com/flatpickr/dist/l10n/es.js"></script>
     <script src="https://npmcdn.com/flatpickr/dist/l10n/pt.js"></script>
     <script src="destinos.js"></script>
-    <script src="eventos.js?v=3.00"></script>
-    <script src="app.js?v=3.00"></script>
+    <script src="eventos.js?v=3.10"></script>
+    <script src="app.js?v=3.10"></script>
 </body>
 </html>

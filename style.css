@@ -1774,3 +1774,23 @@ span.flatpickr-weekday {
     }
 }
 
+.btn-quick-emergency {
+    background: none;
+    border: none;
+    font-size: 1.35rem;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    line-height: 1;
+    transition: transform 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn-quick-emergency:hover {
+    transform: scale(1.2);
+}
+.btn-quick-emergency:active {
+    transform: scale(1);
+}
+
