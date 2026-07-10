@@ -1437,7 +1437,7 @@ function performSearch() {
     const cleanQuery = removeAccents(searchText);
 
     // Filter items and calculate matching scores
-    const itemsWithScores = appDestinos.map(item => {
+    let itemsWithScores = appDestinos.map(item => {
         let score = 100; // Default score if no search query
         if (cleanQuery) {
             score = calculateMatchScore(cleanQuery, item);
@@ -1464,6 +1464,23 @@ function performSearch() {
         }
         return true;
     });
+
+    // If there is an exact/complete match on destination or department name, filter out partial matches
+    if (cleanQuery) {
+        const hasCompleteMatch = itemsWithScores.some(row => {
+            const cleanDest = removeAccents(row.item.destino).trim();
+            const cleanDepto = removeAccents(row.item.departamento).trim();
+            return cleanDest === cleanQuery || cleanDepto === cleanQuery;
+        });
+        
+        if (hasCompleteMatch) {
+            itemsWithScores = itemsWithScores.filter(row => {
+                const cleanDest = removeAccents(row.item.destino).trim();
+                const cleanDepto = removeAccents(row.item.departamento).trim();
+                return cleanDest === cleanQuery || cleanDepto === cleanQuery;
+            });
+        }
+    }
 
     // Map rows to results and store scores
     currentResults = itemsWithScores.map(row => {
