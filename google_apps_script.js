@@ -298,7 +298,8 @@ function scraperCartelera(destinosMap) {
   // Categorías de cartelera a consultar en el nuevo formato ASPX/Redirect de Montevideo Portal:
   const categorias = [
     { url: "https://cartelera.montevideo.com.uy/cine", tipo: "Cine", descDefault: "Película en cartelera de cines nacionales." },
-    { url: "https://cartelera.montevideo.com.uy/teatro", tipo: "Teatro", descDefault: "Obra de teatro o espectáculo artístico en cartelera nacional." }
+    { url: "https://cartelera.montevideo.com.uy/teatro", tipo: "Teatro", descDefault: "Obra de teatro o espectáculo artístico en cartelera nacional." },
+    { url: "https://cartelera.montevideo.com.uy/musica", tipo: "Concierto", descDefault: "Espectáculo musical o recital en vivo en cartelera nacional." }
   ];
   
   categorias.forEach(cat => {

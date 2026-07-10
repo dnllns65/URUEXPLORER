@@ -17,6 +17,8 @@ let currentSearchMode = 'turismo'; // Tracks active search tab mode ('turismo' o
 let savedItinerariesList = JSON.parse(localStorage.getItem('uruexplorer_saved_itineraries_list')) || [];
 let cardEventFilters = {}; // Tracks active category filters per card: { cardId: 'Todos' }
 let currentResults = [];
+let displayedDestinationsCount = 10;
+let displayedEventsCount = 10;
 let userLocation = null;
 let emptySearchCriterion = null; // Session empty search behavior ('near' or 'all')
 let currentLang = 'es'; // default
@@ -69,6 +71,7 @@ const TRANSLATIONS = {
         card_contact: "Contacto principal",
         card_website: "Sitio Web",
         card_how_to_go: "Cómo ir",
+        card_view_photos: "Ver Fotos",
         card_reset_map: "🔄 Restablecer Mapa",
         card_route: "Recorrido",
         distance_badge: "📍 a {distance} km",
@@ -146,7 +149,9 @@ const TRANSLATIONS = {
         no_chargers_100km: "No se encontraron estaciones de recarga a menos de 100 km de tu ubicación.",
         btn_more_police_maps: "🔍 Buscar todas las seccionales en Google Maps",
         btn_more_medical_maps: "🔍 Buscar más centros de salud en Google Maps",
-        btn_more_chargers_maps: "🔍 Buscar más cargadores en Google Maps"
+        btn_more_chargers_maps: "🔍 Buscar más cargadores en Google Maps",
+        lbl_loading_gps: "Obteniendo ubicación GPS...",
+        btn_load_more: "Más resultados"
     },
     en: {
         tagline: "Explore Uruguay in a minimalist way",
@@ -190,6 +195,7 @@ const TRANSLATIONS = {
         card_contact: "Main contact",
         card_website: "Website",
         card_how_to_go: "How to go",
+        card_view_photos: "View Photos",
         card_reset_map: "🔄 Reset Map",
         card_route: "Route",
         distance_badge: "📍 {distance} km away",
@@ -267,7 +273,9 @@ const TRANSLATIONS = {
         no_chargers_100km: "No charging stations found within 100 km of your location.",
         btn_more_police_maps: "🔍 Search all police stations on Google Maps",
         btn_more_medical_maps: "🔍 Search more medical centers on Google Maps",
-        btn_more_chargers_maps: "🔍 Search more chargers on Google Maps"
+        btn_more_chargers_maps: "🔍 Search more chargers on Google Maps",
+        lbl_loading_gps: "Acquiring GPS location...",
+        btn_load_more: "More results"
     },
     pt: {
         tagline: "Explore o Uruguai de forma minimalista",
@@ -311,6 +319,7 @@ const TRANSLATIONS = {
         card_contact: "Contato principal",
         card_website: "Sítio Web",
         card_how_to_go: "Como ir",
+        card_view_photos: "Ver Fotos",
         card_reset_map: "🔄 Redefinir Mapa",
         card_route: "Roteiro",
         distance_badge: "📍 a {distance} km",
@@ -387,7 +396,9 @@ const TRANSLATIONS = {
         no_chargers_100km: "Nenhuma estação de recarga encontrada a menos de 100 km de sua localização.",
         btn_more_police_maps: "🔍 Buscar todos os postos de polícia no Google Maps",
         btn_more_medical_maps: "🔍 Buscar mais centros médicos no Google Maps",
-        btn_more_chargers_maps: "🔍 Buscar mais carregadores no Google Maps"
+        btn_more_chargers_maps: "🔍 Buscar mais carregadores no Google Maps",
+        lbl_loading_gps: "Obtendo localização GPS...",
+        btn_load_more: "Mais resultados"
     },
 };
 
@@ -993,10 +1004,54 @@ function setupEventListeners() {
         btnCerca.addEventListener('click', () => {
             emptySearchCriterion = 'near';
             hideProximityModal();
-            if (currentSearchMode === 'eventos') {
-                performEventSearch();
+            
+            if (!userLocation) {
+                // If user location is null, display a temporary loading state in the grid
+                const grid = document.getElementById(currentSearchMode === 'eventos' ? 'events-grid' : 'results-grid');
+                if (grid) {
+                    grid.innerHTML = `<div style="text-align:center; padding: 40px; color: var(--text-main); font-weight: 500;">${TRANSLATIONS[currentLang].lbl_loading_gps}</div>`;
+                }
+                switchTab('resultados');
+                
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(
+                        (position) => {
+                            userLocation = {
+                                lat: position.coords.latitude,
+                                lng: position.coords.longitude
+                            };
+                            console.log("Ubicación del usuario obtenida desde el modal:", userLocation);
+                            renderEmergenciesTab(); // update GPS dot in emergencies tab too!
+                            
+                            if (currentSearchMode === 'eventos') {
+                                performEventSearch();
+                            } else {
+                                performSearch();
+                            }
+                        },
+                        (error) => {
+                            console.warn("No se pudo obtener la ubicación para la búsqueda amplia:", error.message);
+                            if (currentSearchMode === 'eventos') {
+                                performEventSearch();
+                            } else {
+                                performSearch();
+                            }
+                        },
+                        { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 }
+                    );
+                } else {
+                    if (currentSearchMode === 'eventos') {
+                        performEventSearch();
+                    } else {
+                        performSearch();
+                    }
+                }
             } else {
-                performSearch();
+                if (currentSearchMode === 'eventos') {
+                    performEventSearch();
+                } else {
+                    performSearch();
+                }
             }
         });
     }
@@ -1196,6 +1251,42 @@ function calculateDistance(lat1, lon1, lat2, lon2) {
     return R * c;
 }
 
+// Find user's current department based on the closest destination in appDestinos
+function getUserDepartment() {
+    if (!userLocation || !appDestinos || appDestinos.length === 0) return null;
+    let closestDept = null;
+    let minDist = Infinity;
+    appDestinos.forEach(d => {
+        if (d.lat !== null && d.lng !== null) {
+            const dist = calculateDistance(userLocation.lat, userLocation.lng, d.lat, d.lng);
+            if (dist < minDist) {
+                minDist = dist;
+                closestDept = d.departamento;
+            }
+        }
+    });
+    return closestDept;
+}
+
+// Find the distance to the closest coordinate inside a specific department
+function getDistanceToDepartment(userLat, userLng, departamento) {
+    if (!departamento) return null;
+    const cleanTargetDept = removeAccents(departamento).trim().toLowerCase();
+    let minDist = Infinity;
+    appDestinos.forEach(d => {
+        if (d.departamento && d.lat !== null && d.lng !== null) {
+            const cleanDept = removeAccents(d.departamento).trim().toLowerCase();
+            if (cleanDept === cleanTargetDept) {
+                const dist = calculateDistance(userLat, userLng, d.lat, d.lng);
+                if (dist < minDist) {
+                    minDist = dist;
+                }
+            }
+        }
+    });
+    return minDist === Infinity ? null : minDist;
+}
+
 // Remove accents/diacritics and convert to lowercase for search normalization
 function removeAccents(str) {
     if (!str) return '';
@@ -1327,6 +1418,7 @@ function calculateMatchScore(cleanQuery, item) {
 
 // Perform search based on filters selected
 function performSearch() {
+    displayedDestinationsCount = 10;
     const searchText = document.getElementById('search-input').value.trim();
     const selectedDepto = document.getElementById('filter-departamento').value;
     const selectedDif = document.getElementById('filter-dificultad').value;
@@ -1447,7 +1539,8 @@ function renderResults() {
 
 // Render Destinations
 function renderDestinationResults(grid) {
-    currentResults.forEach(item => {
+    const sliced = currentResults.slice(0, displayedDestinationsCount);
+    sliced.forEach(item => {
         const isFav = favorites.includes(item.id);
         const isInItinerary = itinerary.some(it => it.type === 'destination' && it.id === item.id);
         
@@ -1467,10 +1560,15 @@ function renderDestinationResults(grid) {
 
         card.innerHTML = `
             <div class="card-details">
-                <div class="card-header-row">
-                    <div class="card-title-group">
+                <div class="card-header-row" style="flex-wrap: wrap; gap: 8px; width: 100%;">
+                    <div class="card-title-group" style="flex: 1; min-width: 200px;">
                         <div class="card-title"><span translate="no" class="notranslate">${item.destino}</span> ${distanceBadge}</div>
-                        <div class="card-dept"><span translate="no" class="notranslate">${item.departamento}</span>${popularityText}</div>
+                        <div class="card-dept" style="display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; width: 100%;">
+                            <span><span translate="no" class="notranslate">${item.departamento}</span>${popularityText}</span>
+                            <button class="btn-ver-fotos-header btn-ver-fotos" data-i18n="card_view_photos">
+                                📷 ${TRANSLATIONS[currentLang].card_view_photos}
+                            </button>
+                        </div>
                     </div>
                     <div class="card-actions-top">
                         <!-- Itinerary selection checkbox -->
@@ -1524,7 +1622,7 @@ function renderDestinationResults(grid) {
 
                 <!-- Action Buttons: Como Ir -->
                 <div class="card-action-row" style="display: flex; gap: 10px; margin-top: 15px; flex-wrap: wrap;">
-                    <button class="btn btn-primary btn-como-ir" data-lat="${item.lat}" data-lng="${item.lng}" data-name="${item.destino}" data-i18n="card_how_to_go" style="flex: 1; min-width: 140px;">
+                    <button class="btn btn-primary btn-como-ir" data-lat="${item.lat}" data-lng="${item.lng}" data-name="${item.destino}" data-i18n="card_how_to_go" style="width: 100%;">
                         ${TRANSLATIONS[currentLang].card_how_to_go}
                     </button>
                 </div>
@@ -1567,13 +1665,47 @@ function renderDestinationResults(grid) {
             getDirections(item.lat, item.lng, item.destino, item.departamento);
         });
 
+        // "Ver Fotos" button
+        card.querySelector('.btn-ver-fotos').addEventListener('click', () => {
+            viewPhotos(item.destino, item.departamento);
+        });
+
         grid.appendChild(card);
     });
+
+    // Pagination: Load more button
+    if (currentResults.length > displayedDestinationsCount) {
+        const loadMoreContainer = document.createElement('div');
+        loadMoreContainer.className = 'load-more-container';
+        loadMoreContainer.style.textAlign = 'center';
+        loadMoreContainer.style.width = '100%';
+        loadMoreContainer.style.marginTop = '20px';
+        loadMoreContainer.style.marginBottom = '20px';
+        
+        const loadMoreBtn = document.createElement('button');
+        loadMoreBtn.className = 'btn btn-secondary btn-load-more';
+        loadMoreBtn.textContent = TRANSLATIONS[currentLang].btn_load_more;
+        
+        loadMoreBtn.onclick = () => {
+            displayedDestinationsCount += 10;
+            renderResults();
+            
+            // Smoothly scroll to the first newly added item
+            const newIndex = displayedDestinationsCount - 10;
+            if (grid.children[newIndex]) {
+                grid.children[newIndex].scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        };
+        
+        loadMoreContainer.appendChild(loadMoreBtn);
+        grid.appendChild(loadMoreContainer);
+    }
 }
 
 // Render Events
 function renderEventResults(grid) {
-    currentResults.forEach(ev => {
+    const sliced = currentResults.slice(0, displayedEventsCount);
+    sliced.forEach(ev => {
         const isSaved = itinerary.some(it => it.type === 'event' && it.id === ev.id);
         
         // Find destination coordinates to render map fallback
@@ -1639,9 +1771,9 @@ function renderEventResults(grid) {
                 </div>
 
                 <!-- Action Buttons: Como Ir -->
-                <div class="card-action-row" style="display: flex; gap: 10px; margin-top: 15px;">
+                <div class="card-action-row" style="display: flex; gap: 10px; margin-top: 15px; flex-wrap: wrap;">
                     ${showMap ? `
-                    <button class="btn btn-primary btn-como-ir" style="flex: 1;">
+                    <button class="btn btn-primary btn-como-ir" style="flex: 1; min-width: 120px;">
                         ${TRANSLATIONS[currentLang].card_how_to_go}
                     </button>` : ''}
                     ${ticketBtn}
@@ -1680,8 +1812,38 @@ function renderEventResults(grid) {
             });
         }
 
+        // No Ver Fotos button for events
+
         grid.appendChild(card);
     });
+
+    // Pagination: Load more button
+    if (currentResults.length > displayedEventsCount) {
+        const loadMoreContainer = document.createElement('div');
+        loadMoreContainer.className = 'load-more-container';
+        loadMoreContainer.style.textAlign = 'center';
+        loadMoreContainer.style.width = '100%';
+        loadMoreContainer.style.marginTop = '20px';
+        loadMoreContainer.style.marginBottom = '20px';
+        
+        const loadMoreBtn = document.createElement('button');
+        loadMoreBtn.className = 'btn btn-secondary btn-load-more';
+        loadMoreBtn.textContent = TRANSLATIONS[currentLang].btn_load_more;
+        
+        loadMoreBtn.onclick = () => {
+            displayedEventsCount += 10;
+            renderResults();
+            
+            // Smoothly scroll to the first newly added item
+            const newIndex = displayedEventsCount - 10;
+            if (grid.children[newIndex]) {
+                grid.children[newIndex].scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        };
+        
+        loadMoreContainer.appendChild(loadMoreBtn);
+        grid.appendChild(loadMoreContainer);
+    }
 }
 
 // Toggle Favorites
@@ -1925,15 +2087,36 @@ function renderItineraryTab() {
     renderSavedItinerariesHistory();
 }
 
+// Search Google Images for a destination photos
+function viewPhotos(destino, departamento) {
+    const query = `${destino}, ${departamento}, Uruguay`;
+    const url = `https://www.google.com/search?tbm=isch&q=${encodeURIComponent(query)}`;
+    window.open(url, '_blank');
+}
+
 // Directions ("Cómo ir") for a single destination
-function getDirections(lat, lng, name, departamento) {
+function getDirections(lat, lng, name, address, departamento) {
     let url = 'https://www.google.com/maps/dir/?api=1&';
     
     if (userLocation) {
         url += `origin=${userLocation.lat},${userLocation.lng}&`;
     }
     
-    url += `destination=${lat},${lng}`;
+    let finalDestination = '';
+    
+    if (address && departamento) {
+        // 5-parameter call from Emergencies list: (lat, lng, name, address, depto)
+        const decName = decodeURIComponent(name);
+        const decAddress = decodeURIComponent(address);
+        const decDepto = decodeURIComponent(departamento);
+        finalDestination = `${decName}, ${decAddress}, ${decDepto}, Uruguay`;
+    } else {
+        // 4-parameter call from destinations/events: (lat, lng, name, depto)
+        // Here we use coordinates directly
+        finalDestination = `${lat},${lng}`;
+    }
+    
+    url += `destination=${encodeURIComponent(finalDestination)}`;
     window.open(url, '_blank');
 }
 
@@ -2415,6 +2598,7 @@ function parseSpanishDate(dateStr) {
 
 // Perform event search
 function performEventSearch() {
+    displayedEventsCount = 10;
     const searchText = document.getElementById('search-event-input').value.trim();
     const selectedDepto = document.getElementById('filter-event-departamento').value;
     const selectedTipo = document.getElementById('filter-event-tipo').value;
@@ -2477,15 +2661,28 @@ function performEventSearch() {
         return true;
     });
 
-    // Distance calculation if proximity mode is active
-    if (!selectedDepto && emptySearchCriterion === 'near') {
+    // Distance calculation if userLocation is available
+    if (userLocation) {
+        const userDept = getUserDepartment();
         matchedEvents.forEach(ev => {
             ev.distance = null;
+            // 1. Try to find the specific destination coordinates
             const dest = appDestinos.find(d => removeAccents(d.destino) === removeAccents(ev.destino));
-            if (dest && dest.lat !== null && dest.lng !== null && userLocation) {
+            if (dest && dest.lat !== null && dest.lng !== null) {
                 ev.distance = calculateDistance(userLocation.lat, userLocation.lng, dest.lat, dest.lng);
+            } else {
+                // 2. Fallback: if no specific destination, use event's department
+                if (userDept && ev.departamento) {
+                    if (userDept.trim().toLowerCase() === ev.departamento.trim().toLowerCase()) {
+                        ev.distance = 0; // Same department as user! Sort first!
+                    } else {
+                        // Calculate distance to closest point in that other department
+                        ev.distance = getDistanceToDepartment(userLocation.lat, userLocation.lng, ev.departamento);
+                    }
+                }
             }
         });
+        // Sort by proximity ascending
         matchedEvents.sort((a, b) => {
             if (a.distance === null && b.distance === null) return 0;
             if (a.distance === null) return 1;
@@ -2544,9 +2741,9 @@ function handleSwipe() {
 }
 
 const POLICE_STATIONS = [
-    { name: 'Jefatura de Policía de Montevideo', depto: 'Montevideo', lat: -34.9056, lng: -56.1925, address: 'San José 1250, Montevideo' },
-    { name: 'Seccional 4ª de Policía (Tres Cruces)', depto: 'Montevideo', lat: -34.8944, lng: -56.1628, address: 'Av. Italia 2516, Montevideo' },
-    { name: 'Seccional 13ª de Policía (Prado)', depto: 'Montevideo', lat: -34.8686, lng: -56.1864, address: 'Av. Joaquín Suárez 3097, Montevideo' },
+    { name: 'Jefatura de Policía de Montevideo', depto: 'Montevideo', lat: -34.8698, lng: -56.1481, address: 'Av. José Pedro Varela 3440, Montevideo' },
+    { name: 'Seccional 4ª de Policía (Cordón)', depto: 'Montevideo', lat: -34.8932, lng: -56.1770, address: 'Miguelete 1973, Montevideo' },
+    { name: 'Seccional 13ª de Policía (Aguada)', depto: 'Montevideo', lat: -34.8698, lng: -56.1716, address: 'Bulevar General Artigas 3145, Montevideo' },
     { name: 'Seccional 10ª de Policía (Pocitos)', depto: 'Montevideo', lat: -34.9081, lng: -56.1511, address: 'Gabriel A. Pereira 3131, Montevideo' },
     { name: 'Seccional 14ª de Policía (Carrasco)', depto: 'Montevideo', lat: -34.8872, lng: -56.0903, address: 'Av. Italia 5727, Montevideo' },
     { name: 'Seccional 5ª de Policía (Cordón)', depto: 'Montevideo', lat: -34.9022, lng: -56.1711, address: 'Joaquín de Salterain 1210, Montevideo' },
@@ -2585,7 +2782,7 @@ const MEDICAL_CENTERS = [
     { name: 'Hospital Pereira Rossell', depto: 'Montevideo', lat: -34.8986, lng: -56.1633, address: 'Bulevar Artigas 1550, Montevideo' },
     { name: 'Hospital Pasteur', depto: 'Montevideo', lat: -34.8847, lng: -56.1389, address: 'Larravide 74, Montevideo' },
     { name: 'Médica Uruguaya (MUCAM)', depto: 'Montevideo', lat: -34.8914, lng: -56.1617, address: 'Av. 8 de Octubre 2492, Montevideo' },
-    { name: 'Sanatorio Americano', depto: 'Montevideo', lat: -34.8956, lng: -56.1586, address: 'Isabela 3475, Montevideo' },
+    { name: 'Sanatorio Americano', depto: 'Montevideo', lat: -34.8991, lng: -56.1597, address: 'Isabelino Bosch 2466, Montevideo' },
     { name: 'Hospital Británico', depto: 'Montevideo', lat: -34.8919, lng: -56.1639, address: 'Av. Italia 2420, Montevideo' },
     { name: 'Hospital de Canelones', depto: 'Canelones', lat: -34.5275, lng: -56.2797, address: 'Dr. F. Soca 350, Canelones' },
     { name: 'Policlínica Médica Atlántida (ASSE)', depto: 'Canelones', lat: -34.7731, lng: -55.7602, address: 'Calle 18 y Roger Balet, Atlántida' },
@@ -2690,7 +2887,27 @@ function showPoliceStationsList() {
     list.innerHTML = '';
 
     if (!userLocation) {
-        list.innerHTML = `<p class="empty-text">${TRANSLATIONS[currentLang].no_gps_police_list}</p>`;
+        list.innerHTML = `<p class="empty-text">${TRANSLATIONS[currentLang].lbl_loading_gps}</p>`;
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    userLocation = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+                    console.log("Ubicación del usuario obtenida dinámicamente:", userLocation);
+                    renderEmergenciesTab();
+                    showPoliceStationsList();
+                },
+                (error) => {
+                    console.warn("No se pudo obtener la ubicación:", error.message);
+                    list.innerHTML = `<p class="empty-text">${TRANSLATIONS[currentLang].no_gps_police_list}</p>`;
+                },
+                { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 }
+            );
+        } else {
+            list.innerHTML = `<p class="empty-text">${TRANSLATIONS[currentLang].no_gps_police_list}</p>`;
+        }
         return;
     }
 
@@ -2713,7 +2930,7 @@ function showPoliceStationsList() {
                 <span class="emergency-item-name">${station.name}</span>
                 <span class="emergency-item-detail">${station.address} (${station.depto}) • <b>${TRANSLATIONS[currentLang].distance_badge.replace('{distance}', station.distance.toFixed(1))}</b></span>
             </div>
-            <button class="btn btn-primary btn-emergency-item" onclick="getDirections(${station.lat}, ${station.lng}, '${encodeURIComponent(station.name)}', '${encodeURIComponent(station.depto)}')">
+            <button class="btn btn-primary btn-emergency-item" onclick="getDirections(${station.lat}, ${station.lng}, '${encodeURIComponent(station.name)}', '${encodeURIComponent(station.address)}', '${encodeURIComponent(station.depto)}')">
                 ${TRANSLATIONS[currentLang].card_how_to_go}
             </button>
         `;
@@ -2747,7 +2964,27 @@ function showMedicalCentersList() {
     list.innerHTML = '';
 
     if (!userLocation) {
-        list.innerHTML = `<p class="empty-text">${TRANSLATIONS[currentLang].no_gps_medical_list}</p>`;
+        list.innerHTML = `<p class="empty-text">${TRANSLATIONS[currentLang].lbl_loading_gps}</p>`;
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    userLocation = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+                    console.log("Ubicación del usuario obtenida dinámicamente:", userLocation);
+                    renderEmergenciesTab();
+                    showMedicalCentersList();
+                },
+                (error) => {
+                    console.warn("No se pudo obtener la ubicación:", error.message);
+                    list.innerHTML = `<p class="empty-text">${TRANSLATIONS[currentLang].no_gps_medical_list}</p>`;
+                },
+                { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 }
+            );
+        } else {
+            list.innerHTML = `<p class="empty-text">${TRANSLATIONS[currentLang].no_gps_medical_list}</p>`;
+        }
         return;
     }
 
@@ -2770,7 +3007,7 @@ function showMedicalCentersList() {
                 <span class="emergency-item-name">${center.name}</span>
                 <span class="emergency-item-detail">${center.address} (${center.depto}) • <b>${TRANSLATIONS[currentLang].distance_badge.replace('{distance}', center.distance.toFixed(1))}</b></span>
             </div>
-            <button class="btn btn-primary btn-emergency-item" onclick="getDirections(${center.lat}, ${center.lng}, '${encodeURIComponent(center.name)}', '${encodeURIComponent(center.depto)}')">
+            <button class="btn btn-primary btn-emergency-item" onclick="getDirections(${center.lat}, ${center.lng}, '${encodeURIComponent(center.name)}', '${encodeURIComponent(center.address)}', '${encodeURIComponent(center.depto)}')">
                 ${TRANSLATIONS[currentLang].card_how_to_go}
             </button>
         `;
@@ -2804,7 +3041,27 @@ function showEVChargersList() {
     list.innerHTML = '';
 
     if (!userLocation) {
-        list.innerHTML = `<p class="empty-text">${TRANSLATIONS[currentLang].no_gps_chargers_list}</p>`;
+        list.innerHTML = `<p class="empty-text">${TRANSLATIONS[currentLang].lbl_loading_gps}</p>`;
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    userLocation = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+                    console.log("Ubicación del usuario obtenida dinámicamente:", userLocation);
+                    renderEmergenciesTab();
+                    showEVChargersList();
+                },
+                (error) => {
+                    console.warn("No se pudo obtener la ubicación:", error.message);
+                    list.innerHTML = `<p class="empty-text">${TRANSLATIONS[currentLang].no_gps_chargers_list}</p>`;
+                },
+                { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 }
+            );
+        } else {
+            list.innerHTML = `<p class="empty-text">${TRANSLATIONS[currentLang].no_gps_chargers_list}</p>`;
+        }
         return;
     }
 
@@ -2829,7 +3086,7 @@ function showEVChargersList() {
                     <span class="emergency-item-name">${charger.name}</span>
                     <span class="emergency-item-detail">${charger.address} (${charger.depto}) • <b>${TRANSLATIONS[currentLang].distance_badge.replace('{distance}', charger.distance.toFixed(1))}</b></span>
                 </div>
-                <button class="btn btn-primary btn-emergency-item" onclick="getDirections(${charger.lat}, ${charger.lng}, '${encodeURIComponent(charger.name)}', '${encodeURIComponent(charger.depto)}')">
+                <button class="btn btn-primary btn-emergency-item" onclick="getDirections(${charger.lat}, ${charger.lng}, '${encodeURIComponent(charger.name)}', '${encodeURIComponent(charger.address)}', '${encodeURIComponent(charger.depto)}')">
                     ${TRANSLATIONS[currentLang].card_how_to_go}
                 </button>
             `;

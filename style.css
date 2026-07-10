@@ -1794,3 +1794,53 @@ span.flatpickr-weekday {
     transform: scale(1);
 }
 
+/* Ver Fotos Header Button Styling */
+.btn-ver-fotos-header {
+    background: transparent;
+    border: 2.2px solid var(--primary);
+    color: var(--primary);
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 3px 10px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    text-decoration: none;
+    line-height: 1.2;
+}
+.btn-ver-fotos-header:hover {
+    background: var(--primary);
+    color: var(--bg-card);
+}
+.btn-ver-fotos-header:active {
+    transform: scale(0.95);
+}
+
+/* Event card Ver Fotos button border */
+.btn-ver-fotos:not(.btn-ver-fotos-header) {
+    border: 2px solid var(--primary) !important;
+    font-weight: 600;
+}
+
+/* Pagination load more button styling */
+.btn-load-more {
+    background: transparent !important;
+    color: var(--primary) !important;
+    border: 2.2px solid var(--primary) !important;
+    border-radius: 8px;
+    font-weight: 600;
+    padding: 10px 24px;
+    cursor: pointer;
+    transition: all 0.2s ease !important;
+}
+.btn-load-more:hover {
+    background: var(--primary) !important;
+    color: var(--bg-card) !important;
+}
+.btn-load-more:active {
+    transform: scale(0.95);
+}
+
