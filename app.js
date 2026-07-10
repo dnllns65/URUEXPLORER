@@ -1580,23 +1580,22 @@ function renderDestinationResults(grid) {
                 <div class="card-header-row" style="flex-wrap: wrap; gap: 8px; width: 100%;">
                     <div class="card-title-group" style="flex: 1; min-width: 200px;">
                         <div class="card-title"><span translate="no" class="notranslate">${item.destino}</span> ${distanceBadge}</div>
-                        <div class="card-dept" style="display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; width: 100%;">
-                            <span><span translate="no" class="notranslate">${item.departamento}</span>${popularityText}</span>
-                            <button class="btn-ver-fotos-header btn-ver-fotos" data-i18n="card_view_photos">
-                                📷 ${TRANSLATIONS[currentLang].card_view_photos}
-                            </button>
-                        </div>
+                        <div class="card-dept"><span translate="no" class="notranslate">${item.departamento}</span>${popularityText}</div>
                     </div>
                     <div class="card-actions-top">
+                        <!-- Ver Fotos button -->
+                        <button class="btn-ver-fotos-header btn-ver-fotos" data-i18n="card_view_photos">
+                            📷 ${TRANSLATIONS[currentLang].card_view_photos}
+                        </button>
+                        <!-- Favorite star toggle -->
+                        <button class="fav-toggle ${isFav ? 'active' : ''}" data-id="${item.id}" title="${isFav ? (currentLang === 'es' ? 'Quitar de favoritos' : 'Remove from favorites') : (currentLang === 'es' ? 'Agregar a favoritos' : 'Add to favorites')}">
+                            ★
+                        </button>
                         <!-- Itinerary selection checkbox -->
                         <label class="route-checkbox-container ${isInItinerary ? 'selected' : ''}">
                             <input type="checkbox" class="route-check" ${isInItinerary ? 'checked' : ''} data-id="${item.id}">
                             <span data-i18n="card_route">${TRANSLATIONS[currentLang].card_route}</span>
                         </label>
-                        <!-- Favorite star toggle -->
-                        <button class="fav-toggle ${isFav ? 'active' : ''}" data-id="${item.id}" title="${isFav ? (currentLang === 'es' ? 'Quitar de favoritos' : 'Remove from favorites') : (currentLang === 'es' ? 'Agregar a favoritos' : 'Add to favorites')}">
-                            ★
-                        </button>
                     </div>
                 </div>
 
