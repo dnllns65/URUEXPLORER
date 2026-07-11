@@ -137,19 +137,19 @@ const TRANSLATIONS = {
         btn_search_police: "Puestos de Policía",
         btn_search_medical: "Atención Médica",
         btn_search_mechanics: "Mecánica y Auxilio",
-        btn_search_chargers: "Estaciones de Recarga",
+        btn_search_chargers: "Recarga y Combustible",
         title_itinerary_emergencies: "Emergencias en tu Recorrido",
         empty_itinerary_emergencies: "No tienes destinos en tu recorrido para calcular servicios en ruta.",
         title_police_list: "Seccionales de Policía Cercanas (Top 5)",
         no_gps_police_list: "Por favor active su GPS para ver las seccionales de policía más cercanas ordenadas por distancia.",
         title_medical_list: "Hospitales y Policlínicas Cercanos (Top 5)",
         no_gps_medical_list: "Por favor active su GPS para ver los centros de salud más cercanos ordenados por distancia.",
-        title_chargers_list: "Estaciones de Recarga Cercanas (Radio 100 km)",
-        no_gps_chargers_list: "Por favor active su GPS para ver las estaciones de recarga a menos de 100 km ordenadas por distancia.",
-        no_chargers_100km: "No se encontraron estaciones de recarga a menos de 100 km de tu ubicación.",
+        title_chargers_list: "Estaciones de Recarga y Combustible Cercanas (Top 5 de cada tipo)",
+        no_gps_chargers_list: "Por favor active su GPS para ver las estaciones de recarga y combustible más cercanas.",
+        no_chargers_100km: "No se encontraron estaciones de recarga o servicio cerca de tu ubicación.",
         btn_more_police_maps: "🔍 Buscar todas las seccionales en Google Maps",
         btn_more_medical_maps: "🔍 Buscar más centros de salud en Google Maps",
-        btn_more_chargers_maps: "🔍 Buscar más cargadores en Google Maps",
+        btn_more_chargers_maps: "🔍 Buscar estaciones y cargadores en Google Maps",
         lbl_loading_gps: "Obteniendo ubicación GPS...",
         btn_load_more: "Más resultados"
     },
@@ -261,19 +261,19 @@ const TRANSLATIONS = {
         btn_search_police: "Police Stations",
         btn_search_medical: "Medical Attention",
         btn_search_mechanics: "Mechanic & Towing",
-        btn_search_chargers: "Charging Stations",
+        btn_search_chargers: "Charging & Fuel",
         title_itinerary_emergencies: "Emergencies along your Route",
         empty_itinerary_emergencies: "You have no destinations in your route to calculate roadside services.",
         title_police_list: "Nearby Police Stations (Top 5)",
         no_gps_police_list: "Please activate your GPS to see the nearest police stations sorted by distance.",
         title_medical_list: "Nearby Hospitals & Clinics (Top 5)",
         no_gps_medical_list: "Please activate your GPS to see the nearest medical centers sorted by distance.",
-        title_chargers_list: "Nearby Charging Stations (100 km Radius)",
-        no_gps_chargers_list: "Please activate your GPS to see charging stations within 100 km sorted by distance.",
-        no_chargers_100km: "No charging stations found within 100 km of your location.",
+        title_chargers_list: "Closest Charging & Fuel Stations (Top 5 of each type)",
+        no_gps_chargers_list: "Please activate your GPS to see the closest charging and fuel stations.",
+        no_chargers_100km: "No charging or service stations found near your location.",
         btn_more_police_maps: "🔍 Search all police stations on Google Maps",
         btn_more_medical_maps: "🔍 Search more medical centers on Google Maps",
-        btn_more_chargers_maps: "🔍 Search more chargers on Google Maps",
+        btn_more_chargers_maps: "🔍 Search charging and service stations on Google Maps",
         lbl_loading_gps: "Acquiring GPS location...",
         btn_load_more: "More results"
     },
@@ -384,19 +384,19 @@ const TRANSLATIONS = {
         btn_search_police: "Postos de Polícia",
         btn_search_medical: "Atendimento Médico",
         btn_search_mechanics: "Mecânica e Reboque",
-        btn_search_chargers: "Estações de Recarga",
+        btn_search_chargers: "Recarga e Combustível",
         title_itinerary_emergencies: "Emergências ao longo do seu Roteiro",
         empty_itinerary_emergencies: "Você não tem destinos no seu roteiro para calcular serviços na estrada.",
         title_police_list: "Postos de Polícia Próximos (Top 5)",
         no_gps_police_list: "Por favor, ative seu GPS para ver os postos de polícia mais próximos ordenados por distância.",
         title_medical_list: "Hospitais e Policlínicas Próximos (Top 5)",
         no_gps_medical_list: "Por favor, ative seu GPS para ver os centros de saúde mais próximos ordenados por distância.",
-        title_chargers_list: "Estações de Recarga Próximas (Raio de 100 km)",
-        no_gps_chargers_list: "Por favor, ative seu GPS para ver as estações de recarga a menos de 100 km ordenadas por distância.",
-        no_chargers_100km: "Nenhuma estação de recarga encontrada a menos de 100 km de sua localização.",
+        title_chargers_list: "Estações de Recarga e Combustível Próximas (Top 5 de cada tipo)",
+        no_gps_chargers_list: "Por favor, ative seu GPS para ver as estações de recarga e combustível mais próximas.",
+        no_chargers_100km: "Nenhuma estação de recarga ou serviço encontrada próxima de sua localização.",
         btn_more_police_maps: "🔍 Buscar todos os postos de polícia no Google Maps",
         btn_more_medical_maps: "🔍 Buscar mais centros médicos no Google Maps",
-        btn_more_chargers_maps: "🔍 Buscar mais carregadores no Google Maps",
+        btn_more_chargers_maps: "🔍 Buscar estações e carregadores no Google Maps",
         lbl_loading_gps: "Obtendo localização GPS...",
         btn_load_more: "Mais resultados"
     },
@@ -2824,6 +2824,1892 @@ const MEDICAL_CENTERS = [
     { name: 'Hospital de Durazno', depto: 'Durazno', lat: -33.3814, lng: -56.5197, address: '18 de Julio s/n, Durazno' }
 ];
 
+const FUEL_STATIONS = [
+    {
+        "name": "ANCAP - Cabo Polonio",
+        "depto": "Rocha",
+        "lat": -34.40031,
+        "lng": -53.78302,
+        "address": "Centro o Ruta principal, Cabo Polonio"
+    },
+    {
+        "name": "ANCAP - Quebrada de los Cuervos",
+        "depto": "Treinta y Tres",
+        "lat": -32.8542,
+        "lng": -54.4568,
+        "address": "Centro o Ruta principal, Quebrada de los Cuervos"
+    },
+    {
+        "name": "ANCAP - Termas del Daymán",
+        "depto": "Salto",
+        "lat": -31.4208,
+        "lng": -57.9042,
+        "address": "Centro o Ruta principal, Termas del Daymán"
+    },
+    {
+        "name": "ANCAP - Villa Serrana",
+        "depto": "Lavalleja",
+        "lat": -34.3267,
+        "lng": -54.9856,
+        "address": "Centro o Ruta principal, Villa Serrana"
+    },
+    {
+        "name": "ANCAP - Cañadón de la Palma",
+        "depto": "Maldonado",
+        "lat": -34.7214,
+        "lng": -55.3681,
+        "address": "Centro o Ruta principal, Cañadón de la Palma"
+    },
+    {
+        "name": "ANCAP - Quebradas del Norte",
+        "depto": "Rivera",
+        "lat": -31.1444,
+        "lng": -55.9383,
+        "address": "Centro o Ruta principal, Quebradas del Norte"
+    },
+    {
+        "name": "ANCAP - Rincón de Franquía",
+        "depto": "Artigas",
+        "lat": -30.1872,
+        "lng": -57.6253,
+        "address": "Centro o Ruta principal, Rincón de Franquía"
+    },
+    {
+        "name": "ANCAP - Ciudad Vieja",
+        "depto": "Montevideo",
+        "lat": -34.9064,
+        "lng": -56.2045,
+        "address": "Centro o Ruta principal, Ciudad Vieja"
+    },
+    {
+        "name": "ANCAP - ANCAP Centro",
+        "depto": "Montevideo",
+        "lat": -34.9125,
+        "lng": -56.1601,
+        "address": "Av. 18 de Julio 1101, Rambla de Montevideo"
+    },
+    {
+        "name": "DISA - DISA Pocitos",
+        "depto": "Montevideo",
+        "lat": -34.9145,
+        "lng": -56.2001,
+        "address": "Bvar. España 2602, Rambla de Montevideo"
+    },
+    {
+        "name": "AXION - AXION Carrasco",
+        "depto": "Montevideo",
+        "lat": -34.8885,
+        "lng": -56.0351,
+        "address": "Av. Italia 5900, Rambla de Montevideo"
+    },
+    {
+        "name": "ANCAP - ANCAP Tres Cruces",
+        "depto": "Montevideo",
+        "lat": -34.9005,
+        "lng": -56.1271,
+        "address": "Av. Italia 2402, Rambla de Montevideo"
+    },
+    {
+        "name": "DISA - DISA Rambla",
+        "depto": "Montevideo",
+        "lat": -34.9025,
+        "lng": -56.0681,
+        "address": "Rambla O'Higgins 4902, Rambla de Montevideo"
+    },
+    {
+        "name": "AXION - AXION Centro",
+        "depto": "Montevideo",
+        "lat": -34.9135,
+        "lng": -56.1621,
+        "address": "San José 901, Rambla de Montevideo"
+    },
+    {
+        "name": "ANCAP - ANCAP Prado",
+        "depto": "Montevideo",
+        "lat": -34.8685,
+        "lng": -56.1621,
+        "address": "Av. Millán 3502, Rambla de Montevideo"
+    },
+    {
+        "name": "ANCAP - ANCAP Paso de la Arena",
+        "depto": "Montevideo",
+        "lat": -34.8775,
+        "lng": -56.2301,
+        "address": "Av. Luis Batlle Berres 6200, Rambla de Montevideo"
+    },
+    {
+        "name": "DISA - DISA Colón",
+        "depto": "Montevideo",
+        "lat": -34.8325,
+        "lng": -56.1701,
+        "address": "Av. Garzón 1802, Rambla de Montevideo"
+    },
+    {
+        "name": "AXION - AXION Unión",
+        "depto": "Montevideo",
+        "lat": -34.9025,
+        "lng": -56.1201,
+        "address": "Av. 8 de Octubre 3602, Rambla de Montevideo"
+    },
+    {
+        "name": "ANCAP - ANCAP Artigas",
+        "depto": "Montevideo",
+        "lat": -34.8878,
+        "lng": -56.2575,
+        "address": "Av. Lecueder, Museo Militar Fortaleza General Artigas (Cerro)"
+    },
+    {
+        "name": "DISA - DISA Artigas Centro",
+        "depto": "Montevideo",
+        "lat": -34.8858,
+        "lng": -56.2595,
+        "address": "Av. Baltasar Brum, Museo Militar Fortaleza General Artigas (Cerro)"
+    },
+    {
+        "name": "ANCAP - ANCAP Artigas",
+        "depto": "Montevideo",
+        "lat": -34.9065,
+        "lng": -56.1998,
+        "address": "Av. Lecueder, Monumento al Gral. José Gervasio Artigas"
+    },
+    {
+        "name": "DISA - DISA Artigas Centro",
+        "depto": "Montevideo",
+        "lat": -34.9045,
+        "lng": -56.2018,
+        "address": "Av. Baltasar Brum, Monumento al Gral. José Gervasio Artigas"
+    },
+    {
+        "name": "ANCAP - ANCAP Libertad",
+        "depto": "Montevideo",
+        "lat": -34.9058,
+        "lng": -56.1914,
+        "address": "Ruta 1 Km 51, Estatua de la Libertad (Plaza Cagancha)"
+    },
+    {
+        "name": "ANCAP - ANCAP Las Piedras",
+        "depto": "Canelones",
+        "lat": -34.7264,
+        "lng": -56.2189,
+        "address": "Av. Instrucciones, Teatro Politeama de Las Piedras (Centro Cultural Carlitos)"
+    },
+    {
+        "name": "AXION - AXION Las Piedras",
+        "depto": "Canelones",
+        "lat": -34.7244,
+        "lng": -56.2209,
+        "address": "Ruta 5 Km 21, Teatro Politeama de Las Piedras (Centro Cultural Carlitos)"
+    },
+    {
+        "name": "ANCAP - ANCAP Atlántida",
+        "depto": "Canelones",
+        "lat": -34.7711,
+        "lng": -55.7592,
+        "address": "Ruta Interbalnearia Km 46.5, Centro Cultural Centro de Atlántida"
+    },
+    {
+        "name": "AXION - AXION Atlántida",
+        "depto": "Canelones",
+        "lat": -34.7731,
+        "lng": -55.7572,
+        "address": "Ruta 11 y Ruta Interbalnearia, Centro Cultural Centro de Atlántida"
+    },
+    {
+        "name": "ANCAP - ANCAP Santa Lucía",
+        "depto": "Canelones",
+        "lat": -34.4514,
+        "lng": -56.4022,
+        "address": "Av. Rivera, Anfiteatro del Río Santa Lucía"
+    },
+    {
+        "name": "ANCAP - ANCAP Atlántida",
+        "depto": "Canelones",
+        "lat": -34.7725,
+        "lng": -55.7622,
+        "address": "Ruta Interbalnearia Km 46.5, Playa Mansa de Atlántida"
+    },
+    {
+        "name": "AXION - AXION Atlántida",
+        "depto": "Canelones",
+        "lat": -34.7745,
+        "lng": -55.7602,
+        "address": "Ruta 11 y Ruta Interbalnearia, Playa Mansa de Atlántida"
+    },
+    {
+        "name": "ANCAP - ANCAP Atlántida",
+        "depto": "Canelones",
+        "lat": -34.7703,
+        "lng": -55.7489,
+        "address": "Ruta Interbalnearia Km 46.5, Playa Brava de Atlántida"
+    },
+    {
+        "name": "AXION - AXION Atlántida",
+        "depto": "Canelones",
+        "lat": -34.7723,
+        "lng": -55.7469,
+        "address": "Ruta 11 y Ruta Interbalnearia, Playa Brava de Atlántida"
+    },
+    {
+        "name": "ANCAP - ANCAP Centro",
+        "depto": "Canelones",
+        "lat": -34.5244,
+        "lng": -56.2811,
+        "address": "Av. Martínez Butler, Museo Spikerman (Canelones Capital)"
+    },
+    {
+        "name": "DISA - DISA Canelones",
+        "depto": "Canelones",
+        "lat": -34.5204,
+        "lng": -56.2851,
+        "address": "Ruta 5 Km 45, Museo Spikerman (Canelones Capital)"
+    },
+    {
+        "name": "ANCAP - ANCAP Las Piedras",
+        "depto": "Canelones",
+        "lat": -34.7231,
+        "lng": -56.2164,
+        "address": "Av. Instrucciones, Museo de la Uva y el Vino (Las Piedras)"
+    },
+    {
+        "name": "AXION - AXION Las Piedras",
+        "depto": "Canelones",
+        "lat": -34.7211,
+        "lng": -56.2184,
+        "address": "Ruta 5 Km 21, Museo de la Uva y el Vino (Las Piedras)"
+    },
+    {
+        "name": "ANCAP - ANCAP Atlántida",
+        "depto": "Canelones",
+        "lat": -34.7736,
+        "lng": -55.7661,
+        "address": "Ruta Interbalnearia Km 46.5, Museo Pablo Neruda (Atlántida)"
+    },
+    {
+        "name": "AXION - AXION Atlántida",
+        "depto": "Canelones",
+        "lat": -34.7756,
+        "lng": -55.7641,
+        "address": "Ruta 11 y Ruta Interbalnearia, Museo Pablo Neruda (Atlántida)"
+    },
+    {
+        "name": "ANCAP - ANCAP Santa Lucía",
+        "depto": "Canelones",
+        "lat": -34.4539,
+        "lng": -56.3958,
+        "address": "Av. Rivera, Museo Histórico Municipal de Santa Lucía (Quinta Capurro)"
+    },
+    {
+        "name": "ANCAP - ANCAP Atlántida",
+        "depto": "Canelones",
+        "lat": -34.7706,
+        "lng": -55.7767,
+        "address": "Ruta Interbalnearia Km 46.5, El Águila (Atlántida)"
+    },
+    {
+        "name": "AXION - AXION Atlántida",
+        "depto": "Canelones",
+        "lat": -34.7726,
+        "lng": -55.7747,
+        "address": "Ruta 11 y Ruta Interbalnearia, El Águila (Atlántida)"
+    },
+    {
+        "name": "ANCAP - ANCAP Parque del Plata",
+        "depto": "Canelones",
+        "lat": -34.7572,
+        "lng": -55.6881,
+        "address": "Ruta Interbalnearia Km 49, Parque del Plata (Desembocadura Solís Chico)"
+    },
+    {
+        "name": "ANCAP - ANCAP Atlántida",
+        "depto": "Canelones",
+        "lat": -34.7397,
+        "lng": -55.7667,
+        "address": "Ruta Interbalnearia Km 46.5, Iglesia Cristo Obrero (Estación Atlántida)"
+    },
+    {
+        "name": "AXION - AXION Atlántida",
+        "depto": "Canelones",
+        "lat": -34.7417,
+        "lng": -55.7647,
+        "address": "Ruta 11 y Ruta Interbalnearia, Iglesia Cristo Obrero (Estación Atlántida)"
+    },
+    {
+        "name": "ANCAP - ANCAP Santa Lucía",
+        "depto": "Canelones",
+        "lat": -34.6189,
+        "lng": -56.3533,
+        "address": "Av. Rivera, Cerrillos y Humedales del Santa Lucía"
+    },
+    {
+        "name": "ANCAP - Punta de la Salina",
+        "depto": "Maldonado",
+        "lat": -34.9642,
+        "lng": -54.9492,
+        "address": "Centro o Ruta principal, Punta de la Salina"
+    },
+    {
+        "name": "ANCAP - ANCAP Pan de Azúcar",
+        "depto": "Maldonado",
+        "lat": -34.8136,
+        "lng": -55.2575,
+        "address": "Ruta 9 y Ruta 37, Cerro Pan de Azúcar y Reserva"
+    },
+    {
+        "name": "ANCAP - Casapueblo",
+        "depto": "Maldonado",
+        "lat": -34.9083,
+        "lng": -55.0444,
+        "address": "Centro o Ruta principal, Casapueblo"
+    },
+    {
+        "name": "ANCAP - Isla Gorriti",
+        "depto": "Maldonado",
+        "lat": -34.9583,
+        "lng": -54.9694,
+        "address": "Centro o Ruta principal, Isla Gorriti"
+    },
+    {
+        "name": "ANCAP - Castillo de Piria",
+        "depto": "Maldonado",
+        "lat": -34.8433,
+        "lng": -55.2444,
+        "address": "Centro o Ruta principal, Castillo de Piria"
+    },
+    {
+        "name": "ANCAP - Museo Ralli",
+        "depto": "Maldonado",
+        "lat": -34.9297,
+        "lng": -54.9219,
+        "address": "Centro o Ruta principal, Museo Ralli"
+    },
+    {
+        "name": "ANCAP - ANCAP Centro",
+        "depto": "Maldonado",
+        "lat": -34.7972,
+        "lng": -54.9189,
+        "address": "Av. Ceberio, Museo Regional Carolino (San Carlos)"
+    },
+    {
+        "name": "AXION - AXION San Carlos",
+        "depto": "Maldonado",
+        "lat": -34.8002,
+        "lng": -54.9169,
+        "address": "Ruta 39 Km 13, Museo Regional Carolino (San Carlos)"
+    },
+    {
+        "name": "ANCAP - ANCAP Gorlero",
+        "depto": "Maldonado",
+        "lat": -34.9636,
+        "lng": -54.9472,
+        "address": "Av. Gorlero y Calle 30, Museo Paseo Neruda (Punta del Este)"
+    },
+    {
+        "name": "AXION - AXION Roosevelt",
+        "depto": "Maldonado",
+        "lat": -34.9276,
+        "lng": -54.9532,
+        "address": "Av. Roosevelt y Parada 16, Museo Paseo Neruda (Punta del Este)"
+    },
+    {
+        "name": "ANCAP - ANCAP Gorlero",
+        "depto": "Maldonado",
+        "lat": -34.9458,
+        "lng": -54.9411,
+        "address": "Av. Gorlero y Calle 30, Playa Mansa (Punta del Este)"
+    },
+    {
+        "name": "AXION - AXION Roosevelt",
+        "depto": "Maldonado",
+        "lat": -34.9098,
+        "lng": -54.9471,
+        "address": "Av. Roosevelt y Parada 16, Playa Mansa (Punta del Este)"
+    },
+    {
+        "name": "DISA - DISA Roosevelt",
+        "depto": "Maldonado",
+        "lat": -34.9025,
+        "lng": -54.9575,
+        "address": "Av. Roosevelt y Camacho, Teatro de la Casa de la Cultura (Maldonado)"
+    },
+    {
+        "name": "ANCAP - ANCAP Centro",
+        "depto": "Maldonado",
+        "lat": -34.8925,
+        "lng": -54.9375,
+        "address": "Av. Batlle y Ordóñez, Teatro de la Casa de la Cultura (Maldonado)"
+    },
+    {
+        "name": "ANCAP - ANCAP Centro",
+        "depto": "Maldonado",
+        "lat": -34.7958,
+        "lng": -54.9214,
+        "address": "Av. Ceberio, Teatro Club Unión de San Carlos"
+    },
+    {
+        "name": "AXION - AXION San Carlos",
+        "depto": "Maldonado",
+        "lat": -34.7988,
+        "lng": -54.9194,
+        "address": "Ruta 39 Km 13, Teatro Club Unión de San Carlos"
+    },
+    {
+        "name": "ANCAP - ANCAP La Barra",
+        "depto": "Maldonado",
+        "lat": -34.9161,
+        "lng": -54.8847,
+        "address": "Ruta 10 Km 160, Puente Ondulante de La Barra"
+    },
+    {
+        "name": "ANCAP - ANCAP Rambla",
+        "depto": "Canelones",
+        "lat": -34.8431,
+        "lng": -55.2441,
+        "address": "Rambla De Los Argentinos y Manuel Freire, Museo Didáctico Artiguista (Piriápolis)"
+    },
+    {
+        "name": "DISA - DISA Artigas",
+        "depto": "Canelones",
+        "lat": -34.8491,
+        "lng": -55.2381,
+        "address": "Av. Artigas y Misiones, Museo Didáctico Artiguista (Piriápolis)"
+    },
+    {
+        "name": "ANCAP - ANCAP Gorlero",
+        "depto": "Maldonado",
+        "lat": -34.9644,
+        "lng": -54.9419,
+        "address": "Av. Gorlero y Calle 30, Playa De los Ingleses (Punta del Este)"
+    },
+    {
+        "name": "AXION - AXION Roosevelt",
+        "depto": "Maldonado",
+        "lat": -34.9284,
+        "lng": -54.9479,
+        "address": "Av. Roosevelt y Parada 16, Playa De los Ingleses (Punta del Este)"
+    },
+    {
+        "name": "ANCAP - ANCAP Rambla",
+        "depto": "Maldonado",
+        "lat": -34.8664,
+        "lng": -55.2758,
+        "address": "Rambla De Los Argentinos y Manuel Freire, Playa Piriápolis (Rambla de los Argentinos)"
+    },
+    {
+        "name": "DISA - DISA Artigas",
+        "depto": "Maldonado",
+        "lat": -34.8724,
+        "lng": -55.2698,
+        "address": "Av. Artigas y Misiones, Playa Piriápolis (Rambla de los Argentinos)"
+    },
+    {
+        "name": "ANCAP - Boca del Cufré",
+        "depto": "San José",
+        "lat": -34.4442,
+        "lng": -57.1519,
+        "address": "Centro o Ruta principal, Boca del Cufré"
+    },
+    {
+        "name": "ANCAP - Sierras de Mahoma",
+        "depto": "San José",
+        "lat": -34.0683,
+        "lng": -56.9114,
+        "address": "Centro o Ruta principal, Sierras de Mahoma"
+    },
+    {
+        "name": "ANCAP - Picada Varela",
+        "depto": "San José",
+        "lat": -34.3122,
+        "lng": -56.7015,
+        "address": "Centro o Ruta principal, Picada Varela"
+    },
+    {
+        "name": "DISA - DISA San José",
+        "depto": "San José",
+        "lat": -34.3375,
+        "lng": -56.7136,
+        "address": "Ruta 3 Km 92, San José de Mayo (Centro Histórico)"
+    },
+    {
+        "name": "ANCAP - ANCAP San José Centro",
+        "depto": "San José",
+        "lat": -34.3355,
+        "lng": -56.7116,
+        "address": "Av. Manuel D. Rodríguez, San José de Mayo (Centro Histórico)"
+    },
+    {
+        "name": "DISA - DISA San José",
+        "depto": "San José",
+        "lat": -34.3233,
+        "lng": -56.7214,
+        "address": "Ruta 3 Km 92, Parque Rodó (San José de Mayo)"
+    },
+    {
+        "name": "ANCAP - ANCAP San José Centro",
+        "depto": "San José",
+        "lat": -34.3213,
+        "lng": -56.7194,
+        "address": "Av. Manuel D. Rodríguez, Parque Rodó (San José de Mayo)"
+    },
+    {
+        "name": "ANCAP - Quinta del Horno",
+        "depto": "San José",
+        "lat": -34.3441,
+        "lng": -56.7225,
+        "address": "Centro o Ruta principal, Quinta del Horno"
+    },
+    {
+        "name": "ANCAP - ANCAP Santa Lucía",
+        "depto": "San José",
+        "lat": -34.7814,
+        "lng": -56.3497,
+        "address": "Av. Rivera, Isla de Flores (Río Santa Lucía)"
+    },
+    {
+        "name": "ANCAP - ANCAP Santa Lucía",
+        "depto": "San José",
+        "lat": -34.7719,
+        "lng": -56.3561,
+        "address": "Av. Rivera, Humedales del Santa Lucía (Sector San José)"
+    },
+    {
+        "name": "ANCAP - Termas del Arapey",
+        "depto": "Salto",
+        "lat": -30.9342,
+        "lng": -57.5189,
+        "address": "Centro o Ruta principal, Termas del Arapey"
+    },
+    {
+        "name": "ANCAP - ANCAP Salto",
+        "depto": "Salto",
+        "lat": -31.2711,
+        "lng": -57.9405,
+        "address": "Av. Blandengues y Av. Batlle, Represa de Salto Grande"
+    },
+    {
+        "name": "DISA - DISA Salto Barbieri",
+        "depto": "Salto",
+        "lat": -31.2821,
+        "lng": -57.9325,
+        "address": "Av. Barbieri y Gualeguay, Represa de Salto Grande"
+    },
+    {
+        "name": "AXION - AXION Salto Centro",
+        "depto": "Salto",
+        "lat": -31.2661,
+        "lng": -57.9455,
+        "address": "Uruguay y Larrañaga, Represa de Salto Grande"
+    },
+    {
+        "name": "ANCAP - ANCAP Salto",
+        "depto": "Salto",
+        "lat": -31.3755,
+        "lng": -57.9672,
+        "address": "Av. Blandengues y Av. Batlle, Costanera Norte de Salto"
+    },
+    {
+        "name": "DISA - DISA Salto Barbieri",
+        "depto": "Salto",
+        "lat": -31.3865,
+        "lng": -57.9592,
+        "address": "Av. Barbieri y Gualeguay, Costanera Norte de Salto"
+    },
+    {
+        "name": "AXION - AXION Salto Centro",
+        "depto": "Salto",
+        "lat": -31.3705,
+        "lng": -57.9722,
+        "address": "Uruguay y Larrañaga, Costanera Norte de Salto"
+    },
+    {
+        "name": "ANCAP - ANCAP Treinta y Tres",
+        "depto": "Salto",
+        "lat": -31.3889,
+        "lng": -57.9622,
+        "address": "Ruta 8 Km 286, Plaza Treinta y Tres Orientales"
+    },
+    {
+        "name": "DISA - DISA Treinta y Tres",
+        "depto": "Salto",
+        "lat": -31.3869,
+        "lng": -57.9642,
+        "address": "Av. Juan Antonio Lavalleja, Plaza Treinta y Tres Orientales"
+    },
+    {
+        "name": "ANCAP - ANCAP Salto",
+        "depto": "Salto",
+        "lat": -31.1891,
+        "lng": -57.9912,
+        "address": "Av. Blandengues y Av. Batlle, Meseta de Artigas (Sector Salto / Río Uruguay)"
+    },
+    {
+        "name": "DISA - DISA Salto Barbieri",
+        "depto": "Salto",
+        "lat": -31.2001,
+        "lng": -57.9832,
+        "address": "Av. Barbieri y Gualeguay, Meseta de Artigas (Sector Salto / Río Uruguay)"
+    },
+    {
+        "name": "AXION - AXION Salto Centro",
+        "depto": "Salto",
+        "lat": -31.1841,
+        "lng": -57.9962,
+        "address": "Uruguay y Larrañaga, Meseta de Artigas (Sector Salto / Río Uruguay)"
+    },
+    {
+        "name": "ANCAP - ANCAP Salto",
+        "depto": "Salto",
+        "lat": -31.3894,
+        "lng": -57.9619,
+        "address": "Av. Blandengues y Av. Batlle, Ateneo de Salto"
+    },
+    {
+        "name": "DISA - DISA Salto Barbieri",
+        "depto": "Salto",
+        "lat": -31.4004,
+        "lng": -57.9539,
+        "address": "Av. Barbieri y Gualeguay, Ateneo de Salto"
+    },
+    {
+        "name": "AXION - AXION Salto Centro",
+        "depto": "Salto",
+        "lat": -31.3844,
+        "lng": -57.9669,
+        "address": "Uruguay y Larrañaga, Ateneo de Salto"
+    },
+    {
+        "name": "ANCAP - ANCAP Salto",
+        "depto": "Salto",
+        "lat": -31.3856,
+        "lng": -57.9547,
+        "address": "Av. Blandengues y Av. Batlle, Estación Central de Trenes de Salto"
+    },
+    {
+        "name": "DISA - DISA Salto Barbieri",
+        "depto": "Salto",
+        "lat": -31.3966,
+        "lng": -57.9467,
+        "address": "Av. Barbieri y Gualeguay, Estación Central de Trenes de Salto"
+    },
+    {
+        "name": "AXION - AXION Salto Centro",
+        "depto": "Salto",
+        "lat": -31.3806,
+        "lng": -57.9597,
+        "address": "Uruguay y Larrañaga, Estación Central de Trenes de Salto"
+    },
+    {
+        "name": "ANCAP - ANCAP Salto",
+        "depto": "Salto",
+        "lat": -31.3514,
+        "lng": -57.9611,
+        "address": "Av. Blandengues y Av. Batlle, Salto Chico (Saltos del Río Uruguay)"
+    },
+    {
+        "name": "DISA - DISA Salto Barbieri",
+        "depto": "Salto",
+        "lat": -31.3624,
+        "lng": -57.9531,
+        "address": "Av. Barbieri y Gualeguay, Salto Chico (Saltos del Río Uruguay)"
+    },
+    {
+        "name": "AXION - AXION Salto Centro",
+        "depto": "Salto",
+        "lat": -31.3464,
+        "lng": -57.9661,
+        "address": "Uruguay y Larrañaga, Salto Chico (Saltos del Río Uruguay)"
+    },
+    {
+        "name": "ANCAP - Ecoparque Tálice",
+        "depto": "Flores",
+        "lat": -33.5678,
+        "lng": -56.9123,
+        "address": "Centro o Ruta principal, Ecoparque Tálice"
+    },
+    {
+        "name": "ANCAP - Lagos de Andresito",
+        "depto": "Flores",
+        "lat": -33.1023,
+        "lng": -57.1721,
+        "address": "Centro o Ruta principal, Lagos de Andresito"
+    },
+    {
+        "name": "ANCAP - Balneario Don Ricardo",
+        "depto": "Flores",
+        "lat": -33.4912,
+        "lng": -56.8845,
+        "address": "Centro o Ruta principal, Balneario Don Ricardo"
+    },
+    {
+        "name": "ANCAP - Zooilógico del Futuro",
+        "depto": "Flores",
+        "lat": -33.5432,
+        "lng": -56.9012,
+        "address": "Centro o Ruta principal, Zooilógico del Futuro"
+    },
+    {
+        "name": "ANCAP - Parque Centenario",
+        "depto": "Flores",
+        "lat": -33.5189,
+        "lng": -56.8991,
+        "address": "Centro o Ruta principal, Parque Centenario"
+    },
+    {
+        "name": "ANCAP - ANCAP Trinidad",
+        "depto": "Flores",
+        "lat": -33.5165,
+        "lng": -56.8973,
+        "address": "Ruta 3 Km 189, Plaza Constitución de Trinidad"
+    },
+    {
+        "name": "ANCAP - ANCAP Trinidad",
+        "depto": "Flores",
+        "lat": -33.5168,
+        "lng": -56.8968,
+        "address": "Ruta 3 Km 189, Parroquia Santísima Trinidad"
+    },
+    {
+        "name": "ANCAP - Parque Bartolomé Hidalgo",
+        "depto": "Flores",
+        "lat": -33.1215,
+        "lng": -57.195,
+        "address": "Centro o Ruta principal, Parque Bartolomé Hidalgo"
+    },
+    {
+        "name": "ANCAP - Piedra Alta",
+        "depto": "Florida",
+        "lat": -34.1039,
+        "lng": -56.2231,
+        "address": "Centro o Ruta principal, Piedra Alta"
+    },
+    {
+        "name": "ANCAP - ANCAP Florida",
+        "depto": "Florida",
+        "lat": -34.0995,
+        "lng": -56.2142,
+        "address": "Ruta 5 Km 96, Catedral Basílica de Florida y Santuario de la Virgen de los Treinta y Tres"
+    },
+    {
+        "name": "DISA - DISA Florida Centro",
+        "depto": "Florida",
+        "lat": -34.0965,
+        "lng": -56.2172,
+        "address": "Av. Zelmar Michelini, Catedral Basílica de Florida y Santuario de la Virgen de los Treinta y Tres"
+    },
+    {
+        "name": "ANCAP - Capilla de San Cono",
+        "depto": "Florida",
+        "lat": -34.0911,
+        "lng": -56.2105,
+        "address": "Centro o Ruta principal, Capilla de San Cono"
+    },
+    {
+        "name": "ANCAP - Camping Parque Robaina",
+        "depto": "Florida",
+        "lat": -34.1085,
+        "lng": -56.2312,
+        "address": "Centro o Ruta principal, Camping Parque Robaina"
+    },
+    {
+        "name": "ANCAP - Capilla de Fenocchi",
+        "depto": "Florida",
+        "lat": -34.0622,
+        "lng": -56.1118,
+        "address": "Centro o Ruta principal, Capilla de Fenocchi"
+    },
+    {
+        "name": "ANCAP - Represa de Paso Severino",
+        "depto": "Florida",
+        "lat": -34.3639,
+        "lng": -56.2417,
+        "address": "Centro o Ruta principal, Represa de Paso Severino"
+    },
+    {
+        "name": "ANCAP - ANCAP Treinta y Tres",
+        "depto": "Florida",
+        "lat": -34.1812,
+        "lng": -56.1745,
+        "address": "Ruta 8 Km 286, Capilla de la Virgen de los Treinta y Tres (Pintado)"
+    },
+    {
+        "name": "DISA - DISA Treinta y Tres",
+        "depto": "Florida",
+        "lat": -34.1792,
+        "lng": -56.1765,
+        "address": "Av. Juan Antonio Lavalleja, Capilla de la Virgen de los Treinta y Tres (Pintado)"
+    },
+    {
+        "name": "ANCAP - Termas de Almirón",
+        "depto": "Paysandú",
+        "lat": -32.3686,
+        "lng": -57.1583,
+        "address": "Centro o Ruta principal, Termas de Almirón"
+    },
+    {
+        "name": "ANCAP - ANCAP Artigas",
+        "depto": "Paysandú",
+        "lat": -31.6214,
+        "lng": -57.9458,
+        "address": "Av. Lecueder, Meseta de Artigas"
+    },
+    {
+        "name": "DISA - DISA Artigas Centro",
+        "depto": "Paysandú",
+        "lat": -31.6194,
+        "lng": -57.9478,
+        "address": "Av. Baltasar Brum, Meseta de Artigas"
+    },
+    {
+        "name": "ANCAP - Castillo Morató",
+        "depto": "Paysandú",
+        "lat": -31.8542,
+        "lng": -56.8124,
+        "address": "Centro o Ruta principal, Castillo Morató"
+    },
+    {
+        "name": "ANCAP - ANCAP Guichón",
+        "depto": "Paysandú",
+        "lat": -32.3489,
+        "lng": -57.2014,
+        "address": "Av. Artigas, Ruta de los Murales de San Javier y Guichón"
+    },
+    {
+        "name": "ANCAP - Teatro Florencio Sánchez",
+        "depto": "Paysandú",
+        "lat": -32.3167,
+        "lng": -58.0789,
+        "address": "Centro o Ruta principal, Teatro Florencio Sánchez"
+    },
+    {
+        "name": "ANCAP - Montes del Queguay",
+        "depto": "Paysandú",
+        "lat": -32.2158,
+        "lng": -57.4421,
+        "address": "Centro o Ruta principal, Montes del Queguay"
+    },
+    {
+        "name": "ANCAP - Monumento a Perpetuidad",
+        "depto": "Paysandú",
+        "lat": -32.3245,
+        "lng": -58.0754,
+        "address": "Centro o Ruta principal, Monumento a Perpetuidad"
+    },
+    {
+        "name": "ANCAP - ANCAP Las Piedras",
+        "depto": "Paysandú",
+        "lat": -32.3124,
+        "lng": -57.2514,
+        "address": "Av. Instrucciones, Balneario Alternativo Paso de las Piedras"
+    },
+    {
+        "name": "AXION - AXION Las Piedras",
+        "depto": "Paysandú",
+        "lat": -32.3104,
+        "lng": -57.2534,
+        "address": "Ruta 5 Km 21, Balneario Alternativo Paso de las Piedras"
+    },
+    {
+        "name": "ANCAP - ANCAP Paysandú",
+        "depto": "Paysandú",
+        "lat": -32.3154,
+        "lng": -58.0812,
+        "address": "Ruta 3 Km 376, Museo Histórico de Paysandú"
+    },
+    {
+        "name": "AXION - AXION Paysandú España",
+        "depto": "Paysandú",
+        "lat": -32.3204,
+        "lng": -58.0702,
+        "address": "Av. España y Felippone, Museo Histórico de Paysandú"
+    },
+    {
+        "name": "DISA - DISA Paysandú Centro",
+        "depto": "Paysandú",
+        "lat": -32.3134,
+        "lng": -58.0832,
+        "address": "Av. 18 de Julio, Museo Histórico de Paysandú"
+    },
+    {
+        "name": "ANCAP - ANCAP Paysandú",
+        "depto": "Paysandú",
+        "lat": -31.4512,
+        "lng": -57.6541,
+        "address": "Ruta 3 Km 376, Arapey Chico (Tramo Paysandú)"
+    },
+    {
+        "name": "AXION - AXION Paysandú España",
+        "depto": "Paysandú",
+        "lat": -31.4562,
+        "lng": -57.6431,
+        "address": "Av. España y Felippone, Arapey Chico (Tramo Paysandú)"
+    },
+    {
+        "name": "DISA - DISA Paysandú Centro",
+        "depto": "Paysandú",
+        "lat": -31.4492,
+        "lng": -57.6561,
+        "address": "Av. 18 de Julio, Arapey Chico (Tramo Paysandú)"
+    },
+    {
+        "name": "ANCAP - Isla del Infante",
+        "depto": "Río Negro",
+        "lat": -32.9344,
+        "lng": -58.0782,
+        "address": "Centro o Ruta principal, Isla del Infante"
+    },
+    {
+        "name": "ANCAP - ANCAP Fray Bentos",
+        "depto": "Río Negro",
+        "lat": -33.1224,
+        "lng": -58.3142,
+        "address": "Ruta 2 Km 309, Muelle Oficial de Fray Bentos"
+    },
+    {
+        "name": "DISA - DISA Fray Bentos Centro",
+        "depto": "Río Negro",
+        "lat": -33.1204,
+        "lng": -58.3162,
+        "address": "Av. 18 de Julio, Muelle Oficial de Fray Bentos"
+    },
+    {
+        "name": "ANCAP - Pueblo Grecco",
+        "depto": "Río Negro",
+        "lat": -32.7412,
+        "lng": -57.1845,
+        "address": "Centro o Ruta principal, Pueblo Grecco"
+    },
+    {
+        "name": "ANCAP - ANCAP Fray Bentos",
+        "depto": "Río Negro",
+        "lat": -33.1284,
+        "lng": -58.3121,
+        "address": "Ruta 2 Km 309, Playa del Club Remeros Fray Bentos"
+    },
+    {
+        "name": "DISA - DISA Fray Bentos Centro",
+        "depto": "Río Negro",
+        "lat": -33.1264,
+        "lng": -58.3141,
+        "address": "Av. 18 de Julio, Playa del Club Remeros Fray Bentos"
+    },
+    {
+        "name": "ANCAP - Paso de los Mellizos",
+        "depto": "Río Negro",
+        "lat": -32.4912,
+        "lng": -57.2941,
+        "address": "Centro o Ruta principal, Paso de los Mellizos"
+    },
+    {
+        "name": "ANCAP - Paraje Tres Quintas",
+        "depto": "Río Negro",
+        "lat": -32.7214,
+        "lng": -58.0124,
+        "address": "Centro o Ruta principal, Paraje Tres Quintas"
+    },
+    {
+        "name": "ANCAP - ANCAP Fray Bentos",
+        "depto": "Río Negro",
+        "lat": -33.1167,
+        "lng": -58.3167,
+        "address": "Ruta 2 Km 309, Paisaje Cultural Fray Bentos (Ex Anglo)"
+    },
+    {
+        "name": "DISA - DISA Fray Bentos Centro",
+        "depto": "Río Negro",
+        "lat": -33.1147,
+        "lng": -58.3187,
+        "address": "Av. 18 de Julio, Paisaje Cultural Fray Bentos (Ex Anglo)"
+    },
+    {
+        "name": "ANCAP - ANCAP Young",
+        "depto": "Río Negro",
+        "lat": -32.6944,
+        "lng": -57.6294,
+        "address": "Ruta 3 Km 310, Paseo del Ferrocarril (Young)"
+    },
+    {
+        "name": "ANCAP - ANCAP Fray Bentos",
+        "depto": "Río Negro",
+        "lat": -33.1252,
+        "lng": -58.3075,
+        "address": "Ruta 2 Km 309, Paseo de la Rambla (Fray Bentos)"
+    },
+    {
+        "name": "DISA - DISA Fray Bentos Centro",
+        "depto": "Río Negro",
+        "lat": -33.1232,
+        "lng": -58.3095,
+        "address": "Av. 18 de Julio, Paseo de la Rambla (Fray Bentos)"
+    },
+    {
+        "name": "ANCAP - ANCAP Young",
+        "depto": "Río Negro",
+        "lat": -33.1311,
+        "lng": -58.3103,
+        "address": "Ruta 3 Km 310, Teatro Young"
+    },
+    {
+        "name": "ANCAP - Calle de los Suspiros",
+        "depto": "Colonia",
+        "lat": -34.4721,
+        "lng": -57.8589,
+        "address": "Centro o Ruta principal, Calle de los Suspiros"
+    },
+    {
+        "name": "ANCAP - ANCAP Centro",
+        "depto": "Colonia",
+        "lat": -34.4378,
+        "lng": -57.8614,
+        "address": "Av. Ceberio, Plaza de Toros Real de San Carlos"
+    },
+    {
+        "name": "AXION - AXION San Carlos",
+        "depto": "Colonia",
+        "lat": -34.4408,
+        "lng": -57.8594,
+        "address": "Ruta 39 Km 13, Plaza de Toros Real de San Carlos"
+    },
+    {
+        "name": "ANCAP - ANCAP Colonia",
+        "depto": "Colonia",
+        "lat": -34.4724,
+        "lng": -57.8593,
+        "address": "Av. Roosevelt y Manuel Lobo, Faro de Colonia del Sacramento"
+    },
+    {
+        "name": "DISA - DISA Real de San Carlos",
+        "depto": "Colonia",
+        "lat": -34.4984,
+        "lng": -57.8373,
+        "address": "Av. Mihanovich, Faro de Colonia del Sacramento"
+    },
+    {
+        "name": "AXION - AXION Colonia",
+        "depto": "Colonia",
+        "lat": -34.4744,
+        "lng": -57.8473,
+        "address": "Ruta 1 Km 176, Faro de Colonia del Sacramento"
+    },
+    {
+        "name": "ANCAP - Acuario de Colonia",
+        "depto": "Colonia",
+        "lat": -34.4714,
+        "lng": -57.8569,
+        "address": "Centro o Ruta principal, Acuario de Colonia"
+    },
+    {
+        "name": "ANCAP - Balneario Santa Ana",
+        "depto": "Colonia",
+        "lat": -34.4533,
+        "lng": -57.6989,
+        "address": "Centro o Ruta principal, Balneario Santa Ana"
+    },
+    {
+        "name": "ANCAP - ANCAP Nueva Helvecia",
+        "depto": "Colonia",
+        "lat": -34.3022,
+        "lng": -57.2344,
+        "address": "Av. Batlle y Ordóñez, Nueva Helvecia (Colonia Suiza)"
+    },
+    {
+        "name": "ANCAP - ANCAP Carmelo",
+        "depto": "Colonia",
+        "lat": -34.0047,
+        "lng": -58.2861,
+        "address": "Av. Paraguay, Carmelo y su Puente Giratorio"
+    },
+    {
+        "name": "DISA - DISA Carmelo",
+        "depto": "Colonia",
+        "lat": -34.0027,
+        "lng": -58.2881,
+        "address": "Ruta 21 Km 252, Carmelo y su Puente Giratorio"
+    },
+    {
+        "name": "DISA - DISA Colonia Valdense",
+        "depto": "Colonia",
+        "lat": -34.3194,
+        "lng": -57.2647,
+        "address": "Ruta 1 Km 121, Colonia Valdense"
+    },
+    {
+        "name": "ANCAP - ANCAP Rosario",
+        "depto": "Colonia",
+        "lat": -34.3136,
+        "lng": -57.3483,
+        "address": "Ruta 2 Km 130, Rosario (Rosario del Colla)"
+    },
+    {
+        "name": "ANCAP - ANCAP Santa Lucía",
+        "depto": "San José",
+        "lat": -34.7861,
+        "lng": -56.3508,
+        "address": "Av. Rivera, Humedales del Santa Lucía (Sector San José)"
+    },
+    {
+        "name": "DISA - DISA San José",
+        "depto": "San José",
+        "lat": -34.3408,
+        "lng": -56.7131,
+        "address": "Ruta 3 Km 92, Catedral Basílica de San José de Mayo"
+    },
+    {
+        "name": "ANCAP - ANCAP San José Centro",
+        "depto": "San José",
+        "lat": -34.3388,
+        "lng": -56.7111,
+        "address": "Av. Manuel D. Rodríguez, Catedral Basílica de San José de Mayo"
+    },
+    {
+        "name": "ANCAP - ANCAP Mercedes",
+        "depto": "Soriano",
+        "lat": -33.2505,
+        "lng": -58.0311,
+        "address": "Ruta 2 Km 278, Rambla de Mercedes"
+    },
+    {
+        "name": "DISA - DISA Mercedes Centro",
+        "depto": "Soriano",
+        "lat": -33.2475,
+        "lng": -58.0341,
+        "address": "Av. Asencio, Rambla de Mercedes"
+    },
+    {
+        "name": "ANCAP - Isla del Puerto",
+        "depto": "Soriano",
+        "lat": -33.2464,
+        "lng": -58.0356,
+        "address": "Centro o Ruta principal, Isla del Puerto"
+    },
+    {
+        "name": "ANCAP - Castillo Mauá",
+        "depto": "Soriano",
+        "lat": -33.2547,
+        "lng": -58.0714,
+        "address": "Centro o Ruta principal, Castillo Mauá"
+    },
+    {
+        "name": "ANCAP - ANCAP Dolores",
+        "depto": "Soriano",
+        "lat": -33.5358,
+        "lng": -58.2144,
+        "address": "Av. Artigas y Sotura, Dolores (Capital del Trigo)"
+    },
+    {
+        "name": "ANCAP - ANCAP Cardona",
+        "depto": "Soriano",
+        "lat": -33.8822,
+        "lng": -57.3811,
+        "address": "Ruta 2 Km 180, Cardona"
+    },
+    {
+        "name": "ANCAP - Museo Alejandro Berro",
+        "depto": "Soriano",
+        "lat": -33.2544,
+        "lng": -58.0719,
+        "address": "Centro o Ruta principal, Museo Alejandro Berro"
+    },
+    {
+        "name": "ANCAP - Balneario El Edén",
+        "depto": "Soriano",
+        "lat": -33.5111,
+        "lng": -58.1814,
+        "address": "Centro o Ruta principal, Balneario El Edén"
+    },
+    {
+        "name": "ANCAP - Sarandí del Yí",
+        "depto": "Durazno",
+        "lat": -33.3458,
+        "lng": -55.6311,
+        "address": "Centro o Ruta principal, Sarandí del Yí"
+    },
+    {
+        "name": "ANCAP - ANCAP Rivera",
+        "depto": "Durazno",
+        "lat": -33.3856,
+        "lng": -56.5222,
+        "address": "Av. Sarandí y Paysandú, Museo Histórico \\\"Casa de Rivera\\"
+    },
+    {
+        "name": "DISA - DISA Rivera Ruta 5",
+        "depto": "Durazno",
+        "lat": -33.3716,
+        "lng": -56.5332,
+        "address": "Ruta 5 Km 496, Museo Histórico \\\"Casa de Rivera\\"
+    },
+    {
+        "name": "ANCAP - Grutas de Carlos Reyles",
+        "depto": "Durazno",
+        "lat": -33.0256,
+        "lng": -56.5519,
+        "address": "Centro o Ruta principal, Grutas de Carlos Reyles"
+    },
+    {
+        "name": "ANCAP - ANCAP Durazno",
+        "depto": "Durazno",
+        "lat": -33.0983,
+        "lng": -55.1111,
+        "address": "Ruta 5 Km 183, Cerro Chato (Sector Durazno)"
+    },
+    {
+        "name": "DISA - DISA Durazno Centro",
+        "depto": "Durazno",
+        "lat": -33.0963,
+        "lng": -55.1131,
+        "address": "Av. Churchill, Cerro Chato (Sector Durazno)"
+    },
+    {
+        "name": "ANCAP - Parque Elías Regules",
+        "depto": "Durazno",
+        "lat": -33.3511,
+        "lng": -55.6253,
+        "address": "Centro o Ruta principal, Parque Elías Regules"
+    },
+    {
+        "name": "ANCAP - ANCAP Durazno",
+        "depto": "Durazno",
+        "lat": -33.3844,
+        "lng": -56.5211,
+        "address": "Ruta 5 Km 183, Iglesia Parroquial de San Pedro de Durazno"
+    },
+    {
+        "name": "DISA - DISA Durazno Centro",
+        "depto": "Durazno",
+        "lat": -33.3824,
+        "lng": -56.5231,
+        "address": "Av. Churchill, Iglesia Parroquial de San Pedro de Durazno"
+    },
+    {
+        "name": "ANCAP - Valle Edén",
+        "depto": "Tacuarembó",
+        "lat": -31.8311,
+        "lng": -56.1622,
+        "address": "Centro o Ruta principal, Valle Edén"
+    },
+    {
+        "name": "ANCAP - ANCAP San Gregorio",
+        "depto": "Tacuarembó",
+        "lat": -32.6122,
+        "lng": -56.0311,
+        "address": "Av. Arturo Mollo, San Gregorio de Polanco"
+    },
+    {
+        "name": "ANCAP - Balneario Iporá",
+        "depto": "Tacuarembó",
+        "lat": -31.6522,
+        "lng": -55.9458,
+        "address": "Centro o Ruta principal, Balneario Iporá"
+    },
+    {
+        "name": "ANCAP - Grutas de los Helechos",
+        "depto": "Tacuarembó",
+        "lat": -31.6211,
+        "lng": -55.8989,
+        "address": "Centro o Ruta principal, Grutas de los Helechos"
+    },
+    {
+        "name": "ANCAP - Pozo de \\\"El Hongo\\",
+        "depto": "Tacuarembó",
+        "lat": -31.8358,
+        "lng": -56.1664,
+        "address": "Centro o Ruta principal, Pozo de \\\"El Hongo\\"
+    },
+    {
+        "name": "ANCAP - Museo Carlos Gardel",
+        "depto": "Tacuarembó",
+        "lat": -31.8308,
+        "lng": -56.1611,
+        "address": "Centro o Ruta principal, Museo Carlos Gardel"
+    },
+    {
+        "name": "ANCAP - ANCAP Tacuarembó",
+        "depto": "Tacuarembó",
+        "lat": -31.7136,
+        "lng": -55.9822,
+        "address": "Ruta 5 Km 388, Museo de Artes Plásticas de Tacuarembó (MUART)"
+    },
+    {
+        "name": "DISA - DISA Tacuarembó Oribe",
+        "depto": "Tacuarembó",
+        "lat": -31.7026,
+        "lng": -55.9892,
+        "address": "Av. Oribe y Ruta 5, Museo de Artes Plásticas de Tacuarembó (MUART)"
+    },
+    {
+        "name": "ANCAP - ANCAP Paso de los Toros",
+        "depto": "Tacuarembó",
+        "lat": -32.8111,
+        "lng": -56.5125,
+        "address": "Ruta 5 Km 249, Paso de los Toros"
+    },
+    {
+        "name": "ANCAP - ANCAP Tacuarembó",
+        "depto": "Tacuarembó",
+        "lat": -31.9453,
+        "lng": -56.2647,
+        "address": "Ruta 5 Km 388, Tambores (Sector Tacuarembó)"
+    },
+    {
+        "name": "DISA - DISA Tacuarembó Oribe",
+        "depto": "Tacuarembó",
+        "lat": -31.9343,
+        "lng": -56.2717,
+        "address": "Av. Oribe y Ruta 5, Tambores (Sector Tacuarembó)"
+    },
+    {
+        "name": "ANCAP - ANCAP Tacuarembó",
+        "depto": "Tacuarembó",
+        "lat": -31.7142,
+        "lng": -55.9814,
+        "address": "Ruta 5 Km 388, Museo de Geociencias de Tacuarembó"
+    },
+    {
+        "name": "DISA - DISA Tacuarembó Oribe",
+        "depto": "Tacuarembó",
+        "lat": -31.7032,
+        "lng": -55.9884,
+        "address": "Av. Oribe y Ruta 5, Museo de Geociencias de Tacuarembó"
+    },
+    {
+        "name": "ANCAP - ANCAP Chuy",
+        "depto": "Cerro Largo",
+        "lat": -32.3556,
+        "lng": -54.2614,
+        "address": "Av. Brasil y Ruta 9, Posta del Chuy"
+    },
+    {
+        "name": "DISA - DISA Chuy",
+        "depto": "Cerro Largo",
+        "lat": -32.3536,
+        "lng": -54.2634,
+        "address": "Av. General Artigas, Posta del Chuy"
+    },
+    {
+        "name": "ANCAP - ANCAP Melo",
+        "depto": "Cerro Largo",
+        "lat": -32.3614,
+        "lng": -54.1811,
+        "address": "Ruta 8 Km 387, Parque Rivera de Melo"
+    },
+    {
+        "name": "DISA - DISA Melo Centro",
+        "depto": "Cerro Largo",
+        "lat": -32.3594,
+        "lng": -54.1831,
+        "address": "Av. Aparicio Saravia, Parque Rivera de Melo"
+    },
+    {
+        "name": "ANCAP - Balneario Lago Merín",
+        "depto": "Cerro Largo",
+        "lat": -32.6122,
+        "lng": -53.1811,
+        "address": "Centro o Ruta principal, Balneario Lago Merín"
+    },
+    {
+        "name": "ANCAP - Sierra de Ríos",
+        "depto": "Cerro Largo",
+        "lat": -31.9889,
+        "lng": -54.2458,
+        "address": "Centro o Ruta principal, Sierra de Ríos"
+    },
+    {
+        "name": "ANCAP - ANCAP Río Branco",
+        "depto": "Cerro Largo",
+        "lat": -32.5658,
+        "lng": -53.3811,
+        "address": "Av. Centenario y Ruta 26, Río Branco y Puente Internacional Barón de Mauá"
+    },
+    {
+        "name": "ANCAP - ANCAP Melo",
+        "depto": "Cerro Largo",
+        "lat": -32.3756,
+        "lng": -54.1622,
+        "address": "Ruta 8 Km 387, Museo Histórico Regional de Melo"
+    },
+    {
+        "name": "DISA - DISA Melo Centro",
+        "depto": "Cerro Largo",
+        "lat": -32.3736,
+        "lng": -54.1642,
+        "address": "Av. Aparicio Saravia, Museo Histórico Regional de Melo"
+    },
+    {
+        "name": "ANCAP - ANCAP Melo",
+        "depto": "Cerro Largo",
+        "lat": -32.3733,
+        "lng": -54.1611,
+        "address": "Ruta 8 Km 387, Catedral de Melo"
+    },
+    {
+        "name": "DISA - DISA Melo Centro",
+        "depto": "Cerro Largo",
+        "lat": -32.3713,
+        "lng": -54.1631,
+        "address": "Av. Aparicio Saravia, Catedral de Melo"
+    },
+    {
+        "name": "ANCAP - ANCAP Río Branco",
+        "depto": "Cerro Largo",
+        "lat": -32.5653,
+        "lng": -53.3828,
+        "address": "Av. Centenario y Ruta 26, Paseo de los Murales de San Gregorio (Río Branco)"
+    },
+    {
+        "name": "ANCAP - ANCAP La Barra",
+        "depto": "Cerro Largo",
+        "lat": -32.5814,
+        "lng": -53.1622,
+        "address": "Ruta 10 Km 160, Playa La Barra y Arroyo Chuy del Tacuarí"
+    },
+    {
+        "name": "ANCAP - ANCAP Melo",
+        "depto": "Cerro Largo",
+        "lat": -32.3714,
+        "lng": -54.1614,
+        "address": "Ruta 8 Km 387, Plis de Melo (Centro de Fotografía Histórica)"
+    },
+    {
+        "name": "DISA - DISA Melo Centro",
+        "depto": "Cerro Largo",
+        "lat": -32.3694,
+        "lng": -54.1634,
+        "address": "Av. Aparicio Saravia, Plis de Melo (Centro de Fotografía Histórica)"
+    },
+    {
+        "name": "ANCAP - ANCAP Salto",
+        "depto": "Lavalleja",
+        "lat": -34.3333,
+        "lng": -54.7667,
+        "address": "Av. Blandengues y Av. Batlle, Salto del Penitente"
+    },
+    {
+        "name": "DISA - DISA Salto Barbieri",
+        "depto": "Lavalleja",
+        "lat": -34.3443,
+        "lng": -54.7587,
+        "address": "Av. Barbieri y Gualeguay, Salto del Penitente"
+    },
+    {
+        "name": "AXION - AXION Salto Centro",
+        "depto": "Lavalleja",
+        "lat": -34.3283,
+        "lng": -54.7717,
+        "address": "Uruguay y Larrañaga, Salto del Penitente"
+    },
+    {
+        "name": "ANCAP - Represa de Aguas Blancas",
+        "depto": "Lavalleja",
+        "lat": -34.5167,
+        "lng": -55.3833,
+        "address": "Centro o Ruta principal, Represa de Aguas Blancas"
+    },
+    {
+        "name": "ANCAP - ANCAP Minas",
+        "depto": "Lavalleja",
+        "lat": -34.3167,
+        "lng": -54.85,
+        "address": "Av. Varela y 25 de Mayo, Minas de Oro del Campanero"
+    },
+    {
+        "name": "DISA - DISA Minas",
+        "depto": "Lavalleja",
+        "lat": -34.3307,
+        "lng": -54.868,
+        "address": "Ruta 8 Km 118, Minas de Oro del Campanero"
+    },
+    {
+        "name": "ANCAP - ANCAP Artigas",
+        "depto": "Lavalleja",
+        "lat": -34.3708,
+        "lng": -54.9194,
+        "address": "Av. Lecueder, Cerro Artigas y Monumento Ecuestre"
+    },
+    {
+        "name": "DISA - DISA Artigas Centro",
+        "depto": "Lavalleja",
+        "lat": -34.3688,
+        "lng": -54.9214,
+        "address": "Av. Baltasar Brum, Cerro Artigas y Monumento Ecuestre"
+    },
+    {
+        "name": "ANCAP - ANCAP Solís de Mataojo",
+        "depto": "Lavalleja",
+        "lat": -34.5917,
+        "lng": -55.4667,
+        "address": "Ruta 8 Km 81, Solís de Mataojo"
+    },
+    {
+        "name": "ANCAP - ANCAP Rosario",
+        "depto": "Lavalleja",
+        "lat": -34.2542,
+        "lng": -55.1356,
+        "address": "Ruta 2 Km 130, Villa del Rosario"
+    },
+    {
+        "name": "ANCAP - ANCAP Minas",
+        "depto": "Lavalleja",
+        "lat": -34.3714,
+        "lng": -54.9322,
+        "address": "Av. Varela y 25 de Mayo, Casa de la Cultura de Minas"
+    },
+    {
+        "name": "DISA - DISA Minas",
+        "depto": "Lavalleja",
+        "lat": -34.3854,
+        "lng": -54.9502,
+        "address": "Ruta 8 Km 118, Casa de la Cultura de Minas"
+    },
+    {
+        "name": "ANCAP - Plaza Internacional",
+        "depto": "Rivera",
+        "lat": -30.8989,
+        "lng": -55.5356,
+        "address": "Centro o Ruta principal, Plaza Internacional"
+    },
+    {
+        "name": "ANCAP - ANCAP Tranqueras",
+        "depto": "Rivera",
+        "lat": -31.2056,
+        "lng": -55.7614,
+        "address": "Av. 18 de Julio, Tranqueras (Capital de la Sandía)"
+    },
+    {
+        "name": "ANCAP - ANCAP Rivera",
+        "depto": "Rivera",
+        "lat": -30.9028,
+        "lng": -55.5414,
+        "address": "Av. Sarandí y Paysandú, Paseo de Compras (Free Shops de Rivera)"
+    },
+    {
+        "name": "DISA - DISA Rivera Ruta 5",
+        "depto": "Rivera",
+        "lat": -30.8888,
+        "lng": -55.5524,
+        "address": "Ruta 5 Km 496, Paseo de Compras (Free Shops de Rivera)"
+    },
+    {
+        "name": "ANCAP - ANCAP Minas",
+        "depto": "Rivera",
+        "lat": -31.1356,
+        "lng": -55.4689,
+        "address": "Av. Varela y 25 de Mayo, Minas de Corrales (Pueblo Minero)"
+    },
+    {
+        "name": "DISA - DISA Minas",
+        "depto": "Rivera",
+        "lat": -31.1496,
+        "lng": -55.4869,
+        "address": "Ruta 8 Km 118, Minas de Corrales (Pueblo Minero)"
+    },
+    {
+        "name": "ANCAP - Vichadero",
+        "depto": "Rivera",
+        "lat": -31.7456,
+        "lng": -54.6211,
+        "address": "Centro o Ruta principal, Vichadero"
+    },
+    {
+        "name": "ANCAP - ANCAP Minas",
+        "depto": "Rivera",
+        "lat": -31.1311,
+        "lng": -55.4664,
+        "address": "Av. Varela y 25 de Mayo, Museo del Patrimonio de Minas de Corrales"
+    },
+    {
+        "name": "DISA - DISA Minas",
+        "depto": "Rivera",
+        "lat": -31.1451,
+        "lng": -55.4844,
+        "address": "Ruta 8 Km 118, Museo del Patrimonio de Minas de Corrales"
+    },
+    {
+        "name": "ANCAP - ANCAP Rivera",
+        "depto": "Rivera",
+        "lat": -30.9011,
+        "lng": -55.5389,
+        "address": "Av. Sarandí y Paysandú, Teatro Municipal de Rivera"
+    },
+    {
+        "name": "DISA - DISA Rivera Ruta 5",
+        "depto": "Rivera",
+        "lat": -30.8871,
+        "lng": -55.5499,
+        "address": "Ruta 5 Km 496, Teatro Municipal de Rivera"
+    },
+    {
+        "name": "ANCAP - ANCAP Rivera",
+        "depto": "Rivera",
+        "lat": -30.8984,
+        "lng": -55.5322,
+        "address": "Av. Sarandí y Paysandú, Museo de Artes Plásticas de Rivera"
+    },
+    {
+        "name": "DISA - DISA Rivera Ruta 5",
+        "depto": "Rivera",
+        "lat": -30.8844,
+        "lng": -55.5432,
+        "address": "Ruta 5 Km 496, Museo de Artes Plásticas de Rivera"
+    },
+    {
+        "name": "ANCAP - ANCAP Bella Unión",
+        "depto": "Artigas",
+        "lat": -30.5358,
+        "lng": -56.4568,
+        "address": "Av. Artigas y Ruta 3, Rambla de los Constituyentes (Bella Unión)"
+    },
+    {
+        "name": "ANCAP - Pueblo Tomás Gomensoro",
+        "depto": "Artigas",
+        "lat": -30.4442,
+        "lng": -56.4419,
+        "address": "Centro o Ruta principal, Pueblo Tomás Gomensoro"
+    },
+    {
+        "name": "ANCAP - ANCAP Artigas",
+        "depto": "Artigas",
+        "lat": -30.7136,
+        "lng": -56.5125,
+        "address": "Av. Lecueder, Mercado Municipal de Artigas"
+    },
+    {
+        "name": "DISA - DISA Artigas Centro",
+        "depto": "Artigas",
+        "lat": -30.7116,
+        "lng": -56.5145,
+        "address": "Av. Baltasar Brum, Mercado Municipal de Artigas"
+    },
+    {
+        "name": "ANCAP - ANCAP Artigas",
+        "depto": "Artigas",
+        "lat": -30.3494,
+        "lng": -56.8122,
+        "address": "Av. Lecueder, Museo Histórico Municipal de Artigas"
+    },
+    {
+        "name": "DISA - DISA Artigas Centro",
+        "depto": "Artigas",
+        "lat": -30.3474,
+        "lng": -56.8142,
+        "address": "Av. Baltasar Brum, Museo Histórico Municipal de Artigas"
+    },
+    {
+        "name": "ANCAP - Sierras del Yacaré",
+        "depto": "Artigas",
+        "lat": -30.3125,
+        "lng": -57.7211,
+        "address": "Centro o Ruta principal, Sierras del Yacaré"
+    },
+    {
+        "name": "ANCAP - ANCAP Artigas",
+        "depto": "Artigas",
+        "lat": -30.3111,
+        "lng": -57.5622,
+        "address": "Av. Lecueder, Teatro Municipal de Artigas"
+    },
+    {
+        "name": "DISA - DISA Artigas Centro",
+        "depto": "Artigas",
+        "lat": -30.3091,
+        "lng": -57.5642,
+        "address": "Av. Baltasar Brum, Teatro Municipal de Artigas"
+    },
+    {
+        "name": "ANCAP - ANCAP Rivera",
+        "depto": "Artigas",
+        "lat": -30.3989,
+        "lng": -56.4689,
+        "address": "Av. Sarandí y Paysandú, Bernabé Rivera (Pueblo Yacaré)"
+    },
+    {
+        "name": "DISA - DISA Rivera Ruta 5",
+        "depto": "Artigas",
+        "lat": -30.3849,
+        "lng": -56.4799,
+        "address": "Ruta 5 Km 496, Bernabé Rivera (Pueblo Yacaré)"
+    },
+    {
+        "name": "ANCAP - ANCAP Artigas",
+        "depto": "Artigas",
+        "lat": -30.6911,
+        "lng": -56.2517,
+        "address": "Av. Lecueder, Parque de la Tablada (Artigas)"
+    },
+    {
+        "name": "DISA - DISA Artigas Centro",
+        "depto": "Artigas",
+        "lat": -30.6891,
+        "lng": -56.2537,
+        "address": "Av. Baltasar Brum, Parque de la Tablada (Artigas)"
+    },
+    {
+        "name": "ANCAP - ANCAP Rocha",
+        "depto": "Rocha",
+        "lat": -30.4125,
+        "lng": -56.4528,
+        "address": "Ruta 9 Km 208, Laguna de Rocha"
+    },
+    {
+        "name": "DISA - DISA Rocha",
+        "depto": "Rocha",
+        "lat": -30.4155,
+        "lng": -56.4498,
+        "address": "Av. Martínez Rodríguez, Laguna de Rocha"
+    },
+    {
+        "name": "ANCAP - Fuerte de San Miguel",
+        "depto": "Rocha",
+        "lat": -33.6983,
+        "lng": -53.5414,
+        "address": "Centro o Ruta principal, Fuerte de San Miguel"
+    },
+    {
+        "name": "ANCAP - Monte de Ombúes",
+        "depto": "Rocha",
+        "lat": -34.3411,
+        "lng": -53.8122,
+        "address": "Centro o Ruta principal, Monte de Ombúes"
+    },
+    {
+        "name": "ANCAP - La Coronilla",
+        "depto": "Rocha",
+        "lat": -33.9111,
+        "lng": -53.5125,
+        "address": "Centro o Ruta principal, La Coronilla"
+    },
+    {
+        "name": "DISA - DISA La Paloma",
+        "depto": "Rocha",
+        "lat": -34.6558,
+        "lng": -54.1528,
+        "address": "Av. Solari y Paloma, Puerto de La Paloma"
+    },
+    {
+        "name": "ANCAP - ANCAP La Aguada",
+        "depto": "Rocha",
+        "lat": -34.6708,
+        "lng": -54.1478,
+        "address": "Ruta 15 Km 1.5, Puerto de La Paloma"
+    },
+    {
+        "name": "ANCAP - ANCAP Chuy",
+        "depto": "Rocha",
+        "lat": -33.6911,
+        "lng": -53.4614,
+        "address": "Av. Brasil y Ruta 9, Chuy (Paseo de Compras Fronterizo)"
+    },
+    {
+        "name": "DISA - DISA Chuy",
+        "depto": "Rocha",
+        "lat": -33.6891,
+        "lng": -53.4634,
+        "address": "Av. General Artigas, Chuy (Paseo de Compras Fronterizo)"
+    },
+    {
+        "name": "DISA - DISA La Paloma",
+        "depto": "Rocha",
+        "lat": -34.6528,
+        "lng": -54.1614,
+        "address": "Av. Solari y Paloma, Museo de la Paloma (Centro Cultural)"
+    },
+    {
+        "name": "ANCAP - ANCAP La Aguada",
+        "depto": "Rocha",
+        "lat": -34.6678,
+        "lng": -54.1564,
+        "address": "Ruta 15 Km 1.5, Museo de la Paloma (Centro Cultural)"
+    },
+    {
+        "name": "ANCAP - ANCAP Castillos",
+        "depto": "Rocha",
+        "lat": -34.1622,
+        "lng": -53.8822,
+        "address": "Ruta 9 Km 267, Castillos (Ciudad de los Palmares)"
+    },
+    {
+        "name": "ANCAP - ANCAP Castillos",
+        "depto": "Rocha",
+        "lat": -34.1814,
+        "lng": -53.9453,
+        "address": "Ruta 9 Km 267, Laguna de Castillos y Palmar del Norte"
+    },
+    {
+        "name": "ANCAP - Parque Dionisio Díaz",
+        "depto": "Treinta y Tres",
+        "lat": -32.9358,
+        "lng": -53.9458,
+        "address": "Centro o Ruta principal, Parque Dionisio Díaz"
+    },
+    {
+        "name": "ANCAP - Balneario Río Olimar",
+        "depto": "Treinta y Tres",
+        "lat": -33.2211,
+        "lng": -54.3833,
+        "address": "Centro o Ruta principal, Balneario Río Olimar"
+    },
+    {
+        "name": "ANCAP - ANCAP Treinta y Tres",
+        "depto": "Treinta y Tres",
+        "lat": -33.0983,
+        "lng": -55.1111,
+        "address": "Ruta 8 Km 286, Cerro Chato (Sector Treinta y Tres)"
+    },
+    {
+        "name": "DISA - DISA Treinta y Tres",
+        "depto": "Treinta y Tres",
+        "lat": -33.0963,
+        "lng": -55.1131,
+        "address": "Av. Juan Antonio Lavalleja, Cerro Chato (Sector Treinta y Tres)"
+    },
+    {
+        "name": "ANCAP - Parque Centenario",
+        "depto": "Treinta y Tres",
+        "lat": -33.2142,
+        "lng": -54.3814,
+        "address": "Centro o Ruta principal, Parque Centenario"
+    },
+    {
+        "name": "ANCAP - ANCAP Treinta y Tres",
+        "depto": "Treinta y Tres",
+        "lat": -33.2136,
+        "lng": -54.3822,
+        "address": "Ruta 8 Km 286, Museo de Bellas Artes e Histórico de Treinta y Tres"
+    },
+    {
+        "name": "DISA - DISA Treinta y Tres",
+        "depto": "Treinta y Tres",
+        "lat": -33.2116,
+        "lng": -54.3842,
+        "address": "Av. Juan Antonio Lavalleja, Museo de Bellas Artes e Histórico de Treinta y Tres"
+    },
+    {
+        "name": "ANCAP - ANCAP Treinta y Tres",
+        "depto": "Treinta y Tres",
+        "lat": -32.6911,
+        "lng": -53.9453,
+        "address": "Ruta 8 Km 286, Paso de la Laguna (Río Tacuarí - Sector Treinta y Tres)"
+    },
+    {
+        "name": "DISA - DISA Treinta y Tres",
+        "depto": "Treinta y Tres",
+        "lat": -32.6891,
+        "lng": -53.9473,
+        "address": "Av. Juan Antonio Lavalleja, Paso de la Laguna (Río Tacuarí - Sector Treinta y Tres)"
+    },
+    {
+        "name": "ANCAP - ANCAP Treinta y Tres",
+        "depto": "Treinta y Tres",
+        "lat": -32.8433,
+        "lng": -54.4489,
+        "address": "Ruta 8 Km 286, Cascada de los Helechos (Treinta y Tres)"
+    },
+    {
+        "name": "DISA - DISA Treinta y Tres",
+        "depto": "Treinta y Tres",
+        "lat": -32.8413,
+        "lng": -54.4509,
+        "address": "Av. Juan Antonio Lavalleja, Cascada de los Helechos (Treinta y Tres)"
+    }
+];
+
 const EV_CHARGERS = [
     { name: 'Montevideo Shopping (Cargador Privado)', depto: 'Montevideo', lat: -34.9038, lng: -56.1361, address: 'Av. Luis Alberto de Herrera 1290' },
     { name: 'Punta Carretas Shopping (Cargador Privado)', depto: 'Montevideo', lat: -34.9258, lng: -56.1583, address: 'José Ellauri 350' },
@@ -3081,25 +4967,39 @@ function showEVChargersList() {
         return;
     }
 
-    // Calculate distance to each EV charger and filter by <= 100 km
-    const nearbyChargers = [];
+    // 1. Calculate distance to all EV chargers and get top 5
+    const nearbyEV = [];
     EV_CHARGERS.forEach(charger => {
         const dist = calculateDistance(userLocation.lat, userLocation.lng, charger.lat, charger.lng);
-        if (dist !== null && dist <= 100) {
-            nearbyChargers.push({ ...charger, distance: dist });
+        if (dist !== null) {
+            nearbyEV.push({ ...charger, distance: dist, displayName: `⚡ ${charger.name}` });
         }
     });
+    nearbyEV.sort((a, b) => a.distance - b.distance);
+    const closestEV = nearbyEV.slice(0, 5);
 
-    // Sort by distance (closest first)
-    nearbyChargers.sort((a, b) => a.distance - b.distance);
+    // 2. Calculate distance to all liquid fuel service stations and get top 5
+    const nearbyFuel = [];
+    FUEL_STATIONS.forEach(station => {
+        const dist = calculateDistance(userLocation.lat, userLocation.lng, station.lat, station.lng);
+        if (dist !== null) {
+            nearbyFuel.push({ ...station, distance: dist, displayName: `⛽ ${station.name}` });
+        }
+    });
+    nearbyFuel.sort((a, b) => a.distance - b.distance);
+    const closestFuel = nearbyFuel.slice(0, 5);
 
-    if (nearbyChargers.length > 0) {
-        nearbyChargers.forEach(charger => {
+    // 3. Merge and sort both lists by distance
+    const mergedList = [...closestEV, ...closestFuel];
+    mergedList.sort((a, b) => a.distance - b.distance);
+
+    if (mergedList.length > 0) {
+        mergedList.forEach(charger => {
             const item = document.createElement('div');
             item.className = 'emergency-list-item';
             item.innerHTML = `
                 <div class="emergency-item-info">
-                    <span class="emergency-item-name">${charger.name}</span>
+                    <span class="emergency-item-name">${charger.displayName}</span>
                     <span class="emergency-item-detail">${charger.address} (${charger.depto}) • <b>${TRANSLATIONS[currentLang].distance_badge.replace('{distance}', charger.distance.toFixed(1))}</b></span>
                 </div>
                 <button class="btn btn-primary btn-emergency-item" onclick="getDirections(${charger.lat}, ${charger.lng}, '${encodeURIComponent(charger.name)}', '${encodeURIComponent(charger.address)}', '${encodeURIComponent(charger.depto)}')">
