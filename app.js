@@ -151,7 +151,10 @@ const TRANSLATIONS = {
         btn_more_medical_maps: "🔍 Buscar más centros de salud en Google Maps",
         btn_more_chargers_maps: "🔍 Buscar estaciones y cargadores en Google Maps",
         lbl_loading_gps: "Obteniendo ubicación GPS...",
-        btn_load_more: "Más resultados"
+        btn_load_more: "Más resultados",
+        ad_loading_title: "Buscando coincidencias...",
+        ad_loading_desc: "Espere un momento mientras organizamos los mejores resultados para ti.",
+        btn_ad_continue: "Ver resultados"
     },
     en: {
         tagline: "Explore Uruguay in a minimalist way",
@@ -275,7 +278,10 @@ const TRANSLATIONS = {
         btn_more_medical_maps: "🔍 Search more medical centers on Google Maps",
         btn_more_chargers_maps: "🔍 Search charging and service stations on Google Maps",
         lbl_loading_gps: "Acquiring GPS location...",
-        btn_load_more: "More results"
+        btn_load_more: "More results",
+        ad_loading_title: "Searching matches...",
+        ad_loading_desc: "Please wait a moment while we organize the best results for you.",
+        btn_ad_continue: "View results"
     },
     pt: {
         tagline: "Explore o Uruguai de forma minimalista",
@@ -398,7 +404,10 @@ const TRANSLATIONS = {
         btn_more_medical_maps: "🔍 Buscar mais centros médicos no Google Maps",
         btn_more_chargers_maps: "🔍 Buscar estações e carregadores no Google Maps",
         lbl_loading_gps: "Obtendo localização GPS...",
-        btn_load_more: "Mais resultados"
+        btn_load_more: "Mais resultados",
+        ad_loading_title: "Buscando coincidências...",
+        ad_loading_desc: "Aguarde um momento enquanto organizamos os melhores resultados para você.",
+        btn_ad_continue: "Ver resultados"
     },
 };
 
@@ -1011,7 +1020,7 @@ function setupEventListeners() {
                 if (grid) {
                     grid.innerHTML = `<div style="text-align:center; padding: 40px; color: var(--text-main); font-weight: 500;">${TRANSLATIONS[currentLang].lbl_loading_gps}</div>`;
                 }
-                switchTab('resultados');
+                showTransitionAd();
                 
                 if (navigator.geolocation) {
                     navigator.geolocation.getCurrentPosition(
@@ -1187,6 +1196,8 @@ function switchTab(tabId) {
     } else if (tabId === 'itinerario') {
         document.getElementById('view-itinerario').classList.add('active');
         renderItineraryTab();
+    } else if (tabId === 'publicidad') {
+        document.getElementById('view-publicidad').classList.add('active');
     }
 
     // Update navigation header title text
@@ -1194,7 +1205,7 @@ function switchTab(tabId) {
     if (titleTextEl) {
         let key = 'tab_' + tabId;
         const dict = TRANSLATIONS[currentLang] || TRANSLATIONS['es'];
-        titleTextEl.textContent = dict[key] || tabId;
+        titleTextEl.textContent = dict[key] || (tabId === 'publicidad' ? (dict['ad_loading_title'] || 'Buscando coincidencias...') : tabId);
     }
 
     // Show/hide arrow buttons based on position (using visibility to keep center alignment)
@@ -1203,10 +1214,10 @@ function switchTab(tabId) {
     const rightArrow = document.getElementById('nav-arrow-right');
     
     if (leftArrow) {
-        leftArrow.style.visibility = currentIndex === 0 ? 'hidden' : 'visible';
+        leftArrow.style.visibility = (currentIndex === 0 || tabId === 'publicidad') ? 'hidden' : 'visible';
     }
     if (rightArrow) {
-        rightArrow.style.visibility = currentIndex === TABS.length - 1 ? 'hidden' : 'visible';
+        rightArrow.style.visibility = (currentIndex === TABS.length - 1 || tabId === 'publicidad') ? 'hidden' : 'visible';
     }
 
     // Update visibility of the badges next to the title
@@ -1221,6 +1232,54 @@ function switchTab(tabId) {
 
     // Scroll back to top smoothly so the user doesn't stay scrolled down from previous view
     window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Show the advertisement transition view before displaying search results
+function showTransitionAd() {
+    // 1. Switch to the advertisement tab
+    switchTab('publicidad');
+    
+    // 2. Start a countdown
+    const countdownEl = document.getElementById('ad-countdown');
+    const continueBtn = document.getElementById('btn-ad-continue');
+    
+    if (countdownEl && continueBtn) {
+        continueBtn.disabled = true;
+        let seconds = 3; // 3-second countdown
+        
+        // Translate button text and set initial countdown
+        const dict = TRANSLATIONS[currentLang] || TRANSLATIONS['es'];
+        const textSpan = continueBtn.querySelector('[data-i18n="btn_ad_continue"]');
+        if (textSpan) {
+            textSpan.textContent = dict['btn_ad_continue'] || 'Ver resultados';
+        }
+        countdownEl.textContent = ` (${seconds}s)`;
+        
+        const interval = setInterval(() => {
+            seconds--;
+            if (seconds > 0) {
+                countdownEl.textContent = ` (${seconds}s)`;
+            } else {
+                clearInterval(interval);
+                countdownEl.textContent = '';
+                continueBtn.disabled = false;
+                // Automatically redirect after countdown
+                switchTab('resultados');
+            }
+        }, 1000);
+        
+        // Save interval so we can clear it if they click "Continuar" early or search again
+        if (window.adInterval) clearInterval(window.adInterval);
+        window.adInterval = interval;
+        
+        continueBtn.onclick = () => {
+            clearInterval(window.adInterval);
+            switchTab('resultados');
+        };
+    } else {
+        // Fallback if elements don't exist
+        switchTab('resultados');
+    }
 }
 
 function showProximityModal() {
@@ -1521,7 +1580,7 @@ function performSearch() {
     }
 
     renderResults();
-    switchTab('resultados');
+    showTransitionAd();
 }
 
 // Render filtered destination or event blocks
@@ -2711,7 +2770,7 @@ function performEventSearch() {
 
     currentResults = matchedEvents;
     renderResults();
-    switchTab('resultados');
+    showTransitionAd();
 }
 
 // Swipe Navigation

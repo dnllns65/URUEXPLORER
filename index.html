@@ -29,7 +29,10 @@
     <!-- Flatpickr CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <!-- CSS stylesheet -->
-    <link rel="stylesheet" href="style.css?v=3.16">
+    <link rel="stylesheet" href="style.css?v=4.00">
+    <!-- Google AdSense Client Script -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4117043221307807"
+         crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="app-container">
@@ -37,7 +40,7 @@
         <header>
             <div class="logo-row">
                 <div class="logo-group">
-                    <div class="logo notranslate" translate="no"><img src="logo.png" alt="UruExplorer Logo" class="logo-icon">URU<span>EXPLORER</span> <span class="version-tag">v3.16</span></div>
+                    <div class="logo notranslate" translate="no"><img src="logo.png" alt="UruExplorer Logo" class="logo-icon">URU<span>EXPLORER</span> <span class="version-tag">v4.00</span></div>
                 </div>
                 <div class="header-controls" style="display: flex; align-items: center; gap: 10px;">
                     <div class="lang-switch">
@@ -174,6 +177,35 @@
                 <a href="https://tickantel.com.uy" target="_blank" style="color: var(--primary); text-decoration: underline; margin-left: 5px; font-weight: 500;">Tickantel ↗</a>,
                 <a href="https://www.passline.com" target="_blank" style="color: var(--primary); text-decoration: underline; margin-left: 5px; font-weight: 500;">Passline ↗</a>,
                 <a href="https://www.redtickets.uy" target="_blank" style="color: var(--primary); text-decoration: underline; margin-left: 5px; font-weight: 500;">RedTickets ↗</a>
+            </div>
+        </div>
+
+        <!-- View: Publicidad (Transición) -->
+        <div id="view-publicidad" class="tab-view">
+            <div style="max-width: 600px; margin: 40px auto; padding: 25px; background: var(--bg-card); border-radius: 16px; box-shadow: var(--shadow-main); border: 1px solid var(--border); text-align: center;">
+                <h3 style="font-family: var(--font-heading); color: var(--primary); margin-bottom: 10px;" data-i18n="ad_loading_title">Buscando coincidencias...</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 25px;">
+                    <span data-i18n="ad_loading_desc">Espere un momento mientras organizamos los mejores resultados para ti.</span>
+                </p>
+                
+                <!-- Google AdSense Container -->
+                <div class="adsense-placeholder" style="margin: 20px 0; min-height: 250px; display: flex; justify-content: center; align-items: center; background: rgba(0,0,0,0.02); border-radius: 12px; border: 1px solid var(--border);">
+                    <!-- Google AdSense Responsive Ad Unit -->
+                    <ins class="adsbygoogle"
+                         style="display:block; width:100%;"
+                         data-ad-client="ca-pub-4117043221307807"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
+                    <script>
+                         (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+
+                <div style="margin-top: 25px;">
+                    <button class="btn btn-primary" id="btn-ad-continue" style="padding: 12px 24px; font-weight: 600; border-radius: 10px; font-size: 1rem; width: 100%; max-width: 280px; display: inline-flex; align-items: center; justify-content: center; gap: 8px;" disabled>
+                        <span data-i18n="btn_ad_continue">Ver resultados</span><span id="ad-countdown"></span>
+                    </button>
+                </div>
             </div>
         </div>
 
@@ -334,7 +366,7 @@
     <script src="https://npmcdn.com/flatpickr/dist/l10n/es.js"></script>
     <script src="https://npmcdn.com/flatpickr/dist/l10n/pt.js"></script>
     <script src="destinos.js"></script>
-    <script src="eventos.js?v=3.16"></script>
-    <script src="app.js?v=3.16"></script>
+    <script src="eventos.js?v=4.00"></script>
+    <script src="app.js?v=4.00"></script>
 </body>
 </html>
