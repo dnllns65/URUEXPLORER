@@ -35,6 +35,29 @@
          crossorigin="anonymous"></script>
 </head>
 <body>
+    <!-- Preloader / Splash Screen -->
+    <div id="app-splash-screen" class="splash-screen">
+        <div class="splash-content">
+            <div class="splash-logo-wrapper">
+                <img src="logo.png" alt="UruExplorer Logo" class="splash-logo">
+                <div class="splash-spinner"></div>
+            </div>
+            <div class="splash-title">URU<span>EXPLORER</span></div>
+        </div>
+    </div>
+    
+    <script>
+        // Apply theme immediately to prevent flashing of unstyled content
+        (function() {
+            const savedTheme = localStorage.getItem('uruexplorer_theme') || 'dark';
+            if (savedTheme === 'light') {
+                document.body.setAttribute('data-theme', 'light');
+            } else {
+                document.body.removeAttribute('data-theme');
+            }
+        })();
+    </script>
+
     <div class="app-container">
         <!-- Header -->
         <header>

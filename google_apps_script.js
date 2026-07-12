@@ -84,6 +84,20 @@ function scrapeAllEvents() {
     Logger.log("Error en Scraper Ticketeras: " + e.message);
   }
 
+  // --- SCRAPER 4: Antel Arena ---
+  try {
+    const eventosAntel = scraperAntelArena(destinosMap);
+    eventosAntel.forEach(ev => {
+      const titClean = ev.titulo.trim().toLowerCase();
+      if (!titulosExistentes.has(titClean)) {
+        scrapedEventos.push(ev);
+        titulosExistentes.add(titClean);
+      }
+    });
+  } catch (e) {
+    Logger.log("Error en Scraper Antel Arena: " + e.message);
+  }
+
   Logger.log("Scraping finalizado. Se obtuvieron " + scrapedEventos.length + " eventos web nuevos.");
 
   // 4. Fusionar y escribir en la hoja principal "Eventos" (la que consulta UruExplorer)
@@ -358,25 +372,36 @@ function scraperCartelera(destinosMap) {
           fechaText = obtenerSemanaCartelera();
         }
 
-        // Dividir por salas/cines asignadas a este título
-        const salaParts = art.split('<p class="heading small bold">');
-        if (salaParts.length < 2) continue; // Si no hay salas registradas, saltear
-        
-        for (let j = 1; j < salaParts.length; j++) {
-          const part = salaParts[j];
-          
-          // Extraer nombre de la sala (local)
-          let local = part.split('</p>')[0].replace(/<[^>]*>/g, "").replace(/\s+/g, " ").trim();
-          if (!local) continue;
-          
-          // Buscar enlace de compra específico para esta sala (Movie, Life, etc.)
-          let buyLink = extractBetween(part, 'href="', '"');
-          buyLink = buyLink ? buyLink.trim() : "";
-          if (buyLink.includes(" ") || buyLink.length < 5 || buyLink.startsWith("listado.html")) {
-            // Fallback al enlace de detalles de la cartelera
-            buyLink = ticketUrlDefault;
+        // Extraer salas/locales asociados al espectáculo
+        let salas = [];
+        if (art.includes('<p class="heading small bold">')) {
+          const salaParts = art.split('<p class="heading small bold">');
+          for (let j = 1; j < salaParts.length; j++) {
+            const part = salaParts[j];
+            let local = part.split('</p>')[0].replace(/<[^>]*>/g, "").replace(/\s+/g, " ").trim();
+            if (!local) continue;
+            
+            let buyLink = extractBetween(part, 'href="', '"');
+            buyLink = buyLink ? buyLink.trim() : "";
+            if (buyLink.includes(" ") || buyLink.length < 5 || buyLink.startsWith("listado.html")) {
+              buyLink = ticketUrlDefault;
+            }
+            salas.push({ local: local, ticketUrl: buyLink });
           }
-          
+        } else if (art.includes('<strong>Sala:</strong>')) {
+          let local = extractBetween(art, '<strong>Sala:</strong>', '</li>').replace(/<[^>]*>/g, "").replace(/\s+/g, " ").trim();
+          if (local) {
+            salas.push({ local: local, ticketUrl: ticketUrlDefault });
+          }
+        }
+
+        // Si no hay salas registradas, saltear
+        if (salas.length === 0) continue;
+
+        salas.forEach(sala => {
+          let local = sala.local;
+          let buyLink = sala.ticketUrl;
+
           // Determinar el departamento sugerido basándonos en la sala
           let departamento = "Montevideo";
           const localLower = local.toLowerCase();
@@ -408,12 +433,79 @@ function scraperCartelera(destinosMap) {
             ticketUrl: buyLink,
             gratis: false
           });
-        }
+        });
       }
     } catch (e) {
       Logger.log("Error en Cartelera " + cat.url + ": " + e.message);
     }
   });
+  
+  return eventos;
+}
+
+/**
+ * --- SCRAPER: Antel Arena Oficial ---
+ */
+function scraperAntelArena(destinosMap) {
+  const url = "https://www.antelarena.com.uy/events/";
+  const response = UrlFetchApp.fetch(url, { muteHttpExceptions: true });
+  if (response.getResponseCode() !== 200) return [];
+  
+  const html = response.getContentText("UTF-8");
+  const eventos = [];
+  
+  const parts = html.split('<div class="eventItem');
+  if (parts.length < 2) return [];
+  
+  for (let i = 1; i < parts.length; i++) {
+    const part = parts[i];
+    
+    // Title
+    const titleBlock = extractBetween(part, 'class="h3 title', '</div>');
+    let titulo = extractBetween(titleBlock, '">', '</a>').replace(/<[^>]*>/g, "").trim();
+    if (!titulo) {
+      titulo = extractBetween(part, 'title="More Info">', '</a>').replace(/<[^>]*>/g, "").trim();
+    }
+    if (!titulo) continue;
+    
+    // Tagline (Subtitle)
+    const tagline = extractBetween(part, 'class="h4 tagline">', '</div>').replace(/<[^>]*>/g, "").replace(/\s+/g, " ").trim();
+    
+    // Date
+    const day = extractBetween(part, 'class="m-date__day">', '</span>').trim();
+    const month = extractBetween(part, 'class="m-date__month">', '</span>').trim();
+    const year = extractBetween(part, 'class="m-date__year">', '</span>').trim();
+    let fecha = `${day} de ${month} ${year}`.trim().replace(/\s+/g, " ");
+    
+    // Ticket link
+    let ticketUrl = "";
+    let ticketsChunk = extractBetween(part, 'class="tickets', '</a>');
+    if (ticketsChunk) {
+      ticketUrl = extractBetween(ticketsChunk, 'href="', '"').trim();
+    }
+    if (!ticketUrl) {
+      let detailLink = extractBetween(part, 'href="/events/detail/', '"').trim();
+      ticketUrl = detailLink ? "https://www.antelarena.com.uy/events/detail/" + detailLink : url;
+    }
+    
+    // Map to destination
+    const cruce = encontrarDestinoYDepartamento(titulo + " Antel Arena", destinosMap, "Montevideo");
+    
+    // Build description
+    let desc = tagline ? `${tagline}. Espectáculo en el Antel Arena.` : "Espectáculo en el Antel Arena.";
+    
+    eventos.push({
+      destino: cruce.destino,
+      departamento: cruce.departamento,
+      titulo: titulo,
+      local: "Antel Arena",
+      tipo: clasificarTipoEvento(titulo + " " + desc, desc),
+      fecha: fecha,
+      descripcion: desc,
+      ticketUrl: ticketUrl,
+      gratis: false
+    });
+  }
   
   return eventos;
 }

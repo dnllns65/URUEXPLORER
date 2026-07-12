@@ -755,6 +755,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     setupLanguageSwitcher();
     setupSwipeNavigation();
     requestUserLocation();
+
+    // Fade out and remove preloader/splash screen once fully loaded
+    const splash = document.getElementById('app-splash-screen');
+    if (splash) {
+        splash.classList.add('fade-out');
+        setTimeout(() => {
+            splash.remove();
+        }, 400); // matches the transition time (0.4s) in style.css
+    }
 });
 
 // Auto-detect browser/system language
