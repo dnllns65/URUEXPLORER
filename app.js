@@ -1352,6 +1352,51 @@ function removeAccents(str) {
     return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
 }
 
+// Format raw Date strings and DD/MM/YYYY strings to clean localized texts
+function formatEventDate(fechaStr, lang) {
+    if (!fechaStr) return '';
+    
+    // 1. Check for DD/MM/YYYY format
+    const slashRegex = /^(\d{1,2})\/(\d{1,2})\/(\d{4})$/;
+    const slashMatch = fechaStr.match(slashRegex);
+    if (slashMatch) {
+        const day = parseInt(slashMatch[1], 10);
+        const month = parseInt(slashMatch[2], 10) - 1;
+        const year = parseInt(slashMatch[3], 10);
+        const parsedDate = new Date(year, month, day);
+        if (!isNaN(parsedDate.getTime())) {
+            const options = { day: 'numeric', month: 'long', year: 'numeric' };
+            let locale = 'es-UY';
+            if (lang === 'en') locale = 'en-US';
+            if (lang === 'pt') locale = 'pt-BR';
+            try {
+                return new Intl.DateTimeFormat(locale, options).format(parsedDate);
+            } catch (e) {
+                return fechaStr;
+            }
+        }
+    }
+    
+    // 2. Check for raw JS Date string format (e.g. "Fri Jul 31 2026...") or ISO format
+    const isJSDate = /^[A-Za-z]{3}\s+[A-Za-z]{3}\s+\d+\s+\d{4}/.test(fechaStr) || /^\d{4}-\d{2}-\d{2}/.test(fechaStr);
+    if (isJSDate) {
+        const parsedDate = new Date(fechaStr);
+        if (!isNaN(parsedDate.getTime())) {
+            const options = { day: 'numeric', month: 'long', year: 'numeric' };
+            let locale = 'es-UY';
+            if (lang === 'en') locale = 'en-US';
+            if (lang === 'pt') locale = 'pt-BR';
+            try {
+                return new Intl.DateTimeFormat(locale, options).format(parsedDate);
+            } catch (e) {
+                return fechaStr;
+            }
+        }
+    }
+    
+    return fechaStr;
+}
+
 // Check if an event matches a destination card
 function isEventMatch(ev, item) {
     const cleanEvDest = removeAccents(ev.destino);
@@ -1834,7 +1879,7 @@ function renderEventResults(grid) {
 
                 <div class="info-block" style="margin-top: 10px;">
                     <div class="event-meta-line" style="font-weight: 500;">
-                        📅 <span class="event-date">${ev.fecha}</span>
+                        📅 <span class="event-date">${formatEventDate(ev.fecha, currentLang)}</span>
                     </div>
                     ${ev.local ? `
                     <div class="event-meta-line venue">
@@ -2118,7 +2163,7 @@ function renderItineraryTab() {
                 <div class="step-num" style="background: var(--primary-hover); color: var(--bg-main);">${index + 1}</div>
                 <div class="step-details">
                     <div class="step-name">${ev.titulo}</div>
-                    <div class="step-dept"><span class="event-badge ${badgeClass}" style="display:inline-block; margin-right:5px; padding: 1px 4px; font-size:0.6rem;">${typeLabel}</span> ${ev.destino} (${ev.fecha})${ev.local ? ` • 📍 ${ev.local}` : ''}</div>
+                    <div class="step-dept"><span class="event-badge ${badgeClass}" style="display:inline-block; margin-right:5px; padding: 1px 4px; font-size:0.6rem;">${typeLabel}</span> ${ev.destino} (${formatEventDate(ev.fecha, currentLang)})${ev.local ? ` • 📍 ${ev.local}` : ''}</div>
                 </div>
                 <button class="btn-remove-step" data-type="event" data-id="${ev.id}" title="${currentLang === 'es' ? 'Eliminar del recorrido' : 'Remove from route'}">✕</button>
             `;
@@ -2342,7 +2387,7 @@ function updateCardEventsList(cardId, filter) {
                     <span class="event-badge ${badgeClass}">${typeLabel}</span>
                     ${freeBadge}
                 </div>
-                <span class="event-date">${ev.fecha}</span>
+                <span class="event-date">${formatEventDate(ev.fecha, currentLang)}</span>
             </div>
             <div class="event-title-text">${ev.titulo}</div>
             ${ev.local ? `<div class="event-local" style="font-size: 0.8rem; color: var(--primary); display: flex; align-items: center; gap: 4px; font-weight: 500; margin-top: -2px; margin-bottom: 2px;">📍 <span translate="no" class="notranslate">${ev.local}</span></div>` : ''}
