@@ -1,5 +1,46 @@
 // UruExplorer - Application Logic
 
+// Helper to track custom events in Google Analytics (GA4) asynchronously
+function trackEvent(name, params = {}) {
+    if (typeof gtag === 'function') {
+        gtag('event', name, params);
+    }
+}
+
+// Check and show the quick guide once per day
+function checkAndShowGuide() {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const day = String(now.getDate()).padStart(2, '0');
+    const today = `${year}-${month}-${day}`;
+    
+    const lastDate = localStorage.getItem('uruexplorer_last_guide_date');
+    if (lastDate !== today) {
+        const overlay = document.getElementById('guide-overlay');
+        if (overlay) {
+            // Apply localized translation
+            const dict = TRANSLATIONS[currentLang] || TRANSLATIONS['es'];
+            const titleEl = document.getElementById('guide-title');
+            const bodyEl = document.getElementById('guide-steps-body');
+            const closeBtn = document.getElementById('btn-cerrar-guia');
+            
+            if (titleEl) titleEl.textContent = dict.guide_title;
+            if (bodyEl) bodyEl.innerHTML = dict.guide_steps;
+            if (closeBtn) closeBtn.textContent = dict.btn_guide_understand;
+            
+            // Set close behavior
+            closeBtn.onclick = () => {
+                overlay.classList.remove('visible');
+                localStorage.setItem('uruexplorer_last_guide_date', today);
+            };
+            
+            // Show modal
+            overlay.classList.add('visible');
+        }
+    }
+}
+
 // Configuración de Reportes de Error (Google Form pre-llenado)
 const REPORT_FORM_BASE_URL = 'https://docs.google.com/forms/d/1uLhJ2kcy8byCfyRoP68m5nX_R7XWU45-islcbMFTM5U/viewform?entry.1878222161=';
 
@@ -154,7 +195,10 @@ const TRANSLATIONS = {
         btn_load_more: "Más resultados",
         ad_loading_title: "Buscando coincidencias...",
         ad_loading_desc: "Espere un momento mientras organizamos los mejores resultados para ti.",
-        btn_ad_continue: "Ver resultados"
+        btn_ad_continue: "Ver resultados",
+        guide_title: "🗺️ Guía Rápida de UruExplorer",
+        guide_steps: `<div class="guide-step-item"><strong>1. 🔍 Buscar Destinos</strong>Encuentra playas, cerros o museos. Filtra por departamento, dificultad o popularidad en la pestaña <strong>Turismo</strong>.</div><div class="guide-step-item"><strong>2. 🎟️ Agenda de Eventos</strong>Consulta la cartelera de cines, recitales y espectáculos (Sodre, Antel Arena) en la pestaña <strong>Eventos</strong>.</div><div class="guide-step-item"><strong>3. 🚗 Armar Itinerario</strong>Marca la casilla <code>Recorrido</code> en lo que te interese. Presiona <strong>Establecer Ruta</strong> para abrir tu mapa de viaje en Google Maps.</div><div class="guide-step-item"><strong>4. 🚨 Emergencias y Utilidades</strong>Toca la sirena <code>🚨</code> para ubicar al instante comisarías, hospitales, gasolineras y cargadores eléctricos más cercanos a tu posición.</div>`,
+        btn_guide_understand: "Entendido"
     },
     en: {
         tagline: "Explore Uruguay in a minimalist way",
@@ -281,7 +325,10 @@ const TRANSLATIONS = {
         btn_load_more: "More results",
         ad_loading_title: "Searching matches...",
         ad_loading_desc: "Please wait a moment while we organize the best results for you.",
-        btn_ad_continue: "View results"
+        btn_ad_continue: "View results",
+        guide_title: "🗺️ UruExplorer Quick Guide",
+        guide_steps: `<div class="guide-step-item"><strong>1. 🔍 Search Destinations</strong>Find beaches, hills, or museums. Filter by department, difficulty, or popularity in the <strong>Tourism</strong> tab.</div><div class="guide-step-item"><strong>2. 🎟️ Event Agenda</strong>Check movie schedules, concerts, and shows (Sodre, Antel Arena) in the <strong>Events</strong> tab.</div><div class="guide-step-item"><strong>3. 🚗 Plan Itinerary</strong>Check the <code>Route</code> box on your items. Press <strong>Set Route</strong> to open your travel map in Google Maps.</div><div class="guide-step-item"><strong>4. 🚨 Emergencies & Utilities</strong>Tap the siren <code>🚨</code> to instantly find the nearest police stations, hospitals, gas stations, and EV chargers.</div>`,
+        btn_guide_understand: "Understood"
     },
     pt: {
         tagline: "Explore o Uruguai de forma minimalista",
@@ -407,7 +454,10 @@ const TRANSLATIONS = {
         btn_load_more: "Mais resultados",
         ad_loading_title: "Buscando coincidências...",
         ad_loading_desc: "Aguarde um momento enquanto organizamos os melhores resultados para você.",
-        btn_ad_continue: "Ver resultados"
+        btn_ad_continue: "Ver resultados",
+        guide_title: "🗺️ Guia Rápido do UruExplorer",
+        guide_steps: `<div class="guide-step-item"><strong>1. 🔍 Buscar Destinos</strong>Encontre praias, morros ou museus. Filtre por departamento, dificuldade ou popularidade na aba <strong>Turismo</strong>.</div><div class="guide-step-item"><strong>2. 🎟️ Agenda de Eventos</strong>Consulte a programação de cinemas, shows e espetáculos (Sodre, Antel Arena) na aba <strong>Eventos</strong>.</div><div class="guide-step-item"><strong>3. 🚗 Planejar Roteiro</strong>Marque a caixa <code>Rota</code> nos seus itens. Pressione <strong>Traçar Rota</strong> para abrir o mapa de viagem no Google Maps.</div><div class="guide-step-item"><strong>4. 🚨 Emergências e Utilidades</strong>Toque na sirene <code>🚨</code> para localizar comissariados, hospitais, postos de combustíveis e carregadores elétricos mais próximos.</div>`,
+        btn_guide_understand: "Entendido"
     },
 };
 
@@ -743,6 +793,7 @@ function initFlatpickr() {
 document.addEventListener('DOMContentLoaded', async () => {
     applyTheme(); // Set initial theme
     detectLanguage();
+    checkAndShowGuide(); // Show guide once per day during data load
     await loadData();
     initFilters();
     initEventFilters();
@@ -853,7 +904,11 @@ function applyTranslations() {
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (dict[key]) {
-            el.textContent = dict[key];
+            if (key === 'guide_steps') {
+                el.innerHTML = dict[key];
+            } else {
+                el.textContent = dict[key];
+            }
         }
     });
 
@@ -1179,6 +1234,7 @@ function setupEventListeners() {
 // Switch between view tabs
 function switchTab(tabId) {
     activeTabId = tabId;
+    trackEvent('tab_viewed', { tab_id: tabId });
 
     // Remove active state from all views
     document.querySelectorAll('.tab-view').forEach(view => view.classList.remove('active'));
@@ -1526,6 +1582,14 @@ function performSearch() {
     const searchText = document.getElementById('search-input').value.trim();
     const selectedDepto = document.getElementById('filter-departamento').value;
     const selectedDif = document.getElementById('filter-dificultad').value;
+
+    if (searchText || selectedDepto || selectedDif) {
+        trackEvent('search_performed', {
+            search_text: searchText || '(none)',
+            department: selectedDepto || 'Todos',
+            difficulty: selectedDif || 'Todos'
+        });
+    }
 
     // Get selected popularity levels from checkboxes
     const selectedPops = Array.from(document.querySelectorAll('.popularity-chips input[type="checkbox"]:checked')).map(cb => cb.value);
@@ -1971,6 +2035,13 @@ function toggleFavorite(id) {
     const index = favorites.indexOf(id);
     if (index === -1) {
         favorites.push(id);
+        const item = appDestinos.find(d => d.id === id);
+        if (item) {
+            trackEvent('add_to_favorites', {
+                item_name: item.destino,
+                department: item.departamento
+            });
+        }
     } else {
         favorites.splice(index, 1);
     }
@@ -2035,6 +2106,14 @@ function toggleItinerary(id) {
     const index = itinerary.findIndex(item => item.type === 'destination' && item.id === id);
     if (index === -1) {
         itinerary.push({ type: 'destination', id: id });
+        const item = appDestinos.find(d => d.id === id);
+        if (item) {
+            trackEvent('add_to_itinerary', {
+                item_name: item.destino,
+                item_type: 'destination',
+                department: item.departamento
+            });
+        }
     } else {
         itinerary.splice(index, 1);
     }
@@ -2047,6 +2126,14 @@ function toggleEventItinerary(id) {
     const index = itinerary.findIndex(item => item.type === 'event' && item.id === id);
     if (index === -1) {
         itinerary.push({ type: 'event', id: id });
+        const ev = appEventos.find(e => e.id === id);
+        if (ev) {
+            trackEvent('add_to_itinerary', {
+                item_name: ev.titulo,
+                item_type: 'event',
+                department: ev.departamento
+            });
+        }
     } else {
         itinerary.splice(index, 1);
     }
@@ -2255,6 +2342,12 @@ function getDirectionsToLocal(query, departamento) {
 // Generate multi-point route on Google Maps ("Itinerario")
 function triggerItineraryRoute() {
     if (itinerary.length === 0) return;
+
+    trackEvent('route_plotted', {
+        destinations_count: itinerary.filter(s => s.type === 'destination').length,
+        events_count: itinerary.filter(s => s.type === 'event').length,
+        total_count: itinerary.length
+    });
 
     const points = [];
 
@@ -2722,6 +2815,14 @@ function performEventSearch() {
     const searchText = document.getElementById('search-event-input').value.trim();
     const selectedDepto = document.getElementById('filter-event-departamento').value;
     const selectedTipo = document.getElementById('filter-event-tipo').value;
+
+    if (searchText || selectedDepto || selectedTipo) {
+        trackEvent('event_search_performed', {
+            search_text: searchText || '(none)',
+            department: selectedDepto || 'Todos',
+            event_type: selectedTipo || 'Todos'
+        });
+    }
     
     let userStart = null;
     let userEnd = null;
@@ -4854,6 +4955,7 @@ const EV_CHARGERS = [
 ];
 
 function openEmergencySearch(type) {
+    trackEvent('emergency_map_opened', { category: type });
     let query = '';
     if (type === 'police') query = 'policia';
     else if (type === 'medical') query = 'hospital';
@@ -4879,6 +4981,7 @@ window.openSearchNearLocation = function(locationName, queryTerm) {
 };
 
 function showPoliceStationsList() {
+    trackEvent('emergency_police_viewed');
     // Hide other dynamic sections
     document.getElementById('section-medical-list').style.display = 'none';
     document.getElementById('section-chargers-list').style.display = 'none';
@@ -4956,6 +5059,7 @@ function showPoliceStationsList() {
 }
 
 function showMedicalCentersList() {
+    trackEvent('emergency_medical_viewed');
     // Hide other dynamic sections
     document.getElementById('section-police-list').style.display = 'none';
     document.getElementById('section-chargers-list').style.display = 'none';
@@ -5033,6 +5137,7 @@ function showMedicalCentersList() {
 }
 
 function showEVChargersList() {
+    trackEvent('emergency_chargers_viewed');
     // Hide other dynamic sections
     document.getElementById('section-police-list').style.display = 'none';
     document.getElementById('section-medical-list').style.display = 'none';
