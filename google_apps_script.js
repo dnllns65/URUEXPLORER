@@ -21,7 +21,7 @@
 // Nombres de las pestañas
 const SHEET_EVENTOS_NAME = "Eventos";           // Pestaña principal de lectura para la App
 const SHEET_MANUALES_NAME = "Eventos_Manuales"; // Pestaña donde escribes tus eventos manuales
-const SHEET_DESTINOS_NAME = "Destinos";         // Pestaña de destinos turísticos
+const SHEET_DESTINOS_NAME = "Base de Datos - Destinos Turísticos Uruguay";         // Pestaña de destinos turísticos
 
 /**
  * Función principal coordinadora de la actualización y fusión.
@@ -214,7 +214,7 @@ function cargarEventosManuales(ss) {
       titulo: titulo,
       local: row[localIdx] ? row[localIdx].toString().trim() : "",
       tipo: row[tipoIdx] ? row[tipoIdx].toString().trim() : "",
-      fecha: row[fechaIdx] ? row[fechaIdx].toString().trim() : "",
+      fecha: (row[fechaIdx] instanceof Date) ? Utilities.formatDate(row[fechaIdx], Session.getScriptTimeZone(), "dd/MM/yyyy") : (row[fechaIdx] ? row[fechaIdx].toString().trim() : ""),
       descripcion: row[descIdx] ? row[descIdx].toString().trim() : "",
       ticketUrl: row[ticketIdx] ? row[ticketIdx].toString().trim() : "",
       gratis: gratis
@@ -633,4 +633,109 @@ function obtenerSemanaCartelera() {
   } else {
     return "Del " + diaJ + " de " + mesJ + " al " + diaM + " de " + mesM + " de " + anioM;
   }
+}
+
+/**
+ * Asesor Turístico y Geógrafo: Auditoría y optimización de coordenadas GPS en Google Sheets.
+ * Busca destinos con coordenadas incompletas o imprecisas y las actualiza usando Google Maps Geocoder.
+ */
+function auditarCoordenadasDestinos() {
+  const startTime = new Date().getTime(); // Registrar tiempo de inicio
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const sheet = ss.getSheetByName(SHEET_DESTINOS_NAME);
+  if (!sheet) {
+    Logger.log("Error: No se encontró la pestaña '" + SHEET_DESTINOS_NAME + "'.");
+    return;
+  }
+  
+  const data = sheet.getDataRange().getValues();
+  if (data.length < 2) return;
+  
+  const headers = data[0].map(h => h.toString().toLowerCase().trim());
+  const destIdx = headers.indexOf("destino");
+  const deptIdx = headers.indexOf("departamento");
+  const gpsIdx = headers.indexOf("coordenadas gps");
+  
+  if (destIdx === -1 || deptIdx === -1 || gpsIdx === -1) {
+    Logger.log("Error: Columnas requeridas ('Destino', 'Departamento' o 'Coordenadas GPS') no encontradas.");
+    return;
+  }
+  
+  let actualizaciones = 0;
+  
+  for (let i = 1; i < data.length; i++) {
+    // Control de tiempo para evitar el corte abrupto de Google (límite de 5 minutos y medio)
+    const currentTime = new Date().getTime();
+    if (currentTime - startTime > 330000) { // 5.5 minutos
+      Logger.log("Límite de tiempo de seguridad de Google alcanzado (5.5 min). Se actualizaron " + actualizaciones + " destinos en esta tanda. Haz clic en 'Ejecutar' nuevamente para continuar con el resto.");
+      return;
+    }
+
+    const row = data[i];
+    const destino = row[destIdx] ? row[destIdx].toString().trim() : "";
+    const depto = row[deptIdx] ? row[deptIdx].toString().trim() : "";
+    let gps = row[gpsIdx] ? row[gpsIdx].toString().trim() : "";
+    
+    if (!destino) continue;
+    
+    // Verificar si ya tiene formato de 6 decimales exacto (ej: -34.400305, -53.783021)
+    const regex6Dec = /^-?\d+\.\d{6},\s*-?\d+\.\d{6}$/;
+    const tiene6Dec = regex6Dec.test(gps);
+    
+    if (!tiene6Dec || !gps) {
+      // Limpiar nombre del destino para mejorar coincidencia (remover cosas entre paréntesis)
+      const cleanDestino = destino.replace(/\(.*?\)/g, "").trim();
+      const query = cleanDestino + ", " + depto + ", Uruguay";
+      
+      try {
+        Logger.log("Geocodificando: " + query);
+        const response = Maps.newGeocoder().geocode(query);
+        
+        if (response.status === 'OK' && response.results && response.results.length > 0) {
+          const loc = response.results[0].geometry.location;
+          const lat6 = loc.lat.toFixed(6);
+          const lng6 = loc.lng.toFixed(6);
+          const nuevasCoords = lat6 + ", " + lng6;
+          
+          sheet.getRange(i + 1, gpsIdx + 1).setValue(nuevasCoords);
+          Logger.log("✓ Actualizado '" + destino + "': " + nuevasCoords);
+          actualizaciones++;
+        } else {
+          // Intentar fallback sin el departamento
+          const fallbackResponse = Maps.newGeocoder().geocode(cleanDestino + ", Uruguay");
+          if (fallbackResponse.status === 'OK' && fallbackResponse.results && fallbackResponse.results.length > 0) {
+            const loc = fallbackResponse.results[0].geometry.location;
+            const lat6 = loc.lat.toFixed(6);
+            const lng6 = loc.lng.toFixed(6);
+            const nuevasCoords = lat6 + ", " + lng6;
+            
+            sheet.getRange(i + 1, gpsIdx + 1).setValue(nuevasCoords);
+            Logger.log("✓ Actualizado (Fallback) '" + destino + "': " + nuevasCoords);
+            actualizaciones++;
+          } else {
+            // Si el geocoder de Google no encuentra nada, simplemente formatear las coordenadas existentes a 6 decimales
+            if (gps) {
+              const coords = gps.split(",");
+              if (coords.length === 2) {
+                const lat = parseFloat(coords[0].trim());
+                const lng = parseFloat(coords[1].trim());
+                if (!isNaN(lat) && !isNaN(lng)) {
+                  const formateadas = lat.toFixed(6) + ", " + lng.toFixed(6);
+                  sheet.getRange(i + 1, gpsIdx + 1).setValue(formateadas);
+                  Logger.log("ℹ Formateadas coords existentes para '" + destino + "': " + formateadas);
+                  actualizaciones++;
+                }
+              }
+            } else {
+              Logger.log("⚠ No se pudieron encontrar coordenadas para: " + destino);
+            }
+          }
+        }
+      } catch (e) {
+        Logger.log("Error al geocodificar '" + destino + "': " + e.message);
+      }
+    }
+  }
+  
+  Logger.log("Auditoría de coordenadas finalizada con éxito. Total actualizados: " + actualizaciones);
 }
