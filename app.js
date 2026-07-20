@@ -1503,8 +1503,30 @@ function levenshteinDistance(a, b) {
     return tmp[a.length][b.length];
 }
 
+// Spanish articles, prepositions, and conjunctions (stop words) to ignore when entered alone
+const SPANISH_STOPWORDS = new Set([
+    'el', 'la', 'los', 'las', 'un', 'una', 'unos', 'unas', 'al', 'del',
+    'a', 'ante', 'bajo', 'cabe', 'con', 'contra', 'de', 'desde', 
+    'durante', 'en', 'entre', 'hacia', 'hasta', 'mediante', 'para', 
+    'por', 'segun', 'sin', 'so', 'sobre', 'tras', 'versus', 'via',
+    'y', 'o', 'u', 'e', 'que', 'ni'
+]);
+
+function getMeaningfulWords(text) {
+    if (!text) return [];
+    const clean = removeAccents(text.toLowerCase()).trim();
+    if (!clean) return [];
+    return clean.split(/\s+/).filter(w => w && !SPANISH_STOPWORDS.has(w));
+}
+
 // Calculate similarity score between search query and destination item
 function calculateMatchScore(cleanQuery, item) {
+    const meaningfulQueryWords = getMeaningfulWords(cleanQuery);
+    // Ignore queries that consist ONLY of articles or prepositions
+    if (meaningfulQueryWords.length === 0) {
+        return 0;
+    }
+
     const cleanDest = removeAccents(item.destino);
     const cleanDepto = removeAccents(item.departamento);
     const cleanChar = removeAccents(item.caracteristicas);
@@ -1520,12 +1542,11 @@ function calculateMatchScore(cleanQuery, item) {
         return 50;
     }
 
-    // 2. Word-by-word fuzzy matches
-    const queryWords = cleanQuery.split(/\s+/).filter(w => w.length > 2); // Ignore very short words like 'de', 'la'
-    if (queryWords.length === 0) return 0;
+    // 2. Word-by-word fuzzy matches using meaningful words only
+    const queryWords = meaningfulQueryWords;
 
-    const destWords = cleanDest.split(/\s+/).filter(w => w.length > 2);
-    const deptoWords = cleanDepto.split(/\s+/).filter(w => w.length > 2);
+    const destWords = getMeaningfulWords(item.destino);
+    const deptoWords = getMeaningfulWords(item.departamento);
     
     let matchedWordsCount = 0;
     let totalFuzzyScore = 0;
@@ -2851,10 +2872,17 @@ function performEventSearch() {
     const matchedEvents = appEventos.filter(ev => {
         // 1. Text filter (titulo and local)
         if (cleanQuery) {
+            const meaningful = getMeaningfulWords(cleanQuery);
+            if (meaningful.length === 0) {
+                return false; // Exclude if query contains only articles or prepositions
+            }
             const cleanTitle = removeAccents(ev.titulo);
             const cleanLocal = removeAccents(ev.local);
             if (!cleanTitle.includes(cleanQuery) && !cleanLocal.includes(cleanQuery)) {
-                return false;
+                const matchesAnyWord = meaningful.some(w => cleanTitle.includes(w) || cleanLocal.includes(w));
+                if (!matchesAnyWord) {
+                    return false;
+                }
             }
         }
         // 2. Departamento filter

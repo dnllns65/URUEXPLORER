@@ -398,14 +398,14 @@ header {
 
 .result-card {
     background: var(--bg-card);
-    border: 1px solid var(--border);
+    border: 1.8px solid rgba(255, 255, 255, 0.22);
     border-radius: 12px;
     padding: 24px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 24px;
     transition: var(--transition);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
 }
 
 @media (max-width: 900px) {
@@ -1306,13 +1306,17 @@ body.map-expanded-mode {
     --border-hover: #007AFF;
 }
 
-/* Light Theme Shadow adjust and visual overrides */
 [data-theme="light"] .search-section,
-[data-theme="light"] .result-card,
 [data-theme="light"] .itinerary-list-container,
 [data-theme="light"] .modal-content,
 [data-theme="light"] .itinerary-bar {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .result-card,
+[data-theme="light"] .event-result-card {
+    border: 1.8px solid rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
 [data-theme="light"] .search-section:hover,
@@ -1349,12 +1353,12 @@ body.map-expanded-mode {
 /* Standalone Event Result Card Styles */
 .event-result-card {
     background: var(--bg-card);
-    border: 1px solid var(--border);
+    border: 1.8px solid rgba(255, 255, 255, 0.22);
     border-radius: 12px;
     padding: 24px;
     position: relative;
     transition: var(--transition);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     animation: fadeIn 0.4s ease-out forwards;
 }
 
@@ -1728,6 +1732,17 @@ span.flatpickr-weekday {
 }
 
 @media (max-width: 768px) {
+    .result-card,
+    .event-result-card {
+        border-width: 2.2px !important;
+        border-color: rgba(255, 255, 255, 0.32) !important;
+        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.6) !important;
+    }
+    [data-theme="light"] .result-card,
+    [data-theme="light"] .event-result-card {
+        border-color: rgba(0, 0, 0, 0.35) !important;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12) !important;
+    }
     .itinerary-actions,
     .itinerary-destinations,
     #itinerary-bar-count-label {
