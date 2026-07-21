@@ -1850,7 +1850,6 @@ function renderDestinationResults(grid) {
         // Favorite toggle
         card.querySelector('.fav-toggle').addEventListener('click', (e) => {
             toggleFavorite(item.id);
-            e.currentTarget.classList.toggle('active');
         });
 
         // Itinerary checkbox
@@ -2069,15 +2068,17 @@ function toggleFavorite(id) {
     localStorage.setItem('uruexplorer_favorites', JSON.stringify(favorites));
     renderFavorites();
     
-    // Sync star state in Results View if active
-    const resultsStar = document.querySelector(`.results-grid .fav-toggle[data-id="${id}"]`);
-    if (resultsStar) {
+    // Sync star state in Results View and mini cards
+    const resultsStars = document.querySelectorAll(`.fav-toggle[data-id="${id}"]`);
+    resultsStars.forEach(star => {
         if (favorites.includes(id)) {
-            resultsStar.classList.add('active');
+            star.classList.add('active');
+            star.setAttribute('title', currentLang === 'es' ? 'Quitar de favoritos' : 'Remove from favorites');
         } else {
-            resultsStar.classList.remove('active');
+            star.classList.remove('active');
+            star.setAttribute('title', currentLang === 'es' ? 'Agregar a favoritos' : 'Add to favorites');
         }
-    }
+    });
 }
 
 // Render default Favorites Shelf
