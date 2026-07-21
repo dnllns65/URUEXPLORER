@@ -38,7 +38,7 @@
     <!-- Flatpickr CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <!-- CSS stylesheet -->
-    <link rel="stylesheet" href="style.css?v=4.22">
+    <link rel="stylesheet" href="style.css?v=4.30">
     <!-- Google AdSense Client Script -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4117043221307807"
          crossorigin="anonymous"></script>
@@ -49,7 +49,7 @@
         <header>
             <div class="logo-row">
                 <div class="logo-group">
-                    <div class="logo notranslate" translate="no"><img src="logo.png" alt="UruExplorer Logo" class="logo-icon">URU<span>EXPLORER</span> <span class="version-tag">v4.22</span></div>
+                    <div class="logo notranslate" translate="no"><img src="logo.png" alt="UruExplorer Logo" class="logo-icon">URU<span>EXPLORER</span> <span class="version-tag">v4.30</span></div>
                 </div>
                 <div class="header-controls" style="display: flex; align-items: center; gap: 10px;">
                     <div class="lang-switch">
@@ -174,8 +174,13 @@
                         <label for="filter-event-dates" data-i18n="lbl_fecha_rango">Rango de Fechas</label>
                         <input type="text" id="filter-event-dates" class="search-input" data-i18n-placeholder="placeholder_fecha_rango" placeholder="Seleccione período de búsqueda..." style="height: 42px;" readonly>
                     </div>
-                </div>
                 <button class="btn btn-primary" id="btn-buscar-eventos" data-i18n="btn_buscar_eventos">Buscar Eventos</button>
+            </section>
+            
+            <!-- Favorites Shelf for Events -->
+            <section id="favorite-events-shelf" class="favorites-shelf" style="display: none; margin-top: 25px;">
+                <h3 data-i18n="title_favorite_events">★ Mis Eventos Favoritos</h3>
+                <div id="favorite-events-grid" class="favorites-grid"></div>
             </section>
             
             <!-- Sources Info Links -->
@@ -388,7 +393,7 @@
     <script defer src="https://npmcdn.com/flatpickr/dist/l10n/es.js"></script>
     <script defer src="https://npmcdn.com/flatpickr/dist/l10n/pt.js"></script>
     <script defer src="destinos.js"></script>
-    <script defer src="eventos.js?v=4.22"></script>
-    <script defer src="app.js?v=4.22"></script>
+    <script defer src="eventos.js?v=4.30"></script>
+    <script defer src="app.js?v=4.30"></script>
 </body>
 </html>

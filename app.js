@@ -46,6 +46,7 @@ const REPORT_FORM_BASE_URL = 'https://docs.google.com/forms/d/1uLhJ2kcy8byCfyRoP
 
 // State management
 let favorites = JSON.parse(localStorage.getItem('uruexplorer_favorites')) || [];
+let favoriteEvents = JSON.parse(localStorage.getItem('uruexplorer_favorite_events')) || [];
 let rawItinerary = JSON.parse(localStorage.getItem('uruexplorer_itinerary')) || [];
 let itinerary = rawItinerary.map(item => {
     if (typeof item === 'number') {
@@ -84,7 +85,10 @@ const TRANSLATIONS = {
         opt_todos_grados: "Todos los grados",
         btn_buscar: "Buscar Coincidencias",
         title_favoritos: "★ Tus Destinos Favoritos",
+        title_favorite_events: "★ Mis Eventos Favoritos",
         no_favorites: "Aún no tienes destinos favoritos guardados. ¡Agrega algunos marcando la estrella en los bloques de resultados!",
+        no_favorite_events: "Aún no tienes eventos favoritos guardados. ¡Agrega algunos marcando la estrella en las tarjetas de eventos!",
+        btn_share: "Compartir 📲",
         results_header: "Resultados de Búsqueda",
         btn_limpiar_itinerario: "✕ Limpiar Selección",
         lbl_only_events: "Solo con eventos",
@@ -214,7 +218,10 @@ const TRANSLATIONS = {
         opt_todos_grados: "All levels",
         btn_buscar: "Search Matches",
         title_favoritos: "★ Your Favorite Destinations",
+        title_favorite_events: "★ My Favorite Events",
         no_favorites: "You don't have favorite destinations saved yet. Add some by marking the star in the result blocks!",
+        no_favorite_events: "You don't have favorite events saved yet. Add some by marking the star in the event cards!",
+        btn_share: "Share 📲",
         results_header: "Search Results",
         btn_limpiar_itinerario: "✕ Clear Selection",
         lbl_only_events: "Only with events",
@@ -344,7 +351,10 @@ const TRANSLATIONS = {
         opt_todos_grados: "Todos os graus",
         btn_buscar: "Buscar Coincidências",
         title_favoritos: "★ Seus Destinos Favoritos",
+        title_favorite_events: "★ Meus Eventos Favoritos",
         no_favorites: "Você ainda não tem destinos favoritos salvos. Adicione alguns marcando a estrela nos blocos de resultados!",
+        no_favorite_events: "Você ainda não tem eventos favoritos salvos. Adicione alguns marcando a estrela nos cartões de eventos!",
+        btn_share: "Compartilhar 📲",
         results_header: "Resultados da Busca",
         btn_limpiar_itinerario: "✕ Limpar Seleção",
         lbl_only_events: "Apenas com eventos",
@@ -800,6 +810,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     applyTranslations();
     initFlatpickr(); // Initialize Flatpickr calendar
     renderFavorites();
+    renderFavoriteEvents();
     updateItineraryUI();
     renderItineraryTab(); // Render active itinerary and saved history on startup
     setupEventListeners();
@@ -833,6 +844,7 @@ function setupLanguageSwitcher() {
                 initEventFilters(); // Re-initialize events filter in Spanish
                 initFlatpickr(); // Reinit Flatpickr with ES locale
                 renderFavorites();
+                renderFavoriteEvents();
                 updateItineraryUI();
                 renderItineraryTab();
                 if (currentResults.length > 0) {
@@ -851,6 +863,7 @@ function setupLanguageSwitcher() {
                 initEventFilters(); // Re-initialize events filter in English
                 initFlatpickr(); // Reinit Flatpickr with EN locale
                 renderFavorites();
+                renderFavoriteEvents();
                 updateItineraryUI();
                 renderItineraryTab();
                 if (currentResults.length > 0) {
@@ -869,6 +882,7 @@ function setupLanguageSwitcher() {
                 initEventFilters(); // Re-initialize events filter in Portuguese
                 initFlatpickr(); // Reinit Flatpickr with PT locale
                 renderFavorites();
+                renderFavoriteEvents();
                 updateItineraryUI();
                 renderItineraryTab();
                 if (currentResults.length > 0) {
@@ -1780,6 +1794,10 @@ function renderDestinationResults(grid) {
                         <button class="fav-toggle ${isFav ? 'active' : ''}" data-id="${item.id}" title="${isFav ? (currentLang === 'es' ? 'Quitar de favoritos' : 'Remove from favorites') : (currentLang === 'es' ? 'Agregar a favoritos' : 'Add to favorites')}">
                             ★
                         </button>
+                        <!-- Share button -->
+                        <button class="btn-share-icon" title="${currentLang === 'es' ? 'Compartir por WhatsApp' : 'Share via WhatsApp'}" onclick="shareDestination(${item.id}, event)" style="background: none; border: none; font-size: 1.3rem; cursor: pointer; padding: 4px;">
+                            📲
+                        </button>
                         <!-- Itinerary selection checkbox -->
                         <label class="route-checkbox-container ${isInItinerary ? 'selected' : ''}">
                             <input type="checkbox" class="route-check" ${isInItinerary ? 'checked' : ''} data-id="${item.id}">
@@ -1952,7 +1970,15 @@ function renderEventResults(grid) {
                             ${freeBadge} • <span translate="no" class="notranslate">${ev.destino}, ${ev.departamento}</span>
                         </div>
                     </div>
-                    <div class="card-actions-top">
+                    <div class="card-actions-top" style="display: flex; align-items: center; gap: 8px;">
+                        <!-- Favorite star toggle for Event -->
+                        <button class="fav-toggle event-fav-toggle ${favoriteEvents.includes(ev.id) ? 'active' : ''}" data-id="${ev.id}" title="${favoriteEvents.includes(ev.id) ? (currentLang === 'es' ? 'Quitar de favoritos' : 'Remove from favorites') : (currentLang === 'es' ? 'Agregar a favoritos' : 'Add to favorites')}">
+                            ★
+                        </button>
+                        <!-- Share button for Event -->
+                        <button class="btn-share-icon" title="${currentLang === 'es' ? 'Compartir por WhatsApp' : 'Share via WhatsApp'}" onclick="shareEvent(${ev.id}, event)" style="background: none; border: none; font-size: 1.3rem; cursor: pointer; padding: 4px;">
+                            📲
+                        </button>
                         <!-- Itinerary selection checkbox -->
                         <label class="route-checkbox-container ${isSaved ? 'selected' : ''}">
                             <input type="checkbox" class="route-check" ${isSaved ? 'checked' : ''} data-id="${ev.id}">
@@ -1992,6 +2018,11 @@ function renderEventResults(grid) {
                 </div>
             </div>` : ''}
         `;
+
+        // Event Favorite toggle
+        card.querySelector('.event-fav-toggle').addEventListener('click', (e) => {
+            toggleFavoriteEvent(ev.id);
+        });
 
         // Itinerary checkbox
         const routeCheck = card.querySelector('.route-check');
@@ -2103,7 +2134,10 @@ function renderFavorites() {
                 <div class="fav-title notranslate" translate="no">${item.destino}</div>
                 <div class="fav-dept notranslate" translate="no">${item.departamento}</div>
             </div>
-            <button class="btn-mini-fav" title="${currentLang === 'es' ? 'Quitar de favoritos' : 'Remove from favorites'}">★</button>
+            <div style="display: flex; align-items: center; gap: 4px;">
+                <button class="btn-share-icon" title="${currentLang === 'es' ? 'Compartir' : 'Share'}" onclick="shareDestination(${item.id}, event)" style="background: none; border: none; font-size: 1.1rem; cursor: pointer; padding: 4px;">📲</button>
+                <button class="btn-mini-fav" title="${currentLang === 'es' ? 'Quitar de favoritos' : 'Remove from favorites'}">★</button>
+            </div>
         `;
 
         // Click favorite info to search and show details immediately
@@ -2121,6 +2155,145 @@ function renderFavorites() {
 
         grid.appendChild(card);
     });
+}
+
+// Toggle Event Favorite
+function toggleFavoriteEvent(id) {
+    const index = favoriteEvents.indexOf(id);
+    if (index === -1) {
+        favoriteEvents.push(id);
+        const ev = appEventos.find(e => e.id === id);
+        if (ev) {
+            trackEvent('add_event_to_favorites', {
+                event_title: ev.titulo,
+                department: ev.departamento
+            });
+        }
+    } else {
+        favoriteEvents.splice(index, 1);
+    }
+    localStorage.setItem('uruexplorer_favorite_events', JSON.stringify(favoriteEvents));
+    renderFavoriteEvents();
+
+    const eventStars = document.querySelectorAll(`.event-fav-toggle[data-id="${id}"]`);
+    eventStars.forEach(star => {
+        if (favoriteEvents.includes(id)) {
+            star.classList.add('active');
+            star.setAttribute('title', currentLang === 'es' ? 'Quitar de favoritos' : 'Remove from favorites');
+        } else {
+            star.classList.remove('active');
+            star.setAttribute('title', currentLang === 'es' ? 'Agregar a favoritos' : 'Add to favorites');
+        }
+    });
+}
+
+// Render Event Favorites Shelf
+function renderFavoriteEvents() {
+    const shelf = document.getElementById('favorite-events-shelf');
+    const grid = document.getElementById('favorite-events-grid');
+    if (!shelf || !grid) return;
+
+    grid.innerHTML = '';
+    const favEvents = appEventos.filter(ev => favoriteEvents.includes(ev.id));
+
+    if (favEvents.length === 0) {
+        shelf.style.display = 'none';
+        return;
+    }
+
+    shelf.style.display = 'block';
+    favEvents.forEach(ev => {
+        const card = document.createElement('div');
+        card.className = 'favorite-mini-card';
+        card.innerHTML = `
+            <div class="fav-info" style="cursor: pointer;">
+                <div class="fav-title notranslate" translate="no">${ev.titulo}</div>
+                <div class="fav-dept notranslate" translate="no">${ev.destino}, ${ev.departamento} • ${formatEventDate(ev.fecha, currentLang)}</div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 4px;">
+                <button class="btn-share-icon" title="${currentLang === 'es' ? 'Compartir' : 'Share'}" onclick="shareEvent(${ev.id}, event)" style="background: none; border: none; font-size: 1.1rem; cursor: pointer; padding: 4px;">📲</button>
+                <button class="btn-mini-fav" title="${currentLang === 'es' ? 'Quitar de favoritos' : 'Remove from favorites'}">★</button>
+            </div>
+        `;
+
+        card.querySelector('.fav-info').addEventListener('click', () => {
+            currentResults = [ev];
+            currentSearchMode = 'eventos';
+            renderResults();
+            switchTab('resultados');
+        });
+
+        card.querySelector('.btn-mini-fav').addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleFavoriteEvent(ev.id);
+        });
+
+        grid.appendChild(card);
+    });
+}
+
+// Share Destination via Web Share API or WhatsApp
+function shareDestination(id, e) {
+    if (e) e.stopPropagation();
+    const item = appDestinos.find(d => d.id === id);
+    if (!item) return;
+
+    const photoUrl = `https://www.google.com/search?tbm=isch&q=${encodeURIComponent(item.destino + ' ' + item.departamento + ' Uruguay')}`;
+    
+    let text = `🇺🇾 *UruExplorer - Destino Favorito*\n`;
+    text += `📍 *${item.destino}* (${item.departamento})\n`;
+    if (item.caracteristicas) {
+        text += `✨ *Características*: ${item.caracteristicas}\n`;
+    }
+    text += `📸 *Ver fotos*: ${photoUrl}\n\n`;
+    text += `¡Descubre Uruguay en UruExplorer!`;
+
+    if (navigator.share) {
+        navigator.share({
+            title: item.destino,
+            text: text,
+            url: window.location.href
+        }).catch(err => {
+            console.log("Share cancelled or not supported, opening WhatsApp:", err);
+            window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank');
+        });
+    } else {
+        window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank');
+    }
+    trackEvent('share_destination', { destination_id: id, destination_name: item.destino });
+}
+
+// Share Event via Web Share API or WhatsApp
+function shareEvent(id, e) {
+    if (e) e.stopPropagation();
+    const ev = appEventos.find(item => item.id === id);
+    if (!ev) return;
+
+    let text = `🇺🇾 *UruExplorer - Evento Favorito*\n`;
+    text += `🎉 *${ev.titulo}*\n`;
+    text += `📍 *Lugar*: ${ev.local || ev.destino} (${ev.departamento})\n`;
+    text += `📅 *Fecha*: ${formatEventDate(ev.fecha, currentLang)}\n`;
+    if (ev.ticketUrl) {
+        text += `🎟️ *Entradas*: ${ev.ticketUrl}\n`;
+    } else {
+        const infoUrl = `https://www.google.com/search?q=${encodeURIComponent(ev.titulo + ' ' + ev.destino + ' Uruguay')}`;
+        text += `📸 *Fotos e Info*: ${infoUrl}\n`;
+    }
+    text += `\n¡Descubre más eventos en UruExplorer!`;
+
+    if (navigator.share) {
+        navigator.share({
+            title: ev.titulo,
+            text: text,
+            url: window.location.href
+        }).catch(err => {
+            console.log("Share cancelled or not supported, opening WhatsApp:", err);
+            window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank');
+        });
+    } else {
+        window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank');
+    }
+    trackEvent('share_event', { event_id: id, event_title: ev.titulo });
 }
 
 // Toggle Itinerary
