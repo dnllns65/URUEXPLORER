@@ -694,7 +694,7 @@ async function loadData() {
     }
 }
 
-// Helper to format dining and lodging options (cleaning Google Sheets prompt formulas and turning places into links)
+// Helper to format dining and lodging options (cleaning Google Sheets prompt formulas and turning places into Google Search links)
 function parsePlaces(text, destinationName, deptName, cardId) {
     if (!text || text.trim() === '' || text.toLowerCase().includes('generar')) {
         return `<span class="text-muted-italics">${TRANSLATIONS[currentLang].no_info}</span>`;
@@ -717,11 +717,11 @@ function parsePlaces(text, destinationName, deptName, cardId) {
             details = part.substring(parenIndex).trim();
         }
         
-        // Escape query string for Google Maps search link
-        const query = encodeURIComponent(`${name}, ${destinationName}, ${deptName}, Uruguay`);
+        // Generate Google Search URL for the specific place
+        const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(`${name} ${destinationName} ${deptName} Uruguay`)}`;
         
-        // Render name as a clickable link that updates the embedded map in place
-        return `<a href="https://www.google.com/maps/search/?api=1&query=${query}" target="_blank" class="place-link" onclick="updateEmbeddedMap(event, '${cardId}', '${name.replace(/'/g, "\\'")}, ${destinationName.replace(/'/g, "\\'")}')">${name}</a>${details}`;
+        // Render name as a clickable link that opens a Google Search in a new tab
+        return `<a href="${searchUrl}" target="_blank" rel="noopener noreferrer" class="place-link" title="${currentLang === 'es' ? 'Buscar en Google' : 'Search on Google'}">${name} ↗</a>${details}`;
     });
     
     return formattedParts.filter(p => p !== '').join(', ');
