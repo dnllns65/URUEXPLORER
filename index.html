@@ -38,7 +38,7 @@
     <!-- Flatpickr CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <!-- CSS stylesheet -->
-    <link rel="stylesheet" href="style.css?v=4.40">
+    <link rel="stylesheet" href="style.css?v=4.51">
     <!-- Google AdSense Client Script -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4117043221307807"
          crossorigin="anonymous"></script>
@@ -49,7 +49,7 @@
         <header>
             <div class="logo-row">
                 <div class="logo-group">
-                    <div class="logo notranslate" translate="no"><img src="logo.png" alt="UruExplorer Logo" class="logo-icon">URU<span>EXPLORER</span> <span class="version-tag">v4.40</span></div>
+                    <div class="logo notranslate" translate="no"><img src="logo.png" alt="UruExplorer Logo" class="logo-icon">URU<span>EXPLORER</span> <span class="version-tag">v4.51</span></div>
                 </div>
                 <div class="header-controls" style="display: flex; align-items: center; gap: 10px;">
                     <div class="lang-switch">
@@ -139,6 +139,35 @@
                     <div class="no-favorites" data-i18n="no_favorites">Aún no tienes destinos favoritos guardados. ¡Agrega algunos marcando la estrella en los bloques de resultados!</div>
                 </div>
             </section>
+
+            <!-- Seccion Informativa / Guia de Turismo (SEO y AdSense Aprobacion) -->
+            <section class="seo-guide-section" style="margin-top: 35px; border-top: 1px solid var(--border); padding-top: 25px; text-align: left;">
+                <h2 style="font-family: var(--font-heading); color: var(--primary); font-size: 1.4rem; margin-bottom: 15px;" data-i18n="seo_title">UruExplorer: Tu Guía Digital de Turismo y Eventos en Uruguay</h2>
+                
+                <div style="font-size: 0.9rem; line-height: 1.6; color: var(--text-main); display: flex; flex-direction: column; gap: 15px; text-align: justify;">
+                    <p data-i18n="seo_p1">
+                        Bienvenido a <strong>UruExplorer</strong>, la plataforma interactiva diseñada para ayudarte a descubrir los rincones más fascinantes de Uruguay de forma sencilla y rápida. Tanto si buscas la tranquilidad y desconexión de las playas oceánicas de Rocha (como el Cabo Polonio y Punta del Diablo), el encanto colonial e histórico del casco antiguo de Colonia del Sacramento (declarado Patrimonio de la Humanidad por la UNESCO), o la vibrante vida cultural e itinerarios urbanos en Montevideo, nuestra base de datos te ofrece información de primera mano sobre accesos, niveles de dificultad, opciones de alojamiento y dónde comer.
+                    </p>
+                    <p data-i18n="seo_p2">
+                        Además de ser una completa guía de destinos turísticos naturales e históricos, UruExplorer integra una cartelera diaria en tiempo real que recopila los principales eventos culturales, artísticos y deportivos de todo el país, incluyendo conciertos, obras de teatro y proyecciones de cine en salas icónicas como el Teatro Solís o el Antel Arena. Puedes planificar tu viaje agregando destinos y eventos a tu itinerario personalizado, y compartir tus planes directamente con amigos o familiares a través de WhatsApp.
+                    </p>
+                    <p data-i18n="seo_p3">
+                        Para facilitar el turismo sostenible y la movilidad eléctrica, nuestra herramienta te permite auditar rutas de recarga de vehículos eléctricos (puntos UTE) y ubicar estaciones de servicio tradicionales en cada departamento del Uruguay. Explorar nuestro país de manera autónoma, segura y planificada nunca ha sido tan fácil.
+                    </p>
+                </div>
+
+                <!-- Google AdSense Responsive Ad Unit -->
+                <div class="adsense-placeholder" style="margin: 25px 0; min-height: 250px; display: flex; justify-content: center; align-items: center; background: rgba(0,0,0,0.02); border-radius: 12px; border: 1px solid var(--border);">
+                    <ins class="adsbygoogle"
+                         style="display:block; width:100%;"
+                         data-ad-client="ca-pub-4117043221307807"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
+                    <script>
+                         (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+            </section>
         </div>
 
         <!-- View 2: Eventos (Search Filters + Saved Events/Upcoming events) -->
@@ -191,35 +220,6 @@
                 <a href="https://tickantel.com.uy" target="_blank" style="color: var(--primary); text-decoration: underline; margin-left: 5px; font-weight: 500;">Tickantel ↗</a>,
                 <a href="https://www.passline.com" target="_blank" style="color: var(--primary); text-decoration: underline; margin-left: 5px; font-weight: 500;">Passline ↗</a>,
                 <a href="https://www.redtickets.uy" target="_blank" style="color: var(--primary); text-decoration: underline; margin-left: 5px; font-weight: 500;">RedTickets ↗</a>
-            </div>
-        </div>
-
-        <!-- View: Publicidad (Transición) -->
-        <div id="view-publicidad" class="tab-view">
-            <div style="max-width: 600px; margin: 40px auto; padding: 25px; background: var(--bg-card); border-radius: 16px; box-shadow: var(--shadow-main); border: 1px solid var(--border); text-align: center;">
-                <h3 style="font-family: var(--font-heading); color: var(--primary); margin-bottom: 10px;" data-i18n="ad_loading_title">Buscando coincidencias...</h3>
-                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 25px;">
-                    <span data-i18n="ad_loading_desc">Espere un momento mientras organizamos los mejores resultados para ti.</span>
-                </p>
-                
-                <!-- Google AdSense Container -->
-                <div class="adsense-placeholder" style="margin: 20px 0; min-height: 250px; display: flex; justify-content: center; align-items: center; background: rgba(0,0,0,0.02); border-radius: 12px; border: 1px solid var(--border);">
-                    <!-- Google AdSense Responsive Ad Unit -->
-                    <ins class="adsbygoogle"
-                         style="display:block; width:100%;"
-                         data-ad-client="ca-pub-4117043221307807"
-                         data-ad-format="auto"
-                         data-full-width-responsive="true"></ins>
-                    <script>
-                         (adsbygoogle = window.adsbygoogle || []).push({});
-                    </script>
-                </div>
-
-                <div style="margin-top: 25px;">
-                    <button class="btn btn-primary" id="btn-ad-continue" style="padding: 12px 24px; font-weight: 600; border-radius: 10px; font-size: 1rem; width: 100%; max-width: 280px; display: inline-flex; align-items: center; justify-content: center; gap: 8px;" disabled>
-                        <span data-i18n="btn_ad_continue">Ver resultados</span><span id="ad-countdown"></span>
-                    </button>
-                </div>
             </div>
         </div>
 
@@ -392,8 +392,8 @@
     <script defer src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script defer src="https://npmcdn.com/flatpickr/dist/l10n/es.js"></script>
     <script defer src="https://npmcdn.com/flatpickr/dist/l10n/pt.js"></script>
-    <script defer src="destinos.js?v=4.40"></script>
-    <script defer src="eventos.js?v=4.40"></script>
-    <script defer src="app.js?v=4.40"></script>
+    <script defer src="destinos.js?v=4.51"></script>
+    <script defer src="eventos.js?v=4.51"></script>
+    <script defer src="app.js?v=4.51"></script>
 </body>
 </html>

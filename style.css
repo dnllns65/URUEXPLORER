@@ -1913,3 +1913,18 @@ span.flatpickr-weekday {
     font-size: 0.8rem;
 }
 
+/* Spinner Loader for transition view */
+.ad-spinner {
+    width: 48px;
+    height: 48px;
+    border: 4px solid var(--border);
+    border-top: 4px solid var(--primary);
+    border-radius: 50%;
+    animation: ad-spin 1s linear infinite;
+}
+
+@keyframes ad-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+

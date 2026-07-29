@@ -205,7 +205,12 @@ const TRANSLATIONS = {
         btn_ad_continue: "Ver resultados",
         guide_title: "🗺️ Guía Rápida de UruExplorer",
         guide_steps: `<div class="guide-step-item"><strong>1. 🔍 Buscar Destinos</strong>Encuentra playas, cerros o museos. Filtra por departamento, dificultad o popularidad en la pestaña <strong>Turismo</strong>.</div><div class="guide-step-item"><strong>2. 🎟️ Agenda de Eventos</strong>Consulta la cartelera de cines, recitales y espectáculos (Sodre, Antel Arena) en la pestaña <strong>Eventos</strong>.</div><div class="guide-step-item"><strong>3. 🚗 Armar Itinerario</strong>Marca la casilla <code>Recorrido</code> en lo que te interese. Presiona <strong>Establecer Ruta</strong> para abrir tu mapa de viaje en Google Maps.</div><div class="guide-step-item"><strong>4. 🚨 Emergencias y Utilidades</strong>Toca la sirena <code>🚨</code> para ubicar al instante comisarías, hospitales, gasolineras y cargadores eléctricos más cercanos a tu posición.</div>`,
-        btn_guide_understand: "Entendido"
+        btn_guide_understand: "Entendido",
+        ad_loading_hint: "Calculando distancias y organizando opciones...",
+        seo_title: "UruExplorer: Tu Guía Digital de Turismo y Eventos en Uruguay",
+        seo_p1: "Bienvenido a <strong>UruExplorer</strong>, la plataforma interactiva diseñada para ayudarte a descubrir los rincones más fascinantes de Uruguay de forma sencilla y rápida. Tanto si buscas la tranquilidad y desconexión de las playas oceánicas de Rocha (como el Cabo Polonio y Punta del Diablo), el encanto colonial e histórico del casco antiguo de Colonia del Sacramento (declarado Patrimonio de la Humanidad por la UNESCO), o la vibrante vida cultural e itinerarios urbanos en Montevideo, nuestra base de datos te ofrece información de primera mano sobre accesos, niveles de dificultad, opciones de alojamiento y dónde comer.",
+        seo_p2: "Además de ser una completa guía de destinos turísticos naturales e históricos, UruExplorer integra una cartelera diaria en tiempo real que recopila los principales eventos culturales, artísticos y deportivos de todo el país, incluyendo conciertos, obras de teatro y proyecciones de cine en salas icónicas como el Teatro Solís o el Antel Arena. Puedes planificar tu viaje agregando destinos y eventos a tu itinerario personalizado, y compartir tus planes directamente con amigos o familiares a través de WhatsApp.",
+        seo_p3: "Para facilitar el turismo sostenible y la movilidad eléctrica, nuestra herramienta te permite auditar rutas de recarga de vehículos eléctricos (puntos UTE) y ubicar estaciones de servicio tradicionales en cada departamento del Uruguay. Explorar nuestro país de manera autónoma, segura y planificada nunca ha sido tan fácil."
     },
     en: {
         tagline: "Explore Uruguay in a minimalist way",
@@ -338,7 +343,12 @@ const TRANSLATIONS = {
         btn_ad_continue: "View results",
         guide_title: "🗺️ UruExplorer Quick Guide",
         guide_steps: `<div class="guide-step-item"><strong>1. 🔍 Search Destinations</strong>Find beaches, hills, or museums. Filter by department, difficulty, or popularity in the <strong>Tourism</strong> tab.</div><div class="guide-step-item"><strong>2. 🎟️ Event Agenda</strong>Check movie schedules, concerts, and shows (Sodre, Antel Arena) in the <strong>Events</strong> tab.</div><div class="guide-step-item"><strong>3. 🚗 Plan Itinerary</strong>Check the <code>Route</code> box on your items. Press <strong>Set Route</strong> to open your travel map in Google Maps.</div><div class="guide-step-item"><strong>4. 🚨 Emergencies & Utilities</strong>Tap the siren <code>🚨</code> to instantly find the nearest police stations, hospitals, gas stations, and EV chargers.</div>`,
-        btn_guide_understand: "Understood"
+        btn_guide_understand: "Understood",
+        ad_loading_hint: "Calculating distances and organizing options...",
+        seo_title: "UruExplorer: Your Digital Guide to Tourism and Events in Uruguay",
+        seo_p1: "Welcome to <strong>UruExplorer</strong>, the interactive platform designed to help you discover the most fascinating corners of Uruguay easily and quickly. Whether you are looking for the tranquility and disconnection of Rocha's ocean beaches (like Cabo Polonio and Punta del Diablo), the historic and colonial charm of the old quarter of Colonia del Sacramento (declared a World Heritage Site by UNESCO), or vibrant cultural life and urban itineraries in Montevideo, our database offers you first-hand information about access, difficulty levels, accommodation options, and where to eat.",
+        seo_p2: "In addition to being a complete guide to natural and historical tourist destinations, UruExplorer integrates a daily, real-time schedule of the main cultural, artistic, and sporting events throughout the country, including concerts, theater plays, and movies in iconic venues like the Teatro Solís or the Antel Arena. You can plan your trip by adding destinations and events to your customized itinerary, and share your plans directly with friends or family via WhatsApp.",
+        seo_p3: "To facilitate sustainable tourism and electric mobility, our tool allows you to check electric vehicle charging routes (UTE charging points) and locate traditional fuel stations in every department of Uruguay. Exploring our country independently, safely, and with planning has never been so easy."
     },
     pt: {
         tagline: "Explore o Uruguai de forma minimalista",
@@ -469,8 +479,13 @@ const TRANSLATIONS = {
         ad_loading_desc: "Aguarde um momento enquanto organizamos os melhores resultados para você.",
         btn_ad_continue: "Ver resultados",
         guide_title: "🗺️ Guia Rápido do UruExplorer",
-        guide_steps: `<div class="guide-step-item"><strong>1. 🔍 Buscar Destinos</strong>Encontre praias, morros ou museus. Filtre por departamento, dificuldade ou popularidade na aba <strong>Turismo</strong>.</div><div class="guide-step-item"><strong>2. 🎟️ Agenda de Eventos</strong>Consulte a programação de cinemas, shows e espetáculos (Sodre, Antel Arena) na aba <strong>Eventos</strong>.</div><div class="guide-step-item"><strong>3. 🚗 Planejar Roteiro</strong>Marque a caixa <code>Rota</code> nos seus itens. Pressione <strong>Traçar Rota</strong> para abrir o mapa de viagem no Google Maps.</div><div class="guide-step-item"><strong>4. 🚨 Emergências e Utilidades</strong>Toque na sirene <code>🚨</code> para localizar comissariados, hospitais, postos de combustíveis e carregadores elétricos mais próximos.</div>`,
-        btn_guide_understand: "Entendido"
+        guide_steps: `<div class="guide-step-item"><strong>1. 🔍 Buscar Destinos</strong>Encontre praias, morros ou locais históricos. Filtre por departamento, dificuldade ou popularidade na aba <strong>Turismo</strong>.</div><div class="guide-step-item"><strong>2. 🎟️ Agenda de Eventos</strong>Consulte a programação de cinemas, shows e espetáculos (Sodre, Antel Arena) na aba <strong>Eventos</strong>.</div><div class="guide-step-item"><strong>3. 🚗 Planejar Roteiro</strong>Marque a caixa <code>Rota</code> nos seus itens. Pressione <strong>Traçar Rota</strong> para abrir o mapa de viagem no Google Maps.</div><div class="guide-step-item"><strong>4. 🚨 Emergências e Utilidades</strong>Toque na sirene <code>🚨</code> para localizar comissariados, hospitais, postos de combustíveis e carregadores elétricos mais próximos.</div>`,
+        btn_guide_understand: "Entendido",
+        ad_loading_hint: "Calculando distâncias e organizando opções...",
+        seo_title: "UruExplorer: O seu Guia Digital de Turismo e Eventos no Uruguai",
+        seo_p1: "Bem-vindo ao <strong>UruExplorer</strong>, a plataforma interativa desenhada para ajudar você a descobrir os cantos mais fascinantes do Uruguai de forma simples e rápida. Quer procure a tranquilidade e desconexão das praias oceânicas de Rocha (como Cabo Polonio e Punta del Diablo), o charme colonial e histórico do bairro antigo de Colonia del Sacramento (declarado Patrimônio da Humanidade pela UNESCO), ou a vibrante vida cultural e itinerários urbanos em Montevidéu, nossa base de dados oferece informações em primeira mão sobre acessos, níveis de dificuldade, opções de hospedagem e onde comer.",
+        seo_p2: "Além de ser um guia completo de destinos turísticos naturais e históricos, o UruExplorer integra uma agenda diária em tempo real com os principais eventos culturais, artísticos e esportivos de todo o país, incluindo concertos, peças de teatro e exibições de cinema em locais icônicos como o Teatro Solís ou a Antel Arena. Você pode planejar sua viagem adicionando destinos e eventos ao seu roteiro personalizado, e compartilhar seus planos diretamente com amigos ou familiares pelo WhatsApp.",
+        seo_p3: "Para facilitar o turismo sustentável e a mobilidade elétrica, nossa ferramenta permite auditar rotas de recarga para veículos elétricos (pontos de recarga UTE) e localizar postos de combustíveis tradicionais em cada departamento do Uruguai. Explorar o nosso país de forma autônoma, segura e planejada nunca foi tão fácil."
     },
 };
 
@@ -921,7 +936,7 @@ function applyTranslations() {
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (dict[key]) {
-            if (key === 'guide_steps') {
+            if (key === 'guide_steps' || key.startsWith('seo_')) {
                 el.innerHTML = dict[key];
             } else {
                 el.textContent = dict[key];
@@ -1092,7 +1107,7 @@ function setupEventListeners() {
                 if (grid) {
                     grid.innerHTML = `<div style="text-align:center; padding: 40px; color: var(--text-main); font-weight: 500;">${TRANSLATIONS[currentLang].lbl_loading_gps}</div>`;
                 }
-                showTransitionAd();
+                switchTab('resultados');
                 
                 if (navigator.geolocation) {
                     navigator.geolocation.getCurrentPosition(
@@ -1307,53 +1322,7 @@ function switchTab(tabId) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// Show the advertisement transition view before displaying search results
-function showTransitionAd() {
-    // 1. Switch to the advertisement tab
-    switchTab('publicidad');
-    
-    // 2. Start a countdown
-    const countdownEl = document.getElementById('ad-countdown');
-    const continueBtn = document.getElementById('btn-ad-continue');
-    
-    if (countdownEl && continueBtn) {
-        continueBtn.disabled = true;
-        let seconds = 3; // 3-second countdown
-        
-        // Translate button text and set initial countdown
-        const dict = TRANSLATIONS[currentLang] || TRANSLATIONS['es'];
-        const textSpan = continueBtn.querySelector('[data-i18n="btn_ad_continue"]');
-        if (textSpan) {
-            textSpan.textContent = dict['btn_ad_continue'] || 'Ver resultados';
-        }
-        countdownEl.textContent = ` (${seconds}s)`;
-        
-        const interval = setInterval(() => {
-            seconds--;
-            if (seconds > 0) {
-                countdownEl.textContent = ` (${seconds}s)`;
-            } else {
-                clearInterval(interval);
-                countdownEl.textContent = '';
-                continueBtn.disabled = false;
-                // Automatically redirect after countdown
-                switchTab('resultados');
-            }
-        }, 1000);
-        
-        // Save interval so we can clear it if they click "Continuar" early or search again
-        if (window.adInterval) clearInterval(window.adInterval);
-        window.adInterval = interval;
-        
-        continueBtn.onclick = () => {
-            clearInterval(window.adInterval);
-            switchTab('resultados');
-        };
-    } else {
-        // Fallback if elements don't exist
-        switchTab('resultados');
-    }
-}
+
 
 function showProximityModal() {
     const modal = document.getElementById('proximity-modal');
@@ -1727,7 +1696,7 @@ function performSearch() {
     }
 
     renderResults();
-    showTransitionAd();
+    switchTab('resultados');
 }
 
 // Render filtered destination or event blocks
@@ -3121,7 +3090,7 @@ function performEventSearch() {
 
     currentResults = matchedEvents;
     renderResults();
-    showTransitionAd();
+    switchTab('resultados');
 }
 
 // Swipe Navigation
