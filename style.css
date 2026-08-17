@@ -490,7 +490,6 @@ header {
 }
 
 .fav-toggle:hover {
-    color: #FFC107;
     transform: scale(1.2);
 }
 
