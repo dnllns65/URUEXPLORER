@@ -1899,6 +1899,9 @@ span.flatpickr-weekday {
 }
 .guide-step-item strong {
     color: var(--primary);
+    font-weight: bold;
+}
+.guide-step-item > strong:first-of-type {
     display: block;
     margin-bottom: 2px;
     font-size: 0.88rem;
