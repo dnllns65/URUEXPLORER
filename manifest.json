@@ -25,7 +25,7 @@
   "screenshots": [
     {
       "src": "logo.png",
-      "sizes": "512x512",
+      "sizes": "256x256",
       "type": "image/png",
       "form_factor": "narrow",
       "label": "UruExplorer"
