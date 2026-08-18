@@ -1,0 +1,8 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "uy.uruexplorer.twa",
+        "sha256_cert_fingerprints": ["8F:B4:E6:DF:F4:57:C3:7A:30:C6:75:03:9F:A4:92:BF:3F:15:18:7E:E5:9A:06:CF:23:1C:3C:06:63:50:5C:58"]
+      }
+    }]
