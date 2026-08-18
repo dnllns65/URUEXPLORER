@@ -870,6 +870,13 @@ function initFlatpickr() {
 
 // Initialize app when DOM is fully loaded
 document.addEventListener('DOMContentLoaded', () => {
+    // Register PWA Service Worker for offline capability
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js')
+            .then(reg => console.log('Service Worker registrado con éxito:', reg.scope))
+            .catch(err => console.error('Error al registrar Service Worker:', err));
+    }
+
     applyTheme(); // Set initial theme
     detectLanguage();
     checkAndShowGuide(); // Show guide once per day during data load
