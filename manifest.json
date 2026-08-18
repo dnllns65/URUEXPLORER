@@ -10,7 +10,7 @@
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "icono uruexplorer.png",
+      "src": "icono%20uruexplorer.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"

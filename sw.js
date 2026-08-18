@@ -7,7 +7,7 @@ const ASSETS_TO_CACHE = [
   './eventos.js',
   './logo.png',
   './favicon.png',
-  './icono uruexplorer.png'
+  './icono%20uruexplorer.png'
 ];
 
 // Install Event: Cache app shell assets
